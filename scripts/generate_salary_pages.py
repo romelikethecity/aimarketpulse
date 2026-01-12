@@ -10,9 +10,18 @@ import glob
 import os
 import json
 import sys
+import traceback
 
-sys.path.insert(0, 'scripts')
-from templates import get_html_head, get_nav_html, get_footer_html, get_cta_box, BASE_URL, SITE_NAME
+# Add scripts directory to path using absolute path
+script_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, script_dir)
+
+try:
+    from templates import get_html_head, get_nav_html, get_footer_html, get_cta_box, BASE_URL, SITE_NAME
+except Exception as e:
+    print(f"ERROR importing templates: {e}")
+    traceback.print_exc()
+    sys.exit(1)
 
 DATA_DIR = 'data'
 SITE_DIR = 'site'
