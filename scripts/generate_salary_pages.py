@@ -36,7 +36,7 @@ os.makedirs(SALARIES_DIR, exist_ok=True)
 # Load job data
 files = glob.glob(f"{DATA_DIR}/ai_jobs_*.csv")
 if files:
-    df = pd.read_csv(max(files, key=os.path.getctime))
+    df = pd.read_csv(max(files, key=os.path.getmtime))
 elif os.path.exists(f"{DATA_DIR}/jobs.json"):
     with open(f"{DATA_DIR}/jobs.json") as f:
         df = pd.DataFrame(json.load(f).get('jobs', []))
@@ -100,13 +100,18 @@ def generate_salary_page(filtered_df, slug, title, category_type):
     sample_size = len(filtered_df)
 
     # Top paying companies
-    top_companies = filtered_df.nlargest(5, salary_col)[['company', salary_col]].to_dict('records') if 'company' in filtered_df.columns else []
+    company_col = 'company' if 'company' in filtered_df.columns else 'company_name'
+    if company_col in filtered_df.columns:
+        top_companies = filtered_df.nlargest(5, salary_col)[[company_col, salary_col]].to_dict('records')
+    else:
+        top_companies = []
 
     companies_html = ""
     for c in top_companies:
+        company_name = c.get('company', c.get('company_name', 'Unknown'))
         companies_html += f'''
             <div class="company-row">
-                <span class="company-name">{escape_html(str(c.get('company', 'Unknown')))}</span>
+                <span class="company-name">{escape_html(str(company_name))}</span>
                 <span class="company-salary">${int(c[salary_col]):,}</span>
             </div>
         '''
@@ -197,9 +202,17 @@ for category, slug, display in ROLE_CATEGORIES:
 print("\n Generating metro-based salary pages...")
 for metro, slug in METRO_CATEGORIES:
     if metro == 'Remote':
-        filtered = df_salary[df_salary.get('remote_type', df_salary.get('is_remote', '')).astype(str).str.contains('remote', case=False, na=False)]
+        if 'remote_type' in df_salary.columns:
+            filtered = df_salary[df_salary['remote_type'].astype(str).str.contains('remote', case=False, na=False)]
+        else:
+            filtered = pd.DataFrame()
     else:
-        filtered = df_salary[df_salary['metro'] == metro] if 'metro' in df_salary.columns else df_salary[df_salary['location'].str.contains(metro, case=False, na=False)]
+        if 'metro' in df_salary.columns:
+            filtered = df_salary[df_salary['metro'] == metro]
+        elif 'location' in df_salary.columns:
+            filtered = df_salary[df_salary['location'].str.contains(metro, case=False, na=False)]
+        else:
+            filtered = pd.DataFrame()
     if generate_salary_page(filtered, slug, metro, 'metro'):
         print(f"   Generated /salaries/{slug}/ ({len(filtered)} jobs)")
 
