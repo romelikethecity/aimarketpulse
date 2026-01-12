@@ -27,33 +27,6 @@ DATA_DIR = 'data'
 SITE_DIR = 'site'
 SALARIES_DIR = f'{SITE_DIR}/salaries'
 
-print("="*70)
-print("  PE COLLECTIVE - GENERATING SALARY PAGES")
-print("="*70)
-
-os.makedirs(SALARIES_DIR, exist_ok=True)
-
-# Load job data
-files = glob.glob(f"{DATA_DIR}/ai_jobs_*.csv")
-if files:
-    df = pd.read_csv(max(files, key=os.path.getmtime))
-elif os.path.exists(f"{DATA_DIR}/jobs.json"):
-    with open(f"{DATA_DIR}/jobs.json") as f:
-        df = pd.DataFrame(json.load(f).get('jobs', []))
-else:
-    print(" No job data found")
-    exit(1)
-
-print(f"\n Loaded {len(df)} jobs")
-
-# Filter to jobs with salary
-salary_col = 'salary_max' if 'salary_max' in df.columns else 'max_amount'
-min_col = 'salary_min' if 'salary_min' in df.columns else 'min_amount'
-df_salary = df[df[salary_col].notna() & (df[salary_col] > 0)].copy()
-print(f" Jobs with salary: {len(df_salary)}")
-
-update_date = datetime.now().strftime('%B %d, %Y')
-
 # Define salary categories
 ROLE_CATEGORIES = [
     ('AI/ML Engineer', 'ai-ml-engineer', 'AI/ML Engineer'),
@@ -89,14 +62,20 @@ def escape_html(text):
     return str(text).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
 
 
-def generate_salary_page(filtered_df, slug, title, category_type):
+def generate_salary_page(filtered_df, slug, title, category_type, salary_col, min_col):
     """Generate a salary page for a specific category"""
     if len(filtered_df) < 3:
         return False
 
-    avg_min = int(filtered_df[min_col].mean()) if filtered_df[min_col].notna().any() else 0
-    avg_max = int(filtered_df[salary_col].mean())
-    median = int(filtered_df[salary_col].median())
+    try:
+        avg_min = int(filtered_df[min_col].mean()) if filtered_df[min_col].notna().any() else 0
+        avg_max = int(filtered_df[salary_col].mean())
+        median = int(filtered_df[salary_col].median())
+    except (ValueError, TypeError):
+        avg_min = 0
+        avg_max = 0
+        median = 0
+
     sample_size = len(filtered_df)
 
     # Top paying companies
@@ -109,10 +88,14 @@ def generate_salary_page(filtered_df, slug, title, category_type):
     companies_html = ""
     for c in top_companies:
         company_name = c.get('company', c.get('company_name', 'Unknown'))
+        try:
+            sal = int(c[salary_col])
+        except (ValueError, TypeError):
+            sal = 0
         companies_html += f'''
             <div class="company-row">
                 <span class="company-name">{escape_html(str(company_name))}</span>
-                <span class="company-salary">${int(c[salary_col]):,}</span>
+                <span class="company-salary">${sal:,}</span>
             </div>
         '''
 
@@ -191,45 +174,80 @@ def generate_salary_page(filtered_df, slug, title, category_type):
     return True
 
 
-# Generate role-based salary pages
-print("\n Generating role-based salary pages...")
-for category, slug, display in ROLE_CATEGORIES:
-    filtered = df_salary[df_salary['job_category'] == category] if 'job_category' in df_salary.columns else pd.DataFrame()
-    if generate_salary_page(filtered, slug, display, 'role'):
-        print(f"   Generated /salaries/{slug}/ ({len(filtered)} jobs)")
+def main():
+    print("="*70)
+    print("  PE COLLECTIVE - GENERATING SALARY PAGES")
+    print("="*70)
 
-# Generate metro-based salary pages
-print("\n Generating metro-based salary pages...")
-for metro, slug in METRO_CATEGORIES:
-    if metro == 'Remote':
-        if 'remote_type' in df_salary.columns:
-            filtered = df_salary[df_salary['remote_type'].astype(str).str.contains('remote', case=False, na=False)]
-        else:
-            filtered = pd.DataFrame()
+    os.makedirs(SALARIES_DIR, exist_ok=True)
+
+    # Load job data
+    files = glob.glob(f"{DATA_DIR}/ai_jobs_*.csv")
+    print(f"  Looking for CSV files in {DATA_DIR}/")
+    print(f"  Found: {files}")
+
+    if files:
+        df = pd.read_csv(max(files, key=os.path.getmtime))
+    elif os.path.exists(f"{DATA_DIR}/jobs.json"):
+        with open(f"{DATA_DIR}/jobs.json") as f:
+            df = pd.DataFrame(json.load(f).get('jobs', []))
     else:
-        if 'metro' in df_salary.columns:
-            filtered = df_salary[df_salary['metro'] == metro]
-        elif 'location' in df_salary.columns:
-            filtered = df_salary[df_salary['location'].str.contains(metro, case=False, na=False)]
+        print(" No job data found")
+        sys.exit(1)
+
+    print(f"\n Loaded {len(df)} jobs")
+    print(f"  Columns: {list(df.columns)}")
+
+    # Filter to jobs with salary
+    salary_col = 'salary_max' if 'salary_max' in df.columns else 'max_amount'
+    min_col = 'salary_min' if 'salary_min' in df.columns else 'min_amount'
+
+    if salary_col not in df.columns:
+        print(f" ERROR: No salary column found ({salary_col})")
+        sys.exit(1)
+
+    df_salary = df[df[salary_col].notna() & (df[salary_col] > 0)].copy()
+    print(f" Jobs with salary: {len(df_salary)}")
+
+    # Generate role-based salary pages
+    print("\n Generating role-based salary pages...")
+    for category, slug, display in ROLE_CATEGORIES:
+        filtered = df_salary[df_salary['job_category'] == category] if 'job_category' in df_salary.columns else pd.DataFrame()
+        if generate_salary_page(filtered, slug, display, 'role', salary_col, min_col):
+            print(f"   Generated /salaries/{slug}/ ({len(filtered)} jobs)")
+
+    # Generate metro-based salary pages
+    print("\n Generating metro-based salary pages...")
+    for metro, slug in METRO_CATEGORIES:
+        if metro == 'Remote':
+            if 'remote_type' in df_salary.columns:
+                filtered = df_salary[df_salary['remote_type'].astype(str).str.contains('remote', case=False, na=False)]
+            else:
+                filtered = pd.DataFrame()
         else:
-            filtered = pd.DataFrame()
-    if generate_salary_page(filtered, slug, metro, 'metro'):
-        print(f"   Generated /salaries/{slug}/ ({len(filtered)} jobs)")
+            if 'metro' in df_salary.columns:
+                filtered = df_salary[df_salary['metro'] == metro]
+            elif 'location' in df_salary.columns:
+                filtered = df_salary[df_salary['location'].str.contains(metro, case=False, na=False)]
+            else:
+                filtered = pd.DataFrame()
+        if generate_salary_page(filtered, slug, metro, 'metro', salary_col, min_col):
+            print(f"   Generated /salaries/{slug}/ ({len(filtered)} jobs)")
 
-# Generate experience-based salary pages
-print("\n Generating experience-based salary pages...")
-for level, slug, display in EXPERIENCE_CATEGORIES:
-    filtered = df_salary[df_salary['experience_level'] == level] if 'experience_level' in df_salary.columns else pd.DataFrame()
-    if generate_salary_page(filtered, slug, display, 'experience'):
-        print(f"   Generated /salaries/{slug}/ ({len(filtered)} jobs)")
+    # Generate experience-based salary pages
+    print("\n Generating experience-based salary pages...")
+    for level, slug, display in EXPERIENCE_CATEGORIES:
+        filtered = df_salary[df_salary['experience_level'] == level] if 'experience_level' in df_salary.columns else pd.DataFrame()
+        if generate_salary_page(filtered, slug, display, 'experience', salary_col, min_col):
+            print(f"   Generated /salaries/{slug}/ ({len(filtered)} jobs)")
 
-# Generate index page
-overall_avg = int(df_salary[salary_col].mean()) if len(df_salary) > 0 else 0
-index_html = f'''{get_html_head(
-    "AI & ML Engineer Salary Benchmarks 2026",
-    f"Comprehensive salary data for AI engineers, ML engineers, and prompt engineers. Average ${overall_avg//1000}K based on {len(df_salary)} jobs.",
-    "salaries/"
-)}
+    # Generate index page
+    overall_avg = int(df_salary[salary_col].mean()) if len(df_salary) > 0 else 0
+    index_html = f'''{get_html_head(
+        "AI & ML Engineer Salary Benchmarks 2026",
+        f"Comprehensive salary data for AI engineers, ML engineers, and prompt engineers. Average ${overall_avg//1000}K based on {len(df_salary)} jobs.",
+        "salaries/"
+    )}
 {get_nav_html('salaries')}
 
     <div class="page-header">
@@ -278,8 +296,17 @@ index_html = f'''{get_html_head(
 
 {get_footer_html()}'''
 
-with open(f'{SALARIES_DIR}/index.html', 'w') as f:
-    f.write(index_html)
+    with open(f'{SALARIES_DIR}/index.html', 'w') as f:
+        f.write(index_html)
 
-print(f"\n Generated salary index page")
-print("="*70)
+    print(f"\n Generated salary index page")
+    print("="*70)
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as e:
+        print(f"ERROR: {e}")
+        traceback.print_exc()
+        sys.exit(1)
