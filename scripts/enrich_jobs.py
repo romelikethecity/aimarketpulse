@@ -162,30 +162,165 @@ SKILL_CATEGORIES = {
 }
 
 # Job categorization rules (first match wins)
+# More specific rules should come before general ones
 CATEGORY_RULES = [
+    # Prompt Engineering
     ("prompt engineer", "Prompt Engineer"),
+    ("prompt specialist", "Prompt Engineer"),
+
+    # AI Agents / LLM Specialists
     ("ai agent", "AI Agent Developer"),
     ("agent developer", "AI Agent Developer"),
+    ("agent engineer", "AI Agent Developer"),
     ("rag engineer", "RAG Engineer"),
+    ("rag developer", "RAG Engineer"),
     ("llm engineer", "LLM Engineer"),
     ("llm developer", "LLM Engineer"),
+    ("llm specialist", "LLM Engineer"),
+    ("large language model", "LLM Engineer"),
+
+    # MLOps / Infrastructure
     ("mlops", "MLOps Engineer"),
     ("ml ops", "MLOps Engineer"),
+    ("ml infrastructure", "MLOps Engineer"),
+    ("ml platform", "MLOps Engineer"),
+    ("machine learning platform", "MLOps Engineer"),
+    ("ai infrastructure", "MLOps Engineer"),
+    ("ai platform engineer", "MLOps Engineer"),
+
+    # AI Safety & Ethics
     ("ai safety", "AI Safety"),
+    ("ai ethics", "AI Safety"),
+    ("responsible ai", "AI Safety"),
+    ("ai governance", "AI Safety"),
+
+    # Product Management
     ("ai product manager", "AI Product Manager"),
     ("product manager ai", "AI Product Manager"),
     ("product manager ml", "AI Product Manager"),
-    ("applied scientist", "Research Engineer"),
-    ("research scientist", "Research Engineer"),
+    ("product manager, ai", "AI Product Manager"),
+    ("product manager, ml", "AI Product Manager"),
+    ("ml product manager", "AI Product Manager"),
+    ("ai pm", "AI Product Manager"),
+
+    # Research / Science
+    ("applied scientist", "Research Scientist"),
+    ("research scientist", "Research Scientist"),
+    ("staff scientist", "Research Scientist"),
+    ("ml scientist", "Research Scientist"),
+    ("ai scientist", "Research Scientist"),
     ("research engineer", "Research Engineer"),
-    ("nlp engineer", "AI/ML Engineer"),
+    ("ml research", "Research Engineer"),
+    ("ai research", "Research Engineer"),
+
+    # AI/ML Engineering - Specific
+    ("artificial intelligence engineer", "AI/ML Engineer"),
     ("machine learning engineer", "AI/ML Engineer"),
     ("ml engineer", "AI/ML Engineer"),
     ("ai engineer", "AI/ML Engineer"),
+    ("ai/ml engineer", "AI/ML Engineer"),
+    ("ai developer", "AI/ML Engineer"),
+    ("ml developer", "AI/ML Engineer"),
+    ("nlp engineer", "AI/ML Engineer"),
+    ("natural language", "AI/ML Engineer"),
+    ("deep learning engineer", "AI/ML Engineer"),
     ("deep learning", "AI/ML Engineer"),
     ("generative ai", "AI/ML Engineer"),
+    ("gen ai", "AI/ML Engineer"),
+    ("genai", "AI/ML Engineer"),
+    ("computer vision engineer", "AI/ML Engineer"),
     ("computer vision", "AI/ML Engineer"),
+    ("cv engineer", "AI/ML Engineer"),
+    ("speech recognition", "AI/ML Engineer"),
+    ("speech engineer", "AI/ML Engineer"),
+    ("recommendation system", "AI/ML Engineer"),
+    ("recommendations engineer", "AI/ML Engineer"),
+
+    # Software Engineering with AI focus
+    ("software engineer, ai", "AI Software Engineer"),
+    ("software engineer, ml", "AI Software Engineer"),
+    ("software engineer - ai", "AI Software Engineer"),
+    ("software engineer - ml", "AI Software Engineer"),
+    ("sr. software engineer, ai", "AI Software Engineer"),
+    ("senior software engineer, ai", "AI Software Engineer"),
+    ("ai software engineer", "AI Software Engineer"),
+    ("ai full-stack", "AI Software Engineer"),
+    ("ai-native", "AI Software Engineer"),
+    ("ai backend", "AI Software Engineer"),
+
+    # Engineering Management
+    ("engineering manager, ai", "AI Engineering Manager"),
+    ("engineering manager, ml", "AI Engineering Manager"),
+    ("engineering manager - ai", "AI Engineering Manager"),
+    ("ai engineering manager", "AI Engineering Manager"),
+    ("ml engineering manager", "AI Engineering Manager"),
+    ("manager, ai", "AI Engineering Manager"),
+    ("manager, ml", "AI Engineering Manager"),
+    ("manager, applied ai", "AI Engineering Manager"),
+    ("head of ai", "AI Engineering Manager"),
+    ("head of ml", "AI Engineering Manager"),
+    ("director of ai", "AI Engineering Manager"),
+    ("director of ml", "AI Engineering Manager"),
+    ("vp of ai", "AI Engineering Manager"),
+    ("vp, ai", "AI Engineering Manager"),
+
+    # Architecture
+    ("ai architect", "AI Architect"),
+    ("ml architect", "AI Architect"),
+    ("ai enterprise architect", "AI Architect"),
+    ("cloud ai architect", "AI Architect"),
+    ("solutions architect, ai", "AI Architect"),
+    ("solutions architect ai", "AI Architect"),
+
+    # Data Science
     ("data scientist", "Data Scientist"),
+    ("senior data scientist", "Data Scientist"),
+    ("staff data scientist", "Data Scientist"),
+    ("principal data scientist", "Data Scientist"),
+    ("lead data scientist", "Data Scientist"),
+
+    # Data Engineering
+    ("data engineer", "Data Engineer"),
+    ("senior data engineer", "Data Engineer"),
+    ("lead data engineer", "Data Engineer"),
+    ("staff data engineer", "Data Engineer"),
+    ("data engineering", "Data Engineer"),
+    ("analytics engineer", "Data Engineer"),
+
+    # AI DevOps / Cloud
+    ("ai devops", "AI/ML Engineer"),
+    ("ai cloud", "AI/ML Engineer"),
+    ("ai infrastructure engineer", "AI/ML Engineer"),
+
+    # AI Consultants / Specialists
+    ("ai consultant", "AI Consultant"),
+    ("ai specialist", "AI Consultant"),
+    ("ai functional", "AI Consultant"),
+    ("ai advisor", "AI Consultant"),
+
+    # AI Product roles
+    ("ai product architect", "AI Product Manager"),
+    ("ai/ml product", "AI Product Manager"),
+    ("product architect, ai", "AI Product Manager"),
+
+    # AI-Native roles
+    ("ai native", "AI Software Engineer"),
+    ("ai-native", "AI Software Engineer"),
+    ("sr. developer ai", "AI Software Engineer"),
+    ("developer ai", "AI Software Engineer"),
+    ("developer, ai", "AI Software Engineer"),
+
+    # Language / AGI roles
+    ("language engineer", "AI/ML Engineer"),
+    ("agi ", "AI/ML Engineer"),
+    ("artificial general intelligence", "AI/ML Engineer"),
+
+    # Catch-all AI mentions in title (lower priority)
+    (", ai", "AI/ML Engineer"),  # "Software Engineer, AI"
+    ("- ai", "AI/ML Engineer"),  # "Engineer - AI"
+    (" ai ", "AI/ML Engineer"),  # Contains " AI " surrounded by spaces
+    (" ai/", "AI/ML Engineer"),  # "Senior AI/ML"
+    ("/ai ", "AI/ML Engineer"),  # "ML/AI Engineer"
 ]
 
 # Metro areas for location normalization

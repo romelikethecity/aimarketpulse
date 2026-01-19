@@ -95,14 +95,21 @@ def main():
     # Category counts
     categories = df['job_category'].value_counts().head(6).to_dict() if 'job_category' in df.columns else {}
 
-    # Generate job cards HTML
+    # Sort by salary (highest first), then by date
+    if salary_col in df.columns:
+        df['_sort_salary'] = pd.to_numeric(df[salary_col], errors='coerce').fillna(0)
+        df = df.sort_values('_sort_salary', ascending=False)
+
+    # Generate job cards HTML for ALL jobs
     job_cards_html = ""
-    for idx, row in df.head(100).iterrows():
+    for idx, row in df.iterrows():
         company = escape_html(str(row.get('company', row.get('company_name', 'Unknown'))))
         title = escape_html(str(row.get('title', 'AI Role')))
         location = escape_html(str(row.get('location', ''))) if pd.notna(row.get('location')) else ''
         category = escape_html(str(row.get('job_category', ''))) if pd.notna(row.get('job_category')) else ''
         remote_status = is_remote(row)
+        salary_val = row.get('salary_max', row.get('max_amount', 0))
+        salary_val = float(salary_val) if pd.notna(salary_val) else 0
 
         salary = format_salary(row.get('salary_min', row.get('min_amount')), row.get('salary_max', row.get('max_amount')))
 
@@ -111,8 +118,14 @@ def main():
         hash_suffix = hashlib.md5(f"{row.get('company', row.get('company_name', ''))}{row.get('title','')}{row.get('location','')}".encode()).hexdigest()[:6]
         job_slug = f"{job_slug}-{hash_suffix}"
 
+        # Data attributes for filtering/searching
         job_cards_html += f'''
-            <a href="/jobs/{job_slug}/" class="job-card">
+            <a href="/jobs/{job_slug}/" class="job-card"
+               data-company="{company.lower()}"
+               data-title="{title.lower()}"
+               data-category="{category.lower()}"
+               data-remote="{'true' if remote_status else 'false'}"
+               data-salary="{int(salary_val)}">
                 <div class="job-card__content">
                     <div class="job-card__company">{company}</div>
                     <div class="job-card__title">{title}</div>
@@ -132,7 +145,7 @@ def main():
         cat_slug = make_slug(cat)
         category_filters += f'<a href="/jobs/{cat_slug}/" class="filter-btn">{escape_html(cat)} ({count})</a>\n'
 
-    # Page HTML
+    # Page HTML with search, filters, and pagination
     html = f'''{get_html_head(
         f"{total_jobs} AI & ML Engineer Jobs - ${avg_salary}K avg",
         f"Browse {total_jobs} AI engineer, ML engineer, and prompt engineer jobs. Average salary ${avg_salary}K. {remote_jobs} remote positions available. Updated weekly.",
@@ -169,15 +182,31 @@ def main():
 
     <main>
         <div class="container">
+            <!-- Search Box -->
+            <div class="search-section" style="margin-bottom: 24px;">
+                <input type="text" id="job-search" placeholder="Search jobs by title, company, or keyword..."
+                       style="width: 100%; padding: 16px 20px; font-size: 1rem; background: var(--bg-card);
+                              border: 1px solid var(--border); border-radius: 12px; color: var(--text-primary);
+                              outline: none; transition: border-color 0.15s;">
+                <div id="search-results" style="margin-top: 8px; font-size: 0.875rem; color: var(--text-muted);"></div>
+            </div>
+
+            <!-- Filter Buttons -->
             <div class="filters-section" style="margin-bottom: 32px;">
-                <h3 style="margin-bottom: 16px; color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">Filter by Category</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+                    <button class="filter-btn active" data-filter="all">All Jobs ({total_jobs})</button>
+                    <button class="filter-btn" data-filter="remote">Remote Only ({remote_jobs})</button>
+                    <button class="filter-btn" data-filter="salary-200">$200K+ ({len(df[df['_sort_salary'] >= 200000]) if '_sort_salary' in df.columns else 0})</button>
+                    <button class="filter-btn" data-filter="salary-150">$150K+ ({len(df[df['_sort_salary'] >= 150000]) if '_sort_salary' in df.columns else 0})</button>
                     {category_filters}
-                    <a href="/jobs/remote/" class="filter-btn">Remote ({remote_jobs})</a>
                 </div>
             </div>
 
             <style>
+                #job-search:focus {{
+                    border-color: var(--gold);
+                    box-shadow: 0 0 0 3px rgba(232, 168, 124, 0.1);
+                }}
                 .filter-btn {{
                     display: inline-block;
                     padding: 8px 16px;
@@ -188,25 +217,158 @@ def main():
                     text-decoration: none;
                     font-size: 0.875rem;
                     transition: all 0.15s;
+                    cursor: pointer;
                 }}
                 .filter-btn:hover {{
                     border-color: var(--teal-light);
                     color: var(--text-primary);
+                }}
+                .filter-btn.active {{
+                    background: var(--gold);
+                    color: var(--bg-darker);
+                    border-color: var(--gold);
                 }}
                 .jobs-grid {{
                     display: flex;
                     flex-direction: column;
                     gap: 12px;
                 }}
+                .job-card.hidden {{
+                    display: none !important;
+                }}
+                .load-more-section {{
+                    text-align: center;
+                    padding: 32px 0;
+                }}
+                .load-more-btn {{
+                    display: inline-block;
+                    padding: 16px 48px;
+                    background: var(--teal-primary);
+                    color: var(--text-primary);
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.15s;
+                }}
+                .load-more-btn:hover {{
+                    background: var(--teal-light);
+                    transform: translateY(-2px);
+                }}
+                .job-count-display {{
+                    margin-bottom: 16px;
+                    font-size: 0.9rem;
+                    color: var(--text-muted);
+                }}
             </style>
 
-            <div class="jobs-grid">
+            <div class="job-count-display">
+                Showing <span id="visible-count">50</span> of <span id="total-filtered">{total_jobs}</span> jobs
+            </div>
+
+            <div class="jobs-grid" id="jobs-container">
                 {job_cards_html}
+            </div>
+
+            <div class="load-more-section">
+                <button class="load-more-btn" id="load-more">Load More Jobs</button>
             </div>
 
             {get_cta_box()}
         </div>
     </main>
+
+    <script>
+    (function() {{
+        const JOBS_PER_PAGE = 50;
+        let visibleCount = JOBS_PER_PAGE;
+        let currentFilter = 'all';
+        let searchTerm = '';
+
+        const container = document.getElementById('jobs-container');
+        const allJobs = Array.from(container.querySelectorAll('.job-card'));
+        const loadMoreBtn = document.getElementById('load-more');
+        const searchInput = document.getElementById('job-search');
+        const searchResults = document.getElementById('search-results');
+        const visibleCountEl = document.getElementById('visible-count');
+        const totalFilteredEl = document.getElementById('total-filtered');
+        const filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
+
+        function getFilteredJobs() {{
+            return allJobs.filter(job => {{
+                // Search filter
+                if (searchTerm) {{
+                    const company = job.dataset.company || '';
+                    const title = job.dataset.title || '';
+                    if (!company.includes(searchTerm) && !title.includes(searchTerm)) {{
+                        return false;
+                    }}
+                }}
+
+                // Category/type filter
+                if (currentFilter === 'all') return true;
+                if (currentFilter === 'remote') return job.dataset.remote === 'true';
+                if (currentFilter === 'salary-200') return parseInt(job.dataset.salary) >= 200000;
+                if (currentFilter === 'salary-150') return parseInt(job.dataset.salary) >= 150000;
+
+                // Category filter
+                const category = job.dataset.category || '';
+                return category.includes(currentFilter.toLowerCase());
+            }});
+        }}
+
+        function updateDisplay() {{
+            const filtered = getFilteredJobs();
+            const toShow = filtered.slice(0, visibleCount);
+
+            allJobs.forEach(job => job.classList.add('hidden'));
+            toShow.forEach(job => job.classList.remove('hidden'));
+
+            visibleCountEl.textContent = Math.min(visibleCount, filtered.length);
+            totalFilteredEl.textContent = filtered.length;
+
+            loadMoreBtn.style.display = visibleCount >= filtered.length ? 'none' : 'inline-block';
+
+            if (searchTerm) {{
+                searchResults.textContent = `Found ${{filtered.length}} jobs matching "${{searchTerm}}"`;
+            }} else {{
+                searchResults.textContent = '';
+            }}
+        }}
+
+        // Load more
+        loadMoreBtn.addEventListener('click', () => {{
+            visibleCount += JOBS_PER_PAGE;
+            updateDisplay();
+        }});
+
+        // Search
+        let searchTimeout;
+        searchInput.addEventListener('input', (e) => {{
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {{
+                searchTerm = e.target.value.toLowerCase().trim();
+                visibleCount = JOBS_PER_PAGE;
+                updateDisplay();
+            }}, 200);
+        }});
+
+        // Filter buttons
+        filterBtns.forEach(btn => {{
+            btn.addEventListener('click', () => {{
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                visibleCount = JOBS_PER_PAGE;
+                updateDisplay();
+            }});
+        }});
+
+        // Initial display
+        updateDisplay();
+    }})();
+    </script>
 
 {get_footer_html()}'''
 
