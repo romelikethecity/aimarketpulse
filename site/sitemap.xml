@@ -139,6 +139,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://pecollective.com/salaries/ai-agent-developer/</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://pecollective.com/tools/anthropic/</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>

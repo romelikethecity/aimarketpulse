@@ -123,13 +123,19 @@
     }
   },
   "categories": {
-    "Other AI Role": 5061,
-    "AI/ML Engineer": 380,
-    "Research Engineer": 259,
-    "Data Scientist": 93,
-    "MLOps Engineer": 15,
-    "AI Product Manager": 9,
-    "AI Agent Developer": 7,
+    "Other AI Role": 4309,
+    "AI/ML Engineer": 821,
+    "Research Scientist": 251,
+    "Data Engineer": 96,
+    "AI Software Engineer": 86,
+    "Data Scientist": 80,
+    "AI Product Manager": 70,
+    "MLOps Engineer": 41,
+    "Research Engineer": 24,
+    "AI Engineering Manager": 13,
+    "AI Architect": 12,
+    "AI Consultant": 11,
+    "AI Agent Developer": 10,
     "Prompt Engineer": 1,
     "AI Safety": 1,
     "RAG Engineer": 1
@@ -184,49 +190,79 @@
   },
   "salary_by_category": {
     "Other AI Role": {
-      "median": 212800,
-      "avg": 208725,
-      "count": 3916
+      "median": 210000,
+      "avg": 206061,
+      "count": 3346
+    },
+    "AI Software Engineer": {
+      "median": 250000,
+      "avg": 256870,
+      "count": 64
     },
     "AI/ML Engineer": {
-      "median": 201200,
-      "avg": 210524,
-      "count": 294
+      "median": 204300,
+      "avg": 211580,
+      "count": 621
+    },
+    "Data Engineer": {
+      "median": 188900,
+      "avg": 200823,
+      "count": 70
+    },
+    "AI Architect": {
+      "median": 251680,
+      "avg": 256872,
+      "count": 9
+    },
+    "AI Agent Developer": {
+      "median": 300000,
+      "avg": 280850,
+      "count": 4
+    },
+    "AI Engineering Manager": {
+      "median": 270500,
+      "avg": 276745,
+      "count": 10
     },
     "AI Safety": {
       "median": 181000,
       "avg": 181000,
       "count": 1
     },
-    "Research Engineer": {
+    "Research Scientist": {
       "median": 260000,
-      "avg": 252667,
-      "count": 253
+      "avg": 253295,
+      "count": 241
     },
     "Data Scientist": {
-      "median": 215300,
-      "avg": 209766,
-      "count": 83
+      "median": 212850,
+      "avg": 208170,
+      "count": 70
+    },
+    "Research Engineer": {
+      "median": 250200,
+      "avg": 246908,
+      "count": 20
     },
     "MLOps Engineer": {
-      "median": 217200,
-      "avg": 229000,
-      "count": 13
+      "median": 240000,
+      "avg": 252265,
+      "count": 35
     },
     "AI Product Manager": {
-      "median": 190000,
-      "avg": 212180,
-      "count": 8
-    },
-    "AI Agent Developer": {
-      "median": 223400,
-      "avg": 223400,
-      "count": 1
+      "median": 255900,
+      "avg": 252111,
+      "count": 67
     },
     "RAG Engineer": {
       "median": 160000,
       "avg": 160000,
       "count": 1
+    },
+    "AI Consultant": {
+      "median": 147800,
+      "avg": 149818,
+      "count": 11
     }
   },
   "salary_by_seniority": {
