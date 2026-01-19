@@ -1,529 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cursor AI Code Editor review: Features, pricing, pros and cons. Is it worth switching from VS Code? Our honest assessment for AI professionals.">
-  
-  <title>Cursor Review 2025 — AI Code Editor for Prompt Engineers | PE Collective</title>
-  
-  <meta property="og:title" content="Cursor Review 2025 — Is It Worth Switching from VS Code?">
-  <meta property="og:description" content="Honest review of Cursor, the AI-first code editor. Features, pricing, and real-world performance.">
-  
-  <link rel="icon" type="image/jpeg" href="../../assets/logo.jpeg">
-  <link rel="stylesheet" href="../../assets/css/style.css">
-  
-  <style>
-    .tool-review {
-      padding: var(--space-3xl) 0;
-    }
-    
-    .tool-review__header {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-xl);
-      margin-bottom: var(--space-2xl);
-      padding-bottom: var(--space-2xl);
-      border-bottom: 1px solid var(--color-border);
-    }
-    
-    .tool-review__icon {
-      width: 80px;
-      height: 80px;
-      background: var(--color-bg-card);
-      border-radius: var(--radius-lg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      flex-shrink: 0;
-    }
-    
-    .tool-review__meta {
-      flex: 1;
-    }
-    
-    .tool-review__category {
-      font-size: 0.875rem;
-      color: var(--color-gold);
-      margin-bottom: var(--space-xs);
-    }
-    
-    .tool-review__title {
-      margin-bottom: var(--space-sm);
-    }
-    
-    .tool-review__subtitle {
-      font-size: 1.125rem;
-      margin-bottom: var(--space-md);
-    }
-    
-    .tool-review__actions {
-      display: flex;
-      gap: var(--space-sm);
-      flex-wrap: wrap;
-    }
-    
-    .tool-review__content {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: var(--space-3xl);
-    }
-    
-    @media (max-width: 900px) {
-      .tool-review__content {
-        grid-template-columns: 1fr;
-      }
-      
-      .tool-review__header {
-        flex-direction: column;
-      }
-    }
-    
-    .tool-review__main h2 {
-      font-size: 1.5rem;
-      margin: var(--space-2xl) 0 var(--space-md);
-      padding-top: var(--space-lg);
-      border-top: 1px solid var(--color-border);
-    }
-    
-    .tool-review__main h2:first-child {
-      margin-top: 0;
-      padding-top: 0;
-      border-top: none;
-    }
-    
-    .tool-review__main h3 {
-      font-size: 1.125rem;
-      margin: var(--space-lg) 0 var(--space-sm);
-    }
-    
-    .tool-review__main p {
-      margin-bottom: var(--space-md);
-      line-height: 1.7;
-    }
-    
-    .tool-review__main ul, .tool-review__main ol {
-      margin-bottom: var(--space-md);
-      padding-left: var(--space-lg);
-      color: var(--color-text-secondary);
-    }
-    
-    .tool-review__main li {
-      margin-bottom: var(--space-sm);
-    }
-    
-    .tool-review__sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-lg);
-    }
-    
-    .sidebar-card {
-      background: var(--color-bg-card);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-lg);
-    }
-    
-    .sidebar-card__title {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--color-text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: var(--space-md);
-    }
-    
-    .pricing-table {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-    
-    .pricing-row {
-      display: flex;
-      justify-content: space-between;
-      padding: var(--space-sm) 0;
-      border-bottom: 1px solid var(--color-border-light);
-    }
-    
-    .pricing-row:last-child {
-      border-bottom: none;
-    }
-    
-    .pricing-row__label {
-      color: var(--color-text-secondary);
-    }
-    
-    .pricing-row__value {
-      font-weight: 600;
-      color: var(--color-text-primary);
-    }
-    
-    .pros-cons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-lg);
-      margin: var(--space-lg) 0;
-    }
-    
-    @media (max-width: 600px) {
-      .pros-cons {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    .pros-cons__column h4 {
-      font-size: 0.9375rem;
-      margin-bottom: var(--space-md);
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-    }
-    
-    .pros-cons__column ul {
-      list-style: none;
-      padding: 0;
-    }
-    
-    .pros-cons__column li {
-      padding: var(--space-sm) 0;
-      padding-left: var(--space-lg);
-      position: relative;
-      color: var(--color-text-secondary);
-    }
-    
-    .pros-cons__column--pros li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--color-success);
-      font-weight: 700;
-    }
-    
-    .pros-cons__column--cons li::before {
-      content: '✗';
-      position: absolute;
-      left: 0;
-      color: var(--color-error);
-      font-weight: 700;
-    }
-    
-    .rating {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-    }
-    
-    .rating__stars {
-      color: var(--color-gold);
-      letter-spacing: 2px;
-    }
-    
-    .rating__value {
-      font-family: var(--font-display);
-      font-weight: 700;
-      color: var(--color-text-primary);
-    }
-    
-    .related-tools {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-    
-    .related-tools a {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-sm);
-      background: var(--color-bg-darker);
-      border-radius: var(--radius-md);
-      color: var(--color-text-secondary);
-      transition: all var(--transition-fast);
-    }
-    
-    .related-tools a:hover {
-      background: var(--color-bg-card-hover);
-      color: var(--color-text-primary);
-    }
-    
-    .verdict-box {
-      background: linear-gradient(135deg, var(--color-teal-primary) 0%, var(--color-bg-card) 100%);
-      border: 1px solid var(--color-teal-light);
-      border-radius: var(--radius-lg);
-      padding: var(--space-xl);
-      margin: var(--space-2xl) 0;
-    }
-    
-    .verdict-box h3 {
-      color: var(--color-gold);
-      margin-bottom: var(--space-md);
-    }
-    
-    .affiliate-disclosure {
-      font-size: 0.8125rem;
-      color: var(--color-text-muted);
-      padding: var(--space-md);
-      background: var(--color-bg-darker);
-      border-radius: var(--radius-md);
-      margin-top: var(--space-2xl);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor - AI Tools | PE Collective</title>
+    <meta name="description" content="AI-first code editor built on VS Code. Integrates LLMs directly into the coding workflow. Find AI jobs requiring Cursor expertise.">
+
+    <link rel="canonical" href="https://pecollective.com/tools/cursor/">
+
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #334155;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --accent: #22d3ee;
+            --accent-gold: #f5a623;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+        nav {
+            background: var(--bg-secondary);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--bg-card);
+        }
+        nav .container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; }
+        .nav-brand { font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+
+        .breadcrumb {
+            padding: 1rem 0;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        .breadcrumb a { color: var(--accent); text-decoration: none; }
+
+        .tool-header {
+            padding: 2rem 0;
+        }
+        .tool-category {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .tool-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .tool-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .tool-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .stat {
+            background: var(--bg-secondary);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+        }
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        .tool-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        .section {
+            padding: 2rem 0;
+            border-top: 1px solid var(--bg-card);
+        }
+        .section h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .skill-tag {
+            background: var(--bg-card);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+        .use-cases {
+            list-style: none;
+            padding: 0;
+        }
+        .use-cases li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--bg-card);
+            color: var(--text-secondary);
+        }
+
+        .cta-box {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .cta-box h3 {
+            margin-bottom: 0.5rem;
+        }
+        .cta-box p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer {
+            background: var(--bg-secondary);
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .tool-header h1 { font-size: 1.75rem; }
+            .tool-stats { flex-direction: column; gap: 1rem; }
+        }
+    </style>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
-  
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <div class="header__inner">
-        <a href="../../" class="header__logo">
-          <img src="../../assets/logo.jpeg" alt="PE Collective Logo">
-          <span>PE Collective</span>
-        </a>
-        
-        <nav class="header__nav">
-          <a href="../../jobs/">Jobs</a>
-          <a href="../" class="active">Tools</a>
-          <a href="../../about/">About</a>
-        </nav>
-        
-        <div class="header__cta">
-          <a href="../../join/" class="btn btn--secondary btn--small">Join Community</a>
-          <a href="https://ainewsdigest.substack.com" target="_blank" rel="noopener" class="btn btn--primary btn--small">Newsletter</a>
+    <nav>
+        <div class="container">
+            <a href="/" class="nav-brand">PE Collective</a>
         </div>
-      </div>
-    </div>
-  </header>
+    </nav>
 
-  <main id="main">
-    <article class="tool-review">
-      <div class="container">
-        <!-- Header -->
-        <header class="tool-review__header">
-          <div class="tool-review__icon">⚡</div>
-          <div class="tool-review__meta">
-            <span class="tool-review__category">AI Code Editor</span>
-            <h1 class="tool-review__title">Cursor Review 2025</h1>
-            <p class="tool-review__subtitle">The AI-first code editor that's replacing VS Code for many developers. Is it worth the switch?</p>
-            <div class="tool-review__actions">
-              <!-- AFFILIATE LINK PLACEHOLDER -->
-              <a href="https://cursor.sh" target="_blank" rel="noopener" class="btn btn--primary">Try Cursor Free →</a>
-              <a href="../cursor-vs-github-copilot/" class="btn btn--secondary">Compare to Copilot</a>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/tools/">Tools</a> / Cursor
+        </div>
+
+        <header class="tool-header">
+            <div class="tool-category">AI Dev Tools</div>
+            <h1>Cursor</h1>
+            <p class="tool-description">AI-first code editor built on VS Code. Integrates LLMs directly into the coding workflow.</p>
+
+            <div class="tool-stats">
+                <div class="stat">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Jobs Mentioning Cursor</div>
+                </div>
             </div>
-          </div>
+
+            <a href="https://cursor.sh" target="_blank" rel="noopener" class="tool-link">
+                Visit Cursor →
+            </a>
         </header>
 
-        <div class="tool-review__content">
-          <!-- Main Content -->
-          <div class="tool-review__main">
-            <h2>What is Cursor?</h2>
-            <p>Cursor is a code editor built from the ground up with AI at its core. It's a fork of VS Code, which means you get the familiar interface, extensions, and keybindings you already know — but with AI capabilities that go far beyond simple autocomplete.</p>
-            <p>Where GitHub Copilot feels like an add-on to your existing editor, Cursor feels like what a code editor would look like if it was designed in 2024 with AI as a first-class citizen.</p>
-            
-            <h2>Key Features</h2>
-            
-            <h3>Composer (Multi-File Editing)</h3>
-            <p>This is Cursor's killer feature. Composer lets you make changes across multiple files simultaneously using natural language. Describe what you want ("add error handling to all API routes and update the tests"), and Cursor generates a diff across your entire codebase.</p>
-            <p>For prompt engineers building AI applications, this is transformative. You can refactor entire LangChain pipelines or update all your prompt templates in one go.</p>
-            
-            <h3>Chat with Your Codebase</h3>
-            <p>Cursor indexes your entire project and lets you ask questions about it. Unlike generic ChatGPT, it has full context about your specific code, dependencies, and patterns.</p>
-            
-            <h3>Model Selection</h3>
-            <p>You can choose between Claude (3.5 Sonnet or Opus) and GPT-4 depending on the task. Claude tends to be better for complex reasoning and longer contexts; GPT-4 is often faster for simple completions.</p>
-            
-            <h3>Tab Completion</h3>
-            <p>Cursor's autocomplete is excellent — on par with Copilot — but it also predicts your next edit location. After accepting a suggestion, pressing Tab might jump you to the next logical place to make changes.</p>
+        <section class="section">
+            <h2>Related Skills</h2>
+            <div class="skills-list"><span class="skill-tag">AI coding</span><span class="skill-tag">Code completion</span><span class="skill-tag">Chat interface</span></div>
+        </section>
 
-            <div class="pros-cons">
-              <div class="pros-cons__column pros-cons__column--pros">
-                <h4>✓ Pros</h4>
-                <ul>
-                  <li>Multi-file editing is game-changing</li>
-                  <li>Full codebase awareness</li>
-                  <li>Choice of Claude or GPT-4</li>
-                  <li>VS Code extensions work</li>
-                  <li>Better context handling than competitors</li>
-                  <li>Active development, frequent updates</li>
-                </ul>
-              </div>
-              <div class="pros-cons__column pros-cons__column--cons">
-                <h4>✗ Cons</h4>
-                <ul>
-                  <li>$20/month for full features</li>
-                  <li>Can be slower than native VS Code</li>
-                  <li>Occasional bugs in Composer</li>
-                  <li>Learning curve for advanced features</li>
-                  <li>Some VS Code extensions have issues</li>
-                </ul>
-              </div>
-            </div>
-            
-            <h2>Who Should Use Cursor?</h2>
-            
-            <h3>Ideal For:</h3>
-            <ul>
-              <li><strong>AI/ML Engineers</strong> — Building LangChain apps, prompt engineering, working with embeddings</li>
-              <li><strong>Full-Stack Developers</strong> — Multi-file refactoring across frontend and backend</li>
-              <li><strong>Solo Developers</strong> — Where Cursor acts as your AI pair programmer</li>
-              <li><strong>Teams standardizing on AI tools</strong> — Everyone gets the same AI capabilities</li>
-            </ul>
-            
-            <h3>Maybe Not For:</h3>
-            <ul>
-              <li><strong>Large enterprise teams</strong> — GitHub Copilot may be easier to get approved</li>
-              <li><strong>Developers who prefer JetBrains IDEs</strong> — Cursor is VS Code-based only</li>
-              <li><strong>Those on strict budgets</strong> — Free tier is limited compared to Copilot</li>
-            </ul>
-            
-            <div class="verdict-box">
-              <h3>Our Verdict</h3>
-              <p>Cursor is the best AI code editor available today, especially for prompt engineers and AI developers. The Composer feature alone is worth the subscription if you're doing any kind of AI application development. The multi-file editing capability saves hours of manual refactoring.</p>
-              <p>If you're currently using VS Code + Copilot, try Cursor's free tier for a week. Most developers who do don't go back.</p>
-            </div>
-            
-            <h2>Cursor vs Alternatives</h2>
-            <p>See our detailed <a href="../cursor-vs-github-copilot/">Cursor vs GitHub Copilot comparison</a> for a head-to-head breakdown. The short version: Cursor is better for complex, multi-file work; Copilot is better for autocomplete and has wider enterprise adoption.</p>
-            
-            <div class="affiliate-disclosure">
-              <strong>Disclosure:</strong> This review contains affiliate links. If you sign up through our links, we may earn a commission at no extra cost to you. We only recommend tools we actually use and believe in. Our reviews are based on hands-on testing, not sponsored content.
-            </div>
-          </div>
+        <section class="section">
+            <h2>Common Use Cases</h2>
+            <ul class="use-cases"><li>Code writing</li><li>Refactoring</li><li>Documentation</li></ul>
+        </section>
 
-          <!-- Sidebar -->
-          <aside class="tool-review__sidebar">
-            <div class="sidebar-card">
-              <h3 class="sidebar-card__title">Our Rating</h3>
-              <div class="rating">
-                <span class="rating__stars">★★★★★</span>
-                <span class="rating__value">4.8/5</span>
-              </div>
-            </div>
-            
-            <div class="sidebar-card">
-              <h3 class="sidebar-card__title">Pricing</h3>
-              <div class="pricing-table">
-                <div class="pricing-row">
-                  <span class="pricing-row__label">Free</span>
-                  <span class="pricing-row__value">Limited</span>
-                </div>
-                <div class="pricing-row">
-                  <span class="pricing-row__label">Pro</span>
-                  <span class="pricing-row__value">$20/mo</span>
-                </div>
-                <div class="pricing-row">
-                  <span class="pricing-row__label">Business</span>
-                  <span class="pricing-row__value">$40/mo</span>
-                </div>
-              </div>
-              <!-- AFFILIATE LINK PLACEHOLDER -->
-              <a href="https://cursor.sh" target="_blank" rel="noopener" class="btn btn--primary btn--small mt-md" style="width: 100%;">Get Cursor →</a>
-            </div>
-            
-            <div class="sidebar-card">
-              <h3 class="sidebar-card__title">Quick Facts</h3>
-              <div class="pricing-table">
-                <div class="pricing-row">
-                  <span class="pricing-row__label">Platform</span>
-                  <span class="pricing-row__value">Mac, Win, Linux</span>
-                </div>
-                <div class="pricing-row">
-                  <span class="pricing-row__label">AI Models</span>
-                  <span class="pricing-row__value">Claude, GPT-4</span>
-                </div>
-                <div class="pricing-row">
-                  <span class="pricing-row__label">Based On</span>
-                  <span class="pricing-row__value">VS Code</span>
-                </div>
-                <div class="pricing-row">
-                  <span class="pricing-row__label">Free Tier</span>
-                  <span class="pricing-row__value">Yes (limited)</span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="sidebar-card">
-              <h3 class="sidebar-card__title">Related Tools</h3>
-              <div class="related-tools">
-                <a href="../github-copilot/">🤖 GitHub Copilot</a>
-                <a href="../cursor-vs-github-copilot/">⚔️ Cursor vs Copilot</a>
-                <a href="#">🌊 Windsurf</a>
-                <a href="#">🔷 Replit</a>
-              </div>
-            </div>
-          </aside>
+        <div class="cta-box">
+            <h3>Find Cursor Jobs</h3>
+            <p>Browse AI roles that require Cursor expertise</p>
+            <a href="/jobs/" class="cta-button">View All AI Jobs</a>
         </div>
-      </div>
-    </article>
-
-    <!-- Newsletter CTA -->
-    <section class="section">
-      <div class="container container--narrow">
-        <div class="cta-section">
-          <h2 class="cta-section__title">Get Tool Reviews in Your Inbox</h2>
-          <p class="cta-section__text">
-            Weekly AI tool updates, new releases, and honest comparisons.
-          </p>
-          <form class="cta-section__form" action="https://ainewsdigest.substack.com/subscribe" method="get" target="_blank">
-            <input type="email" name="email" placeholder="your@email.com" class="cta-section__input" required>
-            <button type="submit" class="btn btn--primary btn--large">Subscribe Free</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <a href="../../" class="footer__logo">
-            <img src="../../assets/logo.jpeg" alt="PE Collective">
-            <span>PE Collective</span>
-          </a>
-          <p class="footer__tagline">
-            The job board and community built by AI professionals, for AI professionals.
-          </p>
-        </div>
-        
-        <div class="footer__column">
-          <h4>Jobs</h4>
-          <nav class="footer__links">
-            <a href="../../jobs/">All Jobs</a>
-            <a href="../../jobs/?category=prompt-engineer">Prompt Engineer</a>
-            <a href="../../jobs/?category=ai-engineer">AI Engineer</a>
-            <a href="../../jobs/?remote=true">Remote Only</a>
-          </nav>
-        </div>
-        
-        <div class="footer__column">
-          <h4>Tools</h4>
-          <nav class="footer__links">
-            <a href="../">All Tools</a>
-            <a href="./">Cursor</a>
-            <a href="../github-copilot/">GitHub Copilot</a>
-          </nav>
-        </div>
-        
-        <div class="footer__column">
-          <h4>Community</h4>
-          <nav class="footer__links">
-            <a href="../../join/">Join Us</a>
-            <a href="../../about/">About</a>
-            <a href="https://ainewsdigest.substack.com" target="_blank" rel="noopener">Newsletter</a>
-          </nav>
-        </div>
-      </div>
-      
-      <div class="footer__bottom">
-        <span>© 2025 PE Collective. Built with 🧠 for the AI community.</span>
-        <span>Part of the <a href="https://ainewsdigest.substack.com" target="_blank" rel="noopener">AI News Digest</a> network.</span>
-      </div>
     </div>
-  </footer>
+
+    <footer>
+        <p>© 2026 PE Collective</p>
+    </footer>
 </body>
 </html>

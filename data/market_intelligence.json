@@ -1,120 +1,288 @@
 {
-  "date": "2026-01-11",
-  "total_jobs": 12,
+  "date": "2026-01-19",
+  "total_jobs": 5827,
   "skills": {
-    "Python": 10,
-    "RAG": 4,
-    "Claude": 3,
-    "GPT-4": 3,
-    "Evaluation": 2,
-    "LangChain": 2,
-    "PyTorch": 2,
-    "Transformers": 2,
-    "AWS": 2,
-    "Research": 2,
-    "Fine-tuning": 1,
-    "Tool Use": 1,
-    "Hugging Face": 1,
-    "Kubernetes": 1,
-    "Docker": 1,
-    "MLflow": 1,
-    "Product Strategy": 1,
-    "LLMs": 1,
-    "User Research": 1,
-    "Roadmapping": 1,
-    "Content Generation": 1,
-    "A/B Testing": 1,
-    "JAX": 1,
-    "TensorFlow": 1,
-    "Fraud Detection": 1,
-    "Real-time ML": 1,
-    "AI Safety": 1,
-    "Red Teaming": 1,
-    "Data Labeling": 1,
-    "Pinecone": 1,
-    "Vector DBs": 1,
-    "Bedrock": 1,
-    "SageMaker": 1,
-    "Architecture": 1
+    "RAG": 4164,
+    "AWS": 2666,
+    "Rust": 2420,
+    "Python": 2236,
+    "AI Agents": 972,
+    "Azure": 924,
+    "GCP": 762,
+    "Kubernetes": 473,
+    "Go": 456,
+    "JavaScript": 437,
+    "PyTorch": 411,
+    "Prompt Engineering": 389,
+    "Fine-tuning": 363,
+    "TensorFlow": 351,
+    "Docker": 346,
+    "TypeScript": 344,
+    "OpenAI": 282,
+    "LangChain": 258,
+    "scikit-learn": 237,
+    "Cohere": 157,
+    "Vertex AI": 150,
+    "Bedrock": 144,
+    "Llama": 143,
+    "SageMaker": 141,
+    "Multimodal": 138,
+    "Claude": 115,
+    "Semantic Kernel": 114,
+    "JAX": 111,
+    "Gemini": 103,
+    "Anthropic": 82,
+    "Embeddings": 78,
+    "Transformers": 75,
+    "Pinecone": 72,
+    "Hugging Face": 65,
+    "Weaviate": 63,
+    "FAISS": 56,
+    "MLflow": 51,
+    "LlamaIndex": 50,
+    "Keras": 43,
+    "RLHF": 36,
+    "AutoGen": 35,
+    "Vector Search": 31,
+    "CrewAI": 18,
+    "Chroma": 15,
+    "Weights & Biases": 12,
+    "pgvector": 10,
+    "GPT-4": 10,
+    "Milvus": 8,
+    "Qdrant": 7,
+    "DSPy": 4
   },
   "skills_by_category": {
-    "LLM Providers": {
-      "Claude": 3,
-      "GPT-4": 3,
-      "Hugging Face": 1
-    },
-    "Languages": {
-      "Python": 10
+    "Cloud/Infrastructure": {
+      "AWS": 2666,
+      "Docker": 346,
+      "Bedrock": 144,
+      "Azure": 924,
+      "GCP": 762,
+      "MLflow": 51,
+      "Weights & Biases": 12,
+      "Kubernetes": 473,
+      "Vertex AI": 150,
+      "SageMaker": 141
     },
     "Techniques": {
-      "RAG": 4,
-      "Fine-tuning": 1
+      "RAG": 4164,
+      "AI Agents": 972,
+      "Fine-tuning": 363,
+      "Prompt Engineering": 389,
+      "Chain of Thought": 2,
+      "Embeddings": 78,
+      "Multimodal": 138,
+      "RLHF": 36,
+      "Vector Search": 31
     },
-    "Other": {
-      "Evaluation": 2,
-      "Tool Use": 1,
-      "Product Strategy": 1,
-      "LLMs": 1,
-      "User Research": 1,
-      "Roadmapping": 1,
-      "Content Generation": 1,
-      "A/B Testing": 1,
-      "Research": 2,
-      "Fraud Detection": 1,
-      "Real-time ML": 1,
-      "AI Safety": 1,
-      "Red Teaming": 1,
-      "Data Labeling": 1,
-      "Vector DBs": 1,
-      "Architecture": 1
+    "LLM Providers": {
+      "Claude": 115,
+      "Gemini": 103,
+      "Llama": 143,
+      "OpenAI": 282,
+      "GPT-4": 10,
+      "Hugging Face": 65,
+      "Anthropic": 82,
+      "Cohere": 157,
+      "Mistral": 4
     },
-    "LLM Frameworks": {
-      "LangChain": 2
-    },
-    "ML Frameworks": {
-      "PyTorch": 2,
-      "Transformers": 2,
-      "JAX": 1,
-      "TensorFlow": 1
-    },
-    "Cloud/Infrastructure": {
-      "Kubernetes": 1,
-      "Docker": 1,
-      "AWS": 2,
-      "MLflow": 1,
-      "Bedrock": 1,
-      "SageMaker": 1
+    "Languages": {
+      "Rust": 2420,
+      "Python": 2236,
+      "Go": 456,
+      "JavaScript": 437,
+      "TypeScript": 344
     },
     "Vector Databases": {
-      "Pinecone": 1
+      "Chroma": 15,
+      "FAISS": 56,
+      "Pinecone": 72,
+      "Weaviate": 63,
+      "pgvector": 10,
+      "Milvus": 8,
+      "Qdrant": 7
+    },
+    "ML Frameworks": {
+      "PyTorch": 411,
+      "TensorFlow": 351,
+      "Transformers": 75,
+      "scikit-learn": 237,
+      "JAX": 111,
+      "Keras": 43
+    },
+    "LLM Frameworks": {
+      "LangChain": 258,
+      "LlamaIndex": 50,
+      "AutoGen": 35,
+      "DSPy": 4,
+      "CrewAI": 18,
+      "Haystack": 4,
+      "Semantic Kernel": 114
     }
   },
   "categories": {
-    "Prompt Engineer": 3,
-    "LLM Application Developer": 2,
-    "AI/ML Engineer": 2,
-    "AI Agent Developer": 1,
-    "ML Ops Engineer": 1,
-    "AI Product Manager": 1,
-    "Research Engineer": 1,
-    "AI Safety/Red Team": 1
+    "Other AI Role": 5061,
+    "AI/ML Engineer": 380,
+    "Research Engineer": 259,
+    "Data Scientist": 93,
+    "MLOps Engineer": 15,
+    "AI Product Manager": 9,
+    "AI Agent Developer": 7,
+    "Prompt Engineer": 1,
+    "AI Safety": 1,
+    "RAG Engineer": 1
   },
   "experience_levels": {
-    "senior": 7,
-    "mid": 4,
-    "entry": 1
+    "senior": 5409,
+    "mid": 316,
+    "entry": 102
+  },
+  "seniority_breakdown": {
+    "Mid": 3017,
+    "Senior": 2390,
+    "Entry": 78,
+    "VP": 52,
+    "C-Level": 275,
+    "Director": 15
   },
   "remote_breakdown": {
-    "hybrid": 6,
-    "remote": 5,
-    "onsite": 1
+    "onsite": 4154,
+    "remote": 1673
   },
-  "top_metros": {},
+  "top_metros": {
+    "San Francisco": 832,
+    "Remote": 586,
+    "New York": 556,
+    "Los Angeles": 515,
+    "Austin": 407,
+    "Seattle": 399,
+    "Boston": 273,
+    "Chicago": 35,
+    "Denver": 24
+  },
+  "company_stages": {
+    "Unknown": 2693,
+    "Startup (Seed)": 1519,
+    "Enterprise/Public": 1404,
+    "Startup (Series A-B)": 156,
+    "Growth (Series C+)": 55
+  },
+  "tech_companies": 5827,
+  "tech_percentage": 100.0,
+  "data_quality_breakdown": {
+    "Good": 1257,
+    "Premium": 4570
+  },
   "salary_stats": {
-    "min": 130000,
-    "max": 320000,
-    "median": 250000,
-    "avg": 237500,
-    "count_with_salary": 12
+    "min": 3000,
+    "max": 960000,
+    "median": 215400,
+    "avg": 211342,
+    "count_with_salary": 4570
+  },
+  "salary_by_category": {
+    "Other AI Role": {
+      "median": 212800,
+      "avg": 208725,
+      "count": 3916
+    },
+    "AI/ML Engineer": {
+      "median": 201200,
+      "avg": 210524,
+      "count": 294
+    },
+    "AI Safety": {
+      "median": 181000,
+      "avg": 181000,
+      "count": 1
+    },
+    "Research Engineer": {
+      "median": 260000,
+      "avg": 252667,
+      "count": 253
+    },
+    "Data Scientist": {
+      "median": 215300,
+      "avg": 209766,
+      "count": 83
+    },
+    "MLOps Engineer": {
+      "median": 217200,
+      "avg": 229000,
+      "count": 13
+    },
+    "AI Product Manager": {
+      "median": 190000,
+      "avg": 212180,
+      "count": 8
+    },
+    "AI Agent Developer": {
+      "median": 223400,
+      "avg": 223400,
+      "count": 1
+    },
+    "RAG Engineer": {
+      "median": 160000,
+      "avg": 160000,
+      "count": 1
+    }
+  },
+  "salary_by_seniority": {
+    "Mid": {
+      "median": 193500,
+      "avg": 188536,
+      "count": 2211
+    },
+    "Senior": {
+      "median": 235200,
+      "avg": 231510,
+      "count": 2029
+    },
+    "Entry": {
+      "median": 120000,
+      "avg": 135840,
+      "count": 56
+    },
+    "VP": {
+      "median": 230000,
+      "avg": 270720,
+      "count": 35
+    },
+    "C-Level": {
+      "median": 265600,
+      "avg": 259734,
+      "count": 229
+    },
+    "Director": {
+      "median": 307900,
+      "avg": 268700,
+      "count": 10
+    }
+  },
+  "buzzwords": {
+    "cross-functional": 2429,
+    "innovative": 2327,
+    "scalable": 1984,
+    "collaborative": 1671,
+    "end-to-end": 1360,
+    "cutting-edge": 1094,
+    "dynamic": 1045,
+    "fast-paced": 1007,
+    "world-class": 593,
+    "next-generation": 501,
+    "state-of-the-art": 468,
+    "full-stack": 286,
+    "production-ready": 158,
+    "enterprise-grade": 139,
+    "groundbreaking": 123,
+    "revolutionary": 83
+  },
+  "red_flags": {
+    "overwork_signals": 1199,
+    "unrealistic_requirements": 740,
+    "vague_compensation": 534,
+    "vague_role": 103
   }
 }
