@@ -213,6 +213,48 @@ METRO_MAPPING = {
     "remote": "Remote",
 }
 
+# Seniority classification keywords
+SENIORITY_PATTERNS = {
+    'C-Level': ['chief', 'cto', 'cio', 'cao', 'cdo', 'head of ai', 'vp of ai'],
+    'VP': ['vice president', 'vp ', ' vp,', 'vp,'],
+    'Director': ['director', 'head of'],
+    'Senior': ['senior', 'sr.', 'sr ', 'staff', 'principal', 'lead'],
+    'Mid': ['mid', 'ii', 'iii'],
+    'Entry': ['junior', 'jr.', 'jr ', 'entry', 'associate', ' i ', ' 1 '],
+}
+
+# Tech company indicators
+TECH_COMPANY_KEYWORDS = [
+    'software', 'saas', 'tech', 'ai', 'cloud', 'data', 'platform',
+    'digital', 'cyber', 'fintech', 'analytics', 'machine learning',
+    'automation', 'api', 'infrastructure', 'labs', 'systems',
+    'intelligence', 'robotics', 'computing', 'neural', 'cognitive'
+]
+
+# Company stage indicators (from funding/description)
+COMPANY_STAGE_PATTERNS = {
+    'Startup (Seed)': ['seed', 'pre-seed', 'angel'],
+    'Startup (Series A-B)': ['series a', 'series b', 'early stage', 'early-stage'],
+    'Growth (Series C+)': ['series c', 'series d', 'series e', 'growth stage', 'growth-stage', 'late stage'],
+    'Enterprise/Public': ['fortune 500', 'fortune500', 'public company', 'nasdaq', 'nyse', 'enterprise'],
+}
+
+# Buzzwords to track for insights
+AI_BUZZWORDS = [
+    'production-ready', 'scalable', 'enterprise-grade', 'state-of-the-art',
+    'cutting-edge', 'innovative', 'groundbreaking', 'revolutionary',
+    'next-generation', 'world-class', 'fast-paced', 'dynamic',
+    'collaborative', 'cross-functional', 'end-to-end', 'full-stack'
+]
+
+# Red flag patterns for job postings
+RED_FLAG_PATTERNS = {
+    'vague_compensation': ['competitive salary', 'competitive compensation', 'commensurate with experience'],
+    'unrealistic_requirements': ['10+ years', '10 years', 'phd required', 'must have phd'],
+    'overwork_signals': ['wear many hats', 'fast-paced', 'startup mentality', 'hustle', '24/7'],
+    'vague_role': ['various duties', 'other duties as assigned', 'jack of all trades'],
+}
+
 
 def extract_skills(text):
     """Extract skills from job description"""
@@ -282,9 +324,116 @@ def normalize_metro(location):
     return None
 
 
+def classify_seniority(title):
+    """Classify job seniority level from title"""
+    if not title or pd.isna(title):
+        return 'Mid'
+
+    title_lower = str(title).lower()
+
+    for level, patterns in SENIORITY_PATTERNS.items():
+        for pattern in patterns:
+            if pattern in title_lower:
+                return level
+
+    return 'Mid'
+
+
+def detect_tech_company(company, description=''):
+    """Detect if company is a tech company"""
+    if not company:
+        return False
+
+    text = f"{company} {description}".lower()
+    return any(keyword in text for keyword in TECH_COMPANY_KEYWORDS)
+
+
+def detect_company_stage(description):
+    """Detect company stage from job description"""
+    if not description or pd.isna(description):
+        return 'Unknown'
+
+    desc_lower = str(description).lower()
+
+    for stage, patterns in COMPANY_STAGE_PATTERNS.items():
+        for pattern in patterns:
+            if pattern in desc_lower:
+                return stage
+
+    return 'Unknown'
+
+
+def calculate_data_quality(row):
+    """Calculate data quality score (0-100)"""
+    score = 0
+
+    # Has description (40 points)
+    if pd.notna(row.get('description')) and len(str(row.get('description', ''))) > 100:
+        score += 40
+
+    # Has salary (30 points)
+    if pd.notna(row.get('min_amount')) or pd.notna(row.get('max_amount')):
+        score += 30
+
+    # Has location (15 points)
+    if pd.notna(row.get('location')) and str(row.get('location', '')) not in ['', 'nan', 'None']:
+        score += 15
+
+    # Has company (15 points)
+    if pd.notna(row.get('company')) and str(row.get('company', '')) not in ['', 'nan', 'None', 'Unknown']:
+        score += 15
+
+    return score
+
+
+def get_data_quality_label(score):
+    """Convert quality score to label"""
+    if score >= 85:
+        return 'Premium'
+    elif score >= 55:
+        return 'Good'
+    else:
+        return 'Basic'
+
+
+def extract_red_flags(description):
+    """Extract red flags from job description"""
+    if not description or pd.isna(description):
+        return []
+
+    desc_lower = str(description).lower()
+    flags = []
+
+    for flag_type, patterns in RED_FLAG_PATTERNS.items():
+        for pattern in patterns:
+            if pattern in desc_lower:
+                flags.append(flag_type)
+                break
+
+    return flags
+
+
+def extract_buzzwords(description):
+    """Extract buzzwords from job description"""
+    if not description or pd.isna(description):
+        return []
+
+    desc_lower = str(description).lower()
+    found = []
+
+    for buzzword in AI_BUZZWORDS:
+        if buzzword in desc_lower:
+            found.append(buzzword)
+
+    return found
+
+
 def process_jobs(df):
     """Process raw job data into enriched format"""
     jobs = []
+    today = date.today()
+    import_date = today.isoformat()
+    import_week = today.strftime('%Y-W%W')
 
     for _, row in df.iterrows():
         # Skip if no title
@@ -320,11 +469,16 @@ def process_jobs(df):
         description = str(row.get('description', '')) if pd.notna(row.get('description')) else ''
         location = str(row.get('location', '')) if pd.notna(row.get('location')) else ''
         title = str(row.get('title', ''))
+        company = str(row.get('company', '')) if pd.notna(row.get('company')) else 'Unknown'
+
+        # Calculate data quality
+        row_dict = row.to_dict()
+        data_quality_score = calculate_data_quality(row_dict)
 
         job = {
             'job_id': str(row.get('id', ''))[:12] if pd.notna(row.get('id')) else '',
             'title': title,
-            'company': str(row.get('company', '')) if pd.notna(row.get('company')) else 'Unknown',
+            'company': company,
             'location': location,
             'metro': normalize_metro(location),
             'remote_type': determine_remote_type(row),
@@ -335,10 +489,22 @@ def process_jobs(df):
             'max_amount': salary_max,  # Alias for compatibility
             'salary_type': salary_type,
             'experience_level': determine_experience_level(title, description),
+            'seniority': classify_seniority(title),
             'job_category': categorize_job(title),
             'skills_tags': extract_skills(description),
+            'is_tech': detect_tech_company(company, description),
+            'company_stage': detect_company_stage(description),
+            'data_quality_score': data_quality_score,
+            'data_quality': get_data_quality_label(data_quality_score),
+            'has_description': bool(description and len(description) > 100),
+            'has_salary': bool(salary_min or salary_max),
+            'red_flags': extract_red_flags(description),
+            'buzzwords': extract_buzzwords(description),
             'date_posted': str(row.get('date_posted', ''))[:10] if pd.notna(row.get('date_posted')) else None,
             'date_scraped': date.today().isoformat(),
+            'import_date': import_date,
+            'import_week': import_week,
+            'week_added': import_date,
             'source': str(row.get('site', 'indeed')),
             'source_url': str(row.get('job_url', row.get('job_url_direct', ''))) if pd.notna(row.get('job_url', row.get('job_url_direct'))) else '',
             'job_url_direct': str(row.get('job_url', row.get('job_url_direct', ''))) if pd.notna(row.get('job_url', row.get('job_url_direct'))) else '',
@@ -354,23 +520,42 @@ def process_jobs(df):
 def generate_market_intelligence(jobs):
     """Generate market intelligence data from jobs"""
     all_skills = []
+    all_buzzwords = []
+    all_red_flags = []
     categories_count = Counter()
     experience_count = Counter()
+    seniority_count = Counter()
     remote_count = Counter()
     metro_count = Counter()
+    company_stage_count = Counter()
+    tech_count = 0
+    data_quality_count = Counter()
 
     # Salary stats
     salaries = []
+    salaries_by_category = {}
+    salaries_by_seniority = {}
 
     for job in jobs:
         # Skills
         all_skills.extend(job.get('skills_tags', []))
 
+        # Buzzwords
+        all_buzzwords.extend(job.get('buzzwords', []))
+
+        # Red flags
+        all_red_flags.extend(job.get('red_flags', []))
+
         # Category
-        categories_count[job.get('job_category', 'Other')] += 1
+        cat = job.get('job_category', 'Other')
+        categories_count[cat] += 1
 
         # Experience
         experience_count[job.get('experience_level', 'mid')] += 1
+
+        # Seniority
+        seniority = job.get('seniority', 'Mid')
+        seniority_count[seniority] += 1
 
         # Remote
         remote_count[job.get('remote_type', 'onsite')] += 1
@@ -379,12 +564,37 @@ def generate_market_intelligence(jobs):
         if job.get('metro'):
             metro_count[job['metro']] += 1
 
+        # Company stage
+        stage = job.get('company_stage', 'Unknown')
+        company_stage_count[stage] += 1
+
+        # Tech company
+        if job.get('is_tech'):
+            tech_count += 1
+
+        # Data quality
+        quality = job.get('data_quality', 'Basic')
+        data_quality_count[quality] += 1
+
         # Salary
         if job.get('salary_max'):
-            salaries.append(job['salary_max'])
+            sal = job['salary_max']
+            salaries.append(sal)
+
+            # By category
+            if cat not in salaries_by_category:
+                salaries_by_category[cat] = []
+            salaries_by_category[cat].append(sal)
+
+            # By seniority
+            if seniority not in salaries_by_seniority:
+                salaries_by_seniority[seniority] = []
+            salaries_by_seniority[seniority].append(sal)
 
     # Skill counts
     skill_counts = Counter(all_skills)
+    buzzword_counts = Counter(all_buzzwords)
+    red_flag_counts = Counter(all_red_flags)
 
     # Group by category
     skills_by_category = {}
@@ -406,6 +616,28 @@ def generate_market_intelligence(jobs):
             'count_with_salary': len(salaries),
         }
 
+    # Salary by category
+    salary_by_category = {}
+    for cat, sals in salaries_by_category.items():
+        if sals:
+            sals.sort()
+            salary_by_category[cat] = {
+                'median': sals[len(sals)//2],
+                'avg': sum(sals) // len(sals),
+                'count': len(sals),
+            }
+
+    # Salary by seniority
+    salary_by_seniority = {}
+    for sen, sals in salaries_by_seniority.items():
+        if sals:
+            sals.sort()
+            salary_by_seniority[sen] = {
+                'median': sals[len(sals)//2],
+                'avg': sum(sals) // len(sals),
+                'count': len(sals),
+            }
+
     intel = {
         'date': date.today().isoformat(),
         'total_jobs': len(jobs),
@@ -413,9 +645,18 @@ def generate_market_intelligence(jobs):
         'skills_by_category': skills_by_category,
         'categories': dict(categories_count.most_common()),
         'experience_levels': dict(experience_count),
+        'seniority_breakdown': dict(seniority_count),
         'remote_breakdown': dict(remote_count),
         'top_metros': dict(metro_count.most_common(10)),
+        'company_stages': dict(company_stage_count.most_common()),
+        'tech_companies': tech_count,
+        'tech_percentage': round(tech_count / len(jobs) * 100, 1) if jobs else 0,
+        'data_quality_breakdown': dict(data_quality_count),
         'salary_stats': salary_stats,
+        'salary_by_category': salary_by_category,
+        'salary_by_seniority': salary_by_seniority,
+        'buzzwords': dict(buzzword_counts.most_common(20)),
+        'red_flags': dict(red_flag_counts.most_common()),
     }
 
     return intel
@@ -472,12 +713,30 @@ def main():
     for cat, count in categories.most_common():
         print(f"   {cat}: {count}")
 
+    # Seniority breakdown
+    seniority = Counter(job['seniority'] for job in jobs)
+    print("\n By seniority:")
+    for level, count in seniority.most_common():
+        pct = (count / len(jobs) * 100) if jobs else 0
+        print(f"   {level}: {count} ({pct:.1f}%)")
+
     # Remote breakdown
     remote = Counter(job['remote_type'] for job in jobs)
     print("\n Remote breakdown:")
     for rtype, count in remote.items():
         pct = (count / len(jobs) * 100) if jobs else 0
         print(f"   {rtype}: {count} ({pct:.1f}%)")
+
+    # Data quality breakdown
+    quality = Counter(job['data_quality'] for job in jobs)
+    print("\n Data quality:")
+    for q, count in quality.most_common():
+        pct = (count / len(jobs) * 100) if jobs else 0
+        print(f"   {q}: {count} ({pct:.1f}%)")
+
+    # Tech company stats
+    tech_count = sum(1 for job in jobs if job.get('is_tech'))
+    print(f"\n Tech companies: {tech_count} ({tech_count/len(jobs)*100:.1f}%)")
 
     # Salary stats
     salaries = [j['salary_max'] for j in jobs if j.get('salary_max')]
@@ -506,8 +765,11 @@ def main():
     csv_filename = f"{DATA_DIR}/ai_jobs_{date.today().strftime('%Y%m%d')}.csv"
     df_output = pd.DataFrame(jobs)
 
-    # Convert skills_tags list to string for CSV
-    df_output['skills_tags'] = df_output['skills_tags'].apply(lambda x: ','.join(x) if isinstance(x, list) else x)
+    # Convert list fields to strings for CSV
+    list_columns = ['skills_tags', 'red_flags', 'buzzwords']
+    for col in list_columns:
+        if col in df_output.columns:
+            df_output[col] = df_output[col].apply(lambda x: ','.join(x) if isinstance(x, list) else x)
 
     df_output.to_csv(csv_filename, index=False)
     print(f" Saved: {csv_filename}")

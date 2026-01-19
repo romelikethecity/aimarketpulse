@@ -35,26 +35,27 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install pandas numpy
+        run: pip install pandas numpy matplotlib
 
       - name: Create directories
         run: |
-          mkdir -p site/jobs site/salaries site/insights site/assets
+          mkdir -p site/jobs site/salaries site/insights site/assets site/companies site/tools
           # Preserve existing static pages
-          if [ -d "tools" ]; then cp -r tools site/; fi
           if [ -d "about" ]; then cp -r about site/; fi
           if [ -d "join" ]; then cp -r join site/; fi
-          if [ -f "index.html" ]; then cp index.html site/; fi
           if [ -d "assets" ]; then cp -r assets site/; fi
 
       - name: Fix history file naming
         run: |
-          # Rename old history file if it exists (was matching ai_jobs_*.csv pattern)
+          # Rename old history file if it exists
           if [ -f "data/ai_jobs_history.csv" ]; then
             mv data/ai_jobs_history.csv data/job_count_history.csv
             echo "Renamed ai_jobs_history.csv to job_count_history.csv"
           fi
 
+      # ============================================================
+      # STEP 1: DATA PIPELINE
+      # ============================================================
       - name: Enrich job data
         run: python scripts/enrich_jobs.py
         continue-on-error: true
@@ -63,18 +64,33 @@ jobs:
         run: python scripts/merge_to_master.py
         continue-on-error: true
 
+      # ============================================================
+      # STEP 2: ANALYSIS & CHARTS
+      # ============================================================
+      - name: Generate trend graphs
+        run: python scripts/generate_graphs.py
+        continue-on-error: true
+
+      - name: Generate compensation analysis
+        run: python scripts/ai_comp_aggregator.py --all
+        continue-on-error: true
+
+      - name: Generate insights charts
+        run: python scripts/generate_insights_charts.py
+        continue-on-error: true
+
+      # ============================================================
+      # STEP 3: SITE GENERATION
+      # ============================================================
+      - name: Generate homepage
+        run: python scripts/generate_homepage.py
+        continue-on-error: true
+
       - name: Generate job board
         run: python scripts/generate_job_board.py
 
       - name: Generate individual job pages
         run: python scripts/generate_job_pages.py
-
-      - name: Debug - Show data files
-        run: |
-          echo "=== Data directory contents ==="
-          ls -la data/
-          echo "=== First few lines of CSV ==="
-          head -3 data/ai_jobs_*.csv || echo "No CSV found"
 
       - name: Generate salary pages
         run: |
@@ -89,17 +105,37 @@ jobs:
       - name: Generate category pages
         run: python scripts/generate_category_pages.py
 
+      - name: Generate company pages
+        run: python scripts/generate_company_pages.py
+        continue-on-error: true
+
+      - name: Generate tools pages
+        run: python scripts/generate_tools_pages.py
+        continue-on-error: true
+
       - name: Generate insights page
         run: python scripts/generate_insights_page.py
 
+      # ============================================================
+      # STEP 4: FINALIZATION
+      # ============================================================
       - name: Generate sitemap
         run: python scripts/generate_sitemap.py
+
+      - name: Debug - Show generated files
+        run: |
+          echo "=== Data directory contents ==="
+          ls -la data/
+          echo "=== Site directory structure ==="
+          find site -type d | head -20
+          echo "=== Asset files ==="
+          ls -la site/assets/ || echo "No assets"
 
       - name: Commit generated site
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data/*.csv data/*.json data/*.txt site/ || true
+          git add data/*.csv data/*.json data/*.txt data/*.md site/ || true
           git diff --staged --quiet || git commit -m "Update site - $(date +%Y-%m-%d) [skip ci]"
           git push || true
 
