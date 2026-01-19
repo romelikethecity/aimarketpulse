@@ -1,369 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AI job board for Prompt Engineers, AI Engineers, ML Engineers, and AI professionals. Real salary data, market intelligence, and community for your AI career.">
-  <meta name="keywords" content="prompt engineer jobs, AI engineer jobs, ML engineer jobs, AI careers, prompt engineering salary">
-  
-  <title>PE Collective — AI Jobs & Market Intelligence for Prompt Engineers</title>
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="PE Collective — AI Jobs for Prompt Engineers">
-  <meta property="og:description" content="The job board built by AI professionals, for AI professionals. Real jobs, real salaries, no recruiter spin.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pecollective.com">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="assets/logo.jpeg">
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PE Collective | AI & Prompt Engineering Jobs</title>
+    <meta name="description" content="Find the best AI, ML, and Prompt Engineering jobs. 5827 open roles tracked with salary data and market insights.">
+
+    <link rel="canonical" href="https://pecollective.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pecollective.com/">
+    <meta property="og:title" content="PE Collective | AI & Prompt Engineering Jobs">
+    <meta property="og:description" content="Find the best AI, ML, and Prompt Engineering jobs. 5827 open roles tracked.">
+    <meta property="og:site_name" content="PE Collective">
+    <meta property="og:image" content="https://pecollective.com/assets/social_preview.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PE Collective | AI & Prompt Engineering Jobs">
+    <meta name="twitter:description" content="Find the best AI, ML, and Prompt Engineering jobs.">
+
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #334155;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --accent: #22d3ee;
+            --accent-gold: #f5a623;
+            --success: #10b981;
+            --danger: #ef4444;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navigation */
+        nav {
+            background: var(--bg-secondary);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--bg-card);
+        }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-cta {
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .hero-cta {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Market Pulse */
+        .market-pulse {
+            background: var(--bg-secondary);
+            padding: 3rem 0;
+            border-top: 1px solid var(--bg-card);
+            border-bottom: 1px solid var(--bg-card);
+        }
+        .market-pulse h2 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        .market-pulse .subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .stat-value.positive { color: var(--success); }
+        .stat-value.negative { color: var(--danger); }
+        .stat-label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Featured Jobs */
+        .featured-jobs {
+            padding: 4rem 0;
+        }
+        .featured-jobs h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .job-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--bg-card);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .job-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+        .job-category {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .job-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .job-company {
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+        .job-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        .job-salary {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+        .view-all {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .view-all a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 2rem 0;
+            border-top: 1px solid var(--bg-card);
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; }
+        .footer-links a:hover { color: var(--accent); }
+        .footer-copyright { color: var(--text-secondary); font-size: 0.875rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            footer .container { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
-  
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <div class="header__inner">
-        <a href="./" class="header__logo">
-          <img src="assets/logo.jpeg" alt="PE Collective Logo">
-          <span>PE Collective</span>
-        </a>
-        
-        <nav class="header__nav">
-          <a href="jobs/">AI Jobs</a>
-          <a href="salaries/">Salaries</a>
-          <a href="tools/">Tools</a>
-          <a href="insights/">Market Intel</a>
-          <a href="about/">About</a>
-        </nav>
-        
-        <div class="header__cta">
-          <a href="join/" class="btn btn--secondary btn--small">Join Community</a>
-          <a href="https://ainewsdigest.substack.com" target="_blank" rel="noopener" class="btn btn--primary btn--small">Newsletter</a>
+    <nav>
+        <div class="container">
+            <a href="/" class="nav-brand">PE Collective</a>
+            <div class="nav-links">
+                <a href="/jobs/">AI Jobs</a>
+                <a href="/salaries/">Salaries</a>
+                <a href="/insights/">Insights</a>
+                <a href="/tools/">Tools</a>
+            </div>
+            <a href="/join/" class="nav-cta">Join Community</a>
         </div>
-      </div>
-    </div>
-  </header>
+    </nav>
 
-  <!-- Main Content -->
-  <main id="main">
-    <!-- Hero Section -->
     <section class="hero">
-      <div class="container">
-        <div class="hero__badge">
-          <span class="hero__badge-dot"></span>
-          <span>Updated weekly with fresh AI roles</span>
+        <div class="container">
+            <h1>Find Your Next AI Role</h1>
+            <p>Curated AI, Machine Learning, and Prompt Engineering jobs with salary transparency and market insights.</p>
+            <a href="/jobs/" class="hero-cta">Browse 5827 Open Roles →</a>
         </div>
-        
-        <h1 class="hero__title">
-          Find Your Next <span>AI Career Move</span>
-        </h1>
-        
-        <p class="hero__subtitle">
-          The job board built by AI professionals, for AI professionals. Real jobs, real salaries, and market intelligence without the recruiter spin.
-        </p>
-        
-        <div class="hero__actions">
-          <a href="jobs/" class="btn btn--primary btn--large">Browse All Jobs</a>
-          <a href="join/" class="btn btn--secondary btn--large">Join the Community</a>
-        </div>
-        
-        <!-- Stats -->
-        <div class="stats">
-          <div class="stat-card">
-            <div class="stat-card__value" id="stat-jobs">247</div>
-            <div class="stat-card__label">Active AI Jobs</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card__value">$185k</div>
-            <div class="stat-card__label">Median Salary</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card__value">68%</div>
-            <div class="stat-card__label">Remote Roles</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card__value">1.3k</div>
-            <div class="stat-card__label">Community Members</div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- Featured Jobs Section -->
-    <section class="section">
-      <div class="container">
-        <div class="section__header">
-          <h2 class="section__title">Featured AI Roles</h2>
-          <p class="section__subtitle">Hand-picked opportunities from top AI companies. Updated every week.</p>
+    <section class="market-pulse">
+        <div class="container">
+            <h2>Market Pulse</h2>
+            <p class="subtitle">AI Job Market as of January 19, 2026</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">5,827</div>
+                    <div class="stat-label">Open Roles</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value positive">↑ 48458%</div>
+                    <div class="stat-label">Week over Week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">29%</div>
+                    <div class="stat-label">Remote Jobs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">$212K</div>
+                    <div class="stat-label">Avg Max Salary</div>
+                </div>
+            </div>
         </div>
-        
-        <div class="jobs-grid" id="featured-jobs">
-          <!-- Jobs loaded dynamically -->
-          <a href="#" class="job-card">
-            <div class="job-card__content">
-              <span class="job-card__company">Anthropic</span>
-              <h3 class="job-card__title">Senior Prompt Engineer</h3>
-              <div class="job-card__meta">
-                <span class="job-card__tag">San Francisco, CA</span>
-                <span class="job-card__tag job-card__tag--remote">Hybrid</span>
-                <span class="job-card__tag">Senior</span>
-              </div>
-              <div class="job-card__meta">
-                <span class="job-card__tag">Claude</span>
-                <span class="job-card__tag">Python</span>
-                <span class="job-card__tag">RAG</span>
-              </div>
-            </div>
-            <div class="job-card__salary">$180k – $250k</div>
-          </a>
-          
-          <a href="#" class="job-card">
-            <div class="job-card__content">
-              <span class="job-card__company">OpenAI</span>
-              <h3 class="job-card__title">AI Agent Developer</h3>
-              <div class="job-card__meta">
-                <span class="job-card__tag job-card__tag--remote">Remote</span>
-                <span class="job-card__tag">Senior</span>
-              </div>
-              <div class="job-card__meta">
-                <span class="job-card__tag">LangChain</span>
-                <span class="job-card__tag">GPT-4</span>
-                <span class="job-card__tag">Python</span>
-              </div>
-            </div>
-            <div class="job-card__salary">$200k – $300k</div>
-          </a>
-          
-          <a href="#" class="job-card">
-            <div class="job-card__content">
-              <span class="job-card__company">Cohere</span>
-              <h3 class="job-card__title">LLM Engineer</h3>
-              <div class="job-card__meta">
-                <span class="job-card__tag">Toronto, Canada</span>
-                <span class="job-card__tag job-card__tag--remote">Hybrid</span>
-                <span class="job-card__tag">Mid-Level</span>
-              </div>
-              <div class="job-card__meta">
-                <span class="job-card__tag">PyTorch</span>
-                <span class="job-card__tag">Transformers</span>
-                <span class="job-card__tag">RAG</span>
-              </div>
-            </div>
-            <div class="job-card__salary">$150k – $200k</div>
-          </a>
-          
-          <a href="#" class="job-card">
-            <div class="job-card__content">
-              <span class="job-card__company">Notion</span>
-              <h3 class="job-card__title">AI Product Manager</h3>
-              <div class="job-card__meta">
-                <span class="job-card__tag">New York, NY</span>
-                <span class="job-card__tag job-card__tag--remote">Remote</span>
-                <span class="job-card__tag">Senior</span>
-              </div>
-              <div class="job-card__meta">
-                <span class="job-card__tag">OpenAI</span>
-                <span class="job-card__tag">Claude</span>
-                <span class="job-card__tag">RAG</span>
-              </div>
-            </div>
-            <div class="job-card__salary">$170k – $230k</div>
-          </a>
-          
-          <a href="#" class="job-card">
-            <div class="job-card__content">
-              <span class="job-card__company">Databricks</span>
-              <h3 class="job-card__title">ML Ops Engineer</h3>
-              <div class="job-card__meta">
-                <span class="job-card__tag">Seattle, WA</span>
-                <span class="job-card__tag">On-site</span>
-                <span class="job-card__tag">Mid-Level</span>
-              </div>
-              <div class="job-card__meta">
-                <span class="job-card__tag">Kubernetes</span>
-                <span class="job-card__tag">AWS</span>
-                <span class="job-card__tag">MLflow</span>
-              </div>
-            </div>
-            <div class="job-card__salary">$160k – $220k</div>
-          </a>
-        </div>
-        
-        <div class="text-center mt-xl">
-          <a href="jobs/" class="btn btn--primary btn--large">View All Jobs →</a>
-        </div>
-      </div>
     </section>
 
-    <!-- Newsletter CTA -->
-    <section class="section">
-      <div class="container container--narrow">
-        <div class="cta-section">
-          <h2 class="cta-section__title">Get Smarter About AI in 3 Minutes</h2>
-          <p class="cta-section__text">
-            Weekly AI market intelligence: job trends, salary movements, skills in demand, and strategic analysis.
-          </p>
-          <form class="cta-section__form" action="https://ainewsdigest.substack.com/subscribe" method="get" target="_blank">
-            <input type="email" name="email" placeholder="your@email.com" class="cta-section__input" required>
-            <button type="submit" class="btn btn--primary btn--large">Subscribe Free</button>
-          </form>
+    <section class="featured-jobs">
+        <div class="container">
+            <h2>Featured AI Jobs</h2>
+            <div class="jobs-grid">
+                
+        <div class="job-card">
+            <div class="job-category">Other AI Role</div>
+            <h3 class="job-title">Performance Engineer 6</h3>
+            <div class="job-company">Netflix</div>
+            <div class="job-meta">
+                <span class="job-location">Los Gatos, CA, US</span>
+                <span class="job-salary">$230K - $960K</span>
+            </div>
         </div>
-      </div>
+        
+        <div class="job-card">
+            <div class="job-category">Other AI Role</div>
+            <h3 class="job-title">Data Engineer (L5) - Ads</h3>
+            <div class="job-company">Netflix</div>
+            <div class="job-meta">
+                <span class="job-location">Remote, US</span>
+                <span class="job-salary">$170K - $720K</span>
+            </div>
+        </div>
+        
+        <div class="job-card">
+            <div class="job-category">Other AI Role</div>
+            <h3 class="job-title">Software Engineer 5 - Ads Finance</h3>
+            <div class="job-company">Netflix</div>
+            <div class="job-meta">
+                <span class="job-location">Los Gatos, CA, US</span>
+                <span class="job-salary">$100K - $720K</span>
+            </div>
+        </div>
+        
+        <div class="job-card">
+            <div class="job-category">Other AI Role</div>
+            <h3 class="job-title">Software Engineer L5, Ads Campaign Management</h3>
+            <div class="job-company">Netflix</div>
+            <div class="job-meta">
+                <span class="job-location">New York, NY, US</span>
+                <span class="job-salary">$100K - $720K</span>
+            </div>
+        </div>
+        
+        <div class="job-card">
+            <div class="job-category">Other AI Role</div>
+            <h3 class="job-title">Network for AI Sales Specialist - Financial Services Accounts</h3>
+            <div class="job-company">Hewlett Packard Enterprise | HPE</div>
+            <div class="job-meta">
+                <span class="job-location">New York, NY, US</span>
+                <span class="job-salary">$245K - $507K</span>
+            </div>
+        </div>
+        
+        <div class="job-card">
+            <div class="job-category">Other AI Role</div>
+            <h3 class="job-title">Global Program Leader, Sales Acceleration â€“ Cloud + AI Infrastructure</h3>
+            <div class="job-company">Cisco</div>
+            <div class="job-meta">
+                <span class="job-location">Boxborough, MA, US</span>
+                <span class="job-salary">$324K - $505K</span>
+            </div>
+        </div>
+        
+            </div>
+            <div class="view-all">
+                <a href="/jobs/">View All 5827 Jobs →</a>
+            </div>
+        </div>
     </section>
 
-    <!-- Tools Preview -->
-    <section class="section">
-      <div class="container">
-        <div class="section__header">
-          <h2 class="section__title">Essential AI Tools</h2>
-          <p class="section__subtitle">Reviews and comparisons of the tools every AI professional should know.</p>
+    <section class="cta-section">
+        <div class="container">
+            <h2>Stay Updated on AI Jobs</h2>
+            <p>Get weekly insights on the AI job market, salary trends, and top opportunities.</p>
+            <a href="/join/" class="hero-cta">Join the Community</a>
         </div>
-        
-        <div class="tools-grid">
-          <a href="tools/cursor/" class="tool-card">
-            <div class="tool-card__icon">⚡</div>
-            <h3 class="tool-card__name">Cursor</h3>
-            <span class="tool-card__category">AI Code Editor</span>
-            <p class="tool-card__description">The AI-first code editor that's replacing VS Code for many developers. Multi-file editing with Claude and GPT-4.</p>
-          </a>
-          
-          <a href="tools/github-copilot/" class="tool-card">
-            <div class="tool-card__icon">🤖</div>
-            <h3 class="tool-card__name">GitHub Copilot</h3>
-            <span class="tool-card__category">AI Pair Programming</span>
-            <p class="tool-card__description">Microsoft's AI coding assistant. Deep GitHub integration and the most widely adopted AI coding tool.</p>
-          </a>
-          
-          <a href="tools/cursor-vs-github-copilot/" class="tool-card">
-            <div class="tool-card__icon">⚔️</div>
-            <h3 class="tool-card__name">Cursor vs Copilot</h3>
-            <span class="tool-card__category">Comparison</span>
-            <p class="tool-card__description">Head-to-head comparison: which AI coding tool should you invest your time in learning?</p>
-          </a>
-        </div>
-        
-        <div class="text-center mt-xl">
-          <a href="tools/" class="btn btn--secondary btn--large">Browse All Tools →</a>
-        </div>
-      </div>
     </section>
 
-    <!-- Community CTA -->
-    <section class="section">
-      <div class="container container--narrow">
-        <div class="cta-section">
-          <h2 class="cta-section__title">Join 1,300+ AI Professionals</h2>
-          <p class="cta-section__text">
-            Connect with prompt engineers, AI engineers, and ML practitioners. Share job leads, get career advice, and stay ahead of the curve.
-          </p>
-          <a href="join/" class="btn btn--primary btn--large">Apply to Join →</a>
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="/jobs/">Jobs</a>
+                <a href="/salaries/">Salaries</a>
+                <a href="/insights/">Insights</a>
+                <a href="/about/">About</a>
+            </div>
+            <div class="footer-copyright">© 2026 PE Collective. All rights reserved.</div>
         </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <a href="./" class="footer__logo">
-            <img src="assets/logo.jpeg" alt="PE Collective">
-            <span>PE Collective</span>
-          </a>
-          <p class="footer__tagline">
-            The job board and community built by AI professionals, for AI professionals.
-          </p>
-        </div>
-        
-        <div class="footer__column">
-          <h4>Jobs</h4>
-          <nav class="footer__links">
-            <a href="jobs/">All Jobs</a>
-            <a href="jobs/?category=prompt-engineer">Prompt Engineer</a>
-            <a href="jobs/?category=ai-engineer">AI Engineer</a>
-            <a href="jobs/?category=ml-engineer">ML Engineer</a>
-            <a href="jobs/?remote=true">Remote Only</a>
-          </nav>
-        </div>
-        
-        <div class="footer__column">
-          <h4>Tools</h4>
-          <nav class="footer__links">
-            <a href="tools/">All Tools</a>
-            <a href="tools/cursor/">Cursor</a>
-            <a href="tools/github-copilot/">GitHub Copilot</a>
-            <a href="tools/cursor-vs-github-copilot/">Cursor vs Copilot</a>
-          </nav>
-        </div>
-        
-        <div class="footer__column">
-          <h4>Community</h4>
-          <nav class="footer__links">
-            <a href="join/">Join Us</a>
-            <a href="about/">About</a>
-            <a href="https://ainewsdigest.substack.com" target="_blank" rel="noopener">Newsletter</a>
-            <a href="https://twitter.com/pecollective" target="_blank" rel="noopener">Twitter</a>
-          </nav>
-        </div>
-      </div>
-      
-      <div class="footer__bottom">
-        <span>© 2025 PE Collective. Built with 🧠 for the AI community.</span>
-        <span>Part of the <a href="https://ainewsdigest.substack.com" target="_blank" rel="noopener">AI News Digest</a> network.</span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script>
-    // Animate stat numbers on scroll
-    const observerOptions = {
-      threshold: 0.5,
-      rootMargin: '0px'
-    };
-
-    const animateValue = (element, start, end, duration) => {
-      let startTimestamp = null;
-      const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const value = Math.floor(progress * (end - start) + start);
-        
-        // Format based on the type of stat
-        if (element.textContent.includes('k')) {
-          element.textContent = '$' + value + 'k';
-        } else if (element.textContent.includes('%')) {
-          element.textContent = value + '%';
-        } else {
-          element.textContent = value.toLocaleString();
-        }
-        
-        if (progress < 1) {
-          window.requestAnimationFrame(step);
-        }
-      };
-      window.requestAnimationFrame(step);
-    };
-
-    // Simple intersection observer for stats animation
-    const statCards = document.querySelectorAll('.stat-card__value');
-    let hasAnimated = false;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !hasAnimated) {
-          hasAnimated = true;
-          // Animation would go here if we want to animate numbers
-        }
-      });
-    }, observerOptions);
-
-    statCards.forEach(card => observer.observe(card));
-  </script>
+    </footer>
 </body>
 </html>
