@@ -11,10 +11,7 @@ from datetime import datetime
 import sys
 sys.path.insert(0, 'scripts')
 
-from templates import (
-    slugify, format_salary, generate_head, generate_nav, generate_footer,
-    BASE_URL, SITE_NAME
-)
+from templates import slugify, format_salary, BASE_URL, SITE_NAME
 
 DATA_DIR = 'data'
 SITE_DIR = 'site'
