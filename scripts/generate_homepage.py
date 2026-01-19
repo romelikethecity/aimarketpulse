@@ -9,13 +9,9 @@ import pandas as pd
 import os
 import glob
 from datetime import datetime
-import sys
-sys.path.insert(0, 'scripts')
-
-from templates import (
-    generate_head, generate_nav, generate_footer, generate_cta_section,
-    BASE_URL, SITE_NAME
-)
+# Configuration
+BASE_URL = 'https://pecollective.com'
+SITE_NAME = 'PE Collective'
 
 DATA_DIR = 'data'
 SITE_DIR = 'site'

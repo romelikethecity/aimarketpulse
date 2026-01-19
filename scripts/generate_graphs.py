@@ -52,7 +52,25 @@ def update_tracking_data():
     # Load existing tracking data or create new
     if os.path.exists(tracking_file):
         df_tracking = pd.read_csv(tracking_file)
-        df_tracking['Date'] = pd.to_datetime(df_tracking['Date'])
+        # Handle various column name cases
+        if 'Date' not in df_tracking.columns:
+            if 'date' in df_tracking.columns:
+                df_tracking = df_tracking.rename(columns={'date': 'Date'})
+            else:
+                # File exists but is malformed, recreate
+                df_tracking = pd.DataFrame(columns=['Date', 'AI Job Openings'])
+        if 'AI Job Openings' not in df_tracking.columns:
+            if 'ai_job_openings' in df_tracking.columns:
+                df_tracking = df_tracking.rename(columns={'ai_job_openings': 'AI Job Openings'})
+            elif 'job_count' in df_tracking.columns:
+                df_tracking = df_tracking.rename(columns={'job_count': 'AI Job Openings'})
+            elif 'count' in df_tracking.columns:
+                df_tracking = df_tracking.rename(columns={'count': 'AI Job Openings'})
+        try:
+            df_tracking['Date'] = pd.to_datetime(df_tracking['Date'])
+        except Exception as e:
+            print(f"  Warning: Could not parse dates, recreating tracking file: {e}")
+            df_tracking = pd.DataFrame(columns=['Date', 'AI Job Openings'])
     else:
         df_tracking = pd.DataFrame(columns=['Date', 'AI Job Openings'])
 
