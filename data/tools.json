@@ -62,7 +62,7 @@
       "logo": "/assets/logos/github_copilot_logo.png",
       "pros": ["Works in any IDE", "Strong enterprise features", "Cheaper than Cursor Pro", "GitHub integration"],
       "cons": ["Less aggressive than Cursor", "Chat less capable", "No multi-file Composer equivalent"],
-      "custom_page": false
+      "custom_page": true
     },
     {
       "name": "Claude Code",
@@ -75,7 +75,7 @@
       "logo": "/assets/logos/anthropic_logo.png",
       "pros": ["True agentic capabilities", "Can run commands autonomously", "Excellent reasoning", "No monthly fee"],
       "cons": ["Terminal-only", "Usage costs unpredictable", "Newer product", "Requires API key setup"],
-      "custom_page": false
+      "custom_page": true
     },
     {
       "name": "Windsurf",
@@ -88,7 +88,20 @@
       "logo": "/assets/logos/windsurf_logo.png",
       "pros": ["Strong free tier", "Cascade agentic feature", "Good performance"],
       "cons": ["Less mature than Cursor", "Smaller community", "Fewer integrations"],
-      "custom_page": false
+      "custom_page": true
+    },
+    {
+      "name": "v0 by Vercel",
+      "slug": "v0",
+      "category": "AI Coding Assistants",
+      "description": "Vercel's AI UI generator that creates production-ready React components from natural language prompts using shadcn/ui",
+      "pricing": "Free tier 200 credits/month, Premium $20/month",
+      "best_for": "Frontend developers building React/Tailwind apps who want to accelerate UI development",
+      "website": "https://v0.dev",
+      "logo": "/assets/logos/vercel_logo.png",
+      "pros": ["Production-quality React output", "shadcn/ui foundation", "Fast iteration", "Accessible by default"],
+      "cons": ["React/Tailwind only", "Credit system limiting", "Complex logic requires manual work"],
+      "custom_page": true
     },
     {
       "name": "OpenAI",
