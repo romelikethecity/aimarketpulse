@@ -3,1113 +3,1129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LlamaIndex Review 2025: The RAG Specialist Framework | AI Market Pulse</title>
-    <meta name="description" content="In-depth LlamaIndex review covering RAG, data indexing, and document Q&A. When to choose LlamaIndex over LangChain for your LLM application.">
+    <title>LlamaIndex - AI Tools | AI Market Pulse</title>
+    <meta name="description" content="Data framework for LLM applications. Specializes in connecting custom data sources to large language models. Find AI jobs requiring LlamaIndex expertise.">
     <link rel="canonical" href="https://theaimarketpulse.com/tools/llamaindex/">
 
     <!-- Open Graph Tags -->
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
     <meta property="og:url" content="https://theaimarketpulse.com/tools/llamaindex/">
-    <meta property="og:title" content="LlamaIndex Review 2025: The RAG Specialist Framework">
-    <meta property="og:description" content="In-depth LlamaIndex review covering RAG, data indexing, and document Q&A. When to choose LlamaIndex over LangChain for your LLM application.">
+    <meta property="og:title" content="LlamaIndex - AI Tools">
+    <meta property="og:description" content="Data framework for LLM applications. Specializes in connecting custom data sources to large language models. Find AI jobs requiring LlamaIndex expertise.">
     <meta property="og:site_name" content="AI Market Pulse">
     <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pe_collective">
-    <meta name="twitter:title" content="LlamaIndex Review 2025: The RAG Specialist Framework">
-    <meta name="twitter:description" content="In-depth LlamaIndex review covering RAG, data indexing, and document Q&A. When to choose LlamaIndex over LangChain.">
+    <meta name="twitter:title" content="LlamaIndex - AI Tools">
+    <meta name="twitter:description" content="Data framework for LLM applications. Specializes in connecting custom data sources to large language models. Find AI jobs requiring LlamaIndex expertise.">
     <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
 
     <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.jpeg">
 
-    <!-- Schema.org Article markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "LlamaIndex Review 2025: The RAG Specialist Framework",
-        "description": "In-depth LlamaIndex review covering RAG, data indexing, and document Q&A. When to choose LlamaIndex over LangChain for your LLM application.",
-        "author": {
-            "@type": "Organization",
-            "name": "AI Market Pulse"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "AI Market Pulse",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://theaimarketpulse.com/assets/logo.jpeg"
-            }
-        },
-        "datePublished": "2025-01-20",
-        "dateModified": "2025-01-20"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <style>
+        
+    :root {
+        /* Core colors - dark theme */
+        --bg-dark: #0f2d35;
+        --bg-darker: #0a1f25;
+        --bg-card: #132f38;
+        --bg-card-hover: #1a3d48;
+
+        --teal-primary: #1a4a56;
+        --teal-light: #2a6a7a;
+        --teal-accent: #3d8a9a;
+
+        --gold: #e8a87c;
+        --gold-light: #f0c4a8;
+        --gold-hover: #d4956a;
+
+        --text-primary: #ffffff;
+        --text-secondary: #a8c5cc;
+        --text-muted: #6a8a94;
+
+        --success: #4ade80;
+        --warning: #fbbf24;
+        --error: #f87171;
+
+        --border: rgba(255, 255, 255, 0.1);
+        --border-light: rgba(255, 255, 255, 0.05);
+
+        /* Legacy compatibility mappings */
+        --navy: #0f2d35;
+        --navy-light: #132f38;
+        --navy-medium: #1a4a56;
+        --navy-hover: #2a6a7a;
+        --gold-muted: #d4956a;
+        --gold-dark: #c4855c;
+        --green: #4ade80;
+        --green-dark: #22c55e;
+        --red: #f87171;
+        --gray-50: #0f2d35;
+        --gray-100: #132f38;
+        --gray-200: rgba(255, 255, 255, 0.1);
+        --gray-300: #6a8a94;
+        --gray-500: #6a8a94;
+        --gray-600: #a8c5cc;
+        --gray-700: #a8c5cc;
+        --gray-800: #ffffff;
+        --white: #ffffff;
     }
-    </script>
+
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-dark);
+        color: var(--text-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+    }
+
+    a {
+        color: var(--gold);
+        text-decoration: none;
+        transition: color 0.15s ease;
+    }
+
+    a:hover {
+        color: var(--gold-light);
+    }
+
+        
+    /* Navigation */
+    .site-header {
+        background: rgba(15, 45, 53, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 16px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: var(--text-primary);
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 1.125rem;
+    }
+
+    .logo img, .logo-img {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+    }
+
+    .logo:hover {
+        color: var(--text-primary);
+    }
+
+    .nav, .nav-links {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav a, .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        transition: color 0.15s;
+    }
+
+    .nav a:hover, .nav-links a:hover { color: var(--text-primary); }
+    .nav a.active { color: var(--text-primary); font-weight: 600; }
+
+    .nav-cta, .btn-subscribe {
+        background: var(--gold) !important;
+        color: var(--bg-darker) !important;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+    .nav-cta:hover, .btn-subscribe:hover {
+        background: var(--gold-hover) !important;
+        transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-weight: 500;
+    }
+    .btn-secondary:hover {
+        background: var(--bg-card);
+        border-color: var(--teal-light);
+    }
+
+    /* Mobile Navigation */
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-primary);
+    }
+    .mobile-nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .mobile-nav-overlay.active { opacity: 1; }
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        max-width: 85%;
+        height: 100vh;
+        background: var(--bg-darker);
+        z-index: 1000;
+        padding: 1.5rem;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+        transition: right 0.3s ease;
+        overflow-y: auto;
+    }
+    .mobile-nav.active { right: 0; }
+    .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav-header .logo-text {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    .mobile-nav-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-muted);
+    }
+    .mobile-nav-links {
+        list-style: none;
+        margin: 0 0 2rem 0;
+        padding: 0;
+    }
+    .mobile-nav-links li { border-bottom: 1px solid var(--border-light); }
+    .mobile-nav-links a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        text-decoration: none;
+    }
+    .mobile-nav-links a:hover { color: var(--text-primary); }
+    .mobile-nav-subscribe {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        background: var(--gold);
+        color: var(--bg-darker);
+        text-align: center;
+        font-weight: 600;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+    .mobile-nav-subscribe:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+    }
+
+    @media (max-width: 768px) {
+        .nav, .nav-links { display: none; }
+        .mobile-menu-btn { display: block; }
+        .mobile-nav-overlay { display: block; pointer-events: none; }
+        .mobile-nav-overlay.active { pointer-events: auto; }
+    }
+
+        
+    /* Layout */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    main { padding: 48px 0; }
+    .section { margin-bottom: 56px; }
+
+    /* Page Header */
+    .page-header {
+        background: var(--bg-darker);
+        padding: 48px 0 40px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 16px;
+    }
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--gold-light); }
+
+    .page-label {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 12px;
+    }
+
+    .page-header h1 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+    }
+
+    .page-header .lead {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 700px;
+        line-height: 1.7;
+    }
+
+        
+    /* Cards */
+    .tool-card, .job-card, .company-card, .salary-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.25s;
+    }
+
+    .tool-card:hover, .job-card:hover, .company-card:hover, .salary-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        width: fit-content;
+    }
+
+    .badge-live { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+    .badge-soon { background: rgba(106, 138, 148, 0.2); color: var(--text-muted); }
+    .badge-comparison { background: rgba(232, 168, 124, 0.15); color: var(--gold); }
+    .badge-remote { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+    .badge-salary { background: rgba(232, 168, 124, 0.15); color: var(--gold); }
+
+    /* Skill Tags */
+    .skill-tag {
+        display: inline-block;
+        padding: 2px 8px;
+        background: var(--bg-darker);
+        border-radius: 4px;
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+        margin-right: 6px;
+        margin-bottom: 6px;
+    }
+
+    /* Stats */
+    .stats-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    @media (max-width: 768px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+
+    .stat-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-align: center;
+        transition: all 0.25s;
+    }
+
+    .stat-box:hover {
+        border-color: var(--teal-light);
+        transform: translateY(-2px);
+    }
+
+    .stat-number {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gold);
+        line-height: 1;
+    }
+
+    .stat-number.green { color: var(--success); }
+    .stat-number.red { color: var(--error); }
+
+    .stat-label {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin-top: 8px;
+    }
+
+        
+    /* CTA Box */
+    .cta-box {
+        background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
+        color: var(--text-primary);
+        border-radius: 16px;
+        padding: 40px;
+        text-align: center;
+        margin: 40px 0;
+        border: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-box::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 60%;
+        height: 200%;
+        background: radial-gradient(ellipse, rgba(232, 168, 124, 0.1) 0%, transparent 60%);
+        pointer-events: none;
+    }
+
+    .cta-box h3 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+        position: relative;
+    }
+
+    .cta-box p {
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.15s;
+    }
+
+    .btn-gold {
+        background: var(--gold);
+        color: var(--bg-darker);
+    }
+    .btn-gold:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+        transform: translateY(-1px);
+        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+        background: var(--bg-card);
+        border-color: var(--teal-light);
+        color: var(--text-primary);
+    }
+
+        
+    /* Footer */
+    .site-footer, .footer {
+        background: var(--bg-darker);
+        border-top: 1px solid var(--border);
+        padding: 48px 0 24px;
+        margin-top: 64px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.875rem;
+        color: var(--text-muted);
+    }
+
+    .footer-content a, .footer a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.15s;
+    }
+    .footer-content a:hover, .footer a:hover { color: var(--text-primary); }
+    .footer-links a { margin-left: 24px; }
+
+    @media (max-width: 768px) {
+        .footer-content { flex-direction: column; gap: 12px; text-align: center; }
+        .footer-links a { margin: 0 12px; }
+    }
+
+        
+    /* Individual Job Page Styles */
+    .job-detail-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+
+    .job-detail-header h1 {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .job-company {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+    }
+
+    .job-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .job-meta-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    .job-meta-badge.salary {
+        background: rgba(232, 168, 124, 0.15);
+        border-color: rgba(232, 168, 124, 0.3);
+        color: var(--gold);
+    }
+
+    .job-meta-badge.remote {
+        background: rgba(74, 222, 128, 0.15);
+        border-color: rgba(74, 222, 128, 0.3);
+        color: var(--success);
+    }
+
+    .apply-btn {
+        display: inline-block;
+        padding: 16px 32px;
+        background: var(--gold);
+        color: var(--bg-darker);
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .apply-btn:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
+    }
+
+    .job-skills {
+        margin: 24px 0;
+    }
+
+    .job-skills h3 {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .job-details-table {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 24px 0;
+    }
+
+    .job-details-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .job-details-row:last-child {
+        border-bottom: none;
+    }
+
+    .job-details-label {
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .job-details-value {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    /* Expired/Stale Job Styles */
+    .job-expired-notice {
+        background: rgba(248, 113, 113, 0.1);
+        border: 1px solid rgba(248, 113, 113, 0.3);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    .job-expired-notice h2 {
+        color: var(--error);
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .job-expired-notice p {
+        color: var(--text-secondary);
+    }
+
+    .similar-jobs-section h3 {
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .similar-jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+        .job-detail-header {
+            flex-direction: column;
+        }
+        .apply-btn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+        
+    .faq-section {
+        margin: 48px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+    }
+
+    .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-card-hover);
+    }
+
+    .faq-icon {
+        font-size: 1.25rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+    }
+
+    .faq-answer-content {
+        padding: 0 24px 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+
+    </style>
 
     <style>
-        :root {
-            --bg-dark: #0f2d35;
-            --bg-darker: #0a1f25;
-            --bg-card: #132f38;
-            --bg-card-hover: #1a3d48;
-            --teal-primary: #1a4a56;
-            --teal-light: #2a6a7a;
-            --teal-accent: #3d8a9a;
-            --gold: #e8a87c;
-            --gold-light: #f0c4a8;
-            --gold-hover: #d4956a;
-            --text-primary: #ffffff;
-            --text-secondary: #a8c5cc;
-            --text-muted: #6a8a94;
-            --border-color: #1a4a56;
-            --success: #4ade80;
-            --warning: #fbbf24;
-            --error: #f87171;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        nav {
-            background: var(--bg-darker);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--gold);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        /* Main content */
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        /* Breadcrumb */
-        .breadcrumb {
-            display: flex;
-            gap: 0.5rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        .breadcrumb a {
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            color: var(--gold);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-bottom: 3rem;
-        }
-
-        .hero-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tool-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--bg-card);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            flex-shrink: 0;
-        }
-
-        .tool-icon img {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-        }
-
-        .hero-content h1 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        .category-tag {
-            display: inline-block;
-            background: var(--teal-primary);
-            color: var(--gold);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 0.75rem;
-        }
-
-        /* Verdict Box */
-        .verdict-box {
-            background: linear-gradient(135deg, var(--bg-card) 0%, var(--teal-primary) 100%);
-            border: 1px solid var(--teal-light);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .verdict-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-        }
-
-        .verdict-text {
-            font-size: 1.1rem;
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Section Styles */
-        .section {
-            margin-bottom: 3rem;
-        }
-
-        .section h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .section h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-
-        .section p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        /* Feature Grid */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.25rem;
-        }
-
-        .feature-card h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .feature-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 0;
-        }
-
-        /* Table Styles */
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 0.875rem 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .comparison-table th {
-            background: var(--bg-card);
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .comparison-table td {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .comparison-table tr:hover td {
-            background: var(--bg-card);
-        }
-
-        .highlight-row td {
-            background: rgba(232, 168, 124, 0.1);
-        }
-
-        .highlight-row:hover td {
-            background: rgba(232, 168, 124, 0.15) !important;
-        }
-
-        /* Code Block */
-        .code-block {
-            background: var(--bg-darker);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.25rem;
-            font-family: 'Monaco', 'Menlo', monospace;
-            font-size: 0.85rem;
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-
-        .code-block code {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .code-comment {
-            color: var(--text-muted);
-        }
-
-        .code-keyword {
-            color: var(--gold);
-        }
-
-        .code-string {
-            color: var(--success);
-        }
-
-        .code-function {
-            color: var(--teal-accent);
-        }
-
-        /* Pros/Cons */
-        .pros-cons-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .pros-list, .cons-list {
-            background: var(--bg-card);
-            border-radius: 8px;
-            padding: 1.25rem;
-        }
-
-        .pros-list {
-            border: 1px solid var(--success);
-        }
-
-        .cons-list {
-            border: 1px solid var(--error);
-        }
-
-        .list-header {
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .pros-list .list-header {
-            color: var(--success);
-        }
-
-        .cons-list .list-header {
-            color: var(--error);
-        }
-
-        .pros-list ul, .cons-list ul {
-            list-style: none;
-        }
-
-        .pros-list li, .cons-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .pros-list li::before {
-            content: "+";
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: 600;
-        }
-
-        .cons-list li::before {
-            content: "-";
-            position: absolute;
-            left: 0;
-            color: var(--error);
-            font-weight: 600;
-        }
-
-        /* Decision Framework */
-        .decision-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .decision-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-        }
-
-        .decision-card h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .decision-card.choose h4 {
-            color: var(--success);
-        }
-
-        .decision-card.avoid h4 {
-            color: var(--warning);
-        }
-
-        .decision-card ul {
-            list-style: none;
-        }
-
-        .decision-card li {
-            padding: 0.375rem 0;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            padding-left: 1.25rem;
-            position: relative;
-        }
-
-        .decision-card li::before {
-            content: ">";
-            position: absolute;
-            left: 0;
-            color: var(--text-muted);
-        }
-
-        /* Callout Box */
-        .callout {
-            background: var(--bg-card);
-            border-left: 3px solid var(--gold);
-            padding: 1.25rem;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .callout-title {
-            font-weight: 600;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-        }
-
-        .callout p {
-            margin-bottom: 0;
-            font-size: 0.95rem;
-        }
-
-        /* Warning Callout */
-        .callout-warning {
-            border-left-color: var(--warning);
-        }
-
-        .callout-warning .callout-title {
-            color: var(--warning);
-        }
-
-        /* Bottom Line */
-        .bottom-line {
-            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-card) 100%);
-            border: 1px solid var(--teal-light);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 3rem 0;
-        }
-
-        .bottom-line h2 {
-            color: var(--gold);
-            margin-bottom: 1rem;
-        }
-
-        .bottom-line p {
-            font-size: 1.05rem;
-            color: var(--text-primary);
-            margin-bottom: 0;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            text-align: center;
-            padding: 2rem;
-            background: var(--bg-card);
-            border-radius: 12px;
-            margin-top: 3rem;
-        }
-
-        .cta-section h3 {
-            margin-bottom: 1rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--gold);
-            color: var(--bg-dark);
-            padding: 0.875rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            margin: 0.5rem;
-            transition: background 0.2s;
-        }
-
-        .cta-button:hover {
-            background: var(--gold-hover);
-        }
-
-        .cta-button.secondary {
-            background: var(--teal-primary);
-            color: var(--text-primary);
-            border: 1px solid var(--teal-light);
-        }
-
-        .cta-button.secondary:hover {
-            background: var(--teal-light);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-darker);
-            border-top: 1px solid var(--border-color);
-            padding: 2rem;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        footer a {
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: var(--gold);
-        }
-
-        .disclosure {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .hero-content h1 {
-                font-size: 1.75rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .feature-grid,
-            .pros-cons-grid,
-            .decision-grid {
-                grid-template-columns: 1fr;
-            }
-
-            main {
-                padding: 2rem 1rem;
-            }
-
-            .comparison-table {
-                font-size: 0.85rem;
-            }
-
-            .comparison-table th,
-            .comparison-table td {
-                padding: 0.625rem 0.5rem;
-            }
-        }
-    </style>
+    /* Tools Page Specific Styles */
+    .tools-hero {
+        background: linear-gradient(180deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+        padding: 3rem 0 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .tools-hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+    }
+
+    .tools-hero p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .category-section {
+        padding: 2.5rem 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .category-section:last-child {
+        border-bottom: none;
+    }
+
+    .category-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--gold);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .category-section h2::before {
+        content: '';
+        width: 4px;
+        height: 24px;
+        background: var(--gold);
+        border-radius: 2px;
+    }
+
+    .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .tool-card {
+        background: var(--bg-card);
+        padding: 1.75rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: all 0.25s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tool-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--gold);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        background: var(--bg-card-hover);
+    }
+
+    .tool-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+        color: var(--text-primary);
+    }
+
+    .tool-card p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        flex-grow: 1;
+    }
+
+    .tool-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-light);
+        margin-top: auto;
+    }
+
+    .job-count {
+        color: var(--gold);
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .tool-card-arrow {
+        color: var(--text-muted);
+        font-size: 1.25rem;
+        transition: transform 0.2s, color 0.2s;
+    }
+
+    .tool-card:hover .tool-card-arrow {
+        transform: translateX(4px);
+        color: var(--gold);
+    }
+
+    /* Individual Tool Page Styles */
+    .tool-detail-header {
+        background: var(--bg-darker);
+        padding: 3rem 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .tool-category-badge {
+        display: inline-block;
+        background: rgba(232, 168, 124, 0.15);
+        color: var(--gold);
+        padding: 0.35rem 0.85rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1rem;
+    }
+
+    .tool-detail-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .tool-description {
+        color: var(--text-secondary);
+        font-size: 1.15rem;
+        line-height: 1.7;
+        max-width: 700px;
+    }
+
+    .tool-stats {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .tool-stat {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        padding: 1.25rem 1.75rem;
+        border-radius: 12px;
+        text-align: center;
+        min-width: 140px;
+    }
+
+    .tool-stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gold);
+        font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .tool-stat-label {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-top: 0.25rem;
+    }
+
+    .tool-link-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        padding: 0.75rem 1.5rem;
+        background: var(--teal-primary);
+        color: var(--text-primary);
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .tool-link-btn:hover {
+        background: var(--teal-light);
+        color: var(--text-primary);
+    }
+
+    .tool-content {
+        padding: 3rem 0;
+    }
+
+    .tool-section {
+        margin-bottom: 3rem;
+    }
+
+    .tool-section h2 {
+        font-size: 1.35rem;
+        margin-bottom: 1.25rem;
+        color: var(--text-primary);
+    }
+
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .skill-tag {
+        background: var(--bg-card);
+        color: var(--gold);
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        border: 1px solid var(--border);
+        transition: all 0.2s;
+    }
+
+    .skill-tag:hover {
+        border-color: var(--gold);
+        background: var(--bg-card-hover);
+    }
+
+    .use-cases {
+        list-style: none;
+        padding: 0;
+    }
+
+    .use-cases li {
+        padding: 1rem 1.25rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin-bottom: 0.75rem;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .use-cases li::before {
+        content: '→';
+        color: var(--gold);
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .tools-hero h1 { font-size: 2rem; }
+        .tools-grid { grid-template-columns: 1fr; }
+        .tool-detail-header h1 { font-size: 1.75rem; }
+        .tool-stats { flex-direction: column; }
+    }
+</style>
 </head>
+
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="/" class="nav-logo">AI Market Pulse</a>
-            <ul class="nav-links">
-                <li><a href="/jobs/">Jobs</a></li>
-                <li><a href="/tools/">Tools</a></li>
-                <li><a href="/salaries/">Salaries</a></li>
-                <li><a href="/insights/">Insights</a></li>
-            </ul>
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="/assets/logo.jpeg" alt="AI Market Pulse">
+                AI Market Pulse
+            </a>
+            <nav class="nav">
+                <a href="/jobs/">AI Jobs</a>
+                <a href="/salaries/">Salaries</a>
+                <a href="/tools/" class="active">Tools</a>
+                <a href="/insights/">Market Intel</a>
+                <a href="/about/">About</a>
+            </nav>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <a href="/join/" class="btn-secondary">Join Community</a>
+                <a href="https://ainewsdigest.substack.com" target="_blank" rel="noopener" class="nav-cta">Newsletter</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Open menu">☰</button>
         </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay"></div>
+    <nav class="mobile-nav">
+        <div class="mobile-nav-header">
+            <span class="logo-text">AI Market Pulse</span>
+            <button class="mobile-nav-close" aria-label="Close menu">✕</button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="/jobs/">AI Jobs</a></li>
+            <li><a href="/salaries/">Salaries</a></li>
+            <li><a href="/tools/">Tools</a></li>
+            <li><a href="/insights/">Market Intel</a></li>
+            <li><a href="/about/">About</a></li>
+        </ul>
+        <a href="/join/" class="mobile-nav-subscribe">Join Community</a>
     </nav>
 
-    <main>
-        <div class="breadcrumb">
-            <a href="/">Home</a>
-            <span>/</span>
-            <a href="/tools/">Tools</a>
-            <span>/</span>
-            <span>LlamaIndex</span>
+    <script>
+        (function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const closeBtn = document.querySelector('.mobile-nav-close');
+            const overlay = document.querySelector('.mobile-nav-overlay');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const mobileLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-nav-subscribe');
+            function openMenu() {
+                mobileNav.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            if (menuBtn) menuBtn.addEventListener('click', openMenu);
+            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+            if (overlay) overlay.addEventListener('click', closeMenu);
+            mobileLinks.forEach(link => { link.addEventListener('click', closeMenu); });
+        })();
+    </script>
+
+    <div class="tool-detail-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="/">Home</a> / <a href="/tools/">Tools</a> / LlamaIndex
+            </nav>
+            <span class="tool-category-badge">LLM Frameworks</span>
+            <h1>LlamaIndex</h1>
+            <p class="tool-description">Data framework for LLM applications. Specializes in connecting custom data sources to large language models.</p>
+
+            <div class="tool-stats">
+                <div class="tool-stat">
+                    <div class="tool-stat-value">46</div>
+                    <div class="tool-stat-label">Jobs Mentioning LlamaIndex</div>
+                </div>
+            </div>
+
+            <a href="https://llamaindex.ai" target="_blank" rel="noopener" class="tool-link-btn">
+                Visit LlamaIndex →
+            </a>
         </div>
+    </div>
 
-        <article>
-            <div class="hero">
-                <div class="hero-header">
-                    <div class="tool-icon">
-                        <img src="/assets/logos/llamaindex_logo.png" alt="LlamaIndex logo" onerror="this.style.display='none'; this.parentElement.innerHTML='&#x1f999;';">
-                    </div>
-                    <div class="hero-content">
-                        <span class="category-tag">LLM Framework</span>
-                        <h1>LlamaIndex Review 2025</h1>
-                        <p class="hero-subtitle">The data framework for LLM applications - RAG, document Q&A, and knowledge management done right</p>
-                    </div>
-                </div>
+    <main class="tool-content">
+        <div class="container">
+            <section class="tool-section">
+                <h2>Related Skills</h2>
+                <div class="skills-list"><span class="skill-tag">Data connectors</span><span class="skill-tag">Indexing</span><span class="skill-tag">Query engines</span><span class="skill-tag">RAG</span></div>
+            </section>
 
-                <div class="verdict-box">
-                    <div class="verdict-label">The Verdict</div>
-                    <p class="verdict-text">LlamaIndex is the best framework for building RAG applications. While LangChain tries to do everything, LlamaIndex focuses on one thing: connecting your data to LLMs. If your primary use case is document Q&A, knowledge bases, or any form of retrieval-augmented generation, LlamaIndex's specialized tooling will get you there faster with better results. For general-purpose LLM apps or complex agents, you might need LangChain - or use both together.</p>
-                </div>
-            </div>
+            <section class="tool-section">
+                <h2>Common Use Cases</h2>
+                <ul class="use-cases"><li>Knowledge bases</li><li>Document search</li><li>Enterprise RAG</li></ul>
+            </section>
 
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value">38K+</div>
-                    <div class="stat-label">GitHub Stars</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">RAG</div>
-                    <div class="stat-label">Primary Focus</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">Free</div>
-                    <div class="stat-label">Open Source</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">Python</div>
-                    <div class="stat-label">Primary SDK</div>
-                </div>
-            </div>
+            
+    <div class="cta-box">
+        <h3>Find LlamaIndex Jobs</h3>
+        <p>Browse AI roles that require LlamaIndex expertise and stay updated on new opportunities.</p>
+        <a href="/jobs/" class="btn btn-gold">View All AI Jobs →</a>
+    </div>
 
-            <div class="section">
-                <h2>What is LlamaIndex?</h2>
-                <p>LlamaIndex (formerly GPT Index) is a data framework for building LLM applications. Created by Jerry Liu in late 2022, it focuses specifically on the problem of connecting LLMs to external data - the core of what we now call RAG (Retrieval Augmented Generation).</p>
-
-                <p>Where LangChain is the Swiss Army knife with tools for everything, LlamaIndex is the specialized scalpel for data. It excels at: ingesting data from various sources, structuring that data for optimal retrieval, and querying it with LLMs. The framework handles the messy details of chunking, embedding, indexing, and retrieval so you can focus on your application.</p>
-
-                <div class="callout">
-                    <div class="callout-title">Why RAG Matters</div>
-                    <p>LLMs have knowledge cutoffs and can hallucinate. RAG solves both problems by retrieving relevant context from your own data and grounding the LLM's responses in facts. LlamaIndex makes building RAG systems dramatically easier than rolling your own.</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Core Concepts</h2>
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Concept</th>
-                            <th>What It Does</th>
-                            <th>Why It Matters</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Documents</strong></td>
-                            <td>Container for your source data</td>
-                            <td>Unified interface for any data source</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Nodes</strong></td>
-                            <td>Chunks of documents with metadata</td>
-                            <td>Right-sized pieces for retrieval</td>
-                        </tr>
-                        <tr class="highlight-row">
-                            <td><strong>Indexes</strong></td>
-                            <td>Data structures for efficient retrieval</td>
-                            <td>Fast, relevant context fetching</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Query Engines</strong></td>
-                            <td>Interface for asking questions</td>
-                            <td>Clean API for RAG queries</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Retrievers</strong></td>
-                            <td>Fetch relevant nodes from indexes</td>
-                            <td>Customizable retrieval strategies</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Response Synthesizers</strong></td>
-                            <td>Generate answers from retrieved context</td>
-                            <td>Control how LLM uses context</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="section">
-                <h2>Simple Example: Document Q&A</h2>
-                <p>Here's how quickly you can build a document Q&A system with LlamaIndex - this is the kind of thing that would take significantly more code to build from scratch:</p>
-
-                <div class="code-block">
-                    <code><span class="code-keyword">from</span> llama_index.core <span class="code-keyword">import</span> VectorStoreIndex, SimpleDirectoryReader
-
-<span class="code-comment"># Load documents from a directory</span>
-documents = <span class="code-function">SimpleDirectoryReader</span>(<span class="code-string">"./data"</span>).load_data()
-
-<span class="code-comment"># Create index (handles chunking, embedding, storage)</span>
-index = <span class="code-function">VectorStoreIndex.from_documents</span>(documents)
-
-<span class="code-comment"># Query it</span>
-query_engine = index.<span class="code-function">as_query_engine</span>()
-response = query_engine.<span class="code-function">query</span>(<span class="code-string">"What is the refund policy?"</span>)
-
-<span class="code-keyword">print</span>(response)</code>
-                </div>
-
-                <p>That's it. Five lines of code for a working RAG system. LlamaIndex handles document parsing, text chunking, embedding generation, vector storage, retrieval, and response synthesis.</p>
-            </div>
-
-            <div class="section">
-                <h2>Index Types</h2>
-                <p>LlamaIndex provides different index structures optimized for different use cases:</p>
-
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Index Type</th>
-                            <th>How It Works</th>
-                            <th>Best For</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="highlight-row">
-                            <td><strong>VectorStoreIndex</strong></td>
-                            <td>Semantic similarity via embeddings</td>
-                            <td>General-purpose RAG (most common)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>SummaryIndex</strong></td>
-                            <td>Stores document summaries</td>
-                            <td>Summarization tasks, overview queries</td>
-                        </tr>
-                        <tr>
-                            <td><strong>TreeIndex</strong></td>
-                            <td>Hierarchical document structure</td>
-                            <td>Multi-level reasoning, drilling down</td>
-                        </tr>
-                        <tr>
-                            <td><strong>KeywordTableIndex</strong></td>
-                            <td>Keyword-based extraction</td>
-                            <td>Structured data, exact matches</td>
-                        </tr>
-                        <tr>
-                            <td><strong>KnowledgeGraphIndex</strong></td>
-                            <td>Graph-based relationships</td>
-                            <td>Complex entity relationships</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="callout">
-                    <div class="callout-title">Start with VectorStoreIndex</div>
-                    <p>For 90% of RAG use cases, VectorStoreIndex is the right choice. It uses semantic similarity to find relevant context, which works well for natural language queries. Only explore other index types when you have specific requirements VectorStoreIndex doesn't meet.</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>The LlamaIndex Ecosystem</h2>
-
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Product</th>
-                            <th>What It Does</th>
-                            <th>Pricing</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>LlamaIndex Core</strong></td>
-                            <td>The open-source framework</td>
-                            <td>Free</td>
-                        </tr>
-                        <tr class="highlight-row">
-                            <td><strong>LlamaCloud</strong></td>
-                            <td>Managed parsing and retrieval service</td>
-                            <td>Free tier, paid plans available</td>
-                        </tr>
-                        <tr>
-                            <td><strong>LlamaParse</strong></td>
-                            <td>Advanced document parsing (PDFs, tables)</td>
-                            <td>Free tier: 1000 pages/day</td>
-                        </tr>
-                        <tr>
-                            <td><strong>LlamaHub</strong></td>
-                            <td>Data loaders, tools, and packs</td>
-                            <td>Free (community)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="section">
-                <h2>Advanced RAG Patterns</h2>
-                <p>LlamaIndex excels at implementing advanced RAG patterns that significantly improve retrieval quality:</p>
-
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4>Sentence Window Retrieval</h4>
-                        <p>Embed smaller chunks but retrieve surrounding context. Better precision with full context for the LLM.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>Auto-Merging Retrieval</h4>
-                        <p>Automatically merge smaller chunks into parent chunks when they're related. Balanced granularity.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>Recursive Retrieval</h4>
-                        <p>Start with summaries, then drill down to details. Efficient for large document sets.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>Hybrid Search</h4>
-                        <p>Combine semantic (vector) and keyword (BM25) search. Best of both retrieval worlds.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>Query Transformation</h4>
-                        <p>Rewrite queries for better retrieval. Includes HyDE, step-back prompting, sub-questions.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>Reranking</h4>
-                        <p>Use a cross-encoder to rerank retrieved results. Higher quality final context.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>LlamaParse: Document Parsing Done Right</h2>
-                <p>One of LlamaIndex's standout features is LlamaParse, their document parsing service. Parsing PDFs, especially those with tables, images, and complex layouts, is notoriously difficult. LlamaParse handles it:</p>
-
-                <div class="code-block">
-                    <code><span class="code-keyword">from</span> llama_parse <span class="code-keyword">import</span> LlamaParse
-
-<span class="code-comment"># Parse complex PDFs with tables and images</span>
-parser = <span class="code-function">LlamaParse</span>(result_type=<span class="code-string">"markdown"</span>)
-documents = parser.<span class="code-function">load_data</span>(<span class="code-string">"./financial_report.pdf"</span>)
-
-<span class="code-comment"># Tables are converted to markdown tables</span>
-<span class="code-comment"># Images are extracted with captions</span>
-<span class="code-comment"># Structure is preserved</span></code>
-                </div>
-
-                <div class="callout-warning callout">
-                    <div class="callout-title">Free Tier Limits</div>
-                    <p>LlamaParse's free tier allows 1,000 pages per day, which is generous for development and small-scale use. For production with high volume, you'll need a paid plan. The quality difference over open-source PDF parsers is significant, especially for complex documents.</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>LlamaIndex vs LangChain</h2>
-                <p>The most common question: when to use which?</p>
-
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Aspect</th>
-                            <th>LlamaIndex</th>
-                            <th>LangChain</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Primary Focus</strong></td>
-                            <td>RAG and data retrieval</td>
-                            <td>General LLM application building</td>
-                        </tr>
-                        <tr>
-                            <td><strong>RAG Quality</strong></td>
-                            <td>More advanced patterns built-in</td>
-                            <td>Basic RAG, customize yourself</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Agents</strong></td>
-                            <td>Basic support</td>
-                            <td>First-class with LangGraph</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Learning Curve</strong></td>
-                            <td>Gentler for RAG</td>
-                            <td>Steeper, more concepts</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Abstraction Level</strong></td>
-                            <td>Lower, more transparent</td>
-                            <td>Higher, more opinions</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Ecosystem Size</strong></td>
-                            <td>Focused, data-centric</td>
-                            <td>Larger, more general</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="callout">
-                    <div class="callout-title">Use Both</div>
-                    <p>Many production applications use LlamaIndex for the data/retrieval layer and LangChain for orchestration. They're complementary. LlamaIndex handles getting the right context; LangChain handles what to do with it.</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Pros & Cons Summary</h2>
-
-                <div class="pros-cons-grid">
-                    <div class="pros-list">
-                        <div class="list-header">
-                            <span>Strengths</span>
-                        </div>
-                        <ul>
-                            <li>Best-in-class RAG capabilities</li>
-                            <li>Advanced retrieval patterns built-in</li>
-                            <li>LlamaParse for complex documents</li>
-                            <li>Simpler API than LangChain for RAG</li>
-                            <li>Lower abstraction, easier to debug</li>
-                            <li>Excellent documentation</li>
-                            <li>Active development</li>
-                        </ul>
-                    </div>
-                    <div class="cons-list">
-                        <div class="list-header">
-                            <span>Weaknesses</span>
-                        </div>
-                        <ul>
-                            <li>Narrower scope than LangChain</li>
-                            <li>Agent capabilities less mature</li>
-                            <li>Smaller community overall</li>
-                            <li>LlamaParse requires API key</li>
-                            <li>TypeScript SDK less mature than Python</li>
-                            <li>Some advanced features need LlamaCloud</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Decision Framework</h2>
-
-                <div class="decision-grid">
-                    <div class="decision-card choose">
-                        <h4>Choose LlamaIndex If</h4>
-                        <ul>
-                            <li>Building a RAG application</li>
-                            <li>Document Q&A is your core use case</li>
-                            <li>Need advanced retrieval patterns</li>
-                            <li>Parsing complex PDFs</li>
-                            <li>Want simpler API for data tasks</li>
-                            <li>Building knowledge bases</li>
-                            <li>Prefer lower abstraction</li>
-                        </ul>
-                    </div>
-                    <div class="decision-card avoid">
-                        <h4>Consider Alternatives If</h4>
-                        <ul>
-                            <li>Building complex agents</li>
-                            <li>Need many non-RAG LLM features</li>
-                            <li>Prefer TypeScript ecosystem</li>
-                            <li>Want one framework for everything</li>
-                            <li>Building chat without retrieval</li>
-                            <li>Need LangSmith-level observability</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Alternatives to LlamaIndex</h2>
-
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Alternative</th>
-                            <th>Best For</th>
-                            <th>Trade-off</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>LangChain</strong></td>
-                            <td>General LLM apps, agents</td>
-                            <td>More complex for pure RAG</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Direct Vector DB + LLM</strong></td>
-                            <td>Maximum control</td>
-                            <td>More code, reinvent patterns</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Haystack</strong></td>
-                            <td>Search-focused applications</td>
-                            <td>Different API paradigm</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Semantic Kernel</strong></td>
-                            <td>Microsoft/.NET ecosystem</td>
-                            <td>Smaller community for RAG</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Embedchain</strong></td>
-                            <td>Quick prototypes</td>
-                            <td>Less customization</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="bottom-line">
-                <h2>The Bottom Line</h2>
-                <p>LlamaIndex is the specialist tool for RAG applications. While LangChain spreads across many use cases, LlamaIndex goes deep on data and retrieval. If you're building document Q&A, knowledge bases, or any application where the primary challenge is getting the right context to the LLM, LlamaIndex will get you there faster with better results. The framework's focus means advanced RAG patterns that would require significant custom code in other frameworks are available out of the box. Start with VectorStoreIndex, use LlamaParse for complex documents, and graduate to advanced retrieval patterns as your needs grow. For many teams, the answer isn't LlamaIndex vs LangChain - it's LlamaIndex for data, LangChain for orchestration.</p>
-            </div>
-
-            <div class="cta-section">
-                <h3>Get Started with LlamaIndex</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Official documentation and resources</p>
-                <a href="https://llamaindex.ai" target="_blank" rel="noopener" class="cta-button">Visit LlamaIndex</a>
-                <a href="https://github.com/run-llama/llama_index" target="_blank" rel="noopener" class="cta-button secondary">GitHub Repository</a>
-                <a href="https://llamahub.ai" target="_blank" rel="noopener" class="cta-button secondary">LlamaHub</a>
-
-                <p class="disclosure">AI Market Pulse is an independent resource. We're not affiliated with LlamaIndex. Our goal is to help developers navigate the AI tools ecosystem with honest, practical information.</p>
-            </div>
-        </article>
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2025 AI Market Pulse. Built for AI practitioners.</p>
-        <p style="margin-top: 0.5rem;">
-            <a href="/about/">About</a> &middot;
-            <a href="/tools/">All Tools</a> &middot;
-            <a href="/jobs/">AI Jobs</a>
-        </p>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <span>&copy; 2026 <a href="/">AI Market Pulse</a></span>
+            <div class="footer-links">
+                <a href="/jobs/">AI Jobs</a>
+                <a href="/salaries/">Salaries</a>
+                <a href="/tools/">Tools</a>
+                <a href="/insights/">Market Intel</a>
+                <a href="/about/">About</a>
+                <a href="/join/">Community</a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
