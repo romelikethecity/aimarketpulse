@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate AI Tools directory pages for PE Collective
+Generate AI Tools directory pages for AI Market Pulse
 Creates pages for popular AI tools, frameworks, and platforms
 """
 
@@ -12,7 +12,12 @@ from datetime import datetime
 import sys
 sys.path.insert(0, 'scripts')
 
-from templates import slugify, BASE_URL
+from templates import (
+    slugify, BASE_URL, get_html_head, get_nav_html, get_footer_html,
+    get_cta_box, get_base_styles, CSS_VARIABLES, CSS_NAV, CSS_LAYOUT,
+    CSS_CARDS, CSS_CTA, CSS_FOOTER
+)
+from nav_config import SITE_NAME
 
 DATA_DIR = 'data'
 SITE_DIR = 'site'
@@ -152,6 +157,266 @@ def get_tool_job_count(tool_name, jobs_df):
     return count
 
 
+# Tools page specific styles
+TOOLS_PAGE_STYLES = '''
+    /* Tools Page Specific Styles */
+    .tools-hero {
+        background: linear-gradient(180deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+        padding: 3rem 0 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .tools-hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+    }
+
+    .tools-hero p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .category-section {
+        padding: 2.5rem 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .category-section:last-child {
+        border-bottom: none;
+    }
+
+    .category-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--gold);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .category-section h2::before {
+        content: '';
+        width: 4px;
+        height: 24px;
+        background: var(--gold);
+        border-radius: 2px;
+    }
+
+    .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .tool-card {
+        background: var(--bg-card);
+        padding: 1.75rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: all 0.25s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tool-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--gold);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        background: var(--bg-card-hover);
+    }
+
+    .tool-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+        color: var(--text-primary);
+    }
+
+    .tool-card p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        flex-grow: 1;
+    }
+
+    .tool-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-light);
+        margin-top: auto;
+    }
+
+    .job-count {
+        color: var(--gold);
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .tool-card-arrow {
+        color: var(--text-muted);
+        font-size: 1.25rem;
+        transition: transform 0.2s, color 0.2s;
+    }
+
+    .tool-card:hover .tool-card-arrow {
+        transform: translateX(4px);
+        color: var(--gold);
+    }
+
+    /* Individual Tool Page Styles */
+    .tool-detail-header {
+        background: var(--bg-darker);
+        padding: 3rem 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .tool-category-badge {
+        display: inline-block;
+        background: rgba(232, 168, 124, 0.15);
+        color: var(--gold);
+        padding: 0.35rem 0.85rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1rem;
+    }
+
+    .tool-detail-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .tool-description {
+        color: var(--text-secondary);
+        font-size: 1.15rem;
+        line-height: 1.7;
+        max-width: 700px;
+    }
+
+    .tool-stats {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .tool-stat {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        padding: 1.25rem 1.75rem;
+        border-radius: 12px;
+        text-align: center;
+        min-width: 140px;
+    }
+
+    .tool-stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gold);
+        font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .tool-stat-label {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-top: 0.25rem;
+    }
+
+    .tool-link-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        padding: 0.75rem 1.5rem;
+        background: var(--teal-primary);
+        color: var(--text-primary);
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .tool-link-btn:hover {
+        background: var(--teal-light);
+        color: var(--text-primary);
+    }
+
+    .tool-content {
+        padding: 3rem 0;
+    }
+
+    .tool-section {
+        margin-bottom: 3rem;
+    }
+
+    .tool-section h2 {
+        font-size: 1.35rem;
+        margin-bottom: 1.25rem;
+        color: var(--text-primary);
+    }
+
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .skill-tag {
+        background: var(--bg-card);
+        color: var(--gold);
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        border: 1px solid var(--border);
+        transition: all 0.2s;
+    }
+
+    .skill-tag:hover {
+        border-color: var(--gold);
+        background: var(--bg-card-hover);
+    }
+
+    .use-cases {
+        list-style: none;
+        padding: 0;
+    }
+
+    .use-cases li {
+        padding: 1rem 1.25rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin-bottom: 0.75rem;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .use-cases li::before {
+        content: '→';
+        color: var(--gold);
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .tools-hero h1 { font-size: 2rem; }
+        .tools-grid { grid-template-columns: 1fr; }
+        .tool-detail-header h1 { font-size: 1.75rem; }
+        .tool-stats { flex-direction: column; }
+    }
+'''
+
+
 def generate_tool_page(tool_name, tool_data, job_count):
     """Generate a page for a single tool"""
     slug = slugify(tool_name)
@@ -177,218 +442,65 @@ def generate_tool_page(tool_name, tool_data, job_count):
             use_cases_html += f'<li>{use_case}</li>'
         use_cases_html += '</ul>'
 
-    html = f'''<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{tool_name} - AI Tools | PE Collective</title>
-    <meta name="description" content="{tool_data['description'][:150]} Find AI jobs requiring {tool_name} expertise.">
+    # Build extra styles
+    extra_styles = f'<style>{TOOLS_PAGE_STYLES}</style>'
 
-    <link rel="canonical" href="{BASE_URL}/tools/{slug}/">
+    # Use templates for consistent styling
+    html = get_html_head(
+        title=f'{tool_name} - AI Tools',
+        description=f'{tool_data["description"][:150]} Find AI jobs requiring {tool_name} expertise.',
+        page_path=f'tools/{slug}/',
+        extra_head=extra_styles
+    )
 
-    <style>
-        :root {{
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-card: #334155;
-            --text-primary: #e2e8f0;
-            --text-secondary: #94a3b8;
-            --accent: #22d3ee;
-            --accent-gold: #f5a623;
-        }}
+    html += get_nav_html(active_page='tools')
 
-        * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-
-        body {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }}
-
-        .container {{ max-width: 800px; margin: 0 auto; padding: 0 20px; }}
-
-        nav {{
-            background: var(--bg-secondary);
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--bg-card);
-        }}
-        nav .container {{ display: flex; justify-content: space-between; align-items: center; max-width: 1200px; }}
-        .nav-brand {{ font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }}
-
-        .breadcrumb {{
-            padding: 1rem 0;
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-        }}
-        .breadcrumb a {{ color: var(--accent); text-decoration: none; }}
-
-        .tool-header {{
-            padding: 2rem 0;
-        }}
-        .tool-category {{
-            color: var(--accent);
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }}
-        .tool-header h1 {{
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }}
-        .tool-description {{
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }}
-        .tool-stats {{
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-        }}
-        .stat {{
-            background: var(--bg-secondary);
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-        }}
-        .stat-value {{
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent);
-        }}
-        .stat-label {{
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }}
-        .tool-link {{
-            display: inline-block;
-            color: var(--accent);
-            text-decoration: none;
-            margin-top: 1rem;
-        }}
-
-        .section {{
-            padding: 2rem 0;
-            border-top: 1px solid var(--bg-card);
-        }}
-        .section h2 {{
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }}
-        .skills-list {{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }}
-        .skill-tag {{
-            background: var(--bg-card);
-            color: var(--accent);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-        }}
-        .use-cases {{
-            list-style: none;
-            padding: 0;
-        }}
-        .use-cases li {{
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--bg-card);
-            color: var(--text-secondary);
-        }}
-
-        .cta-box {{
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 2rem;
-        }}
-        .cta-box h3 {{
-            margin-bottom: 0.5rem;
-        }}
-        .cta-box p {{
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }}
-        .cta-button {{
-            display: inline-block;
-            background: var(--accent);
-            color: var(--bg-primary);
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-        }}
-
-        footer {{
-            background: var(--bg-secondary);
-            padding: 2rem 0;
-            margin-top: 3rem;
-            text-align: center;
-            color: var(--text-secondary);
-        }}
-
-        @media (max-width: 768px) {{
-            .tool-header h1 {{ font-size: 1.75rem; }}
-            .tool-stats {{ flex-direction: column; gap: 1rem; }}
-        }}
-    </style>
-</head>
-<body>
-    <nav>
+    html += f'''
+    <div class="tool-detail-header">
         <div class="container">
-            <a href="/" class="nav-brand">PE Collective</a>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/tools/">Tools</a> / {tool_name}
-        </div>
-
-        <header class="tool-header">
-            <div class="tool-category">{tool_data['category']}</div>
+            <nav class="breadcrumb">
+                <a href="/">Home</a> / <a href="/tools/">Tools</a> / {tool_name}
+            </nav>
+            <span class="tool-category-badge">{tool_data['category']}</span>
             <h1>{tool_name}</h1>
             <p class="tool-description">{tool_data['description']}</p>
 
             <div class="tool-stats">
-                <div class="stat">
-                    <div class="stat-value">{job_count}</div>
-                    <div class="stat-label">Jobs Mentioning {tool_name}</div>
+                <div class="tool-stat">
+                    <div class="tool-stat-value">{job_count}</div>
+                    <div class="tool-stat-label">Jobs Mentioning {tool_name}</div>
                 </div>
             </div>
 
-            <a href="{tool_data.get('website', '#')}" target="_blank" rel="noopener" class="tool-link">
+            <a href="{tool_data.get('website', '#')}" target="_blank" rel="noopener" class="tool-link-btn">
                 Visit {tool_name} →
             </a>
-        </header>
-
-        <section class="section">
-            <h2>Related Skills</h2>
-            {skills_html}
-        </section>
-
-        <section class="section">
-            <h2>Common Use Cases</h2>
-            {use_cases_html}
-        </section>
-
-        <div class="cta-box">
-            <h3>Find {tool_name} Jobs</h3>
-            <p>Browse AI roles that require {tool_name} expertise</p>
-            <a href="/jobs/" class="cta-button">View All AI Jobs</a>
         </div>
     </div>
 
-    <footer>
-        <p>© 2026 PE Collective</p>
-    </footer>
-</body>
-</html>
+    <main class="tool-content">
+        <div class="container">
+            <section class="tool-section">
+                <h2>Related Skills</h2>
+                {skills_html}
+            </section>
+
+            <section class="tool-section">
+                <h2>Common Use Cases</h2>
+                {use_cases_html}
+            </section>
+
+            {get_cta_box(
+                title=f"Find {tool_name} Jobs",
+                description=f"Browse AI roles that require {tool_name} expertise and stay updated on new opportunities.",
+                button_text="View All AI Jobs",
+                button_url="/jobs/"
+            )}
+        </div>
+    </main>
 '''
+
+    html += get_footer_html()
 
     output_path = f"{tool_dir}/index.html"
     with open(output_path, 'w') as f:
@@ -417,11 +529,15 @@ def generate_tools_index(tools_with_counts):
         tools_cards = ""
         for tool_name, data in tools_sorted:
             slug = slugify(tool_name)
+            job_text = "job" if data['job_count'] == 1 else "jobs"
             tools_cards += f'''
             <a href="/tools/{slug}/" class="tool-card">
                 <h3>{tool_name}</h3>
-                <p>{data['description'][:100]}...</p>
-                <span class="job-count">{data['job_count']} jobs</span>
+                <p>{data['description'][:120]}...</p>
+                <div class="tool-card-footer">
+                    <span class="job-count">{data['job_count']} {job_text}</span>
+                    <span class="tool-card-arrow">→</span>
+                </div>
             </a>
             '''
 
@@ -434,130 +550,42 @@ def generate_tools_index(tools_with_counts):
         </section>
         '''
 
-    html = f'''<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Tools Directory | PE Collective</title>
-    <meta name="description" content="Explore popular AI tools, frameworks, and platforms. Find jobs requiring expertise in LangChain, OpenAI, PyTorch, and more.">
+    # Build extra styles
+    extra_styles = f'<style>{TOOLS_PAGE_STYLES}</style>'
 
-    <link rel="canonical" href="{BASE_URL}/tools/">
+    # Use templates for consistent styling
+    html = get_html_head(
+        title='AI Tools Directory',
+        description='Explore popular AI tools, frameworks, and platforms. Find jobs requiring expertise in LangChain, OpenAI, PyTorch, and more.',
+        page_path='tools/',
+        extra_head=extra_styles
+    )
 
-    <style>
-        :root {{
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-card: #334155;
-            --text-primary: #e2e8f0;
-            --text-secondary: #94a3b8;
-            --accent: #22d3ee;
-            --accent-gold: #f5a623;
-        }}
+    html += get_nav_html(active_page='tools')
 
-        * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-
-        body {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }}
-
-        .container {{ max-width: 1200px; margin: 0 auto; padding: 0 20px; }}
-
-        nav {{
-            background: var(--bg-secondary);
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--bg-card);
-        }}
-        nav .container {{ display: flex; justify-content: space-between; align-items: center; }}
-        .nav-brand {{ font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }}
-
-        .page-header {{
-            padding: 3rem 0;
-            text-align: center;
-        }}
-        .page-header h1 {{
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }}
-        .page-header p {{
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }}
-
-        .category-section {{
-            padding: 2rem 0;
-        }}
-        .category-section h2 {{
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-        }}
-        .tools-grid {{
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }}
-        .tool-card {{
-            background: var(--bg-secondary);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--bg-card);
-            text-decoration: none;
-            color: var(--text-primary);
-            transition: transform 0.2s, border-color 0.2s;
-        }}
-        .tool-card:hover {{
-            transform: translateY(-4px);
-            border-color: var(--accent);
-        }}
-        .tool-card h3 {{
-            margin-bottom: 0.5rem;
-        }}
-        .tool-card p {{
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-        }}
-        .job-count {{
-            color: var(--accent-gold);
-            font-size: 0.875rem;
-            font-weight: 600;
-        }}
-
-        footer {{
-            background: var(--bg-secondary);
-            padding: 2rem 0;
-            margin-top: 3rem;
-            text-align: center;
-            color: var(--text-secondary);
-        }}
-    </style>
-</head>
-<body>
-    <nav>
+    html += f'''
+    <div class="tools-hero">
         <div class="container">
-            <a href="/" class="nav-brand">PE Collective</a>
-        </div>
-    </nav>
-
-    <div class="container">
-        <header class="page-header">
             <h1>AI Tools Directory</h1>
             <p>Explore popular AI tools, frameworks, and platforms used in AI/ML jobs</p>
-        </header>
-
-        {categories_html}
+        </div>
     </div>
 
-    <footer>
-        <p>© 2026 PE Collective</p>
-    </footer>
-</body>
-</html>
+    <main>
+        <div class="container">
+            {categories_html}
+
+            {get_cta_box(
+                title="Stay Updated on AI Tools",
+                description="Get weekly insights on the latest AI tools, frameworks, and job opportunities.",
+                button_text="Join the Community",
+                button_url="/join/"
+            )}
+        </div>
+    </main>
 '''
+
+    html += get_footer_html()
 
     output_path = f"{TOOLS_DIR}/index.html"
     with open(output_path, 'w') as f:
@@ -568,7 +596,7 @@ def generate_tools_index(tools_with_counts):
 
 def main():
     print("="*70)
-    print("  GENERATING TOOLS PAGES")
+    print("  AI MARKET PULSE - GENERATING TOOLS PAGES")
     print("="*70)
 
     # Load job data for counting
