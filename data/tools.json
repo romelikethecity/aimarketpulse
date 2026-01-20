@@ -153,7 +153,7 @@
       "logo": "/assets/logos/langchain_logo.png",
       "pros": ["Most popular LLM framework", "Huge ecosystem", "Great docs", "LangSmith for observability"],
       "cons": ["Can be over-engineered for simple use cases", "Frequent breaking changes", "Abstractions sometimes leak"],
-      "custom_page": false
+      "custom_page": true
     },
     {
       "name": "LlamaIndex",
@@ -166,7 +166,7 @@
       "logo": "/assets/logos/llamaindex_logo.png",
       "pros": ["Best-in-class for RAG", "Great data connectors", "Simpler than LangChain for RAG"],
       "cons": ["More focused than LangChain", "Smaller ecosystem"],
-      "custom_page": false
+      "custom_page": true
     },
     {
       "name": "Pinecone",
