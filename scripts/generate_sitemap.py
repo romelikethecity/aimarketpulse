@@ -1,97 +1,278 @@
 #!/usr/bin/env python3
 """
-Generate XML sitemap and update robots.txt for SEO.
+Generate XML sitemaps for AI Market Pulse
+
+Creates category-indexed sitemaps for better crawlability at scale:
+- sitemap_index.xml - Points to all category sitemaps
+- sitemaps/sitemap-main.xml - Homepage and top-level pages
+- sitemaps/sitemap-salaries.xml - All salary pages
+- sitemaps/sitemap-tools.xml - All tool pages
+- sitemaps/sitemap-jobs.xml - All job pages
+- sitemaps/sitemap-companies.xml - All company pages
+- sitemaps/sitemap-insights.xml - All insight/trend pages
 """
 
 import os
 from datetime import datetime
+from typing import Dict, List, Tuple
 
 SITE_DIR = 'site'
-BASE_URL = 'https://pecollective.com'
+SITEMAPS_DIR = f'{SITE_DIR}/sitemaps'
+BASE_URL = 'https://theaimarketpulse.com'
+MAX_URLS_PER_SITEMAP = 50000  # Google's limit
 
-print("="*70)
-print("  PE COLLECTIVE - GENERATING SITEMAP")
-print("="*70)
+print("=" * 70)
+print("  AI MARKET PULSE - GENERATING CATEGORY-INDEXED SITEMAPS")
+print("=" * 70)
 
-today = datetime.now().strftime('%Y-%m-%d')
 
-# Collect all pages
-pages = []
+def categorize_url(url_path: str) -> str:
+    """Categorize a URL into its sitemap category."""
+    if url_path == '/':
+        return 'main'
+    elif url_path in ['/jobs/', '/salaries/', '/insights/', '/tools/', '/companies/', '/about/', '/join/']:
+        return 'main'
+    elif '/salaries/' in url_path:
+        return 'salaries'
+    elif '/tools/' in url_path:
+        return 'tools'
+    elif '/jobs/' in url_path:
+        return 'jobs'
+    elif '/companies/' in url_path:
+        return 'companies'
+    elif '/insights/' in url_path:
+        return 'insights'
+    else:
+        return 'main'
 
-def add_page(path, priority, changefreq='weekly'):
-    pages.append({
-        'loc': f'{BASE_URL}/{path}' if path else BASE_URL,
-        'priority': priority,
-        'changefreq': changefreq,
-        'lastmod': today,
-    })
 
-# Core pages
-add_page('', 1.0, 'weekly')
-add_page('jobs/', 0.9, 'weekly')
-add_page('salaries/', 0.8, 'weekly')
-add_page('insights/', 0.8, 'weekly')
-add_page('tools/', 0.7, 'monthly')
-add_page('about/', 0.5, 'monthly')
-add_page('join/', 0.6, 'monthly')
+def get_url_priority(url_path: str, category: str) -> Tuple[str, str]:
+    """Get priority and changefreq for a URL."""
+    # Homepage
+    if url_path == '/':
+        return '1.0', 'daily'
 
-# Walk site directory for generated pages
-for root, dirs, files in os.walk(SITE_DIR):
-    for fname in files:
-        if fname == 'index.html':
-            rel_path = os.path.relpath(root, SITE_DIR)
-            if rel_path == '.':
-                continue  # Skip root (already added)
+    # Section landing pages
+    if url_path in ['/jobs/', '/salaries/', '/insights/', '/tools/']:
+        return '0.9', 'daily'
 
-            url_path = rel_path.replace(os.sep, '/') + '/'
+    # Secondary landing pages
+    if url_path in ['/companies/', '/about/', '/join/']:
+        return '0.7', 'weekly'
 
-            # Skip if already added
-            if any(p['loc'].endswith(url_path) for p in pages):
-                continue
+    # Category pages
+    if category == 'jobs':
+        # Job category pages (remote, senior, etc.) get higher priority
+        depth = url_path.count('/')
+        if depth <= 3:
+            return '0.8', 'daily'  # Category pages
+        return '0.6', 'weekly'  # Individual job pages
 
-            # Determine priority
-            if '/jobs/' in url_path and len(url_path.split('/')) > 3:
-                priority = 0.6  # Individual job pages
-            elif '/salaries/' in url_path and len(url_path.split('/')) > 3:
-                priority = 0.7  # Salary category pages
-            elif '/jobs/' in url_path:
-                priority = 0.8  # Job category pages
-            else:
-                priority = 0.5
+    if category == 'salaries':
+        return '0.7', 'weekly'
 
-            add_page(url_path, priority)
+    if category == 'tools':
+        # Tool comparison pages get higher priority
+        if '-vs-' in url_path:
+            return '0.6', 'monthly'
+        return '0.5', 'monthly'
 
-# Generate XML
-xml = '''<?xml version="1.0" encoding="UTF-8"?>
+    if category == 'companies':
+        return '0.5', 'weekly'
+
+    if category == 'insights':
+        return '0.6', 'weekly'
+
+    return '0.5', 'monthly'
+
+
+def collect_urls() -> Dict[str, List[dict]]:
+    """Collect all HTML pages and categorize them."""
+    categorized_urls = {
+        'main': [],
+        'salaries': [],
+        'tools': [],
+        'jobs': [],
+        'companies': [],
+        'insights': []
+    }
+
+    for root, dirs, files in os.walk(SITE_DIR):
+        # Skip the sitemaps directory itself
+        if 'sitemaps' in root:
+            continue
+
+        for file in files:
+            if file.endswith('.html'):
+                filepath = os.path.join(root, file)
+                rel_path = os.path.relpath(filepath, SITE_DIR)
+
+                # Convert filepath to URL
+                if rel_path == 'index.html':
+                    url_path = '/'
+                elif rel_path.endswith('/index.html'):
+                    url_path = '/' + rel_path[:-10]
+                else:
+                    url_path = '/' + rel_path.replace('.html', '/')
+
+                # Clean up path
+                url_path = url_path.replace('//', '/')
+                if not url_path.endswith('/') and url_path != '/':
+                    url_path += '/'
+
+                # Categorize and get metadata
+                category = categorize_url(url_path)
+                priority, changefreq = get_url_priority(url_path, category)
+
+                # Get file modification time for more accurate lastmod
+                try:
+                    mtime = os.path.getmtime(filepath)
+                    lastmod = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
+                except:
+                    lastmod = datetime.now().strftime('%Y-%m-%d')
+
+                categorized_urls[category].append({
+                    'loc': f'{BASE_URL}{url_path}',
+                    'lastmod': lastmod,
+                    'changefreq': changefreq,
+                    'priority': priority
+                })
+
+    return categorized_urls
+
+
+def generate_sitemap_xml(urls: List[dict]) -> str:
+    """Generate sitemap XML content for a list of URLs."""
+    # Sort URLs by priority (descending), then alphabetically
+    urls.sort(key=lambda x: (-float(x['priority']), x['loc']))
+
+    xml = '''<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 '''
 
-for page in pages:
-    xml += f'''  <url>
-    <loc>{page['loc']}</loc>
-    <lastmod>{page['lastmod']}</lastmod>
-    <changefreq>{page['changefreq']}</changefreq>
-    <priority>{page['priority']}</priority>
+    for url in urls:
+        xml += f'''  <url>
+    <loc>{url['loc']}</loc>
+    <lastmod>{url['lastmod']}</lastmod>
+    <changefreq>{url['changefreq']}</changefreq>
+    <priority>{url['priority']}</priority>
   </url>
 '''
 
-xml += '</urlset>\n'
+    xml += '</urlset>'
+    return xml
 
-# Save sitemap
-with open(f'{SITE_DIR}/sitemap.xml', 'w') as f:
-    f.write(xml)
 
-print(f"\n Generated sitemap with {len(pages)} URLs")
+def generate_sitemap_index(sitemap_files: List[str]) -> str:
+    """Generate sitemap index XML pointing to category sitemaps."""
+    lastmod = datetime.now().strftime('%Y-%m-%d')
 
-# Update robots.txt
-robots = f'''User-agent: *
+    xml = '''<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+'''
+
+    for sitemap_file in sitemap_files:
+        xml += f'''  <sitemap>
+    <loc>{BASE_URL}/sitemaps/{sitemap_file}</loc>
+    <lastmod>{lastmod}</lastmod>
+  </sitemap>
+'''
+
+    xml += '</sitemapindex>'
+    return xml
+
+
+def main():
+    # Create sitemaps directory
+    os.makedirs(SITEMAPS_DIR, exist_ok=True)
+
+    # Collect and categorize URLs
+    categorized_urls = collect_urls()
+
+    # Track generated sitemaps
+    generated_sitemaps = []
+    total_urls = 0
+
+    # Generate category sitemaps
+    for category, urls in categorized_urls.items():
+        if not urls:
+            continue
+
+        # Handle large categories that exceed 50K limit
+        if len(urls) > MAX_URLS_PER_SITEMAP:
+            # Split into multiple sitemaps
+            for i in range(0, len(urls), MAX_URLS_PER_SITEMAP):
+                chunk = urls[i:i + MAX_URLS_PER_SITEMAP]
+                chunk_num = i // MAX_URLS_PER_SITEMAP + 1
+                filename = f'sitemap-{category}-{chunk_num}.xml'
+
+                sitemap_xml = generate_sitemap_xml(chunk)
+                filepath = f'{SITEMAPS_DIR}/{filename}'
+
+                with open(filepath, 'w') as f:
+                    f.write(sitemap_xml)
+
+                generated_sitemaps.append(filename)
+                total_urls += len(chunk)
+                print(f"  Generated {filename} with {len(chunk)} URLs")
+        else:
+            filename = f'sitemap-{category}.xml'
+            sitemap_xml = generate_sitemap_xml(urls)
+            filepath = f'{SITEMAPS_DIR}/{filename}'
+
+            with open(filepath, 'w') as f:
+                f.write(sitemap_xml)
+
+            generated_sitemaps.append(filename)
+            total_urls += len(urls)
+            print(f"  Generated {filename} with {len(urls)} URLs")
+
+    # Generate sitemap index
+    sitemap_index = generate_sitemap_index(generated_sitemaps)
+    index_path = f'{SITE_DIR}/sitemap_index.xml'
+
+    with open(index_path, 'w') as f:
+        f.write(sitemap_index)
+
+    print(f"\n  Generated sitemap_index.xml pointing to {len(generated_sitemaps)} sitemaps")
+
+    # Also keep a flat sitemap.xml for backwards compatibility
+    all_urls = []
+    for urls in categorized_urls.values():
+        all_urls.extend(urls)
+
+    flat_sitemap = generate_sitemap_xml(all_urls)
+    flat_path = f'{SITE_DIR}/sitemap.xml'
+
+    with open(flat_path, 'w') as f:
+        f.write(flat_sitemap)
+
+    print(f"  Generated sitemap.xml (flat) with {len(all_urls)} URLs")
+
+    # Update robots.txt
+    robots_path = f'{SITE_DIR}/robots.txt'
+    robots_content = f'''User-agent: *
 Allow: /
 
+# Category-indexed sitemaps for better crawlability
+Sitemap: {BASE_URL}/sitemap_index.xml
+
+# Flat sitemap for backwards compatibility
 Sitemap: {BASE_URL}/sitemap.xml
 '''
 
-with open(f'{SITE_DIR}/robots.txt', 'w') as f:
-    f.write(robots)
+    with open(robots_path, 'w') as f:
+        f.write(robots_content)
 
-print(f" Updated robots.txt")
-print("="*70)
+    print(f"  Updated robots.txt with sitemap references")
+
+    print("\n" + "=" * 70)
+    print("  SITEMAP GENERATION COMPLETE")
+    print(f"    Total URLs indexed: {total_urls}")
+    print(f"    Category sitemaps: {len(generated_sitemaps)}")
+    print(f"    Index file: sitemap_index.xml")
+    print("=" * 70)
+
+
+if __name__ == '__main__':
+    main()

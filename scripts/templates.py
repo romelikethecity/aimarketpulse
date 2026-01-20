@@ -17,6 +17,26 @@ import os
 script_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, script_dir)
 
+# Import SEO core module
+try:
+    from seo_core import (
+        generate_breadcrumb_schema,
+        generate_faq_schema,
+        generate_dataset_schema,
+        generate_software_schema,
+        generate_organization_schema,
+        generate_salary_faqs,
+        generate_tool_faqs,
+        auto_link_content,
+        get_related_pages,
+        validate_page_content,
+        generate_faq_html,
+        CSS_FAQ_SECTION,
+    )
+    SEO_CORE_AVAILABLE = True
+except ImportError:
+    SEO_CORE_AVAILABLE = False
+
 try:
     from nav_config import NAV_ITEMS, FOOTER_ITEMS, SUBSCRIBE_LINK, SUBSCRIBE_LABEL, NEWSLETTER_LINK, NEWSLETTER_LABEL, SITE_NAME, COPYRIGHT_YEAR
 except Exception as e:
@@ -775,6 +795,7 @@ CSS_JOB_PAGE = '''
 
 def get_base_styles():
     """Get all base CSS styles"""
+    faq_css = CSS_FAQ_SECTION if SEO_CORE_AVAILABLE else ''
     return f'''
     <style>
         {CSS_VARIABLES}
@@ -784,6 +805,7 @@ def get_base_styles():
         {CSS_CTA}
         {CSS_FOOTER}
         {CSS_JOB_PAGE}
+        {faq_css}
     </style>
 '''
 
@@ -1034,3 +1056,39 @@ def get_job_posting_schema(job_data):
         schema["skills"] = skills
 
     return f'<script type="application/ld+json">\n{json.dumps(schema, indent=2)}\n</script>'
+
+
+def get_breadcrumb_html(breadcrumbs):
+    """
+    Generate breadcrumb HTML with schema markup.
+
+    Args:
+        breadcrumbs: List of dicts with 'name' and 'url' keys
+        Example: [{'name': 'Home', 'url': '/'}, {'name': 'Jobs', 'url': '/jobs/'}]
+
+    Returns:
+        HTML string with breadcrumb navigation and embedded schema
+    """
+    if not breadcrumbs:
+        return ''
+
+    # Generate schema if seo_core is available
+    schema_html = ''
+    if SEO_CORE_AVAILABLE:
+        schema_html = generate_breadcrumb_schema(breadcrumbs)
+
+    # Generate visible breadcrumb HTML
+    crumb_parts = []
+    for i, crumb in enumerate(breadcrumbs):
+        if i == len(breadcrumbs) - 1:
+            # Last item - no link
+            crumb_parts.append(f'<span>{crumb["name"]}</span>')
+        else:
+            crumb_parts.append(f'<a href="{crumb["url"]}">{crumb["name"]}</a>')
+
+    return f'''
+    {schema_html}
+    <nav class="breadcrumb">
+        {' <span class="sep">/</span> '.join(crumb_parts)}
+    </nav>
+    '''
