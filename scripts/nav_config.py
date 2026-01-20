@@ -40,10 +40,10 @@ FOOTER_ITEMS = [
 ]
 
 # Site info
-SITE_NAME = "PE Collective"
-SITE_URL = "https://pecollective.com"
+SITE_NAME = "AI Market Pulse"
+SITE_URL = "https://theaimarketpulse.com"
 COPYRIGHT_YEAR = "2026"
-SITE_TAGLINE = "AI Jobs & Market Intelligence for Prompt Engineers"
+SITE_TAGLINE = "AI Jobs & Market Intelligence"
 
 
 def get_nav_links_html(active_page=None, use_list=True):

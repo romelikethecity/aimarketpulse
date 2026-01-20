@@ -36,8 +36,8 @@ except Exception as e:
     SITE_NAME = "PE Collective"
     COPYRIGHT_YEAR = "2026"
 
-# SEO: Always use pecollective.com as canonical domain
-BASE_URL = 'https://pecollective.com'
+# SEO: Canonical domain
+BASE_URL = 'https://theaimarketpulse.com'
 
 
 # =============================================================================
