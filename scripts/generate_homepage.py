@@ -2,16 +2,27 @@
 """
 Generate the main homepage for PE Collective
 Includes Market Pulse stats, featured jobs, and newsletter signup
+
+Uses the shared templates for consistent styling with other pages.
 """
 
 import json
 import pandas as pd
 import os
 import glob
+import re
+import hashlib
 from datetime import datetime
-# Configuration
-BASE_URL = 'https://pecollective.com'
-SITE_NAME = 'PE Collective'
+import sys
+
+# Add scripts directory to path
+script_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, script_dir)
+
+from templates import (
+    get_html_head, get_nav_html, get_footer_html,
+    format_salary, slugify, BASE_URL, SITE_NAME
+)
 
 DATA_DIR = 'data'
 SITE_DIR = 'site'
@@ -90,6 +101,16 @@ def calculate_stats():
     }
 
 
+def make_slug(text):
+    """Create URL-safe slug"""
+    if pd.isna(text):
+        return ''
+    text = str(text).lower()
+    text = re.sub(r'[^a-z0-9\s-]', '', text)
+    text = re.sub(r'[\s_]+', '-', text)
+    return text.strip('-')[:50]
+
+
 def get_featured_jobs(limit=6):
     """Get featured jobs for homepage"""
     current_file, _ = get_jobs_files()
@@ -105,21 +126,6 @@ def get_featured_jobs(limit=6):
 
     featured = df.head(limit).to_dict('records')
     return featured
-
-
-def format_salary_display(min_sal, max_sal):
-    """Format salary for display"""
-    try:
-        min_val = float(min_sal) if pd.notna(min_sal) else 0
-        max_val = float(max_sal) if pd.notna(max_sal) else 0
-    except:
-        return ""
-
-    if min_val > 0 and max_val > 0:
-        return f"${int(min_val/1000)}K - ${int(max_val/1000)}K"
-    elif max_val > 0:
-        return f"Up to ${int(max_val/1000)}K"
-    return ""
 
 
 def generate_homepage():
@@ -141,227 +147,190 @@ def generate_homepage():
     # Generate featured jobs HTML
     featured_html = ''
     for job in featured_jobs:
-        title = job.get('title', 'Untitled')
-        company = job.get('company', 'Unknown')
-        location = job.get('location', '')
-        salary = format_salary_display(job.get('salary_min'), job.get('salary_max'))
-        category = job.get('job_category', '')
+        title = str(job.get('title', 'Untitled')).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        company = str(job.get('company', 'Unknown')).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        location = str(job.get('location', '')).replace('&', '&amp;') if pd.notna(job.get('location')) else ''
+        salary = format_salary(job.get('salary_min'), job.get('salary_max'))
+        category = str(job.get('job_category', '')).replace('&', '&amp;') if pd.notna(job.get('job_category')) else ''
 
-        # Create job card
+        # Generate job slug for link
+        job_slug = f"{make_slug(job.get('company', ''))}-{make_slug(job.get('title', ''))}"
+        hash_suffix = hashlib.md5(f"{job.get('company', '')}{job.get('title','')}{job.get('location','')}".encode()).hexdigest()[:6]
+        job_slug = f"{job_slug}-{hash_suffix}"
+
         featured_html += f'''
-        <div class="job-card">
-            <div class="job-category">{category}</div>
-            <h3 class="job-title">{title}</h3>
-            <div class="job-company">{company}</div>
-            <div class="job-meta">
-                <span class="job-location">{location}</span>
-                {f'<span class="job-salary">{salary}</span>' if salary else ''}
+        <a href="/jobs/{job_slug}/" class="job-card">
+            <div class="job-card__category">{category}</div>
+            <h3 class="job-card__title">{title}</h3>
+            <div class="job-card__company">{company}</div>
+            <div class="job-card__meta">
+                <span class="job-card__location">{location}</span>
+                {f'<span class="job-card__salary">{salary}</span>' if salary else ''}
             </div>
-        </div>
+        </a>
         '''
 
-    html = f'''<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PE Collective | AI & Prompt Engineering Jobs</title>
-    <meta name="description" content="Find the best AI, ML, and Prompt Engineering jobs. {stats['total_jobs']} open roles tracked with salary data and market insights.">
-
-    <link rel="canonical" href="{BASE_URL}/">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{BASE_URL}/">
-    <meta property="og:title" content="PE Collective | AI & Prompt Engineering Jobs">
-    <meta property="og:description" content="Find the best AI, ML, and Prompt Engineering jobs. {stats['total_jobs']} open roles tracked.">
-    <meta property="og:site_name" content="{SITE_NAME}">
-    <meta property="og:image" content="{BASE_URL}/assets/social_preview.png">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="PE Collective | AI & Prompt Engineering Jobs">
-    <meta name="twitter:description" content="Find the best AI, ML, and Prompt Engineering jobs.">
+    html = f'''{get_html_head(
+        "AI & Prompt Engineering Jobs",
+        f"Find the best AI, ML, and Prompt Engineering jobs. {stats['total_jobs']} open roles tracked with salary data and market insights.",
+        ""
+    )}
+{get_nav_html('home')}
 
     <style>
-        :root {{
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-card: #334155;
-            --text-primary: #e2e8f0;
-            --text-secondary: #94a3b8;
-            --accent: #22d3ee;
-            --accent-gold: #f5a623;
-            --success: #10b981;
-            --danger: #ef4444;
-        }}
-
-        * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-
-        body {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }}
-
-        .container {{ max-width: 1200px; margin: 0 auto; padding: 0 20px; }}
-
-        /* Navigation */
-        nav {{
-            background: var(--bg-secondary);
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--bg-card);
-        }}
-        nav .container {{ display: flex; justify-content: space-between; align-items: center; }}
-        .nav-brand {{ font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }}
-        .nav-links {{ display: flex; gap: 2rem; }}
-        .nav-links a {{ color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }}
-        .nav-links a:hover {{ color: var(--accent); }}
-        .nav-cta {{
-            background: var(--accent);
-            color: var(--bg-primary);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-        }}
-
         /* Hero Section */
         .hero {{
-            padding: 4rem 0;
+            padding: 5rem 0 4rem;
             text-align: center;
+            background: linear-gradient(180deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
         }}
         .hero h1 {{
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--accent), var(--accent-gold));
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--teal-accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }}
         .hero p {{
             font-size: 1.25rem;
             color: var(--text-secondary);
             max-width: 600px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 2.5rem;
         }}
         .hero-cta {{
             display: inline-block;
-            background: var(--accent);
-            color: var(--bg-primary);
-            padding: 1rem 2rem;
+            background: var(--gold);
+            color: var(--bg-darker);
+            padding: 1rem 2.5rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
+            transition: all 0.2s;
+        }}
+        .hero-cta:hover {{
+            background: var(--gold-light);
+            transform: translateY(-2px);
         }}
 
         /* Market Pulse */
         .market-pulse {{
-            background: var(--bg-secondary);
-            padding: 3rem 0;
-            border-top: 1px solid var(--bg-card);
-            border-bottom: 1px solid var(--bg-card);
+            background: var(--bg-card);
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }}
-        .market-pulse h2 {{
+        .section-header {{
             text-align: center;
+            margin-bottom: 3rem;
+        }}
+        .section-header h2 {{
+            font-size: 2rem;
             margin-bottom: 0.5rem;
-            font-size: 1.5rem;
         }}
-        .market-pulse .subtitle {{
-            text-align: center;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
+        .section-header p {{
+            color: var(--text-muted);
         }}
         .stats-grid {{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
         }}
         .stat-card {{
-            background: var(--bg-card);
-            padding: 1.5rem;
+            background: var(--bg-dark);
+            padding: 2rem;
             border-radius: 12px;
             text-align: center;
+            border: 1px solid var(--border);
         }}
-        .stat-value {{
-            font-size: 2.5rem;
+        .stat-card__value {{
+            font-size: 2.75rem;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--gold);
+            font-family: 'Space Grotesk', sans-serif;
         }}
-        .stat-value.positive {{ color: var(--success); }}
-        .stat-value.negative {{ color: var(--danger); }}
-        .stat-label {{
+        .stat-card__value.positive {{ color: var(--success); }}
+        .stat-card__value.negative {{ color: var(--error); }}
+        .stat-card__label {{
             color: var(--text-secondary);
             margin-top: 0.5rem;
+            font-size: 0.9rem;
         }}
 
         /* Featured Jobs */
         .featured-jobs {{
-            padding: 4rem 0;
-        }}
-        .featured-jobs h2 {{
-            text-align: center;
-            margin-bottom: 2rem;
+            padding: 5rem 0;
         }}
         .jobs-grid {{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
+            margin-bottom: 2rem;
         }}
         .job-card {{
-            background: var(--bg-secondary);
-            padding: 1.5rem;
+            display: block;
+            background: var(--bg-card);
+            padding: 1.75rem;
             border-radius: 12px;
-            border: 1px solid var(--bg-card);
-            transition: transform 0.2s, border-color 0.2s;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            transition: all 0.2s;
         }}
         .job-card:hover {{
             transform: translateY(-4px);
-            border-color: var(--accent);
+            border-color: var(--gold);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }}
-        .job-category {{
+        .job-card__category {{
             font-size: 0.75rem;
-            color: var(--accent);
+            color: var(--teal-accent);
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }}
-        .job-title {{
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }}
-        .job-company {{
-            color: var(--text-secondary);
             margin-bottom: 0.75rem;
         }}
-        .job-meta {{
+        .job-card__title {{
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }}
+        .job-card__company {{
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }}
+        .job-card__meta {{
             display: flex;
             gap: 1rem;
             font-size: 0.875rem;
-            color: var(--text-secondary);
+            color: var(--text-muted);
         }}
-        .job-salary {{
-            color: var(--accent-gold);
+        .job-card__salary {{
+            color: var(--gold);
             font-weight: 600;
         }}
         .view-all {{
             text-align: center;
-            margin-top: 2rem;
         }}
         .view-all a {{
-            color: var(--accent);
+            color: var(--gold);
             text-decoration: none;
             font-weight: 600;
+            font-size: 1.1rem;
+        }}
+        .view-all a:hover {{
+            text-decoration: underline;
         }}
 
         /* CTA Section */
         .cta-section {{
-            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));
-            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-card) 100%);
+            padding: 5rem 0;
             text-align: center;
+            border-top: 1px solid var(--border);
         }}
         .cta-section h2 {{
+            font-size: 2rem;
             margin-bottom: 1rem;
         }}
         .cta-section p {{
@@ -372,72 +341,76 @@ def generate_homepage():
             margin-right: auto;
         }}
 
-        /* Footer */
-        footer {{
-            background: var(--bg-secondary);
-            padding: 2rem 0;
-            border-top: 1px solid var(--bg-card);
+        /* Categories Section */
+        .categories-section {{
+            padding: 4rem 0;
+            background: var(--bg-darker);
         }}
-        footer .container {{
+        .categories-grid {{
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
         }}
-        .footer-links {{ display: flex; gap: 1.5rem; }}
-        .footer-links a {{ color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; }}
-        .footer-links a:hover {{ color: var(--accent); }}
-        .footer-copyright {{ color: var(--text-secondary); font-size: 0.875rem; }}
+        .category-tag {{
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+        }}
+        .category-tag:hover {{
+            background: var(--teal-primary);
+            border-color: var(--teal-light);
+            color: var(--text-primary);
+        }}
 
-        @media (max-width: 768px) {{
-            .hero h1 {{ font-size: 2rem; }}
-            .nav-links {{ display: none; }}
-            .stats-grid {{ grid-template-columns: repeat(2, 1fr); }}
-            footer .container {{ flex-direction: column; gap: 1rem; text-align: center; }}
+        @media (max-width: 900px) {{
+            .stats-grid {{
+                grid-template-columns: repeat(2, 1fr);
+            }}
+        }}
+        @media (max-width: 600px) {{
+            .hero h1 {{ font-size: 2.25rem; }}
+            .stats-grid {{ grid-template-columns: 1fr 1fr; gap: 1rem; }}
+            .stat-card {{ padding: 1.25rem; }}
+            .stat-card__value {{ font-size: 2rem; }}
         }}
     </style>
-</head>
-<body>
-    <nav>
-        <div class="container">
-            <a href="/" class="nav-brand">PE Collective</a>
-            <div class="nav-links">
-                <a href="/jobs/">AI Jobs</a>
-                <a href="/salaries/">Salaries</a>
-                <a href="/insights/">Insights</a>
-                <a href="/tools/">Tools</a>
-            </div>
-            <a href="/join/" class="nav-cta">Join Community</a>
-        </div>
-    </nav>
 
     <section class="hero">
         <div class="container">
             <h1>Find Your Next AI Role</h1>
             <p>Curated AI, Machine Learning, and Prompt Engineering jobs with salary transparency and market insights.</p>
-            <a href="/jobs/" class="hero-cta">Browse {stats['total_jobs']} Open Roles →</a>
+            <a href="/jobs/" class="hero-cta">Browse {stats['total_jobs']:,} Open Roles →</a>
         </div>
     </section>
 
     <section class="market-pulse">
         <div class="container">
-            <h2>Market Pulse</h2>
-            <p class="subtitle">AI Job Market as of {update_date}</p>
+            <div class="section-header">
+                <h2>Market Pulse</h2>
+                <p>AI Job Market as of {update_date}</p>
+            </div>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-value">{stats['total_jobs']:,}</div>
-                    <div class="stat-label">Open Roles</div>
+                    <div class="stat-card__value">{stats['total_jobs']:,}</div>
+                    <div class="stat-card__label">Open Roles</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value {wow_class}">{wow_arrow} {abs(stats['wow_change']):.0f}%</div>
-                    <div class="stat-label">Week over Week</div>
+                    <div class="stat-card__value {wow_class}">{wow_arrow} {abs(stats['wow_change']):.0f}%</div>
+                    <div class="stat-card__label">Week over Week</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value">{stats['remote_pct']:.0f}%</div>
-                    <div class="stat-label">Remote Jobs</div>
+                    <div class="stat-card__value">{stats['remote_pct']:.0f}%</div>
+                    <div class="stat-card__label">Remote Jobs</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value">${stats['avg_max_salary']//1000}K</div>
-                    <div class="stat-label">Avg Max Salary</div>
+                    <div class="stat-card__value">${stats['avg_max_salary']//1000}K</div>
+                    <div class="stat-card__label">Avg Max Salary</div>
                 </div>
             </div>
         </div>
@@ -445,12 +418,32 @@ def generate_homepage():
 
     <section class="featured-jobs">
         <div class="container">
-            <h2>Featured AI Jobs</h2>
+            <div class="section-header">
+                <h2>Featured AI Jobs</h2>
+                <p>Highest paying opportunities this week</p>
+            </div>
             <div class="jobs-grid">
                 {featured_html}
             </div>
             <div class="view-all">
-                <a href="/jobs/">View All {stats['total_jobs']} Jobs →</a>
+                <a href="/jobs/">View All {stats['total_jobs']:,} Jobs →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Browse by Category</h2>
+            </div>
+            <div class="categories-grid">
+                <a href="/jobs/ai-ml-engineer/" class="category-tag">AI/ML Engineer</a>
+                <a href="/jobs/prompt-engineer/" class="category-tag">Prompt Engineer</a>
+                <a href="/jobs/data-scientist/" class="category-tag">Data Scientist</a>
+                <a href="/jobs/research-scientist/" class="category-tag">Research Scientist</a>
+                <a href="/jobs/mlops-engineer/" class="category-tag">MLOps Engineer</a>
+                <a href="/jobs/data-engineer/" class="category-tag">Data Engineer</a>
+                <a href="/jobs/remote/" class="category-tag">Remote Jobs</a>
             </div>
         </div>
     </section>
@@ -463,20 +456,7 @@ def generate_homepage():
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="/jobs/">Jobs</a>
-                <a href="/salaries/">Salaries</a>
-                <a href="/insights/">Insights</a>
-                <a href="/about/">About</a>
-            </div>
-            <div class="footer-copyright">© 2026 PE Collective. All rights reserved.</div>
-        </div>
-    </footer>
-</body>
-</html>
-'''
+{get_footer_html()}'''
 
     # Ensure site directory exists
     os.makedirs(SITE_DIR, exist_ok=True)
