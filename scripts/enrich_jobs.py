@@ -390,6 +390,181 @@ RED_FLAG_PATTERNS = {
     'vague_role': ['various duties', 'other duties as assigned', 'jack of all trades'],
 }
 
+# =============================================================================
+# AI RELEVANCE FILTERING
+# =============================================================================
+
+# Keywords that indicate a job is AI-relevant (must appear in title OR description)
+# Jobs must match at least one of these to be included
+AI_RELEVANCE_TITLE_KEYWORDS = [
+    # Core AI/ML terms in title
+    'ai ', ' ai', 'a.i.', 'artificial intelligence',
+    'ml ', ' ml', 'machine learning',
+    'deep learning', 'neural network',
+    'nlp', 'natural language',
+    'computer vision', 'cv engineer',
+    'llm', 'large language model',
+    'prompt engineer', 'prompt specialist',
+    'generative ai', 'gen ai', 'genai',
+    'rag ', 'rag engineer',
+    'data scientist',  # Data scientists typically do ML work
+    'applied scientist',
+    'research scientist',
+    'mlops', 'ml ops', 'ml platform', 'ml infrastructure',
+    'ai safety', 'ai ethics', 'responsible ai',
+    'robotics', 'autonomous',
+    'recommendation', 'personalization',
+    'speech recognition', 'speech engineer',
+    'conversational ai', 'chatbot',
+]
+
+# Strong AI signals in description (if title doesn't match, description must have these)
+AI_RELEVANCE_DESCRIPTION_KEYWORDS = [
+    # LLM/GenAI specific
+    'large language model', 'llm', 'gpt', 'chatgpt',
+    'openai', 'anthropic', 'claude',
+    'langchain', 'llamaindex', 'llama index',
+    'prompt engineering', 'prompt design',
+    'fine-tuning', 'fine tuning', 'finetuning',
+    'retrieval augmented', 'rag pipeline', 'rag system',
+    'vector database', 'vector search', 'embeddings',
+    'transformer model', 'transformers library',
+    'hugging face', 'huggingface',
+
+    # ML/Deep Learning specific
+    'machine learning model', 'ml model', 'ml pipeline',
+    'deep learning', 'neural network', 'deep neural',
+    'pytorch', 'tensorflow', 'keras',
+    'model training', 'model deployment', 'model serving',
+    'feature engineering', 'feature store',
+    'mlops', 'ml operations', 'ml platform',
+
+    # NLP specific
+    'natural language processing', 'nlp model', 'nlp pipeline',
+    'text classification', 'named entity', 'sentiment analysis',
+    'language model', 'text generation',
+
+    # Computer Vision specific
+    'computer vision', 'image recognition', 'object detection',
+    'image classification', 'image segmentation',
+    'opencv', 'yolo', 'convolutional neural',
+
+    # AI Applications
+    'recommendation system', 'recommender system',
+    'personalization engine', 'ranking model',
+    'anomaly detection', 'fraud detection ml',
+    'predictive model', 'forecasting model',
+    'speech recognition', 'speech to text', 'text to speech',
+    'conversational ai', 'dialogue system', 'chatbot',
+
+    # Research/Cutting edge
+    'reinforcement learning', 'rlhf',
+    'generative model', 'diffusion model',
+    'multimodal', 'vision-language',
+    'foundation model', 'pre-trained model',
+]
+
+# Titles that should be EXCLUDED even if they have some AI keywords
+# These are too generic or not actually AI roles
+EXCLUDED_TITLE_PATTERNS = [
+    'data engineer',  # Unless explicitly AI/ML data engineer
+    'software engineer',  # Unless has AI qualifier
+    'backend engineer',
+    'frontend engineer',
+    'full stack engineer',
+    'fullstack engineer',
+    'devops engineer',
+    'sre ', 'site reliability',
+    'platform engineer',
+    'infrastructure engineer',
+    'security engineer',
+    'qa engineer', 'quality assurance',
+    'test engineer',
+    'network engineer',
+    'systems engineer',
+    'solutions engineer',
+    'support engineer',
+    'sales engineer',
+    'performance engineer',
+    'release engineer',
+    'build engineer',
+    'database administrator', 'dba',
+    'business analyst',
+    'product manager',  # Unless AI product manager
+    'project manager',
+    'program manager',
+    'technical writer',
+    'recruiter',
+    'marketing',
+    'hr ', 'human resources',
+    'finance',
+    'accounting',
+    'legal',
+    'operations',
+    'customer success',
+    'account executive',
+    'account manager',
+]
+
+# Exceptions: titles that SHOULD be included even if they match excluded patterns
+EXCLUDED_TITLE_EXCEPTIONS = [
+    'ai ', ' ai', 'ml ', ' ml', 'machine learning',
+    'data scientist',
+    'llm', 'nlp', 'deep learning', 'neural',
+    'generative', 'genai', 'gen ai',
+    'prompt', 'rag',
+    'computer vision', 'speech',
+    'recommendation', 'personalization',
+]
+
+
+def is_ai_relevant(title, description):
+    """
+    Determine if a job is AI-relevant based on title and description.
+
+    Returns:
+        (bool, str): (is_relevant, reason)
+    """
+    title_lower = str(title).lower() if title else ''
+    desc_lower = str(description).lower() if description else ''
+
+    # Step 1: Check if title has explicit AI keywords
+    for keyword in AI_RELEVANCE_TITLE_KEYWORDS:
+        if keyword in title_lower:
+            return True, f"title_keyword:{keyword}"
+
+    # Step 2: Check if title matches excluded patterns
+    is_excluded = False
+    for pattern in EXCLUDED_TITLE_PATTERNS:
+        if pattern in title_lower:
+            is_excluded = True
+            # But check if it has an exception (AI qualifier)
+            for exception in EXCLUDED_TITLE_EXCEPTIONS:
+                if exception in title_lower:
+                    return True, f"excluded_but_has_ai:{exception}"
+            break
+
+    # If title is excluded and no AI qualifier, check description more strictly
+    if is_excluded:
+        # For excluded titles, require STRONG AI signals in description
+        ai_signal_count = 0
+        found_signals = []
+        for keyword in AI_RELEVANCE_DESCRIPTION_KEYWORDS:
+            if keyword in desc_lower:
+                ai_signal_count += 1
+                found_signals.append(keyword)
+                if ai_signal_count >= 3:  # Require multiple strong signals
+                    return True, f"excluded_title_strong_desc:{','.join(found_signals[:3])}"
+        return False, f"excluded_title_weak_desc"
+
+    # Step 3: For non-excluded titles, check description for AI relevance
+    for keyword in AI_RELEVANCE_DESCRIPTION_KEYWORDS:
+        if keyword in desc_lower:
+            return True, f"desc_keyword:{keyword}"
+
+    # Step 4: No AI signals found
+    return False, "no_ai_signals"
+
 
 def extract_skills(text):
     """Extract skills from job description"""
@@ -406,18 +581,40 @@ def extract_skills(text):
     return sorted(list(found_skills))
 
 
-def categorize_job(title):
-    """Categorize job based on title"""
+def categorize_job(title, description=''):
+    """Categorize job based on title and description.
+
+    Returns a specific category or None if job doesn't fit any category.
+    """
     if not title or pd.isna(title):
-        return "Other AI Role"
+        return None
 
     title_lower = str(title).lower()
+    desc_lower = str(description).lower() if description else ''
 
+    # First pass: check title against rules
     for keyword, category in CATEGORY_RULES:
         if keyword in title_lower:
             return category
 
-    return "Other AI Role"
+    # Second pass: check description for strong category signals
+    # This helps categorize generic titles that have AI work in description
+    desc_category_signals = {
+        'Prompt Engineer': ['prompt engineering', 'prompt design', 'prompt optimization'],
+        'LLM Engineer': ['llm development', 'large language model', 'fine-tuning llm'],
+        'RAG Engineer': ['rag pipeline', 'rag system', 'retrieval augmented'],
+        'AI/ML Engineer': ['machine learning model', 'ml pipeline', 'deep learning', 'neural network'],
+        'MLOps Engineer': ['mlops', 'ml operations', 'model deployment', 'model serving'],
+        'Data Scientist': ['data science', 'statistical modeling', 'predictive analytics'],
+    }
+
+    for category, signals in desc_category_signals.items():
+        for signal in signals:
+            if signal in desc_lower:
+                return category
+
+    # No category match - return None (job will be filtered out)
+    return None
 
 
 def determine_remote_type(row):
@@ -563,17 +760,56 @@ def extract_buzzwords(description):
     return found
 
 
-def process_jobs(df):
-    """Process raw job data into enriched format"""
+def process_jobs(df, apply_ai_filter=True):
+    """Process raw job data into enriched format.
+
+    Args:
+        df: Raw job DataFrame
+        apply_ai_filter: If True, filter out non-AI jobs (default True)
+
+    Returns:
+        Tuple of (jobs_list, filter_stats_dict)
+    """
     jobs = []
     today = date.today()
     import_date = today.isoformat()
     import_week = today.strftime('%Y-W%W')
 
+    # Filter stats for reporting
+    filter_stats = {
+        'total_input': len(df),
+        'no_title': 0,
+        'not_ai_relevant': 0,
+        'no_category': 0,
+        'included': 0,
+        'exclusion_reasons': Counter(),
+    }
+
     for _, row in df.iterrows():
         # Skip if no title
         if pd.isna(row.get('title')):
+            filter_stats['no_title'] += 1
             continue
+
+        title = str(row.get('title', ''))
+        description = str(row.get('description', '')) if pd.notna(row.get('description')) else ''
+
+        # Apply AI relevance filter
+        if apply_ai_filter:
+            is_relevant, reason = is_ai_relevant(title, description)
+            if not is_relevant:
+                filter_stats['not_ai_relevant'] += 1
+                filter_stats['exclusion_reasons'][reason] += 1
+                continue
+
+        # Categorize the job
+        job_category = categorize_job(title, description)
+        if job_category is None:
+            filter_stats['no_category'] += 1
+            filter_stats['exclusion_reasons']['no_category_match'] += 1
+            continue
+
+        filter_stats['included'] += 1
 
         # Extract salary
         salary_min = None
@@ -601,9 +837,7 @@ def process_jobs(df):
                     salary_max = int(salary_max * 2080)
 
         # Build job object
-        description = str(row.get('description', '')) if pd.notna(row.get('description')) else ''
         location = str(row.get('location', '')) if pd.notna(row.get('location')) else ''
-        title = str(row.get('title', ''))
         company = str(row.get('company', '')) if pd.notna(row.get('company')) else 'Unknown'
 
         # Calculate data quality
@@ -625,7 +859,7 @@ def process_jobs(df):
             'salary_type': salary_type,
             'experience_level': determine_experience_level(title, description),
             'seniority': classify_seniority(title),
-            'job_category': categorize_job(title),
+            'job_category': job_category,  # Use pre-computed category
             'skills_tags': extract_skills(description),
             'is_tech': detect_tech_company(company, description),
             'company_stage': detect_company_stage(description),
@@ -649,7 +883,7 @@ def process_jobs(df):
 
         jobs.append(job)
 
-    return jobs
+    return jobs, filter_stats
 
 
 def generate_market_intelligence(jobs):
@@ -838,9 +1072,24 @@ def main():
         df = df.drop_duplicates(subset=[url_col], keep='first')
         print(f" After deduplication: {len(df)}")
 
-        # Process jobs
-        jobs = process_jobs(df)
-        print(f" Jobs processed: {len(jobs)}")
+        # Process jobs with AI relevance filter
+        jobs, filter_stats = process_jobs(df, apply_ai_filter=True)
+
+        # Print filtering stats
+        print(f"\n Filtering results:")
+        print(f"   Input jobs: {filter_stats['total_input']}")
+        print(f"   No title: {filter_stats['no_title']}")
+        print(f"   Not AI-relevant: {filter_stats['not_ai_relevant']}")
+        print(f"   No category match: {filter_stats['no_category']}")
+        print(f"   INCLUDED: {filter_stats['included']}")
+
+        # Show top exclusion reasons
+        if filter_stats['exclusion_reasons']:
+            print(f"\n Top exclusion reasons:")
+            for reason, count in filter_stats['exclusion_reasons'].most_common(5):
+                print(f"   {reason}: {count}")
+
+        print(f"\n Jobs after filtering: {len(jobs)}")
 
     # Print category breakdown
     categories = Counter(job['job_category'] for job in jobs)
