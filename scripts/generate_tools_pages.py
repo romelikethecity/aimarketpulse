@@ -24,6 +24,7 @@ SITE_DIR = 'site'
 TOOLS_DIR = f'{SITE_DIR}/tools'
 
 # AI Tools data - curated list of tools mentioned in AI job postings
+# Note: Tools with 'custom_page': True have hand-crafted review pages and won't be overwritten
 AI_TOOLS = {
     # LLM Providers
     'OpenAI': {
@@ -131,8 +132,9 @@ AI_TOOLS = {
         'category': 'AI Dev Tools',
         'description': 'AI-first code editor built on VS Code. Integrates LLMs directly into the coding workflow.',
         'website': 'https://cursor.sh',
-        'skills': ['AI coding', 'Code completion', 'Chat interface'],
-        'use_cases': ['Code writing', 'Refactoring', 'Documentation'],
+        'skills': ['AI coding', 'Code completion', 'Chat interface', 'Composer', 'Multi-file editing'],
+        'use_cases': ['Code writing', 'Refactoring', 'Documentation', 'Multi-file scaffolding'],
+        'custom_page': True,  # Has in-depth review page - don't overwrite
     },
     'GitHub Copilot': {
         'category': 'AI Dev Tools',
@@ -422,6 +424,11 @@ def generate_tool_page(tool_name, tool_data, job_count):
     slug = slugify(tool_name)
     if not slug:
         return None
+
+    # Skip tools with custom review pages
+    if tool_data.get('custom_page'):
+        print(f"  Skipping {tool_name} (has custom review page)")
+        return slug
 
     tool_dir = f"{TOOLS_DIR}/{slug}"
     os.makedirs(tool_dir, exist_ok=True)

@@ -1,0 +1,329 @@
+{
+  "categories": [
+    {
+      "name": "AI Coding Assistants",
+      "slug": "ai-coding-assistants",
+      "icon": "💻",
+      "description": "AI-powered tools that help developers write, edit, and debug code faster"
+    },
+    {
+      "name": "LLM Providers",
+      "slug": "llm-providers",
+      "icon": "🧠",
+      "description": "Companies offering large language model APIs for building AI applications"
+    },
+    {
+      "name": "LLM Frameworks",
+      "slug": "llm-frameworks",
+      "icon": "🔗",
+      "description": "Libraries and frameworks for building applications with large language models"
+    },
+    {
+      "name": "Vector Databases",
+      "slug": "vector-databases",
+      "icon": "🗄️",
+      "description": "Databases optimized for storing and searching vector embeddings"
+    },
+    {
+      "name": "ML Frameworks",
+      "slug": "ml-frameworks",
+      "icon": "⚡",
+      "description": "Core frameworks for training and deploying machine learning models"
+    },
+    {
+      "name": "ML Platforms",
+      "slug": "ml-platforms",
+      "icon": "🤗",
+      "description": "Platforms for hosting, sharing, and deploying ML models"
+    }
+  ],
+  "tools": [
+    {
+      "name": "Cursor",
+      "slug": "cursor",
+      "category": "AI Coding Assistants",
+      "description": "AI-first code editor built on VS Code with deep LLM integration for code generation, editing, and chat",
+      "pricing": "Free tier, Pro $20/month, Business $40/user/month",
+      "best_for": "Developers who want AI deeply integrated into their coding workflow",
+      "website": "https://cursor.sh",
+      "logo": "/assets/logos/cursor_logo.png",
+      "pros": ["VS Code familiarity with AI superpowers", "Excellent code context understanding", "Tab completion feels magical", "Multi-file editing capabilities", "Fast iteration on Composer feature"],
+      "cons": ["$20/month adds up vs free alternatives", "Can be slow on large codebases", "Sometimes generates incorrect code confidently", "Premium features require Pro subscription", "Extension ecosystem smaller than VS Code"],
+      "custom_page": true
+    },
+    {
+      "name": "GitHub Copilot",
+      "slug": "github-copilot",
+      "category": "AI Coding Assistants",
+      "description": "AI pair programmer from GitHub/Microsoft with inline suggestions and chat powered by OpenAI models",
+      "pricing": "Free for students/OSS, Individual $10/month, Business $19/user/month",
+      "best_for": "Teams already in the GitHub ecosystem wanting seamless AI integration",
+      "website": "https://github.com/features/copilot",
+      "logo": "/assets/logos/github_copilot_logo.png",
+      "pros": ["Works in any IDE", "Strong enterprise features", "Cheaper than Cursor Pro", "GitHub integration"],
+      "cons": ["Less aggressive than Cursor", "Chat less capable", "No multi-file Composer equivalent"],
+      "custom_page": false
+    },
+    {
+      "name": "Claude Code",
+      "slug": "claude-code",
+      "category": "AI Coding Assistants",
+      "description": "Anthropic's agentic coding tool that runs in the terminal and can autonomously execute multi-step coding tasks",
+      "pricing": "Usage-based via Anthropic API, ~$3 per hour of active use",
+      "best_for": "Developers comfortable with terminal who want maximum AI agency",
+      "website": "https://www.anthropic.com/claude-code",
+      "logo": "/assets/logos/anthropic_logo.png",
+      "pros": ["True agentic capabilities", "Can run commands autonomously", "Excellent reasoning", "No monthly fee"],
+      "cons": ["Terminal-only", "Usage costs unpredictable", "Newer product", "Requires API key setup"],
+      "custom_page": false
+    },
+    {
+      "name": "Windsurf",
+      "slug": "windsurf",
+      "category": "AI Coding Assistants",
+      "description": "AI IDE from Codeium with 'Cascade' agentic features and free tier",
+      "pricing": "Free tier generous, Pro $15/month",
+      "best_for": "Developers wanting Cursor-like features without the price tag",
+      "website": "https://codeium.com/windsurf",
+      "logo": "/assets/logos/windsurf_logo.png",
+      "pros": ["Strong free tier", "Cascade agentic feature", "Good performance"],
+      "cons": ["Less mature than Cursor", "Smaller community", "Fewer integrations"],
+      "custom_page": false
+    },
+    {
+      "name": "OpenAI",
+      "slug": "openai",
+      "category": "LLM Providers",
+      "description": "Creator of GPT-4, ChatGPT, and the leading provider of LLM APIs for enterprise and consumer applications",
+      "pricing": "API usage-based, ChatGPT Plus $20/month, Team $25/user/month",
+      "best_for": "Teams building AI products who need the most capable general-purpose models",
+      "website": "https://openai.com",
+      "logo": "/assets/logos/openai_logo.png",
+      "pros": ["Most capable models", "Largest ecosystem", "Strong documentation", "Regular updates"],
+      "cons": ["Expensive at scale", "Rate limits", "Privacy concerns for some"],
+      "custom_page": false
+    },
+    {
+      "name": "Anthropic",
+      "slug": "anthropic",
+      "category": "LLM Providers",
+      "description": "AI safety company behind Claude models, known for longer context windows and thoughtful responses",
+      "pricing": "API usage-based, Claude Pro $20/month, Team $30/user/month",
+      "best_for": "Teams needing long context, coding assistance, or safety-focused AI",
+      "website": "https://anthropic.com",
+      "logo": "/assets/logos/anthropic_logo.png",
+      "pros": ["200K context window", "Excellent at coding", "Safety-focused", "Honest about limitations"],
+      "cons": ["Smaller ecosystem than OpenAI", "No image generation", "Fewer fine-tuning options"],
+      "custom_page": false
+    },
+    {
+      "name": "Google AI",
+      "slug": "google-ai",
+      "category": "LLM Providers",
+      "description": "Google's AI division offering Gemini models, Vertex AI, and enterprise ML services",
+      "pricing": "API usage-based, Gemini Advanced $20/month",
+      "best_for": "Teams in Google Cloud ecosystem or needing multimodal capabilities",
+      "website": "https://ai.google",
+      "logo": "/assets/logos/google_ai_logo.png",
+      "pros": ["Strong multimodal", "Google Cloud integration", "Competitive pricing"],
+      "cons": ["Playing catch-up on capabilities", "Less developer mindshare"],
+      "custom_page": false
+    },
+    {
+      "name": "LangChain",
+      "slug": "langchain",
+      "category": "LLM Frameworks",
+      "description": "Popular framework for building LLM applications with chains, agents, memory, and RAG components",
+      "pricing": "Open source, LangSmith from $0 (free tier)",
+      "best_for": "Teams building complex LLM applications with multiple components",
+      "website": "https://langchain.com",
+      "logo": "/assets/logos/langchain_logo.png",
+      "pros": ["Most popular LLM framework", "Huge ecosystem", "Great docs", "LangSmith for observability"],
+      "cons": ["Can be over-engineered for simple use cases", "Frequent breaking changes", "Abstractions sometimes leak"],
+      "custom_page": false
+    },
+    {
+      "name": "LlamaIndex",
+      "slug": "llamaindex",
+      "category": "LLM Frameworks",
+      "description": "Data framework for LLM applications specializing in connecting custom data sources for RAG",
+      "pricing": "Open source, LlamaCloud for enterprise",
+      "best_for": "Teams building RAG applications with complex data ingestion needs",
+      "website": "https://llamaindex.ai",
+      "logo": "/assets/logos/llamaindex_logo.png",
+      "pros": ["Best-in-class for RAG", "Great data connectors", "Simpler than LangChain for RAG"],
+      "cons": ["More focused than LangChain", "Smaller ecosystem"],
+      "custom_page": false
+    },
+    {
+      "name": "Pinecone",
+      "slug": "pinecone",
+      "category": "Vector Databases",
+      "description": "Managed vector database for similarity search, popular choice for production RAG applications",
+      "pricing": "Free tier, Standard from $70/month",
+      "best_for": "Teams wanting managed vector search without ops overhead",
+      "website": "https://pinecone.io",
+      "logo": "/assets/logos/pinecone_logo.png",
+      "pros": ["Fully managed", "Fast queries", "Good free tier", "Strong integrations"],
+      "cons": ["Gets expensive at scale", "Vendor lock-in", "Limited query flexibility"],
+      "custom_page": false
+    },
+    {
+      "name": "Weaviate",
+      "slug": "weaviate",
+      "category": "Vector Databases",
+      "description": "Open-source vector database with built-in ML model integration and hybrid search",
+      "pricing": "Open source self-hosted, Weaviate Cloud from $0",
+      "best_for": "Teams wanting more control or hybrid search capabilities",
+      "website": "https://weaviate.io",
+      "logo": "/assets/logos/weaviate_logo.png",
+      "pros": ["Open source", "Hybrid search", "GraphQL API", "Self-host option"],
+      "cons": ["More complex to operate", "Smaller community than Pinecone"],
+      "custom_page": false
+    },
+    {
+      "name": "Chroma",
+      "slug": "chroma",
+      "category": "Vector Databases",
+      "description": "Open-source embedding database designed for simplicity and LangChain integration",
+      "pricing": "Open source",
+      "best_for": "Developers prototyping or building smaller-scale RAG applications",
+      "website": "https://trychroma.com",
+      "logo": "/assets/logos/chroma_logo.png",
+      "pros": ["Dead simple API", "Great for prototyping", "LangChain native"],
+      "cons": ["Not as battle-tested", "Scaling requires more work"],
+      "custom_page": false
+    },
+    {
+      "name": "PyTorch",
+      "slug": "pytorch",
+      "category": "ML Frameworks",
+      "description": "Open-source ML framework from Meta, the standard for research and increasingly production",
+      "pricing": "Open source",
+      "best_for": "ML engineers and researchers training custom models",
+      "website": "https://pytorch.org",
+      "logo": "/assets/logos/pytorch_logo.png",
+      "pros": ["Research standard", "Pythonic API", "Huge ecosystem", "Great debugging"],
+      "cons": ["Less production-focused than TensorFlow historically"],
+      "custom_page": false
+    },
+    {
+      "name": "TensorFlow",
+      "slug": "tensorflow",
+      "category": "ML Frameworks",
+      "description": "Google's open-source ML platform with strong production deployment and mobile support",
+      "pricing": "Open source",
+      "best_for": "Teams deploying to production or mobile/edge devices",
+      "website": "https://tensorflow.org",
+      "logo": "/assets/logos/tensorflow_logo.png",
+      "pros": ["Strong production tooling", "TFLite for mobile", "TensorBoard"],
+      "cons": ["Less intuitive than PyTorch", "Community shifting to PyTorch"],
+      "custom_page": false
+    },
+    {
+      "name": "Hugging Face",
+      "slug": "hugging-face",
+      "category": "ML Platforms",
+      "description": "The GitHub of machine learning - hub for models, datasets, and ML collaboration",
+      "pricing": "Free for public, Pro $9/month, Enterprise custom",
+      "best_for": "Anyone working with pre-trained models or sharing ML work",
+      "website": "https://huggingface.co",
+      "logo": "/assets/logos/huggingface_logo.png",
+      "pros": ["Largest model hub", "Great transformers library", "Spaces for demos", "Strong community"],
+      "cons": ["Can be overwhelming", "Quality varies across community models"],
+      "custom_page": false
+    }
+  ],
+  "comparisons": [
+    {
+      "tool_a": "Cursor",
+      "tool_b": "GitHub Copilot",
+      "slug": "cursor-vs-github-copilot",
+      "title": "Cursor vs GitHub Copilot",
+      "description": "The AI code editor vs the AI extension. Different philosophies, different price points.",
+      "winner_for": {
+        "code_generation": "Cursor",
+        "enterprise": "GitHub Copilot",
+        "value": "GitHub Copilot",
+        "features": "Cursor"
+      }
+    },
+    {
+      "tool_a": "Cursor",
+      "tool_b": "Windsurf",
+      "slug": "cursor-vs-windsurf",
+      "title": "Cursor vs Windsurf",
+      "description": "Two AI-first code editors competing for developers. Cursor is the incumbent, Windsurf the challenger.",
+      "winner_for": {
+        "maturity": "Cursor",
+        "free_tier": "Windsurf",
+        "features": "Cursor",
+        "value": "Windsurf"
+      }
+    },
+    {
+      "tool_a": "LangChain",
+      "tool_b": "LlamaIndex",
+      "slug": "langchain-vs-llamaindex",
+      "title": "LangChain vs LlamaIndex",
+      "description": "The two dominant LLM frameworks. LangChain is the Swiss Army knife, LlamaIndex the RAG specialist.",
+      "winner_for": {
+        "rag": "LlamaIndex",
+        "agents": "LangChain",
+        "ecosystem": "LangChain",
+        "simplicity": "LlamaIndex"
+      }
+    },
+    {
+      "tool_a": "Pinecone",
+      "tool_b": "Weaviate",
+      "slug": "pinecone-vs-weaviate",
+      "title": "Pinecone vs Weaviate",
+      "description": "Managed simplicity vs open-source flexibility. The top two vector database choices.",
+      "winner_for": {
+        "ease_of_use": "Pinecone",
+        "flexibility": "Weaviate",
+        "cost_control": "Weaviate",
+        "managed_experience": "Pinecone"
+      }
+    },
+    {
+      "tool_a": "OpenAI",
+      "tool_b": "Anthropic",
+      "slug": "openai-vs-anthropic",
+      "title": "OpenAI vs Anthropic",
+      "description": "GPT-4 vs Claude. The two leading LLM providers for enterprise applications.",
+      "winner_for": {
+        "ecosystem": "OpenAI",
+        "context_length": "Anthropic",
+        "coding": "Anthropic",
+        "multimodal": "OpenAI"
+      }
+    }
+  ],
+  "alternatives": [
+    {
+      "main_tool": "Cursor",
+      "slug": "cursor-alternatives",
+      "title": "Cursor Alternatives",
+      "description": "Looking for Cursor alternatives? Compare AI coding assistants with different approaches and price points.",
+      "alternatives": ["GitHub Copilot", "Windsurf", "Claude Code"],
+      "comparison_points": [
+        "GitHub Copilot works in any IDE and costs half as much",
+        "Windsurf offers similar features with a more generous free tier",
+        "Claude Code takes a terminal-first agentic approach"
+      ]
+    },
+    {
+      "main_tool": "LangChain",
+      "slug": "langchain-alternatives",
+      "title": "LangChain Alternatives",
+      "description": "Exploring LangChain alternatives? Find the right LLM framework for your use case.",
+      "alternatives": ["LlamaIndex"],
+      "comparison_points": [
+        "LlamaIndex is simpler and better for pure RAG applications",
+        "Direct API calls work fine for simple applications"
+      ]
+    }
+  ]
+}
