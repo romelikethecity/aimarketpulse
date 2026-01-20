@@ -114,7 +114,7 @@
       "logo": "/assets/logos/openai_logo.png",
       "pros": ["Most capable models", "Largest ecosystem", "Strong documentation", "Regular updates"],
       "cons": ["Expensive at scale", "Rate limits", "Privacy concerns for some"],
-      "custom_page": false
+      "custom_page": true
     },
     {
       "name": "Anthropic",
@@ -127,7 +127,7 @@
       "logo": "/assets/logos/anthropic_logo.png",
       "pros": ["200K context window", "Excellent at coding", "Safety-focused", "Honest about limitations"],
       "cons": ["Smaller ecosystem than OpenAI", "No image generation", "Fewer fine-tuning options"],
-      "custom_page": false
+      "custom_page": true
     },
     {
       "name": "Google AI",
