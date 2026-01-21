@@ -520,6 +520,18 @@ def generate_tools_index(tools_with_counts):
     """Generate the tools index page"""
     os.makedirs(TOOLS_DIR, exist_ok=True)
 
+    # AI for [Task] Guides section - manual curated comparison pages
+    ai_for_task_guides = [
+        {'url': '/ai-for-coding/', 'title': 'AI for Coding', 'desc': 'Compare the best AI coding assistants including Cursor, GitHub Copilot, Claude Code, and more.', 'count': '6 tools compared'},
+        {'url': '/ai-for-writing/', 'title': 'AI for Writing', 'desc': 'Find the perfect AI writing assistant for content creation, copywriting, and creative writing.', 'count': '8 tools compared'},
+        {'url': '/ai-for-video/', 'title': 'AI for Video', 'desc': 'Discover AI video generation, editing, and avatar tools for content creators and marketers.', 'count': '12 tools compared'},
+        {'url': '/ai-for-design/', 'title': 'AI for Design', 'desc': 'Explore AI design tools for image generation, UI/UX, graphic design, and 3D creation.', 'count': '18 tools compared'},
+        {'url': '/ai-for-sales/', 'title': 'AI for Sales', 'desc': 'Compare AI sales tools for prospecting, call intelligence, engagement, and automation.', 'count': '16 tools compared'},
+        {'url': '/ai-for-customer-support/', 'title': 'AI for Customer Support', 'desc': 'Find AI chatbots, help desk automation, and agent assist tools for customer service.', 'count': '14 tools compared'},
+        {'url': '/ai-for-hr/', 'title': 'AI for HR', 'desc': 'Compare AI recruiting, performance management, and employee experience platforms.', 'count': '16 tools compared'},
+        {'url': '/ai-for-marketing/', 'title': 'AI for Marketing', 'desc': 'Discover AI tools for content creation, SEO, email, social media, and advertising.', 'count': '20 tools compared'},
+    ]
+
     # Group by category
     categories = {}
     for tool_name, data in tools_with_counts.items():
@@ -557,6 +569,30 @@ def generate_tools_index(tools_with_counts):
         </section>
         '''
 
+    # Generate AI for [Task] Guides section HTML
+    guides_cards = ""
+    for guide in ai_for_task_guides:
+        guides_cards += f'''
+            <a href="{guide['url']}" class="tool-card">
+                <h3>{guide['title']}</h3>
+                <p>{guide['desc']}</p>
+                <div class="tool-card-footer">
+                    <span class="job-count">{guide['count']}</span>
+                    <span class="tool-card-arrow">→</span>
+                </div>
+            </a>
+'''
+
+    ai_for_task_section = f'''
+        <section class="category-section">
+            <h2>AI for [Task] Guides</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Comprehensive comparison guides to find the best AI tools for your specific use case.</p>
+            <div class="tools-grid">
+{guides_cards}
+            </div>
+        </section>
+'''
+
     # Build extra styles
     extra_styles = f'<style>{TOOLS_PAGE_STYLES}</style>'
 
@@ -580,6 +616,7 @@ def generate_tools_index(tools_with_counts):
 
     <main>
         <div class="container">
+            {ai_for_task_section}
             {categories_html}
 
             {get_cta_box(
