@@ -18,6 +18,7 @@ NAV_ITEMS = [
     {"href": "/salaries/", "label": "Salaries"},
     {"href": "/tools/", "label": "Tools"},
     {"href": "/insights/", "label": "Market Intel"},
+    {"href": "/consulting/", "label": "Consulting"},
     {"href": "/about/", "label": "About"},
 ]
 
@@ -35,6 +36,7 @@ FOOTER_ITEMS = [
     {"href": "/salaries/", "label": "Salaries"},
     {"href": "/tools/", "label": "Tools"},
     {"href": "/insights/", "label": "Market Intel"},
+    {"href": "/consulting/", "label": "Consulting"},
     {"href": "/about/", "label": "About"},
     {"href": "/join/", "label": "Community"},
 ]
