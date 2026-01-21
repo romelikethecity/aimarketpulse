@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate the main homepage for PE Collective
+Generate the main homepage for AI Market Pulse
 Includes Market Pulse stats, featured jobs, and newsletter signup
 
 Uses the shared templates for consistent styling with other pages.

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-PE Collective - AI Jobs Compensation Aggregator & Analyzer
+AI Market Pulse - AI Jobs Compensation Aggregator & Analyzer
 ==========================================================
 
 This script analyzes AI job salary data and generates compensation
@@ -43,7 +43,7 @@ CHART_SENIORITY = SITE_ASSETS / "comp_by_seniority.png"
 CHART_LOCATION = SITE_ASSETS / "comp_by_location.png"
 
 # ============================================================
-# CHART STYLING (PE Collective brand)
+# CHART STYLING (AI Market Pulse brand)
 # ============================================================
 DARK_BG = '#1f2937'
 CYAN = '#22d3ee'
@@ -54,7 +54,7 @@ GRID_COLOR = '#374151'
 
 
 def setup_chart_style():
-    """Set up dark theme matching PE Collective brand."""
+    """Set up dark theme matching AI Market Pulse brand."""
     import matplotlib.pyplot as plt
     plt.rcParams['figure.facecolor'] = DARK_BG
     plt.rcParams['axes.facecolor'] = DARK_BG
@@ -480,7 +480,7 @@ def generate_newsletter_section(analysis):
 
     md += """
 ---
-*This analysis is based on disclosed salaries from PE Collective job listings. Actual offers may vary based on experience, skills, and negotiation.*
+*This analysis is based on disclosed salaries from AI Market Pulse job listings. Actual offers may vary based on experience, skills, and negotiation.*
 """
 
     # Save
@@ -495,7 +495,7 @@ def generate_newsletter_section(analysis):
 # MAIN CLI
 # ============================================================
 def main():
-    parser = argparse.ArgumentParser(description='PE Collective AI Jobs Compensation Analyzer')
+    parser = argparse.ArgumentParser(description='AI Market Pulse AI Jobs Compensation Analyzer')
     parser.add_argument('--analyze', action='store_true', help='Run compensation analysis')
     parser.add_argument('--newsletter', action='store_true', help='Generate newsletter section')
     parser.add_argument('--charts', action='store_true', help='Generate compensation charts')
@@ -505,7 +505,7 @@ def main():
     args = parser.parse_args()
 
     print("="*70)
-    print("  PE COLLECTIVE - COMPENSATION ANALYZER")
+    print("  AI MARKET PULSE - COMPENSATION ANALYZER")
     print("="*70)
 
     initialize_data_dir()

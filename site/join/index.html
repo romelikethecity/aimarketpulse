@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Join the Prompt Engineer Collective — a community of 1,300+ AI professionals sharing job leads, career advice, and industry insights.">
-  
-  <title>Join the Community — PE Collective</title>
-  
-  <meta property="og:title" content="Join PE Collective">
-  <meta property="og:description" content="Connect with 1,300+ prompt engineers, AI engineers, and ML practitioners.">
-  
+  <meta name="description" content="Join the AI Market Pulse community — connect with AI professionals, get job leads, career advice, and industry insights.">
+
+  <title>Join the Community — AI Market Pulse</title>
+
+  <meta property="og:title" content="Join AI Market Pulse Community">
+  <meta property="og:description" content="Connect with AI professionals sharing job leads and career insights.">
+  <meta property="og:site_name" content="AI Market Pulse">
+
   <link rel="icon" type="image/jpeg" href="../assets/logo.jpeg">
   <link rel="stylesheet" href="../assets/css/style.css">
-  
+
   <style>
     .join-page {
       min-height: calc(100vh - 200px);
@@ -20,73 +21,73 @@
       align-items: center;
       padding: var(--space-3xl) 0;
     }
-    
+
     .join-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--space-4xl);
       align-items: start;
     }
-    
+
     @media (max-width: 900px) {
       .join-container {
         grid-template-columns: 1fr;
         gap: var(--space-2xl);
       }
     }
-    
+
     .join-info h1 {
       margin-bottom: var(--space-lg);
     }
-    
+
     .join-info__subtitle {
       font-size: 1.125rem;
       margin-bottom: var(--space-xl);
     }
-    
+
     .join-benefits {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: var(--space-md);
     }
-    
+
     .join-benefits li {
       display: flex;
       align-items: flex-start;
       gap: var(--space-md);
       color: var(--color-text-secondary);
     }
-    
+
     .join-benefits li::before {
-      content: '✓';
+      content: '\2713';
       color: var(--color-success);
       font-weight: 700;
       flex-shrink: 0;
     }
-    
+
     .join-form-container {
       background: var(--color-bg-card);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-xl);
       padding: var(--space-2xl);
     }
-    
+
     .join-form-header {
       margin-bottom: var(--space-xl);
       padding-bottom: var(--space-lg);
       border-bottom: 1px solid var(--color-border);
     }
-    
+
     .join-form-header h2 {
       font-size: 1.25rem;
       margin-bottom: var(--space-xs);
     }
-    
+
     .join-form-header p {
       font-size: 0.9375rem;
     }
-    
+
     .member-stats {
       display: flex;
       gap: var(--space-xl);
@@ -94,29 +95,29 @@
       padding-top: var(--space-xl);
       border-top: 1px solid var(--color-border);
     }
-    
+
     .member-stat {
       text-align: center;
     }
-    
+
     .member-stat__value {
       font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--color-gold);
     }
-    
+
     .member-stat__label {
       font-size: 0.8125rem;
       color: var(--color-text-muted);
     }
-    
+
     /* Pricing Display */
     .pricing-highlight {
       text-align: center;
       padding: var(--space-xl) 0;
     }
-    
+
     .pricing-badge {
       display: inline-block;
       padding: var(--space-xs) var(--space-md);
@@ -127,7 +128,7 @@
       font-weight: 600;
       margin-bottom: var(--space-md);
     }
-    
+
     .pricing-amount {
       display: flex;
       align-items: baseline;
@@ -135,13 +136,13 @@
       gap: 2px;
       margin-bottom: var(--space-xs);
     }
-    
+
     .pricing-dollar {
       font-size: 1.5rem;
       font-weight: 600;
       color: var(--color-text-primary);
     }
-    
+
     .pricing-number {
       font-family: var(--font-display);
       font-size: 3.5rem;
@@ -149,51 +150,51 @@
       color: var(--color-text-primary);
       line-height: 1;
     }
-    
+
     .pricing-period {
       font-size: 1.25rem;
       color: var(--color-text-muted);
     }
-    
+
     .pricing-monthly {
       font-size: 0.9375rem;
       color: var(--color-text-muted);
       margin-bottom: var(--space-md);
     }
-    
+
     .pricing-note {
       font-size: 0.8125rem;
       color: var(--color-gold);
       font-style: italic;
     }
-    
+
     .join-cta-buttons {
       margin-top: var(--space-xl);
     }
-    
+
     .join-existing {
       margin-top: var(--space-xl);
       padding-top: var(--space-lg);
       border-top: 1px solid var(--color-border);
       text-align: center;
     }
-    
+
     .join-existing p {
       font-size: 0.875rem;
       margin-bottom: var(--space-sm);
     }
-    
+
     .join-free-option {
       margin-top: var(--space-lg);
       text-align: center;
     }
-    
+
     .join-free-option p {
       font-size: 0.8125rem;
       color: var(--color-text-muted);
       margin-bottom: var(--space-xs);
     }
-    
+
     .join-free-option a {
       font-size: 0.875rem;
     }
@@ -201,24 +202,25 @@
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
-  
+
   <!-- Header -->
   <header class="header">
     <div class="container">
       <div class="header__inner">
         <a href="../" class="header__logo">
-          <img src="../assets/logo.jpeg" alt="PE Collective Logo">
-          <span>PE Collective</span>
+          <img src="../assets/logo.jpeg" alt="AI Market Pulse Logo">
+          <span>AI Market Pulse</span>
         </a>
-        
+
         <nav class="header__nav">
           <a href="../jobs/">AI Jobs</a>
           <a href="../salaries/">Salaries</a>
           <a href="../tools/">Tools</a>
           <a href="../insights/">Market Intel</a>
+          <a href="../consulting/">Consulting</a>
           <a href="../about/">About</a>
         </nav>
-        
+
         <div class="header__cta">
           <a href="./" class="btn btn--secondary btn--small active">Join Community</a>
           <a href="https://ainewsdigest.substack.com" target="_blank" rel="noopener" class="btn btn--primary btn--small">Newsletter</a>
@@ -233,24 +235,24 @@
         <div class="join-container">
           <!-- Left: Info -->
           <div class="join-info">
-            <h1>Join the <span class="text-gold">PE Collective</span></h1>
+            <h1>Join the <span class="text-gold">Community</span></h1>
             <p class="join-info__subtitle">
-              A private community of prompt engineers, AI engineers, and ML practitioners sharing job leads, salary data, and career insights.
+              A private community of AI professionals sharing job leads, salary data, and career insights.
             </p>
-            
+
             <ul class="join-benefits">
-              <li>Private Slack with 1,300+ AI professionals</li>
+              <li>Private Slack with AI professionals</li>
               <li>Job referrals and early access to unlisted roles</li>
               <li>Salary benchmarks and negotiation intel</li>
               <li>Weekly office hours with industry experts</li>
               <li>Direct access to hiring managers at top AI companies</li>
               <li>Full newsletter archive + AI Playbook</li>
             </ul>
-            
+
             <div class="member-stats">
               <div class="member-stat">
-                <div class="member-stat__value">1,300+</div>
-                <div class="member-stat__label">Members</div>
+                <div class="member-stat__value">2,700+</div>
+                <div class="member-stat__label">Subscribers</div>
               </div>
               <div class="member-stat">
                 <div class="member-stat__value">500+</div>
@@ -262,14 +264,14 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Right: CTA -->
           <div class="join-form-container">
             <div class="join-form-header">
               <h2>Get Access</h2>
               <p>Community access is included with a paid subscription to AI News Digest.</p>
             </div>
-            
+
             <div class="pricing-highlight">
               <div class="pricing-badge">Early Subscriber Pricing</div>
               <div class="pricing-amount">
@@ -280,19 +282,19 @@
               <p class="pricing-monthly">or $9/month</p>
               <p class="pricing-note">Price increases to $149/year once we reach 100 members.</p>
             </div>
-            
+
             <div class="join-cta-buttons">
-              <a href="https://www.theainewsdigest.com/subscribe" target="_blank" rel="noopener" class="btn btn--primary btn--large" style="width: 100%;">Subscribe & Get Access →</a>
+              <a href="https://www.theainewsdigest.com/subscribe" target="_blank" rel="noopener" class="btn btn--primary btn--large" style="width: 100%;">Subscribe & Get Access</a>
             </div>
-            
+
             <div class="join-existing">
               <p>Already a paid subscriber?</p>
-              <a href="mailto:rome@theainewsdigest.com?subject=PE%20Collective%20Slack%20Invite&body=Hi%20Rome%2C%0A%0AI%27m%20a%20paid%20subscriber%20to%20AI%20News%20Digest.%20Can%20I%20get%20access%20to%20the%20PE%20Collective%20Slack%3F%0A%0AMy%20Substack%20email%3A%20%0A%0AThanks!" class="btn btn--secondary btn--small">Request Slack Invite</a>
+              <a href="mailto:rome@theainewsdigest.com?subject=Community%20Slack%20Invite&body=Hi%20Rome%2C%0A%0AI%27m%20a%20paid%20subscriber%20to%20AI%20News%20Digest.%20Can%20I%20get%20access%20to%20the%20community%20Slack%3F%0A%0AMy%20Substack%20email%3A%20%0A%0AThanks!" class="btn btn--secondary btn--small">Request Slack Invite</a>
             </div>
-            
+
             <div class="join-free-option">
               <p>Not ready for paid? Get the free newsletter:</p>
-              <a href="https://www.theainewsdigest.com" target="_blank" rel="noopener">Subscribe free →</a>
+              <a href="https://www.theainewsdigest.com" target="_blank" rel="noopener">Subscribe free</a>
             </div>
           </div>
         </div>
@@ -306,50 +308,47 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <a href="../" class="footer__logo">
-            <img src="../assets/logo.jpeg" alt="PE Collective">
-            <span>PE Collective</span>
+            <img src="../assets/logo.jpeg" alt="AI Market Pulse">
+            <span>AI Market Pulse</span>
           </a>
           <p class="footer__tagline">
-            The job board and community built by AI professionals, for AI professionals.
+            AI jobs, market intelligence, and tools for AI professionals.
           </p>
         </div>
-        
+
         <div class="footer__column">
           <h4>Jobs</h4>
           <nav class="footer__links">
             <a href="../jobs/">All Jobs</a>
-            <a href="../jobs/?category=prompt-engineer">Prompt Engineer</a>
-            <a href="../jobs/?category=ai-engineer">AI Engineer</a>
+            <a href="../salaries/">Salaries</a>
             <a href="../jobs/?remote=true">Remote Only</a>
           </nav>
         </div>
-        
+
         <div class="footer__column">
-          <h4>Tools</h4>
+          <h4>Resources</h4>
           <nav class="footer__links">
-            <a href="../tools/">All Tools</a>
-            <a href="../tools/cursor/">Cursor</a>
-            <a href="../tools/github-copilot/">GitHub Copilot</a>
+            <a href="../tools/">Tools</a>
+            <a href="../insights/">Market Intel</a>
+            <a href="../consulting/">Consulting</a>
           </nav>
         </div>
-        
+
         <div class="footer__column">
-          <h4>Community</h4>
+          <h4>Connect</h4>
           <nav class="footer__links">
-            <a href="./">Join Us</a>
             <a href="../about/">About</a>
+            <a href="https://linkedin.com/in/romethorndike" target="_blank" rel="noopener">LinkedIn</a>
             <a href="https://ainewsdigest.substack.com" target="_blank" rel="noopener">Newsletter</a>
           </nav>
         </div>
       </div>
-      
+
       <div class="footer__bottom">
-        <span>© 2025 PE Collective. Built with 🧠 for the AI community.</span>
+        <span>© 2026 AI Market Pulse</span>
         <span>Part of the <a href="https://ainewsdigest.substack.com" target="_blank" rel="noopener">AI News Digest</a> network.</span>
       </div>
     </div>
   </footer>
-
-  <!-- No JavaScript needed - simple links to Substack -->
 </body>
 </html>

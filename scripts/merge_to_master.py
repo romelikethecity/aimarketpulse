@@ -12,7 +12,7 @@ from datetime import datetime
 DATA_DIR = "data"
 
 print("="*70)
-print("  PE COLLECTIVE - MERGE TO MASTER DATABASE")
+print("  AI MARKET PULSE - MERGE TO MASTER DATABASE")
 print("="*70)
 
 # Find most recent enriched file

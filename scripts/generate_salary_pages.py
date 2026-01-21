@@ -176,7 +176,7 @@ def generate_salary_page(filtered_df, slug, title, category_type, salary_col, mi
 
 def main():
     print("="*70)
-    print("  PE COLLECTIVE - GENERATING SALARY PAGES")
+    print("  AI MARKET PULSE - GENERATING SALARY PAGES")
     print("="*70)
 
     os.makedirs(SALARIES_DIR, exist_ok=True)

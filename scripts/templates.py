@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Shared templates and utilities for PE Collective page generators.
+Shared templates and utilities for AI Market Pulse page generators.
 
 This module consolidates common HTML, CSS, and utility functions used across
 multiple page generators to eliminate duplication and centralize maintenance.
@@ -53,7 +53,7 @@ except Exception as e:
     SUBSCRIBE_LABEL = "Join Community"
     NEWSLETTER_LINK = "https://ainewsdigest.substack.com"
     NEWSLETTER_LABEL = "Newsletter"
-    SITE_NAME = "PE Collective"
+    SITE_NAME = "AI Market Pulse"
     COPYRIGHT_YEAR = "2026"
 
 # SEO: Canonical domain
@@ -130,7 +130,7 @@ def get_experience_display(level):
 
 
 # =============================================================================
-# CSS CONSTANTS - PE Collective Dark Teal + Gold Theme
+# CSS CONSTANTS - AI Market Pulse Dark Teal + Gold Theme
 # =============================================================================
 
 CSS_VARIABLES = '''

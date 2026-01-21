@@ -75,4 +75,4 @@
 
 
 ---
-*This analysis is based on disclosed salaries from PE Collective job listings. Actual offers may vary based on experience, skills, and negotiation.*
+*This analysis is based on disclosed salaries from AI Market Pulse job listings. Actual offers may vary based on experience, skills, and negotiation.*

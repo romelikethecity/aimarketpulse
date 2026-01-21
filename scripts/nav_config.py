@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Centralized navigation configuration for PE Collective.
+Centralized navigation configuration for AI Market Pulse.
 
 Edit this file to update navigation across ALL pages on the site.
 After editing, regenerate pages by running the build workflow or:

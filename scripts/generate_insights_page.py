@@ -28,7 +28,7 @@ SITE_DIR = 'site'
 INSIGHTS_DIR = f'{SITE_DIR}/insights'
 
 print("="*70)
-print("  PE COLLECTIVE - GENERATING INSIGHTS PAGE")
+print("  AI MARKET PULSE - GENERATING INSIGHTS PAGE")
 print("="*70)
 
 os.makedirs(INSIGHTS_DIR, exist_ok=True)

@@ -1,9 +1,9 @@
-# PE Collective - robots.txt
+# AI Market Pulse - robots.txt
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://pecollective.com/sitemap.xml
+Sitemap: https://theaimarketpulse.com/sitemap.xml
 
 # Crawl-delay (optional, be nice to servers)
 Crawl-delay: 1

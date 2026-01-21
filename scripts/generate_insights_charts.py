@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-PE Collective - Insights Chart Generator
+AI Market Pulse - Insights Chart Generator
 ========================================
 
 Generates visualization charts for the insights page:
@@ -28,7 +28,7 @@ SITE_ASSETS = "site/assets"
 
 os.makedirs(SITE_ASSETS, exist_ok=True)
 
-# Brand colors (PE Collective)
+# Brand colors (AI Market Pulse)
 COLORS = {
     'bg': '#1f2937',
     'cyan': '#22d3ee',
@@ -398,7 +398,7 @@ def create_metros_chart(intel):
 # ============================================================
 def main():
     print("="*70)
-    print("  PE COLLECTIVE - INSIGHTS CHART GENERATOR")
+    print("  AI MARKET PULSE - INSIGHTS CHART GENERATOR")
     print("="*70)
 
     # Load market intelligence

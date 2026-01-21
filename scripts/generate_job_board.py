@@ -49,7 +49,7 @@ def escape_html(text):
 
 def main():
     print("="*70)
-    print("  PE COLLECTIVE - GENERATING JOB BOARD")
+    print("  AI MARKET PULSE - GENERATING JOB BOARD")
     print("="*70)
 
     os.makedirs(JOBS_DIR, exist_ok=True)

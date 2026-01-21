@@ -1033,7 +1033,7 @@ def generate_market_intelligence(jobs):
 
 def main():
     print("="*70)
-    print("  PE COLLECTIVE - JOB ENRICHMENT")
+    print("  AI MARKET PULSE - JOB ENRICHMENT")
     print("="*70)
 
     # Find raw job files

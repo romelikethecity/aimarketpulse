@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-PE Collective Trends Graph Generator
+AI Market Pulse Trends Graph Generator
 Generates multiple timeframe views with professional styling
 Outputs to site/assets/ for GitHub Pages
 """
@@ -22,10 +22,10 @@ SITE_ASSETS = "site/assets"
 os.makedirs(SITE_ASSETS, exist_ok=True)
 
 print("="*70)
-print("  PE COLLECTIVE - TRENDS GRAPH GENERATOR")
+print("  AI MARKET PULSE - TRENDS GRAPH GENERATOR")
 print("="*70)
 
-# Professional styling - matching PE Collective brand (dark teal + gold)
+# Professional styling - matching AI Market Pulse brand (dark teal + gold)
 plt.style.use('dark_background')
 colors = {
     'line': '#22d3ee',      # Cyan/teal
@@ -93,7 +93,7 @@ def update_tracking_data():
 
 
 def create_graph(df_subset, title, filename, show_annotations=True):
-    """Create a professionally styled graph matching PE Collective brand"""
+    """Create a professionally styled graph matching AI Market Pulse brand"""
     if df_subset is None or len(df_subset) < 2:
         print(f"  Skipping {filename} - insufficient data points")
         return
@@ -308,7 +308,7 @@ def create_social_preview():
                verticalalignment='center',
                linespacing=1.2)
 
-        ax.text(0.5, 0.18, "PE Collective",
+        ax.text(0.5, 0.18, "AI Market Pulse",
                transform=ax.transAxes,
                fontsize=50, fontweight='bold',
                color=colors['line'],

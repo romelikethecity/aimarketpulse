@@ -4,7 +4,7 @@ Generate individual job pages for programmatic SEO.
 Creates pages like /jobs/anthropic-prompt-engineer-abc123/ for each job posting.
 
 SEO FEATURES:
-- Correct canonical URLs (pecollective.com)
+- Correct canonical URLs (theaimarketpulse.com)
 - Salary/skills in title tags
 - Open Graph tags for social sharing
 - Twitter card tags
@@ -43,7 +43,7 @@ SITE_DIR = 'site'
 JOBS_DIR = f'{SITE_DIR}/jobs'
 
 print("="*70)
-print("  PE COLLECTIVE - GENERATING INDIVIDUAL JOB PAGES")
+print("  AI MARKET PULSE - GENERATING INDIVIDUAL JOB PAGES")
 print("="*70)
 
 os.makedirs(JOBS_DIR, exist_ok=True)

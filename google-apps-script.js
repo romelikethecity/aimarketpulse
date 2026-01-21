@@ -1,5 +1,5 @@
 /**
- * PE Collective - Google Apps Script for Form Submissions
+ * AI Market Pulse - Google Apps Script for Form Submissions
  * 
  * SETUP INSTRUCTIONS:
  * 
@@ -15,14 +15,14 @@
  * 
  * 6. Click "Deploy" → "New deployment"
  *    - Click the gear icon next to "Select type" → choose "Web app"
- *    - Description: "PE Collective Form Handler"
+ *    - Description: "AI Market Pulse Form Handler"
  *    - Execute as: "Me"
  *    - Who has access: "Anyone"
  *    - Click "Deploy"
  * 
  * 7. Click "Authorize access" and grant permissions
  *    - Choose your Google account
- *    - Click "Advanced" → "Go to PE Collective Form Handler (unsafe)"
+ *    - Click "Advanced" → "Go to AI Market Pulse Form Handler (unsafe)"
  *    - Click "Allow"
  * 
  * 8. Copy the Web app URL (looks like: https://script.google.com/macros/s/xxx/exec)
@@ -113,7 +113,7 @@ function doGet(e) {
   return ContentService
     .createTextOutput(JSON.stringify({ 
       status: 'ok', 
-      message: 'PE Collective Form Handler is running. Use POST to submit data.' 
+      message: 'AI Market Pulse Form Handler is running. Use POST to submit data.' 
     }))
     .setMimeType(ContentService.MimeType.JSON);
 }

@@ -30,7 +30,7 @@ SITE_DIR = 'site'
 JOBS_DIR = f'{SITE_DIR}/jobs'
 
 print("="*70)
-print("  PE COLLECTIVE - GENERATING CATEGORY PAGES")
+print("  AI MARKET PULSE - GENERATING CATEGORY PAGES")
 print("="*70)
 
 # Load job data

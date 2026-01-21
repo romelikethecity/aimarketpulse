@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate individual company pages for PE Collective
+Generate individual company pages for AI Market Pulse
 Each company with AI job postings gets a dedicated page
 """
 
@@ -107,7 +107,7 @@ def generate_company_page(company_name, jobs_df):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{company_name} AI Jobs | PE Collective</title>
+    <title>{company_name} AI Jobs | AI Market Pulse</title>
     <meta name="description" content="View {num_jobs} AI and machine learning jobs at {company_name}. {salary_range if salary_range else 'Competitive salaries'} for roles in {", ".join(categories[:3]) if categories else "AI/ML"}.">
 
     <link rel="canonical" href="{BASE_URL}/companies/{company_slug}/">
@@ -260,7 +260,7 @@ def generate_company_page(company_name, jobs_df):
 <body>
     <nav>
         <div class="container">
-            <a href="/" class="nav-brand">PE Collective</a>
+            <a href="/" class="nav-brand">AI Market Pulse</a>
             <div class="nav-links">
                 <a href="/jobs/">AI Jobs</a>
                 <a href="/salaries/">Salaries</a>
@@ -306,7 +306,7 @@ def generate_company_page(company_name, jobs_df):
 
     <footer>
         <div class="container">
-            <p>© 2026 PE Collective. All rights reserved.</p>
+            <p>© 2026 AI Market Pulse. All rights reserved.</p>
             <p><a href="/jobs/" style="color: var(--accent);">Browse All AI Jobs</a></p>
         </div>
     </footer>
@@ -348,7 +348,7 @@ def generate_companies_index(companies_data):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Companies Hiring for AI Roles | PE Collective</title>
+    <title>Companies Hiring for AI Roles | AI Market Pulse</title>
     <meta name="description" content="Browse {len(sorted_companies)} companies actively hiring for AI, ML, and Prompt Engineering roles.">
 
     <link rel="canonical" href="{BASE_URL}/companies/">
@@ -440,7 +440,7 @@ def generate_companies_index(companies_data):
 <body>
     <nav>
         <div class="container">
-            <a href="/" class="nav-brand">PE Collective</a>
+            <a href="/" class="nav-brand">AI Market Pulse</a>
         </div>
     </nav>
 
@@ -456,7 +456,7 @@ def generate_companies_index(companies_data):
     </div>
 
     <footer>
-        <p>© 2026 PE Collective</p>
+        <p>© 2026 AI Market Pulse</p>
     </footer>
 </body>
 </html>
