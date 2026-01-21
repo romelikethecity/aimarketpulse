@@ -35,6 +35,12 @@
       "slug": "ml-platforms",
       "icon": "🤗",
       "description": "Platforms for hosting, sharing, and deploying ML models"
+    },
+    {
+      "name": "AI App Builders",
+      "slug": "ai-app-builders",
+      "icon": "🚀",
+      "description": "Tools that generate full applications from natural language prompts"
     }
   ],
   "tools": [
@@ -104,6 +110,19 @@
       "custom_page": true
     },
     {
+      "name": "Devin",
+      "slug": "devin",
+      "category": "AI Coding Assistants",
+      "description": "Cognition's autonomous AI software engineer that can plan, code, debug, and deploy entire projects independently",
+      "pricing": "Enterprise pricing, $500/month for teams",
+      "best_for": "Teams wanting to delegate entire coding tasks to an autonomous AI agent",
+      "website": "https://cognition.ai",
+      "logo": "/assets/logos/cognition_logo.png",
+      "pros": ["Fully autonomous coding", "Can handle complex multi-step tasks", "Learns from feedback", "Browser and terminal access"],
+      "cons": ["Expensive", "Limited availability", "Can go off track on complex tasks", "Requires oversight"],
+      "custom_page": true
+    },
+    {
       "name": "OpenAI",
       "slug": "openai",
       "category": "LLM Providers",
@@ -130,17 +149,17 @@
       "custom_page": true
     },
     {
-      "name": "Google AI",
-      "slug": "google-ai",
+      "name": "Google Gemini",
+      "slug": "google-gemini",
       "category": "LLM Providers",
-      "description": "Google's AI division offering Gemini models, Vertex AI, and enterprise ML services",
-      "pricing": "API usage-based, Gemini Advanced $20/month",
-      "best_for": "Teams in Google Cloud ecosystem or needing multimodal capabilities",
-      "website": "https://ai.google",
-      "logo": "/assets/logos/google_ai_logo.png",
-      "pros": ["Strong multimodal", "Google Cloud integration", "Competitive pricing"],
-      "cons": ["Playing catch-up on capabilities", "Less developer mindshare"],
-      "custom_page": false
+      "description": "Google's flagship AI model family offering multimodal capabilities, long context, and deep Google ecosystem integration",
+      "pricing": "API usage-based, Gemini Advanced $20/month, free tier available",
+      "best_for": "Teams needing multimodal AI, Google Workspace integration, or cost-effective API access",
+      "website": "https://gemini.google.com",
+      "logo": "/assets/logos/google_gemini_logo.png",
+      "pros": ["Strong multimodal capabilities", "2M token context window", "Competitive API pricing", "Google ecosystem integration"],
+      "cons": ["Smaller developer community", "API documentation less mature", "Playing catch-up on reasoning"],
+      "custom_page": true
     },
     {
       "name": "LangChain",
@@ -245,6 +264,45 @@
       "pros": ["Largest model hub", "Great transformers library", "Spaces for demos", "Strong community"],
       "cons": ["Can be overwhelming", "Quality varies across community models"],
       "custom_page": false
+    },
+    {
+      "name": "Bolt.new",
+      "slug": "bolt",
+      "category": "AI App Builders",
+      "description": "StackBlitz's AI-powered full-stack app generator that creates, runs, and deploys web applications entirely in the browser",
+      "pricing": "Free tier available, Pro $20/month, Team $40/user/month",
+      "best_for": "Developers wanting to rapidly prototype and deploy full-stack web apps from prompts",
+      "website": "https://bolt.new",
+      "logo": "/assets/logos/bolt_logo.png",
+      "pros": ["Instant in-browser development", "Full-stack support", "One-click deployment", "No local setup required"],
+      "cons": ["Browser-based limitations", "Complex apps need refinement", "Credit limits on free tier"],
+      "custom_page": true
+    },
+    {
+      "name": "Lovable",
+      "slug": "lovable",
+      "category": "AI App Builders",
+      "description": "AI app builder (formerly GPT Engineer) focused on creating beautiful, production-ready applications with exceptional design quality",
+      "pricing": "Free tier, Pro $20/month, Team custom pricing",
+      "best_for": "Non-technical founders and designers wanting polished apps without coding",
+      "website": "https://lovable.dev",
+      "logo": "/assets/logos/lovable_logo.png",
+      "pros": ["Beautiful default designs", "Supabase integration", "GitHub sync", "Iterative refinement"],
+      "cons": ["Less control than code-first tools", "Complex logic still challenging", "Newer platform"],
+      "custom_page": true
+    },
+    {
+      "name": "Replit Agent",
+      "slug": "replit-agent",
+      "category": "AI App Builders",
+      "description": "Replit's AI agent that builds complete applications from natural language, with built-in hosting and collaboration",
+      "pricing": "Replit Core $25/month includes Agent access",
+      "best_for": "Developers wanting an all-in-one cloud IDE with AI app building capabilities",
+      "website": "https://replit.com",
+      "logo": "/assets/logos/replit_logo.png",
+      "pros": ["Full cloud IDE included", "Built-in hosting", "Real-time collaboration", "Extensive language support"],
+      "cons": ["Requires Replit subscription", "Performance varies by complexity", "Less polished than specialized tools"],
+      "custom_page": true
     }
   ],
   "comparisons": [
