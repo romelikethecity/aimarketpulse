@@ -276,6 +276,50 @@ def main():
             </div>
 
             {get_cta_box()}
+
+            <!-- SEO Content Section -->
+            <div class="seo-content" style="max-width: 800px; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--text-secondary); line-height: 1.8;">
+                <h2 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 1rem;">About Our AI Job Board</h2>
+                <p style="margin-bottom: 1rem;">
+                    AI Market Pulse aggregates <strong style="color: var(--text-primary);">{total_jobs:,} AI and ML job postings</strong> from Indeed, LinkedIn, Greenhouse, Lever, and company career pages. We focus exclusively on roles in the AI ecosystem: <strong style="color: var(--text-primary);">AI/ML Engineers</strong>, <strong style="color: var(--text-primary);">Prompt Engineers</strong>, <strong style="color: var(--text-primary);">LLM Engineers</strong>, <strong style="color: var(--text-primary);">MLOps Engineers</strong>, <strong style="color: var(--text-primary);">Research Scientists</strong>, <strong style="color: var(--text-primary);">Data Scientists</strong>, and <strong style="color: var(--text-primary);">AI Product Managers</strong>.
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    Every listing shows real salary ranges when available—no hidden compensation, no bait-and-switch. We update our database weekly to remove filled positions and add new opportunities. Currently, <strong style="color: var(--text-primary);">{remote_jobs}</strong> positions offer remote work options, and the average salary across all listings is <strong style="color: var(--text-primary);">${avg_salary}K</strong>.
+                </p>
+
+                <h3 style="font-size: 1.25rem; color: var(--text-primary); margin: 2rem 0 1rem;">What Makes Our Job Board Different</h3>
+                <p style="margin-bottom: 1rem;">
+                    Most job boards are cluttered with irrelevant postings, outdated listings, and hidden salaries. AI Market Pulse is built by AI professionals for AI professionals. We curate roles specifically in artificial intelligence and machine learning—no generic "software engineer" postings with AI buzzwords. When a job says "Prompt Engineer," it's actually a prompt engineering role.
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    We prioritize transparency: jobs with disclosed salary ranges appear first, and we filter out postings with obvious red flags. Our data feeds the salary benchmarks and market intelligence you'll find elsewhere on the site, giving you context for every opportunity.
+                </p>
+
+                <h3 style="font-size: 1.25rem; color: var(--text-primary); margin: 2rem 0 1rem;">AI Job Categories Explained</h3>
+                <p style="margin-bottom: 1rem;">
+                    <strong style="color: var(--text-primary);">AI/ML Engineer:</strong> The broad category covering engineers who build and deploy machine learning models. Typically requires Python, PyTorch/TensorFlow, and cloud platform experience. Salaries range from $150K to $300K+ depending on seniority.
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    <strong style="color: var(--text-primary);">Prompt Engineer:</strong> Specialists in crafting prompts and optimizing LLM outputs. Emerged as a distinct role in 2023 and has rapidly professionalized. Focus on evaluation, prompt optimization, and RAG systems. Salaries typically $120K-$250K.
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    <strong style="color: var(--text-primary);">LLM Engineer:</strong> Engineers focused specifically on large language model development and deployment. More technical than prompt engineering, involving fine-tuning, inference optimization, and model serving. Salaries $160K-$300K.
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    <strong style="color: var(--text-primary);">MLOps Engineer:</strong> The infrastructure specialists who make ML models production-ready. Focus on deployment pipelines, monitoring, and scaling. Combines DevOps skills with ML knowledge. Salaries $140K-$280K.
+                </p>
+
+                <h3 style="font-size: 1.25rem; color: var(--text-primary); margin: 2rem 0 1rem;">Tips for AI Job Seekers</h3>
+                <p style="margin-bottom: 1rem;">
+                    <strong style="color: var(--text-primary);">Focus on fundamentals:</strong> Python proficiency, understanding of ML concepts, and familiarity with at least one major framework (PyTorch preferred in 2026) are non-negotiable for most roles.
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    <strong style="color: var(--text-primary);">Build demonstrable projects:</strong> GitHub portfolios matter more than certifications. Show working code, deployed applications, or contributions to open-source AI projects.
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    <strong style="color: var(--text-primary);">Specialize strategically:</strong> As the market matures, specialists command premium salaries. Choose a focus area—LLM orchestration, computer vision, MLOps, or a specific industry vertical—and go deep.
+                </p>
+            </div>
         </div>
     </main>
 
