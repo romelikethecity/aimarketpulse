@@ -184,19 +184,71 @@ def generate_homepage():
             text-align: center;
             background: linear-gradient(180deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
         }}
+        .hero-eyebrow {{
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }}
         .hero h1 {{
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--teal-accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
         }}
-        .hero p {{
+        .hero .lead {{
             font-size: 1.25rem;
             color: var(--text-secondary);
             max-width: 600px;
-            margin: 0 auto 2.5rem;
+            margin: 0 auto 1.5rem;
+        }}
+        .hero-proof {{
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }}
+        .hero-proof span {{
+            margin: 0 0.5rem;
+        }}
+        .hero-actions {{
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }}
+        .btn-primary {{
+            display: inline-block;
+            background: var(--gold);
+            color: var(--bg-darker);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }}
+        .btn-primary:hover {{
+            background: var(--gold-light);
+            color: var(--bg-darker);
+            transform: translateY(-2px);
+        }}
+        .hero .btn-secondary {{
+            display: inline-block;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }}
+        .hero .btn-secondary:hover {{
+            background: var(--bg-card);
+            border-color: var(--teal-light);
         }}
         .hero-cta {{
             display: inline-block;
@@ -211,6 +263,7 @@ def generate_homepage():
         }}
         .hero-cta:hover {{
             background: var(--gold-light);
+            color: var(--bg-darker);
             transform: translateY(-2px);
         }}
 
@@ -375,6 +428,8 @@ def generate_homepage():
         }}
         @media (max-width: 600px) {{
             .hero h1 {{ font-size: 2.25rem; }}
+            .hero .lead {{ font-size: 1.1rem; }}
+            .hero-actions {{ flex-direction: column; align-items: center; }}
             .stats-grid {{ grid-template-columns: 1fr 1fr; gap: 1rem; }}
             .stat-card {{ padding: 1.25rem; }}
             .stat-card__value {{ font-size: 2rem; }}
@@ -383,9 +438,18 @@ def generate_homepage():
 
     <section class="hero">
         <div class="container">
-            <h1>Find Your Next AI Role</h1>
-            <p>Curated AI, Machine Learning, and Prompt Engineering jobs with salary transparency and market insights.</p>
-            <a href="/jobs/" class="hero-cta">Browse {stats['total_jobs']:,} Open Roles →</a>
+            <span class="hero-eyebrow">AI Career Intelligence</span>
+            <h1>Stay ahead in AI</h1>
+            <p class="lead">Track the AI job market. Know what's hiring, what pays, and what skills matter.</p>
+            <p class="hero-proof">
+                <span>2.6K+ subscribers</span> ·
+                <span>1.3K+ community members</span> ·
+                <span>{stats['total_jobs']:,}+ jobs tracked</span>
+            </p>
+            <div class="hero-actions">
+                <a href="https://www.theainewsdigest.com/" class="btn-primary" target="_blank" rel="noopener">Subscribe Free</a>
+                <a href="/jobs/" class="btn-secondary">Browse Jobs</a>
+            </div>
         </div>
     </section>
 
