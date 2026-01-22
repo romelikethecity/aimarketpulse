@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Market Pulse | AI Job Market Intelligence</title>
-    <meta name="description" content="Track the AI job market. 1.9K+ roles, salary benchmarks, and career intelligence for AI engineers. Know what's hiring, what pays, and what skills matter.">
+    <title>AI & Prompt Engineering Jobs | AI Market Pulse</title>
+    <meta name="description" content="Find the best AI, ML, and Prompt Engineering jobs. 1969 open roles tracked with salary data and market insights.">
     <link rel="canonical" href="https://theaimarketpulse.com/">
 
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://theaimarketpulse.com/">
-    <meta property="og:title" content="AI Market Pulse | Stay Ahead in AI">
-    <meta property="og:description" content="Track the AI job market. Know what's hiring, what pays, and what skills matter.">
+    <meta property="og:title" content="AI & Prompt Engineering Jobs">
+    <meta property="og:description" content="Find the best AI, ML, and Prompt Engineering jobs. 1969 open roles tracked with salary data and market insights.">
     <meta property="og:site_name" content="AI Market Pulse">
     <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pe_collective">
-    <meta name="twitter:title" content="AI Market Pulse | Stay Ahead in AI">
-    <meta name="twitter:description" content="Track the AI job market. Know what's hiring, what pays, and what skills matter.">
+    <meta name="twitter:title" content="AI & Prompt Engineering Jobs">
+    <meta name="twitter:description" content="Find the best AI, ML, and Prompt Engineering jobs. 1969 open roles tracked with salary data and market insights.">
     <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
 
     <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
@@ -27,28 +27,54 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    
     <style>
-
+        
     :root {
+        /* Core colors - dark theme */
         --bg-dark: #0f2d35;
         --bg-darker: #0a1f25;
         --bg-card: #132f38;
         --bg-card-hover: #1a3d48;
+
         --teal-primary: #1a4a56;
         --teal-light: #2a6a7a;
         --teal-accent: #3d8a9a;
+
         --gold: #e8a87c;
         --gold-light: #f0c4a8;
         --gold-hover: #d4956a;
+
         --text-primary: #ffffff;
         --text-secondary: #a8c5cc;
         --text-muted: #6a8a94;
+
         --success: #4ade80;
         --warning: #fbbf24;
         --error: #f87171;
+
         --border: rgba(255, 255, 255, 0.1);
         --border-light: rgba(255, 255, 255, 0.05);
+
+        /* Legacy compatibility mappings */
+        --navy: #0f2d35;
+        --navy-light: #132f38;
+        --navy-medium: #1a4a56;
+        --navy-hover: #2a6a7a;
+        --gold-muted: #d4956a;
+        --gold-dark: #c4855c;
+        --green: #4ade80;
+        --green-dark: #22c55e;
+        --red: #f87171;
+        --gray-50: #0f2d35;
+        --gray-100: #132f38;
+        --gray-200: rgba(255, 255, 255, 0.1);
+        --gray-300: #6a8a94;
+        --gray-500: #6a8a94;
+        --gray-600: #a8c5cc;
+        --gray-700: #a8c5cc;
+        --gray-800: #ffffff;
+        --white: #ffffff;
     }
 
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
@@ -70,9 +96,18 @@
         letter-spacing: -0.02em;
     }
 
-    a { color: var(--gold); text-decoration: none; transition: color 0.15s ease; }
-    a:hover { color: var(--gold-light); }
+    a {
+        color: var(--gold);
+        text-decoration: none;
+        transition: color 0.15s ease;
+    }
 
+    a:hover {
+        color: var(--gold-light);
+    }
+
+        
+    /* Navigation */
     .site-header {
         background: rgba(15, 45, 53, 0.95);
         backdrop-filter: blur(12px);
@@ -103,10 +138,17 @@
         font-size: 1.125rem;
     }
 
-    .logo img { width: 36px; height: 36px; border-radius: 8px; }
-    .logo:hover { color: var(--text-primary); }
+    .logo img, .logo-img {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+    }
 
-    .nav {
+    .logo:hover {
+        color: var(--text-primary);
+    }
+
+    .nav, .nav-links {
         display: flex;
         gap: 32px;
         align-items: center;
@@ -115,7 +157,7 @@
         padding: 0;
     }
 
-    .nav a {
+    .nav a, .nav-links a {
         color: var(--text-secondary);
         text-decoration: none;
         font-size: 0.9375rem;
@@ -123,16 +165,20 @@
         transition: color 0.15s;
     }
 
-    .nav a:hover { color: var(--text-primary); }
+    .nav a:hover, .nav-links a:hover { color: var(--text-primary); }
+    .nav a.active { color: var(--text-primary); font-weight: 600; }
 
-    .nav-cta {
+    .nav-cta, .btn-subscribe {
         background: var(--gold) !important;
         color: var(--bg-darker) !important;
         padding: 8px 16px;
         border-radius: 8px;
         font-weight: 600;
     }
-    .nav-cta:hover { background: var(--gold-hover) !important; transform: translateY(-1px); }
+    .nav-cta:hover, .btn-subscribe:hover {
+        background: var(--gold-hover) !important;
+        transform: translateY(-1px);
+    }
 
     .btn-secondary {
         background: transparent;
@@ -141,125 +187,570 @@
         padding: 8px 16px;
         border-radius: 8px;
         font-weight: 500;
-        text-decoration: none;
-        display: inline-block;
     }
-    .btn-secondary:hover { background: var(--bg-card); border-color: var(--teal-light); color: var(--text-primary); }
+    .btn-secondary:hover {
+        background: var(--bg-card);
+        border-color: var(--teal-light);
+    }
 
-    .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-primary); }
-    .mobile-nav-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 999; opacity: 0; transition: opacity 0.3s ease; }
+    /* Mobile Navigation */
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-primary);
+    }
+    .mobile-nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
     .mobile-nav-overlay.active { opacity: 1; }
-    .mobile-nav { position: fixed; top: 0; right: -100%; width: 280px; max-width: 85%; height: 100vh; background: var(--bg-darker); z-index: 1000; padding: 1.5rem; box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3); transition: right 0.3s ease; overflow-y: auto; }
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        max-width: 85%;
+        height: 100vh;
+        background: var(--bg-darker);
+        z-index: 1000;
+        padding: 1.5rem;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+        transition: right 0.3s ease;
+        overflow-y: auto;
+    }
     .mobile-nav.active { right: 0; }
-    .mobile-nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
-    .mobile-nav-header .logo-text { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); font-family: 'Space Grotesk', sans-serif; }
-    .mobile-nav-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); }
-    .mobile-nav-links { list-style: none; margin: 0 0 2rem 0; padding: 0; }
+    .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav-header .logo-text {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    .mobile-nav-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-muted);
+    }
+    .mobile-nav-links {
+        list-style: none;
+        margin: 0 0 2rem 0;
+        padding: 0;
+    }
     .mobile-nav-links li { border-bottom: 1px solid var(--border-light); }
-    .mobile-nav-links a { display: block; padding: 1rem 0; font-size: 1rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; }
+    .mobile-nav-links a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        text-decoration: none;
+    }
     .mobile-nav-links a:hover { color: var(--text-primary); }
-    .mobile-nav-subscribe { display: block; width: 100%; padding: 1rem; background: var(--gold); color: var(--bg-darker); text-align: center; font-weight: 600; border-radius: 8px; text-decoration: none; }
-    .mobile-nav-subscribe:hover { background: var(--gold-hover); color: var(--bg-darker); }
+    .mobile-nav-subscribe {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        background: var(--gold);
+        color: var(--bg-darker);
+        text-align: center;
+        font-weight: 600;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+    .mobile-nav-subscribe:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+    }
 
     @media (max-width: 768px) {
-        .nav { display: none; }
-        .header-actions { display: none; }
+        .nav, .nav-links { display: none; }
         .mobile-menu-btn { display: block; }
         .mobile-nav-overlay { display: block; pointer-events: none; }
         .mobile-nav-overlay.active { pointer-events: auto; }
     }
 
+        
+    /* Layout */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 
-    .hero { padding: 5rem 0 4rem; text-align: center; background: linear-gradient(180deg, var(--bg-darker) 0%, var(--bg-dark) 100%); }
-    .hero-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 1rem; }
-    .hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; color: var(--text-primary); }
-    .hero .lead { font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 1.5rem; }
-    .hero-proof { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2rem; }
-    .hero-proof span { margin: 0 0.5rem; }
-    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    main { padding: 48px 0; }
+    .section { margin-bottom: 56px; }
 
-    .btn-primary { display: inline-block; background: var(--gold); color: var(--bg-darker); padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.2s; }
-    .btn-primary:hover { background: var(--gold-light); color: var(--bg-darker); transform: translateY(-2px); }
-
-    .market-pulse { background: var(--bg-card); padding: 3rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .pulse-header { text-align: center; margin-bottom: 2rem; }
-    .pulse-header h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-    .pulse-header p { color: var(--text-muted); font-size: 0.9rem; }
-    .pulse-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 1.5rem; }
-    .pulse-stat { text-align: center; padding: 1.5rem; background: var(--bg-dark); border-radius: 12px; border: 1px solid var(--border); }
-    .pulse-stat .number { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--gold); line-height: 1; }
-    .pulse-stat .change { font-size: 0.875rem; font-weight: 600; margin-top: 0.25rem; display: inline-flex; align-items: center; gap: 0.25rem; }
-    .pulse-stat .change.up { color: var(--success); }
-    .pulse-stat .change.neutral { color: var(--text-muted); }
-    .pulse-stat .label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.5rem; }
-    .pulse-cta { text-align: center; }
-    .pulse-cta a { color: var(--gold); font-weight: 600; font-size: 0.9rem; }
-
-    .whats-hot { background: var(--bg-darker); padding: 3rem 0; }
-    .hot-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-    .hot-header h2 { font-size: 1.25rem; margin: 0; }
-    .hot-header a { font-size: 0.9rem; color: var(--gold); }
-    .hot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .hot-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: all 0.2s; }
-    .hot-card:hover { border-color: var(--teal-light); transform: translateY(-2px); }
-    .hot-card .eyebrow { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--teal-accent); margin-bottom: 0.5rem; }
-    .hot-card h3 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--text-primary); }
-    .hot-card p { font-size: 0.875rem; color: var(--text-secondary); margin: 0; }
-    .hot-card .stat { font-weight: 700; color: var(--gold); }
-
-    .pillars { padding: 4rem 0; }
-    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-    .pillar { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.2s; }
-    .pillar:hover { border-color: var(--teal-light); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); }
-    .pillar-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .pillar h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
-    .pillar > p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem; }
-    .pillar-links { list-style: none; margin-bottom: 1.5rem; }
-    .pillar-links li { padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
-    .pillar-links a { font-size: 0.9rem; color: var(--text-secondary); }
-    .pillar-links a:hover { color: var(--text-primary); }
-
-    .newsletter { background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%); padding: 4rem 0; border-top: 1px solid var(--border); }
-    .newsletter-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .newsletter-copy .eyebrow { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 1rem; display: block; }
-    .newsletter-copy h2 { font-size: 2rem; margin-bottom: 1rem; }
-    .newsletter-copy > p { color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 400px; }
-    .newsletter-copy ul { list-style: none; margin: 0; padding: 0; }
-    .newsletter-copy li { color: var(--text-secondary); font-size: 0.9rem; padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem; }
-    .newsletter-copy li::before { content: '✓'; color: var(--gold); font-weight: bold; }
-    .newsletter-actions { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-    .newsletter-actions .btn-primary { padding: 1.25rem 2.5rem; font-size: 1.1rem; }
-    .newsletter-actions .subtext { font-size: 0.85rem; color: var(--text-muted); }
-
-    .site-footer { background: var(--bg-darker); border-top: 1px solid var(--border); padding: 48px 0 24px; margin-top: 0; }
-    .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem; color: var(--text-muted); }
-    .footer-content a { color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
-    .footer-content a:hover { color: var(--text-primary); }
-    .footer-links a { margin-left: 24px; }
-
-    @media (max-width: 900px) {
-        .pulse-grid { grid-template-columns: repeat(2, 1fr); }
-        .hot-grid { grid-template-columns: 1fr; }
-        .pillars-grid { grid-template-columns: 1fr; }
-        .newsletter-content { grid-template-columns: 1fr; text-align: center; }
-        .newsletter-copy > p { margin: 0 auto 1.5rem; }
-        .newsletter-copy li { justify-content: center; }
+    /* Page Header */
+    .page-header {
+        background: var(--bg-darker);
+        padding: 48px 0 40px;
+        border-bottom: 1px solid var(--border);
     }
 
-    @media (max-width: 600px) {
-        .hero h1 { font-size: 2.25rem; }
-        .hero .lead { font-size: 1.1rem; }
-        .pulse-grid { gap: 1rem; }
-        .pulse-stat { padding: 1rem; }
-        .pulse-stat .number { font-size: 2rem; }
-        .hero-actions { flex-direction: column; align-items: center; }
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 16px;
+    }
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--gold-light); }
+
+    .page-label {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 12px;
+    }
+
+    .page-header h1 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+    }
+
+    .page-header .lead {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 700px;
+        line-height: 1.7;
+    }
+
+        
+    /* Cards */
+    .tool-card, .job-card, .company-card, .salary-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.25s;
+    }
+
+    .tool-card:hover, .job-card:hover, .company-card:hover, .salary-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        width: fit-content;
+    }
+
+    .badge-live { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+    .badge-soon { background: rgba(106, 138, 148, 0.2); color: var(--text-muted); }
+    .badge-comparison { background: rgba(232, 168, 124, 0.15); color: var(--gold); }
+    .badge-remote { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+    .badge-salary { background: rgba(232, 168, 124, 0.15); color: var(--gold); }
+
+    /* Skill Tags */
+    .skill-tag {
+        display: inline-block;
+        padding: 2px 8px;
+        background: var(--bg-darker);
+        border-radius: 4px;
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+        margin-right: 6px;
+        margin-bottom: 6px;
+    }
+
+    /* Stats */
+    .stats-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    @media (max-width: 768px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+
+    .stat-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-align: center;
+        transition: all 0.25s;
+    }
+
+    .stat-box:hover {
+        border-color: var(--teal-light);
+        transform: translateY(-2px);
+    }
+
+    .stat-number {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gold);
+        line-height: 1;
+    }
+
+    .stat-number.green { color: var(--success); }
+    .stat-number.red { color: var(--error); }
+
+    .stat-label {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin-top: 8px;
+    }
+
+        
+    /* CTA Box */
+    .cta-box {
+        background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
+        color: var(--text-primary);
+        border-radius: 16px;
+        padding: 40px;
+        text-align: center;
+        margin: 40px 0;
+        border: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-box::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 60%;
+        height: 200%;
+        background: radial-gradient(ellipse, rgba(232, 168, 124, 0.1) 0%, transparent 60%);
+        pointer-events: none;
+    }
+
+    .cta-box h3 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+        position: relative;
+    }
+
+    .cta-box p {
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.15s;
+    }
+
+    .btn-gold {
+        background: var(--gold);
+        color: var(--bg-darker);
+    }
+    .btn-gold:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+        transform: translateY(-1px);
+        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+        background: var(--bg-card);
+        border-color: var(--teal-light);
+        color: var(--text-primary);
+    }
+
+        
+    /* Footer */
+    .site-footer, .footer {
+        background: var(--bg-darker);
+        border-top: 1px solid var(--border);
+        padding: 48px 0 24px;
+        margin-top: 64px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.875rem;
+        color: var(--text-muted);
+    }
+
+    .footer-content a, .footer a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.15s;
+    }
+    .footer-content a:hover, .footer a:hover { color: var(--text-primary); }
+    .footer-links a { margin-left: 24px; }
+
+    @media (max-width: 768px) {
         .footer-content { flex-direction: column; gap: 12px; text-align: center; }
         .footer-links a { margin: 0 12px; }
     }
 
+        
+    /* Individual Job Page Styles */
+    .job-detail-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+
+    .job-detail-header h1 {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .job-company {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+    }
+
+    .job-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .job-meta-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    .job-meta-badge.salary {
+        background: rgba(232, 168, 124, 0.15);
+        border-color: rgba(232, 168, 124, 0.3);
+        color: var(--gold);
+    }
+
+    .job-meta-badge.remote {
+        background: rgba(74, 222, 128, 0.15);
+        border-color: rgba(74, 222, 128, 0.3);
+        color: var(--success);
+    }
+
+    .apply-btn {
+        display: inline-block;
+        padding: 16px 32px;
+        background: var(--gold);
+        color: var(--bg-darker);
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .apply-btn:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
+    }
+
+    .job-skills {
+        margin: 24px 0;
+    }
+
+    .job-skills h3 {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .job-details-table {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 24px 0;
+    }
+
+    .job-details-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .job-details-row:last-child {
+        border-bottom: none;
+    }
+
+    .job-details-label {
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .job-details-value {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    /* Expired/Stale Job Styles */
+    .job-expired-notice {
+        background: rgba(248, 113, 113, 0.1);
+        border: 1px solid rgba(248, 113, 113, 0.3);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    .job-expired-notice h2 {
+        color: var(--error);
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .job-expired-notice p {
+        color: var(--text-secondary);
+    }
+
+    .similar-jobs-section h3 {
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .similar-jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+        .job-detail-header {
+            flex-direction: column;
+        }
+        .apply-btn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+        
+    .faq-section {
+        margin: 48px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+    }
+
+    .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-card-hover);
+    }
+
+    .faq-icon {
+        font-size: 1.25rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+    }
+
+    .faq-answer-content {
+        padding: 0 24px 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+
     </style>
+
+    
 </head>
+
 
 <body>
     <header class="site-header">
@@ -269,19 +760,22 @@
                 AI Market Pulse
             </a>
             <nav class="nav">
-                <a href="/jobs/">Jobs</a>
+                <a href="/jobs/">AI Jobs</a>
                 <a href="/salaries/">Salaries</a>
-                <a href="/insights/">Insights</a>
+                <a href="/tools/">Tools</a>
+                <a href="/insights/">Market Intel</a>
+                <a href="/consulting/">Consulting</a>
                 <a href="/about/">About</a>
             </nav>
-            <div class="header-actions" style="display: flex; gap: 8px; align-items: center;">
-                <a href="/jobs/" class="btn-secondary">Browse Jobs</a>
-                <a href="https://www.theainewsdigest.com/" target="_blank" rel="noopener" class="nav-cta">Subscribe</a>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <a href="/join/" class="btn-secondary">Join Community</a>
+                <a href="https://ainewsdigest.substack.com" target="_blank" rel="noopener" class="nav-cta">Newsletter</a>
             </div>
             <button class="mobile-menu-btn" aria-label="Open menu">☰</button>
         </div>
     </header>
 
+    <!-- Mobile Navigation -->
     <div class="mobile-nav-overlay"></div>
     <nav class="mobile-nav">
         <div class="mobile-nav-header">
@@ -289,12 +783,14 @@
             <button class="mobile-nav-close" aria-label="Close menu">✕</button>
         </div>
         <ul class="mobile-nav-links">
-            <li><a href="/jobs/">Jobs</a></li>
+            <li><a href="/jobs/">AI Jobs</a></li>
             <li><a href="/salaries/">Salaries</a></li>
-            <li><a href="/insights/">Insights</a></li>
+            <li><a href="/tools/">Tools</a></li>
+            <li><a href="/insights/">Market Intel</a></li>
+            <li><a href="/consulting/">Consulting</a></li>
             <li><a href="/about/">About</a></li>
         </ul>
-        <a href="https://www.theainewsdigest.com/" class="mobile-nav-subscribe">Subscribe Free</a>
+        <a href="/join/" class="mobile-nav-subscribe">Join Community</a>
     </nav>
 
     <script>
@@ -304,8 +800,16 @@
             const overlay = document.querySelector('.mobile-nav-overlay');
             const mobileNav = document.querySelector('.mobile-nav');
             const mobileLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-nav-subscribe');
-            function openMenu() { mobileNav.classList.add('active'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
-            function closeMenu() { mobileNav.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+            function openMenu() {
+                mobileNav.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
             if (menuBtn) menuBtn.addEventListener('click', openMenu);
             if (closeBtn) closeBtn.addEventListener('click', closeMenu);
             if (overlay) overlay.addEventListener('click', closeMenu);
@@ -313,156 +817,358 @@
         })();
     </script>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <span class="hero-eyebrow">AI Career Intelligence</span>
-                <h1>Stay ahead in AI</h1>
-                <p class="lead">Track the AI job market. Know what's hiring, what pays, and what skills matter.</p>
-                <p class="hero-proof">
-                    <span>2.6K+ subscribers</span> ·
-                    <span>1.3K+ community members</span> ·
-                    <span>1.9K+ jobs tracked</span>
-                </p>
-                <div class="hero-actions">
-                    <a href="https://www.theainewsdigest.com/" class="btn-primary" target="_blank" rel="noopener">Subscribe Free</a>
-                    <a href="/jobs/" class="btn-secondary">Browse Jobs</a>
-                </div>
-            </div>
-        </section>
 
-        <section class="market-pulse">
-            <div class="container">
-                <div class="pulse-header">
-                    <h2>Market Pulse</h2>
-                    <p>Week of January 20, 2026</p>
-                </div>
-                <div class="pulse-grid">
-                    <div class="pulse-stat">
-                        <span class="number">1,969</span>
-                        <span class="change neutral">→ 0% WoW</span>
-                        <span class="label">Open Roles</span>
-                    </div>
-                    <div class="pulse-stat">
-                        <span class="number">$228K</span>
-                        <span class="change neutral">avg max</span>
-                        <span class="label">Compensation</span>
-                    </div>
-                    <div class="pulse-stat">
-                        <span class="number">62%</span>
-                        <span class="change neutral">of roles</span>
-                        <span class="label">Senior+ Level</span>
-                    </div>
-                    <div class="pulse-stat">
-                        <span class="number">24%</span>
-                        <span class="change neutral">of roles</span>
-                        <span class="label">Remote</span>
-                    </div>
-                </div>
-                <div class="pulse-cta">
-                    <a href="https://www.theainewsdigest.com/" target="_blank" rel="noopener">Get weekly market analysis in your inbox →</a>
-                </div>
-            </div>
-        </section>
+    <style>
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0 4rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--teal-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+        .hero-cta {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--bg-darker);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+        .hero-cta:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
 
-        <section class="whats-hot">
-            <div class="container">
-                <div class="hot-header">
-                    <h2>What's Hot This Week</h2>
-                    <a href="/insights/">All Insights →</a>
-                </div>
-                <div class="hot-grid">
-                    <div class="hot-card">
-                        <div class="eyebrow">Hiring Surge</div>
-                        <h3>Agentic AI Engineers</h3>
-                        <p>Agent-related job postings up <span class="stat">340% YoY</span>. Companies want engineers who can build autonomous systems.</p>
-                    </div>
-                    <div class="hot-card">
-                        <div class="eyebrow">Top Skill</div>
-                        <h3>RAG Implementation</h3>
-                        <p>Retrieval-augmented generation appears in <span class="stat">45%</span> of senior AI engineer postings.</p>
-                    </div>
-                    <div class="hot-card">
-                        <div class="eyebrow">Salary Watch</div>
-                        <h3>AI Security Premium</h3>
-                        <p>AI security roles pay <span class="stat">15-20%</span> more than general AI engineering positions.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        /* Market Pulse */
+        .market-pulse {
+            background: var(--bg-card);
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .section-header p {
+            color: var(--text-muted);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        .stat-card {
+            background: var(--bg-dark);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .stat-card__value {
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .stat-card__value.positive { color: var(--success); }
+        .stat-card__value.negative { color: var(--error); }
+        .stat-card__label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
 
-        <section class="pillars">
-            <div class="container">
-                <div class="pillars-grid">
-                    <article class="pillar">
-                        <div class="pillar-icon">💼</div>
-                        <h3>AI Jobs</h3>
-                        <p>1,969 roles from companies actually hiring. Salary data included. Updated weekly.</p>
-                        <ul class="pillar-links">
-                            <li><a href="/jobs/">All Open Roles</a></li>
-                            <li><a href="/jobs/ai-ml-engineer/">AI/ML Engineer Jobs</a></li>
-                            <li><a href="/jobs/remote/">Remote AI Jobs</a></li>
-                        </ul>
-                        <a href="/jobs/" class="btn-secondary">Browse Jobs →</a>
-                    </article>
-                    <article class="pillar">
-                        <div class="pillar-icon">💰</div>
-                        <h3>Salary Data</h3>
-                        <p>Know your market value. Benchmarks by role, level, and location.</p>
-                        <ul class="pillar-links">
-                            <li><a href="/salaries/ai-engineer/">AI Engineer: $185K-$280K</a></li>
-                            <li><a href="/salaries/prompt-engineer/">Prompt Engineer: $130K-$200K</a></li>
-                            <li><a href="/salaries/mlops-engineer/">MLOps: $160K-$240K</a></li>
-                        </ul>
-                        <a href="/salaries/" class="btn-secondary">View Salaries →</a>
-                    </article>
-                    <article class="pillar">
-                        <div class="pillar-icon">📊</div>
-                        <h3>Career Insights</h3>
-                        <p>40+ guides on skills, hiring trends, and career paths in AI.</p>
-                        <ul class="pillar-links">
-                            <li><a href="/insights/ai-engineer-job-market-2026/">AI Job Market 2026</a></li>
-                            <li><a href="/insights/rag-engineer-skills/">RAG Skills Guide</a></li>
-                            <li><a href="/insights/agentic-ai-engineer-jobs/">Agentic AI Careers</a></li>
-                        </ul>
-                        <a href="/insights/" class="btn-secondary">Read Insights →</a>
-                    </article>
-                </div>
-            </div>
-        </section>
+        /* Featured Jobs */
+        .featured-jobs {
+            padding: 5rem 0;
+        }
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .job-card {
+            display: block;
+            background: var(--bg-card);
+            padding: 1.75rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .job-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .job-card__category {
+            font-size: 0.75rem;
+            color: var(--teal-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+        .job-card__title {
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .job-card__company {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .job-card__meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        .job-card__salary {
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .view-all {
+            text-align: center;
+        }
+        .view-all a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .view-all a:hover {
+            text-decoration: underline;
+        }
 
-        <section class="newsletter">
-            <div class="container">
-                <div class="newsletter-content">
-                    <div class="newsletter-copy">
-                        <span class="eyebrow">The AI News Digest</span>
-                        <h2>Weekly intelligence for AI careers</h2>
-                        <p>Market data, salary trends, and what's actually happening in AI hiring. Every week.</p>
-                        <ul>
-                            <li>Job market snapshot and trends</li>
-                            <li>Skills in demand right now</li>
-                            <li>Salary benchmarks and negotiation intel</li>
-                            <li>Access to 1.3K+ member community</li>
-                        </ul>
-                    </div>
-                    <div class="newsletter-actions">
-                        <a href="https://www.theainewsdigest.com/" class="btn-primary" target="_blank" rel="noopener">Subscribe Free →</a>
-                        <span class="subtext">Free newsletter. Premium available for deeper access.</span>
-                    </div>
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-card) 100%);
+            padding: 5rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            padding: 4rem 0;
+            background: var(--bg-darker);
+        }
+        .categories-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .category-tag {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .category-tag:hover {
+            background: var(--teal-primary);
+            border-color: var(--teal-light);
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.25rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .stat-card { padding: 1.25rem; }
+            .stat-card__value { font-size: 2rem; }
+        }
+    </style>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Find Your Next AI Role</h1>
+            <p>Curated AI, Machine Learning, and Prompt Engineering jobs with salary transparency and market insights.</p>
+            <a href="/jobs/" class="hero-cta">Browse 1,969 Open Roles →</a>
+        </div>
+    </section>
+
+    <section class="market-pulse">
+        <div class="container">
+            <div class="section-header">
+                <h2>Market Pulse</h2>
+                <p>AI Job Market as of January 22, 2026</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card__value">1,969</div>
+                    <div class="stat-card__label">Open Roles</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__value positive">↑ 0%</div>
+                    <div class="stat-card__label">Week over Week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__value">24%</div>
+                    <div class="stat-card__label">Remote Jobs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__value">$228K</div>
+                    <div class="stat-card__label">Avg Max Salary</div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <section class="featured-jobs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured AI Jobs</h2>
+                <p>Highest paying opportunities this week</p>
+            </div>
+            <div class="jobs-grid">
+                
+        <a href="/jobs/netflix-performance-engineer-6-6f3195/" class="job-card">
+            <div class="job-card__category">LLM Engineer</div>
+            <h3 class="job-card__title">Performance Engineer 6</h3>
+            <div class="job-card__company">Netflix</div>
+            <div class="job-card__meta">
+                <span class="job-card__location">Los Gatos, CA, US</span>
+                <span class="job-card__salary">$230K - $960K</span>
+            </div>
+        </a>
+        
+        <a href="/jobs/hewlett-packard-enterprise-hpe-network-for-ai-sales-specialist---financial-servic-96c690/" class="job-card">
+            <div class="job-card__category">AI/ML Engineer</div>
+            <h3 class="job-card__title">Network for AI Sales Specialist - Financial Services Accounts</h3>
+            <div class="job-card__company">Hewlett Packard Enterprise | HPE</div>
+            <div class="job-card__meta">
+                <span class="job-card__location">New York, NY, US</span>
+                <span class="job-card__salary">$245K - $507K</span>
+            </div>
+        </a>
+        
+        <a href="/jobs/cisco-global-program-leader-sales-acceleration-cloud-ai--63962b/" class="job-card">
+            <div class="job-card__category">MLOps Engineer</div>
+            <h3 class="job-card__title">Global Program Leader, Sales Acceleration â€“ Cloud + AI Infrastructure</h3>
+            <div class="job-card__company">Cisco</div>
+            <div class="job-card__meta">
+                <span class="job-card__location">Boxborough, MA, US</span>
+                <span class="job-card__salary">$324K - $505K</span>
+            </div>
+        </a>
+        
+        <a href="/jobs/nvidia-distinguished-engineer-jax-2da6c4/" class="job-card">
+            <div class="job-card__category">AI/ML Engineer</div>
+            <h3 class="job-card__title">Distinguished Engineer, JAX</h3>
+            <div class="job-card__company">NVIDIA</div>
+            <div class="job-card__meta">
+                <span class="job-card__location">Santa Clara, CA, US</span>
+                <span class="job-card__salary">$320K - $488K</span>
+            </div>
+        </a>
+        
+        <a href="/jobs/nvidia-director-system-software-engineering---metropolis--70fd47/" class="job-card">
+            <div class="job-card__category">AI/ML Engineer</div>
+            <h3 class="job-card__title">Director, System Software Engineering - Metropolis Accelerated and Inferencing Software</h3>
+            <div class="job-card__company">NVIDIA</div>
+            <div class="job-card__meta">
+                <span class="job-card__location">Santa Clara, CA, US</span>
+                <span class="job-card__salary">$320K - $488K</span>
+            </div>
+        </a>
+        
+        <a href="/jobs/sanctuary-computer-senior-data-engineer-66d299/" class="job-card">
+            <div class="job-card__category">Data Engineer</div>
+            <h3 class="job-card__title">Senior Data Engineer</h3>
+            <div class="job-card__company">Sanctuary Computer</div>
+            <div class="job-card__meta">
+                <span class="job-card__location">US</span>
+                <span class="job-card__salary">$374K - $478K</span>
+            </div>
+        </a>
+        
+            </div>
+            <div class="view-all">
+                <a href="/jobs/">View All 1,969 Jobs →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Browse by Category</h2>
+            </div>
+            <div class="categories-grid">
+                <a href="/jobs/ai-ml-engineer/" class="category-tag">AI/ML Engineer</a>
+                <a href="/jobs/prompt-engineer/" class="category-tag">Prompt Engineer</a>
+                <a href="/jobs/data-scientist/" class="category-tag">Data Scientist</a>
+                <a href="/jobs/research-scientist/" class="category-tag">Research Scientist</a>
+                <a href="/jobs/mlops-engineer/" class="category-tag">MLOps Engineer</a>
+                <a href="/jobs/data-engineer/" class="category-tag">Data Engineer</a>
+                <a href="/jobs/remote/" class="category-tag">Remote Jobs</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Stay Updated on AI Jobs</h2>
+            <p>Get weekly insights on the AI job market, salary trends, and top opportunities.</p>
+            <a href="/join/" class="hero-cta">Join the Community</a>
+        </div>
+    </section>
+
 
     <footer class="site-footer">
         <div class="footer-content">
             <span>&copy; 2026 <a href="/">AI Market Pulse</a></span>
             <div class="footer-links">
-                <a href="/jobs/">Jobs</a>
+                <a href="/jobs/">AI Jobs</a>
                 <a href="/salaries/">Salaries</a>
-                <a href="/insights/">Insights</a>
+                <a href="/tools/">Tools</a>
+                <a href="/insights/">Market Intel</a>
+                <a href="/consulting/">Consulting</a>
                 <a href="/about/">About</a>
-                <a href="https://www.theainewsdigest.com/" target="_blank" rel="noopener">Newsletter</a>
+                <a href="/join/">Community</a>
             </div>
         </div>
     </footer>
