@@ -145,6 +145,85 @@ AI_TOOLS = {
     },
 }
 
+# Extended SEO content for tool pages
+TOOL_SEO_CONTENT = {
+    'openai': {
+        'overview': '''OpenAI has become synonymous with the AI revolution. Their GPT-4 model powers countless applications, from customer service chatbots to sophisticated coding assistants. For AI professionals, OpenAI API expertise is one of the most in-demand skills, appearing in job postings across every AI role category.''',
+        'why_learn': '''OpenAI's API is the de facto standard for LLM integration. Most AI engineering roles expect familiarity with their models, rate limiting strategies, and best practices for prompt engineering. Understanding GPT-4's capabilities and limitations is essential for designing effective AI features.''',
+        'career_relevance': '''OpenAI skills are relevant across AI Engineer, Prompt Engineer, LLM Engineer, and even AI Product Manager roles. Companies building with LLMs often start with OpenAI before exploring alternatives, making this expertise a foundation for AI careers.''',
+    },
+    'anthropic': {
+        'overview': '''Anthropic's Claude models have emerged as the primary alternative to OpenAI for enterprise applications. Founded by former OpenAI researchers, Anthropic emphasizes AI safety and constitutional AI approaches. Claude excels at long-context tasks and nuanced reasoning.''',
+        'why_learn': '''Many enterprises are diversifying their LLM providers, and Claude's strong performance on coding, analysis, and writing tasks makes Anthropic expertise increasingly valuable. Understanding Claude's unique capabilities—like its 200K context window—enables building applications OpenAI can't match.''',
+        'career_relevance': '''Anthropic skills are particularly valued at companies prioritizing AI safety or requiring long-context processing. The API is similar enough to OpenAI that skills transfer easily, but understanding model-specific behaviors is important for optimization.''',
+    },
+    'google-ai': {
+        'overview': '''Google AI offers the Gemini family of models along with Vertex AI for enterprise ML deployment. Their multimodal capabilities and tight integration with Google Cloud make them attractive for companies already in the GCP ecosystem.''',
+        'why_learn': '''Google's AI offerings are expanding rapidly. Gemini models offer competitive performance, and Vertex AI provides a comprehensive platform for ML workflows. For companies using Google Cloud, these tools are the natural choice.''',
+        'career_relevance': '''Google AI expertise is particularly valuable for roles at Google Cloud customers or companies building multimodal applications. Vertex AI knowledge is relevant for MLOps roles, while Gemini API skills apply to AI engineering positions.''',
+    },
+    'langchain': {
+        'overview': '''LangChain has become the most popular framework for building LLM applications. It provides abstractions for chains, agents, memory, and retrieval, enabling rapid development of sophisticated AI features. The ecosystem includes LangSmith for observability and LangGraph for complex workflows.''',
+        'why_learn': '''LangChain is appearing in an increasing number of job postings for AI Engineer and LLM Engineer roles. Its abstractions accelerate development, and understanding its patterns helps even when building custom solutions. LangSmith is becoming standard for LLM observability.''',
+        'career_relevance': '''LangChain expertise is directly relevant for AI Engineer, LLM Engineer, and Prompt Engineer roles. Companies building RAG applications, chatbots, or AI agents frequently use LangChain, making it a high-impact skill to develop.''',
+    },
+    'llamaindex': {
+        'overview': '''LlamaIndex specializes in connecting LLMs to data. Originally known as GPT Index, it provides sophisticated indexing, retrieval, and query capabilities for building knowledge-intensive applications. It excels at enterprise RAG and document Q&A use cases.''',
+        'why_learn': '''LlamaIndex offers more sophisticated data handling than LangChain for certain use cases. Understanding both frameworks allows choosing the right tool for each project. LlamaIndex's focus on data connections makes it valuable for enterprise applications.''',
+        'career_relevance': '''LlamaIndex skills are relevant for AI Engineer and LLM Engineer roles, particularly at companies building document-heavy applications. It's often used alongside LangChain rather than as a replacement.''',
+    },
+    'hugging-face': {
+        'overview': '''Hugging Face is the GitHub of machine learning. Their Hub hosts thousands of models and datasets, while the Transformers library provides easy access to state-of-the-art models. They've become essential infrastructure for the ML community.''',
+        'why_learn': '''Hugging Face is ubiquitous in ML workflows. The Transformers library is the standard for working with pre-trained models, and the Hub is where models are shared. Understanding their ecosystem is essential for ML Engineers and Research Engineers.''',
+        'career_relevance': '''Hugging Face skills appear in most ML Engineer job postings. Familiarity with the Transformers library, model Hub, and Spaces is expected for roles involving model training, fine-tuning, or deployment.''',
+    },
+    'pinecone': {
+        'overview': '''Pinecone is a managed vector database purpose-built for similarity search. As RAG architectures have become standard for LLM applications, Pinecone has emerged as a leading choice for storing and querying embeddings at scale.''',
+        'why_learn': '''Vector databases are essential for RAG applications, and Pinecone's managed service simplifies deployment. Understanding vector search concepts and Pinecone's capabilities enables building production-ready AI applications.''',
+        'career_relevance': '''Pinecone expertise is relevant for AI Engineer and LLM Engineer roles building RAG systems. Companies value experience with production vector databases, and Pinecone's popularity makes it a safe choice for skill development.''',
+    },
+    'weaviate': {
+        'overview': '''Weaviate is an open-source vector database with built-in ML model integration. It supports hybrid search combining vector and keyword approaches, making it powerful for enterprise search applications.''',
+        'why_learn': '''Weaviate offers more flexibility than managed solutions like Pinecone, with self-hosting options and advanced features. Understanding Weaviate complements Pinecone knowledge and prepares you for different deployment scenarios.''',
+        'career_relevance': '''Weaviate skills are valuable for MLOps and AI Engineer roles, particularly at companies preferring self-hosted infrastructure. Its hybrid search capabilities are relevant for enterprise search applications.''',
+    },
+    'chroma': {
+        'overview': '''Chroma is an open-source embedding database designed for simplicity. It's popular for local development and prototyping, with a straightforward API that integrates well with LangChain and other frameworks.''',
+        'why_learn': '''Chroma is excellent for learning vector database concepts and rapid prototyping. While not typically used for production at scale, understanding Chroma helps when learning RAG patterns before moving to more robust solutions.''',
+        'career_relevance': '''Chroma knowledge demonstrates familiarity with RAG architectures. While production roles often use Pinecone or Weaviate, Chroma experience shows you understand the underlying concepts.''',
+    },
+    'pytorch': {
+        'overview': '''PyTorch has become the dominant deep learning framework, especially for research and LLM work. Developed by Meta, it offers a Pythonic interface, dynamic computation graphs, and excellent GPU support. Most new ML research is implemented in PyTorch.''',
+        'why_learn': '''PyTorch is essential for ML Engineer and Research Engineer roles. It's the framework of choice for training custom models, fine-tuning LLMs, and implementing research papers. Strong PyTorch skills are non-negotiable for serious ML work.''',
+        'career_relevance': '''PyTorch appears in the majority of ML Engineer job postings. Research Engineer roles essentially require it. Even AI Engineers focused on inference benefit from understanding PyTorch for model optimization and debugging.''',
+    },
+    'tensorflow': {
+        'overview': '''TensorFlow is Google's open-source ML platform with strong production deployment capabilities. While PyTorch has gained research mindshare, TensorFlow remains popular for production ML, especially with TF Serving and TFLite for mobile deployment.''',
+        'why_learn': '''TensorFlow's production ecosystem is mature and well-documented. TF Serving, TFLite, and TensorBoard are industry standards. Understanding TensorFlow complements PyTorch skills and prepares you for diverse ML environments.''',
+        'career_relevance': '''TensorFlow skills are valuable for MLOps roles and production ML engineering. Companies with existing TensorFlow infrastructure continue to hire for these skills, and mobile ML often requires TFLite knowledge.''',
+    },
+    'aws-sagemaker': {
+        'overview': '''AWS SageMaker is Amazon's managed ML platform, offering tools for the entire ML lifecycle from data labeling to model deployment. Its integration with the AWS ecosystem makes it popular for enterprise ML workloads.''',
+        'why_learn': '''SageMaker is the most widely used cloud ML platform. Understanding its capabilities—notebooks, training, inference, pipelines—prepares you for enterprise ML roles. AWS certifications including SageMaker knowledge are valued.''',
+        'career_relevance': '''AWS SageMaker expertise is highly relevant for MLOps and ML Engineer roles at AWS-using companies. Enterprise AI roles often require cloud platform experience, and SageMaker is the most common choice.''',
+    },
+    'azure-ml': {
+        'overview': '''Azure ML is Microsoft's cloud ML platform, with strong integration with Azure OpenAI Service and the Microsoft ecosystem. It offers automated ML, responsible AI tools, and enterprise-grade security.''',
+        'why_learn': '''Azure ML is common at Microsoft-oriented enterprises. Its responsible AI features and Azure OpenAI integration are differentiators. Understanding Azure ML complements AWS knowledge for cloud-agnostic expertise.''',
+        'career_relevance': '''Azure ML skills are valuable for roles at Microsoft ecosystem companies. Enterprise AI roles at large corporations often involve Azure, making this knowledge relevant for corporate AI engineering positions.''',
+    },
+    'cursor': {
+        'overview': '''Cursor is an AI-first code editor that has gained significant traction among developers. Built on VS Code, it integrates LLMs directly into the coding workflow with features like Composer for multi-file editing and natural language code generation.''',
+        'why_learn': '''Cursor represents the future of AI-assisted development. Understanding how to leverage AI coding tools effectively is becoming essential for productivity. Cursor's advanced features like multi-file editing push beyond simple code completion.''',
+        'career_relevance': '''While Cursor is a tool rather than a skill employers hire for directly, proficiency with AI coding tools demonstrates modern development practices. AI Engineers building coding assistants should understand Cursor's approach.''',
+    },
+    'github-copilot': {
+        'overview': '''GitHub Copilot is the most widely adopted AI coding assistant, integrated directly into VS Code, JetBrains IDEs, and GitHub. Powered by OpenAI Codex, it provides inline code suggestions and chat-based assistance.''',
+        'why_learn': '''Copilot has become standard in many development workflows. Learning to use it effectively—knowing when to accept suggestions, how to prompt for better results—improves coding productivity significantly.''',
+        'career_relevance': '''Copilot proficiency is increasingly expected in software engineering roles. For AI engineers building similar tools, understanding Copilot's UX and capabilities provides valuable product insight.''',
+    },
+}
+
 
 def get_tool_job_count(tool_name, jobs_df):
     """Count jobs mentioning a tool"""
@@ -419,6 +498,35 @@ TOOLS_PAGE_STYLES = '''
 '''
 
 
+def get_tool_seo_content(slug, tool_name):
+    """Get SEO content for a tool page"""
+    if slug in TOOL_SEO_CONTENT:
+        content = TOOL_SEO_CONTENT[slug]
+        return f'''
+            <section class="tool-section">
+                <h2>Overview</h2>
+                <div style="color: var(--text-secondary); line-height: 1.8;">
+                    <p style="margin-bottom: 1rem;">{content['overview']}</p>
+                </div>
+            </section>
+
+            <section class="tool-section">
+                <h2>Why Learn {tool_name}</h2>
+                <div style="color: var(--text-secondary); line-height: 1.8;">
+                    <p style="margin-bottom: 1rem;">{content['why_learn']}</p>
+                </div>
+            </section>
+
+            <section class="tool-section">
+                <h2>Career Relevance</h2>
+                <div style="color: var(--text-secondary); line-height: 1.8;">
+                    <p style="margin-bottom: 1rem;">{content['career_relevance']}</p>
+                </div>
+            </section>
+        '''
+    return ''
+
+
 def generate_tool_page(tool_name, tool_data, job_count):
     """Generate a page for a single tool"""
     slug = slugify(tool_name)
@@ -448,6 +556,9 @@ def generate_tool_page(tool_name, tool_data, job_count):
         for use_case in tool_data['use_cases']:
             use_cases_html += f'<li>{use_case}</li>'
         use_cases_html += '</ul>'
+
+    # Get SEO content for this tool
+    seo_content = get_tool_seo_content(slug, tool_name)
 
     # Build extra styles
     extra_styles = f'<style>{TOOLS_PAGE_STYLES}</style>'
@@ -487,6 +598,8 @@ def generate_tool_page(tool_name, tool_data, job_count):
 
     <main class="tool-content">
         <div class="container">
+            {seo_content}
+
             <section class="tool-section">
                 <h2>Related Skills</h2>
                 {skills_html}
