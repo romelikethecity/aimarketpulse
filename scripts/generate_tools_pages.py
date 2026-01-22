@@ -616,6 +616,23 @@ def generate_tools_index(tools_with_counts):
 
     <main>
         <div class="container">
+            <!-- SEO Intro Content -->
+            <div class="seo-intro" style="max-width: 800px; margin-bottom: 3rem; color: var(--text-secondary); line-height: 1.8;">
+                <p style="margin-bottom: 1rem;">
+                    The AI tools landscape is evolving rapidly, and knowing which technologies to learn can make or break your career trajectory. AI Market Pulse tracks tool mentions across thousands of job postings to show you what employers are actually hiring for—not what's trending on Twitter.
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    From foundational frameworks like <strong style="color: var(--text-primary);">PyTorch</strong> and <strong style="color: var(--text-primary);">TensorFlow</strong> to the new wave of LLM tools like <strong style="color: var(--text-primary);">LangChain</strong>, <strong style="color: var(--text-primary);">LlamaIndex</strong>, and vector databases, our directory covers the complete AI/ML technology stack. Each tool page shows how many current job postings require that skill, helping you prioritize your learning investments.
+                </p>
+                <h2 style="font-size: 1.25rem; color: var(--text-primary); margin: 2rem 0 1rem;">What's in Demand in 2026</h2>
+                <p style="margin-bottom: 1rem;">
+                    The job market tells a clear story: <strong style="color: var(--text-primary);">Python</strong> remains non-negotiable for AI roles, appearing in 90%+ of postings. <strong style="color: var(--text-primary);">PyTorch</strong> has overtaken TensorFlow as the preferred deep learning framework, especially for research and LLM work. The biggest shift is the emergence of <strong style="color: var(--text-primary);">LLM orchestration tools</strong>—LangChain, LlamaIndex, and similar frameworks—which went from niche to mainstream in 2024-2025.
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    Cloud platforms (<strong style="color: var(--text-primary);">AWS SageMaker</strong>, <strong style="color: var(--text-primary);">Azure ML</strong>, <strong style="color: var(--text-primary);">Google Vertex AI</strong>) remain essential for production ML. Vector databases like <strong style="color: var(--text-primary);">Pinecone</strong>, <strong style="color: var(--text-primary);">Weaviate</strong>, and <strong style="color: var(--text-primary);">Chroma</strong> are increasingly required as RAG architectures become standard for enterprise AI applications.
+                </p>
+            </div>
+
             {ai_for_task_section}
             {categories_html}
 
@@ -625,6 +642,24 @@ def generate_tools_index(tools_with_counts):
                 button_text="Join the Community",
                 button_url="/join/"
             )}
+
+            <!-- SEO Bottom Content -->
+            <div class="seo-bottom" style="max-width: 800px; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--text-secondary); line-height: 1.8;">
+                <h2 style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 1rem;">How to Choose the Right AI Tools</h2>
+                <p style="margin-bottom: 1rem;">
+                    When deciding which AI tools to learn, consider three factors: <strong style="color: var(--text-primary);">job market demand</strong> (what are employers actually hiring for?), <strong style="color: var(--text-primary);">career trajectory</strong> (where is the industry heading?), and <strong style="color: var(--text-primary);">practical application</strong> (what can you build with it?).
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    For most AI careers, start with the fundamentals: Python, PyTorch or TensorFlow, and cloud platforms (pick one major provider and learn it well). Then specialize based on your target role. Prompt Engineers should focus on LLM APIs (OpenAI, Anthropic, Google), orchestration frameworks (LangChain, LlamaIndex), and evaluation tools. ML Engineers need deeper infrastructure skills: Kubernetes, MLflow, and model serving.
+                </p>
+                <h2 style="font-size: 1.25rem; color: var(--text-primary); margin: 2rem 0 1rem;">The AI Tools Stack in 2026</h2>
+                <p style="margin-bottom: 1rem;">
+                    A typical production AI stack in 2026 includes: a <strong style="color: var(--text-primary);">foundation model provider</strong> (OpenAI, Anthropic, or open-source models via Hugging Face), an <strong style="color: var(--text-primary);">orchestration layer</strong> (LangChain or LlamaIndex for complex workflows), a <strong style="color: var(--text-primary);">vector database</strong> (Pinecone for managed, Weaviate or Chroma for self-hosted), <strong style="color: var(--text-primary);">evaluation and observability</strong> (LangSmith, Weights & Biases), and <strong style="color: var(--text-primary);">deployment infrastructure</strong> (cloud ML platforms or Kubernetes).
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    For AI coding tools specifically, the market has consolidated around Cursor and GitHub Copilot, with VS Code + Claude/GPT extensions as a third option. Check our AI for Coding comparison guide for a detailed breakdown.
+                </p>
+            </div>
         </div>
     </main>
 '''

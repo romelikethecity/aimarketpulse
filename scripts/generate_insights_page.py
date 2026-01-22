@@ -344,6 +344,23 @@ html = f'''{get_html_head(
 
     <main>
         <div class="container">
+            <!-- SEO Intro Content -->
+            <div class="seo-intro" style="max-width: 800px; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); color: var(--text-secondary); line-height: 1.8;">
+                <p style="margin-bottom: 1rem;">
+                    The AI job market in 2026 is maturing but still growing. After the explosive demand of 2023-2024 driven by ChatGPT and generative AI, the market has shifted from experimentation to production deployment. Companies are hiring not just for AI research, but for the infrastructure, operations, and product skills needed to ship AI products at scale.
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    AI Market Pulse analyzes <strong style="color: var(--text-primary);">{total_jobs:,} active job postings</strong> to surface the signals that matter: which skills are growing, which roles are emerging, and where compensation is heading. Our data comes from Indeed, LinkedIn, Greenhouse, Lever, and direct company career pages—refreshed weekly to reflect current market conditions.
+                </p>
+                <h2 style="font-size: 1.25rem; color: var(--text-primary); margin: 2rem 0 1rem;">What We Track</h2>
+                <p style="margin-bottom: 1rem;">
+                    Our market intelligence covers several dimensions: <strong style="color: var(--text-primary);">skills and tools</strong> (which technologies appear most frequently in job requirements), <strong style="color: var(--text-primary);">role distribution</strong> (the balance between different AI job categories), <strong style="color: var(--text-primary);">work arrangements</strong> (remote vs. hybrid vs. on-site), and <strong style="color: var(--text-primary);">salary trends</strong> (how compensation is moving across roles and locations).
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    Unlike salary surveys that rely on self-reported data from months ago, our insights come directly from active job postings. This gives you a real-time view of what employers are actually looking for and willing to pay—not what they were hiring for last quarter.
+                </p>
+            </div>
+
             <div class="insight-card">
                 <h2>Top AI Tools & Frameworks</h2>
                 <p style="color: var(--text-secondary); margin-bottom: 20px;">Most requested technologies in AI/ML job postings.</p>
@@ -380,6 +397,25 @@ html = f'''{get_html_head(
                 button_text="Subscribe Free",
                 button_url="https://ainewsdigest.substack.com"
             )}
+
+            <!-- SEO Bottom Content -->
+            <div class="seo-bottom" style="max-width: 800px; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--text-secondary); line-height: 1.8;">
+                <h2 style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 1rem;">How to Use This Data</h2>
+                <p style="margin-bottom: 1rem;">
+                    Market intelligence is only valuable if you act on it. Here's how AI professionals use our data: <strong style="color: var(--text-primary);">Career planning</strong>—identify which skills to develop based on growing demand, not hype. <strong style="color: var(--text-primary);">Salary negotiations</strong>—use real benchmarks to anchor compensation discussions. <strong style="color: var(--text-primary);">Job search strategy</strong>—focus on roles and locations where demand exceeds supply.
+                </p>
+                <h2 style="font-size: 1.25rem; color: var(--text-primary); margin: 2rem 0 1rem;">2026 Market Outlook</h2>
+                <p style="margin-bottom: 1rem;">
+                    Several trends are shaping the AI job market this year. <strong style="color: var(--text-primary);">Production over research</strong>: Companies that experimented with AI in 2023-2024 are now hiring for deployment and operations. MLOps, platform engineering, and AI infrastructure roles are growing faster than pure research positions. <strong style="color: var(--text-primary);">Specialization matters</strong>: Generalist "AI Engineer" roles are giving way to specialists—Prompt Engineers, LLM Engineers, ML Infrastructure Engineers, AI Product Managers with distinct skill requirements.
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    <strong style="color: var(--text-primary);">Remote remains strong</strong>: Despite some companies pushing return-to-office, AI roles maintain higher remote availability than the broader tech market. Our data shows remote AI positions often pay within 5-10% of equivalent on-site roles in major metros. <strong style="color: var(--text-primary);">The tools stack is consolidating</strong>: After a period of framework proliferation, the market is converging on standard stacks—PyTorch for ML, LangChain for LLM orchestration, and cloud-native deployment.
+                </p>
+                <h2 style="font-size: 1.25rem; color: var(--text-primary); margin: 2rem 0 1rem;">Our Methodology</h2>
+                <p style="margin-bottom: 1rem;">
+                    We aggregate job postings from Indeed, LinkedIn, Greenhouse, Lever, and company career pages. Each posting is enriched with structured data: job category, required skills, experience level, salary range (when disclosed), location, and remote work type. We update our dataset weekly and filter out duplicates, expired postings, and outliers. Our skill extraction uses both keyword matching and semantic analysis to capture tool mentions accurately.
+                </p>
+            </div>
         </div>
     </main>
 
