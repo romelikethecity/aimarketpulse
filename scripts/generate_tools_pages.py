@@ -633,8 +633,8 @@ def generate_tools_index(tools_with_counts):
     """Generate the tools index page"""
     os.makedirs(TOOLS_DIR, exist_ok=True)
 
-    # AI for [Task] Guides section - manual curated comparison pages
-    ai_for_task_guides = [
+    # AI Guides section - manual curated comparison pages
+    ai_guides = [
         {'url': '/ai-for-coding/', 'title': 'AI for Coding', 'desc': 'Compare the best AI coding assistants including Cursor, GitHub Copilot, Claude Code, and more.', 'count': '6 tools compared'},
         {'url': '/ai-for-writing/', 'title': 'AI for Writing', 'desc': 'Find the perfect AI writing assistant for content creation, copywriting, and creative writing.', 'count': '8 tools compared'},
         {'url': '/ai-for-video/', 'title': 'AI for Video', 'desc': 'Discover AI video generation, editing, and avatar tools for content creators and marketers.', 'count': '12 tools compared'},
@@ -682,9 +682,9 @@ def generate_tools_index(tools_with_counts):
         </section>
         '''
 
-    # Generate AI for [Task] Guides section HTML
+    # Generate AI Guides section HTML
     guides_cards = ""
-    for guide in ai_for_task_guides:
+    for guide in ai_guides:
         guides_cards += f'''
             <a href="{guide['url']}" class="tool-card">
                 <h3>{guide['title']}</h3>
@@ -696,9 +696,9 @@ def generate_tools_index(tools_with_counts):
             </a>
 '''
 
-    ai_for_task_section = f'''
+    ai_guides_section = f'''
         <section class="category-section">
-            <h2>AI for [Task] Guides</h2>
+            <h2>AI Guides</h2>
             <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Comprehensive comparison guides to find the best AI tools for your specific use case.</p>
             <div class="tools-grid">
 {guides_cards}
@@ -746,7 +746,7 @@ def generate_tools_index(tools_with_counts):
                 </p>
             </div>
 
-            {ai_for_task_section}
+            {ai_guides_section}
             {categories_html}
 
             {get_cta_box(
