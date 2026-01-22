@@ -26,6 +26,7 @@ except Exception as e:
 DATA_DIR = 'data'
 SITE_DIR = 'site'
 INSIGHTS_DIR = f'{SITE_DIR}/insights'
+ARTICLES_FILE = f'{DATA_DIR}/articles.json'
 
 print("="*70)
 print("  AI MARKET PULSE - GENERATING INSIGHTS PAGE")
@@ -71,6 +72,86 @@ def escape_html(text):
     return str(text).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
 
 
+def load_articles():
+    """Load articles from JSON file."""
+    if os.path.exists(ARTICLES_FILE):
+        with open(ARTICLES_FILE) as f:
+            data = json.load(f)
+        return data.get('articles', []), data.get('categories', {}), data.get('tags', {})
+    return [], {}, {}
+
+
+def generate_articles_section(articles, categories):
+    """Generate the articles listing section for the insights page."""
+    if not articles:
+        return ''
+
+    # Sort by published date (newest first)
+    sorted_articles = sorted(articles, key=lambda x: x.get('published', ''), reverse=True)
+
+    # Latest articles (up to 6)
+    latest = sorted_articles[:6]
+    latest_cards = []
+    for a in latest:
+        cat_name = categories.get(a.get('category', ''), {}).get('name', a.get('category', '').replace('-', ' ').title())
+        latest_cards.append(f'''
+        <a href="/insights/{a['slug']}/" class="article-card">
+            <div class="article-card-category">{cat_name}</div>
+            <h3>{a['title']}</h3>
+            <p>{a['description']}</p>
+            <div class="article-card-footer">
+                <span>{a.get('published', '')}</span>
+                <span>{a.get('readTime', '5 min')} read</span>
+            </div>
+        </a>
+        ''')
+
+    # Category cards with article counts
+    category_cards = []
+    for cat_slug, cat_info in categories.items():
+        cat_count = len([a for a in articles if a.get('category') == cat_slug])
+        category_cards.append(f'''
+        <a href="/insights/category/{cat_slug}/" class="category-card">
+            <h4>{cat_info.get('name', cat_slug)}</h4>
+            <p>{cat_count} article{"s" if cat_count != 1 else ""}</p>
+        </a>
+        ''')
+
+    # Tag cloud
+    tag_counts = {}
+    for a in articles:
+        for tag in a.get('tags', []):
+            tag_counts[tag] = tag_counts.get(tag, 0) + 1
+
+    tag_links = []
+    for tag, count in sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:15]:
+        tag_display = tag.replace('-', ' ').title()
+        tag_links.append(f'<a href="/insights/tags/{tag}/">{tag_display} <span class="tag-count">({count})</span></a>')
+
+    return f'''
+    <div class="articles-section" style="margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border);">
+        <h2 style="font-size: 1.75rem; margin-bottom: 32px;">Latest Insights</h2>
+        <div class="articles-grid">
+            {"".join(latest_cards)}
+        </div>
+
+        <div style="margin-top: 48px;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 20px; color: var(--text-secondary);">Browse by Category</h3>
+            <div class="category-grid">
+                {"".join(category_cards)}
+            </div>
+        </div>
+
+        <div style="margin-top: 48px;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 20px; color: var(--text-secondary);">Browse by Topic</h3>
+            <div class="tag-cloud">
+                {"".join(tag_links)}
+            </div>
+        </div>
+    </div>
+    '''
+
+
 def make_bar_chart(data, max_width=100, color='var(--gold)'):
     """Generate horizontal bar chart HTML"""
     if not data:
@@ -93,6 +174,11 @@ def make_bar_chart(data, max_width=100, color='var(--gold)'):
     html += '</div>'
     return html
 
+
+# Load articles
+articles, article_categories, article_tags = load_articles()
+articles_section_html = generate_articles_section(articles, article_categories)
+print(f" Loaded {len(articles)} articles for insights page")
 
 # Build page
 html = f'''{get_html_head(
@@ -125,6 +211,128 @@ html = f'''{get_html_head(
             border-radius: 0 8px 8px 0;
         }}
         .key-insight strong {{ color: var(--gold); }}
+
+        /* Article Cards */
+        .articles-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }}
+
+        .article-card {{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            text-decoration: none;
+            transition: all 0.25s;
+            display: flex;
+            flex-direction: column;
+        }}
+
+        .article-card:hover {{
+            border-color: var(--teal-light);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }}
+
+        .article-card-category {{
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }}
+
+        .article-card h3 {{
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }}
+
+        .article-card p {{
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex-grow: 1;
+        }}
+
+        .article-card-footer {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-light);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }}
+
+        /* Category Cards */
+        .category-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+        }}
+
+        .category-card {{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-decoration: none;
+            transition: all 0.25s;
+            text-align: center;
+        }}
+
+        .category-card:hover {{
+            border-color: var(--gold);
+            background: rgba(232, 168, 124, 0.1);
+        }}
+
+        .category-card h4 {{
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }}
+
+        .category-card p {{
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }}
+
+        /* Tag Cloud */
+        .tag-cloud {{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }}
+
+        .tag-cloud a {{
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.15s;
+        }}
+
+        .tag-cloud a:hover {{
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(232, 168, 124, 0.1);
+        }}
+
+        .tag-cloud .tag-count {{
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-left: 4px;
+        }}
     </style>
 
     <div class="page-header">
@@ -163,6 +371,8 @@ html = f'''{get_html_head(
                 {make_bar_chart(dict(list(items.items())[:10]))}
             </div>
             """ for cat, items in skills_by_cat.items() if items])}
+
+            {articles_section_html}
 
             {get_cta_box(
                 title="Get Weekly Market Updates",

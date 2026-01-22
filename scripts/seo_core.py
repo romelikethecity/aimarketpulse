@@ -173,6 +173,128 @@ def generate_organization_schema() -> str:
     return f'<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>'
 
 
+def generate_article_schema(article: Dict[str, Any], author: Dict[str, Any] = None) -> str:
+    """
+    Generate Article schema with E-E-A-T signals for insight articles.
+
+    Args:
+        article: Dict with title, description, slug, published, updated, tags
+        author: Dict with name, linkedin, title, knowsAbout
+
+    Returns:
+        JSON-LD script tag
+    """
+    if author is None:
+        author = {
+            "name": "Rome Thorndike",
+            "linkedin": "https://www.linkedin.com/in/romethorndike/",
+            "title": "Founder",
+            "knowsAbout": ["AI Job Market", "Machine Learning Careers", "Salary Benchmarking"]
+        }
+
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": article.get('title', ''),
+        "description": article.get('description', ''),
+        "author": {
+            "@type": "Person",
+            "name": author.get('name', ''),
+            "url": author.get('linkedin', ''),
+            "jobTitle": author.get('title', 'Founder'),
+            "worksFor": {
+                "@type": "Organization",
+                "name": SITE_NAME,
+                "url": SITE_URL
+            },
+            "knowsAbout": author.get('knowsAbout', [])
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": SITE_NAME,
+            "url": SITE_URL,
+            "logo": {
+                "@type": "ImageObject",
+                "url": f"{SITE_URL}/assets/logo.jpeg"
+            }
+        },
+        "datePublished": article.get('published', datetime.now().strftime('%Y-%m-%d')),
+        "dateModified": article.get('updated', article.get('published', datetime.now().strftime('%Y-%m-%d'))),
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": f"{SITE_URL}/insights/{article.get('slug', '')}/"
+        },
+        "keywords": article.get('tags', [])
+    }
+
+    return f'<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>'
+
+
+def generate_article_faqs(article: Dict[str, Any], market_data: Dict[str, Any] = None) -> List[Dict[str, str]]:
+    """
+    Generate FAQ content for insight articles based on category and market data.
+
+    Args:
+        article: Article metadata with category, tags
+        market_data: Optional market intelligence data for data-driven answers
+
+    Returns:
+        List of FAQ dicts with 'question' and 'answer' keys
+    """
+    faqs = []
+    category = article.get('category', '')
+    tags = article.get('tags', [])
+    title = article.get('title', '')
+
+    # Base FAQ about the article topic
+    if 'ai-engineer' in tags or 'ai engineer' in title.lower():
+        if market_data:
+            total_jobs = market_data.get('total_jobs', 1969)
+            faqs.append({
+                "question": "How many AI engineering jobs are available in 2026?",
+                "answer": f"Based on our analysis of {total_jobs:,} AI job postings, demand for AI engineers continues to grow. The most in-demand skills include Python, RAG systems, and LLM frameworks like LangChain."
+            })
+
+    if category == 'salary-intel' or 'salary' in tags:
+        faqs.append({
+            "question": "How accurate is this salary data?",
+            "answer": "Our salary data comes from actual job postings with disclosed compensation ranges, not self-reported surveys. We analyze thousands of AI roles weekly and track compensation trends over time."
+        })
+
+    if category == 'career-guides':
+        faqs.append({
+            "question": "How long does it take to transition into AI engineering?",
+            "answer": "Most career transitions into AI engineering take 6-12 months of focused learning and project building. The timeline depends on your existing technical background and the specific AI role you're targeting."
+        })
+
+    if category == 'skills':
+        faqs.append({
+            "question": "What skills are most in-demand for AI roles?",
+            "answer": "Based on our job market analysis, the most requested skills include: Python, RAG (Retrieval-Augmented Generation), LangChain, AWS, and experience with production ML systems. Rust is emerging as a valuable skill for performance-critical AI applications."
+        })
+
+    if category == 'interview-prep':
+        faqs.append({
+            "question": "What should I expect in an AI engineering interview?",
+            "answer": "AI engineering interviews typically include: coding problems (Python, algorithms), system design (ML pipelines, RAG architectures), ML fundamentals (model evaluation, fine-tuning), and behavioral questions about past projects and collaboration."
+        })
+
+    if category == 'hiring-trends':
+        faqs.append({
+            "question": "Which companies are hiring the most AI engineers?",
+            "answer": "Based on our job tracking data, AI hiring is strongest at tech giants (Google, Microsoft, Meta), AI-native startups, and enterprises building internal AI capabilities. Remote AI roles have grown significantly."
+        })
+
+    # Add methodology FAQ for data-heavy articles
+    if market_data or category in ['salary-intel', 'hiring-trends']:
+        faqs.append({
+            "question": "How is this data collected?",
+            "answer": "We collect data from major job boards and company career pages, tracking AI, ML, and prompt engineering roles. Our database is updated weekly and includes only verified job postings with disclosed requirements."
+        })
+
+    return faqs
+
+
 # =============================================================================
 # FAQ CONTENT GENERATORS (Data-driven)
 # =============================================================================

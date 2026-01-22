@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Reasoning Models: Skills for the New Paradigm | AI Market Pulse</title>
+    <meta name="description" content="OpenAI's o1/o3 and reasoning models are changing AI development. What skills matter for building with thinking AI.">
+    <link rel="canonical" href="https://theaimarketpulse.com/insights/ai-reasoning-models-skills/">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theaimarketpulse.com/insights/ai-reasoning-models-skills/">
+    <meta property="og:title" content="AI Reasoning Models: Skills for the New Paradigm">
+    <meta property="og:description" content="OpenAI's o1/o3 and reasoning models are changing AI development. What skills matter for building with thinking AI.">
+    <meta property="og:site_name" content="AI Market Pulse">
+    <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pe_collective">
+    <meta name="twitter:title" content="AI Reasoning Models: Skills for the New Paradigm">
+    <meta name="twitter:description" content="OpenAI's o1/o3 and reasoning models are changing AI development. What skills matter for building with thinking AI.">
+    <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
+
+    <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <style>
+        
+    :root {
+        /* Core colors - dark theme */
+        --bg-dark: #0f2d35;
+        --bg-darker: #0a1f25;
+        --bg-card: #132f38;
+        --bg-card-hover: #1a3d48;
+
+        --teal-primary: #1a4a56;
+        --teal-light: #2a6a7a;
+        --teal-accent: #3d8a9a;
+
+        --gold: #e8a87c;
+        --gold-light: #f0c4a8;
+        --gold-hover: #d4956a;
+
+        --text-primary: #ffffff;
+        --text-secondary: #a8c5cc;
+        --text-muted: #6a8a94;
+
+        --success: #4ade80;
+        --warning: #fbbf24;
+        --error: #f87171;
+
+        --border: rgba(255, 255, 255, 0.1);
+        --border-light: rgba(255, 255, 255, 0.05);
+
+        /* Legacy compatibility mappings */
+        --navy: #0f2d35;
+        --navy-light: #132f38;
+        --navy-medium: #1a4a56;
+        --navy-hover: #2a6a7a;
+        --gold-muted: #d4956a;
+        --gold-dark: #c4855c;
+        --green: #4ade80;
+        --green-dark: #22c55e;
+        --red: #f87171;
+        --gray-50: #0f2d35;
+        --gray-100: #132f38;
+        --gray-200: rgba(255, 255, 255, 0.1);
+        --gray-300: #6a8a94;
+        --gray-500: #6a8a94;
+        --gray-600: #a8c5cc;
+        --gray-700: #a8c5cc;
+        --gray-800: #ffffff;
+        --white: #ffffff;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-dark);
+        color: var(--text-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+    }
+
+    a {
+        color: var(--gold);
+        text-decoration: none;
+        transition: color 0.15s ease;
+    }
+
+    a:hover {
+        color: var(--gold-light);
+    }
+
+        
+    /* Navigation */
+    .site-header {
+        background: rgba(15, 45, 53, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 16px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: var(--text-primary);
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 1.125rem;
+    }
+
+    .logo img, .logo-img {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+    }
+
+    .logo:hover {
+        color: var(--text-primary);
+    }
+
+    .nav, .nav-links {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav a, .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        transition: color 0.15s;
+    }
+
+    .nav a:hover, .nav-links a:hover { color: var(--text-primary); }
+    .nav a.active { color: var(--text-primary); font-weight: 600; }
+
+    .nav-cta, .btn-subscribe {
+        background: var(--gold) !important;
+        color: var(--bg-darker) !important;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+    .nav-cta:hover, .btn-subscribe:hover {
+        background: var(--gold-hover) !important;
+        transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-weight: 500;
+    }
+    .btn-secondary:hover {
+        background: var(--bg-card);
+        border-color: var(--teal-light);
+    }
+
+    /* Mobile Navigation */
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-primary);
+    }
+    .mobile-nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .mobile-nav-overlay.active { opacity: 1; }
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        max-width: 85%;
+        height: 100vh;
+        background: var(--bg-darker);
+        z-index: 1000;
+        padding: 1.5rem;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+        transition: right 0.3s ease;
+        overflow-y: auto;
+    }
+    .mobile-nav.active { right: 0; }
+    .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav-header .logo-text {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    .mobile-nav-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-muted);
+    }
+    .mobile-nav-links {
+        list-style: none;
+        margin: 0 0 2rem 0;
+        padding: 0;
+    }
+    .mobile-nav-links li { border-bottom: 1px solid var(--border-light); }
+    .mobile-nav-links a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        text-decoration: none;
+    }
+    .mobile-nav-links a:hover { color: var(--text-primary); }
+    .mobile-nav-subscribe {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        background: var(--gold);
+        color: var(--bg-darker);
+        text-align: center;
+        font-weight: 600;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+    .mobile-nav-subscribe:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+    }
+
+    @media (max-width: 768px) {
+        .nav, .nav-links { display: none; }
+        .mobile-menu-btn { display: block; }
+        .mobile-nav-overlay { display: block; pointer-events: none; }
+        .mobile-nav-overlay.active { pointer-events: auto; }
+    }
+
+        
+    /* Layout */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    main { padding: 48px 0; }
+    .section { margin-bottom: 56px; }
+
+    /* Page Header */
+    .page-header {
+        background: var(--bg-darker);
+        padding: 48px 0 40px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 16px;
+    }
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--gold-light); }
+
+    .page-label {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 12px;
+    }
+
+    .page-header h1 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+    }
+
+    .page-header .lead {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 700px;
+        line-height: 1.7;
+    }
+
+        
+    /* Cards */
+    .tool-card, .job-card, .company-card, .salary-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.25s;
+    }
+
+    .tool-card:hover, .job-card:hover, .company-card:hover, .salary-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        width: fit-content;
+    }
+
+    .badge-live { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+    .badge-soon { background: rgba(106, 138, 148, 0.2); color: var(--text-muted); }
+    .badge-comparison { background: rgba(232, 168, 124, 0.15); color: var(--gold); }
+    .badge-remote { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+    .badge-salary { background: rgba(232, 168, 124, 0.15); color: var(--gold); }
+
+    /* Skill Tags */
+    .skill-tag {
+        display: inline-block;
+        padding: 2px 8px;
+        background: var(--bg-darker);
+        border-radius: 4px;
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+        margin-right: 6px;
+        margin-bottom: 6px;
+    }
+
+    /* Stats */
+    .stats-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    @media (max-width: 768px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+
+    .stat-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-align: center;
+        transition: all 0.25s;
+    }
+
+    .stat-box:hover {
+        border-color: var(--teal-light);
+        transform: translateY(-2px);
+    }
+
+    .stat-number {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gold);
+        line-height: 1;
+    }
+
+    .stat-number.green { color: var(--success); }
+    .stat-number.red { color: var(--error); }
+
+    .stat-label {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin-top: 8px;
+    }
+
+        
+    /* CTA Box */
+    .cta-box {
+        background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
+        color: var(--text-primary);
+        border-radius: 16px;
+        padding: 40px;
+        text-align: center;
+        margin: 40px 0;
+        border: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-box::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 60%;
+        height: 200%;
+        background: radial-gradient(ellipse, rgba(232, 168, 124, 0.1) 0%, transparent 60%);
+        pointer-events: none;
+    }
+
+    .cta-box h3 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+        position: relative;
+    }
+
+    .cta-box p {
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.15s;
+    }
+
+    .btn-gold {
+        background: var(--gold);
+        color: var(--bg-darker);
+    }
+    .btn-gold:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+        transform: translateY(-1px);
+        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+        background: var(--bg-card);
+        border-color: var(--teal-light);
+        color: var(--text-primary);
+    }
+
+        
+    /* Footer */
+    .site-footer, .footer {
+        background: var(--bg-darker);
+        border-top: 1px solid var(--border);
+        padding: 48px 0 24px;
+        margin-top: 64px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.875rem;
+        color: var(--text-muted);
+    }
+
+    .footer-content a, .footer a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.15s;
+    }
+    .footer-content a:hover, .footer a:hover { color: var(--text-primary); }
+    .footer-links a { margin-left: 24px; }
+
+    @media (max-width: 768px) {
+        .footer-content { flex-direction: column; gap: 12px; text-align: center; }
+        .footer-links a { margin: 0 12px; }
+    }
+
+        
+    /* Individual Job Page Styles */
+    .job-detail-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+
+    .job-detail-header h1 {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .job-company {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+    }
+
+    .job-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .job-meta-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    .job-meta-badge.salary {
+        background: rgba(232, 168, 124, 0.15);
+        border-color: rgba(232, 168, 124, 0.3);
+        color: var(--gold);
+    }
+
+    .job-meta-badge.remote {
+        background: rgba(74, 222, 128, 0.15);
+        border-color: rgba(74, 222, 128, 0.3);
+        color: var(--success);
+    }
+
+    .apply-btn {
+        display: inline-block;
+        padding: 16px 32px;
+        background: var(--gold);
+        color: var(--bg-darker);
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .apply-btn:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
+    }
+
+    .job-skills {
+        margin: 24px 0;
+    }
+
+    .job-skills h3 {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .job-details-table {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 24px 0;
+    }
+
+    .job-details-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .job-details-row:last-child {
+        border-bottom: none;
+    }
+
+    .job-details-label {
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .job-details-value {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    /* Expired/Stale Job Styles */
+    .job-expired-notice {
+        background: rgba(248, 113, 113, 0.1);
+        border: 1px solid rgba(248, 113, 113, 0.3);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    .job-expired-notice h2 {
+        color: var(--error);
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .job-expired-notice p {
+        color: var(--text-secondary);
+    }
+
+    .similar-jobs-section h3 {
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .similar-jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+        .job-detail-header {
+            flex-direction: column;
+        }
+        .apply-btn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+        
+    .faq-section {
+        margin: 48px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+    }
+
+    .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-card-hover);
+    }
+
+    .faq-icon {
+        font-size: 1.25rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+    }
+
+    .faq-answer-content {
+        padding: 0 24px 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+
+    </style>
+
+    <style>
+    /* Article Page Styles */
+    .article-header {
+        margin-bottom: 32px;
+    }
+
+    .article-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 16px;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+    }
+
+    .article-category {
+        display: inline-block;
+        padding: 4px 12px;
+        background: rgba(232, 168, 124, 0.15);
+        color: var(--gold);
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+    }
+
+    .article-category:hover {
+        background: rgba(232, 168, 124, 0.25);
+        color: var(--gold-light);
+    }
+
+    .article-date, .article-read-time {
+        color: var(--text-muted);
+    }
+
+    .article-author-byline {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+    }
+
+    .article-author-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--teal-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--gold);
+    }
+
+    .article-author-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .article-author-name {
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    .article-author-title {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+
+    /* Article Content */
+    .article-content {
+        max-width: 720px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+    }
+
+    .article-content h2 {
+        font-size: 1.5rem;
+        color: var(--text-primary);
+        margin: 48px 0 20px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+    }
+
+    .article-content h2:first-child {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .article-content h3 {
+        font-size: 1.25rem;
+        color: var(--text-primary);
+        margin: 32px 0 16px;
+    }
+
+    .article-content p {
+        margin-bottom: 20px;
+    }
+
+    .article-content ul, .article-content ol {
+        margin-bottom: 20px;
+        padding-left: 24px;
+    }
+
+    .article-content li {
+        margin-bottom: 8px;
+    }
+
+    .article-content a {
+        color: var(--gold);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+
+    .article-content a:hover {
+        color: var(--gold-light);
+    }
+
+    .article-content blockquote {
+        border-left: 3px solid var(--gold);
+        padding-left: 20px;
+        margin: 24px 0;
+        font-style: italic;
+        color: var(--text-secondary);
+    }
+
+    .article-content code {
+        background: var(--bg-card);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.9em;
+    }
+
+    .article-content strong {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    /* Methodology Section */
+    .methodology-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 32px 0;
+    }
+
+    .methodology-box h3 {
+        font-size: 1rem;
+        color: var(--gold);
+        margin-bottom: 12px;
+        margin-top: 0;
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .methodology-box p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 0;
+    }
+
+    /* Sources Section */
+    .sources-section {
+        margin: 48px 0 32px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+    }
+
+    .sources-section h3 {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .sources-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sources-list li {
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+    .sources-list a {
+        color: var(--gold);
+    }
+
+    /* Author Bio Box */
+    .author-bio-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 48px 0;
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .author-bio-avatar {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: var(--teal-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--gold);
+        flex-shrink: 0;
+    }
+
+    .author-bio-content h3 {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        margin-bottom: 4px;
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .author-bio-content .author-title {
+        font-size: 0.85rem;
+        color: var(--gold);
+        margin-bottom: 12px;
+    }
+
+    .author-bio-content p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .author-bio-content .author-link {
+        font-size: 0.85rem;
+        color: var(--gold);
+        text-decoration: none;
+    }
+
+    .author-bio-content .author-link:hover {
+        color: var(--gold-light);
+        text-decoration: underline;
+    }
+
+    /* Tags Section */
+    .article-tags {
+        margin: 32px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .article-tag {
+        display: inline-block;
+        padding: 6px 12px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .article-tag:hover {
+        border-color: var(--teal-light);
+        color: var(--text-primary);
+        background: var(--bg-card-hover);
+    }
+
+    /* Related Articles */
+    .related-articles {
+        margin-top: 48px;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+    }
+
+    .related-articles h2 {
+        font-size: 1.25rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .related-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        text-decoration: none;
+        transition: all 0.25s;
+    }
+
+    .related-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+    }
+
+    .related-card-category {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gold);
+        margin-bottom: 8px;
+    }
+
+    .related-card h3 {
+        font-size: 1rem;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+    .related-card p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+    }
+
+    /* Tag/Category Page Styles */
+    .articles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 24px;
+    }
+
+    .article-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-decoration: none;
+        transition: all 0.25s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .article-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .article-card-category {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gold);
+        margin-bottom: 12px;
+    }
+
+    .article-card h3 {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+        line-height: 1.4;
+    }
+
+    .article-card p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        flex-grow: 1;
+    }
+
+    .article-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border-light);
+        font-size: 0.8rem;
+        color: var(--text-muted);
+    }
+
+    /* Tag Cloud */
+    .tag-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 24px 0;
+    }
+
+    .tag-cloud a {
+        padding: 8px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .tag-cloud a:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        background: rgba(232, 168, 124, 0.1);
+    }
+
+    .tag-cloud .tag-count {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-left: 4px;
+    }
+
+    @media (max-width: 768px) {
+        .author-bio-box {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .author-bio-avatar {
+            margin: 0 auto;
+        }
+
+        .article-content {
+            font-size: 1rem;
+        }
+    }
+
+    .faq-section {
+        margin: 48px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+    }
+
+    .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-card-hover);
+    }
+
+    .faq-icon {
+        font-size: 1.25rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+    }
+
+    .faq-answer-content {
+        padding: 0 24px 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+</style>
+</head>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Reasoning Models: Skills for the New Paradigm",
+  "description": "OpenAI's o1/o3 and reasoning models are changing AI development. What skills matter for building with thinking AI.",
+  "author": {
+    "@type": "Person",
+    "name": "Rome Thorndike",
+    "url": "https://www.linkedin.com/in/romethorndike/",
+    "jobTitle": "Founder",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "AI Market Pulse",
+      "url": "https://theaimarketpulse.com"
+    },
+    "knowsAbout": [
+      "AI Job Market",
+      "Machine Learning Careers",
+      "AI Engineering",
+      "Salary Benchmarking",
+      "Revenue Operations",
+      "B2B Data Operations"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Market Pulse",
+    "url": "https://theaimarketpulse.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://theaimarketpulse.com/assets/logo.jpeg"
+    }
+  },
+  "datePublished": "2026-01-22",
+  "dateModified": "2026-01-22",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://theaimarketpulse.com/insights/ai-reasoning-models-skills/"
+  },
+  "keywords": [
+    "reasoning",
+    "llm",
+    "skills",
+    "ai-engineer",
+    "openai"
+  ]
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://theaimarketpulse.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insights",
+      "item": "https://theaimarketpulse.com/insights/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI Reasoning Models: Skills for the New Paradigm",
+      "item": "https://theaimarketpulse.com/insights/ai-reasoning-models-skills/"
+    }
+  ]
+}</script>
+    
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="/assets/logo.jpeg" alt="AI Market Pulse">
+                AI Market Pulse
+            </a>
+            <nav class="nav">
+                <a href="/jobs/">AI Jobs</a>
+                <a href="/salaries/">Salaries</a>
+                <a href="/tools/">Tools</a>
+                <a href="/insights/" class="active">Market Intel</a>
+                <a href="/consulting/">Consulting</a>
+                <a href="/about/">About</a>
+            </nav>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <a href="/join/" class="btn-secondary">Join Community</a>
+                <a href="https://ainewsdigest.substack.com" target="_blank" rel="noopener" class="nav-cta">Newsletter</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Open menu">☰</button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay"></div>
+    <nav class="mobile-nav">
+        <div class="mobile-nav-header">
+            <span class="logo-text">AI Market Pulse</span>
+            <button class="mobile-nav-close" aria-label="Close menu">✕</button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="/jobs/">AI Jobs</a></li>
+            <li><a href="/salaries/">Salaries</a></li>
+            <li><a href="/tools/">Tools</a></li>
+            <li><a href="/insights/">Market Intel</a></li>
+            <li><a href="/consulting/">Consulting</a></li>
+            <li><a href="/about/">About</a></li>
+        </ul>
+        <a href="/join/" class="mobile-nav-subscribe">Join Community</a>
+    </nav>
+
+    <script>
+        (function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const closeBtn = document.querySelector('.mobile-nav-close');
+            const overlay = document.querySelector('.mobile-nav-overlay');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const mobileLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-nav-subscribe');
+            function openMenu() {
+                mobileNav.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            if (menuBtn) menuBtn.addEventListener('click', openMenu);
+            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+            if (overlay) overlay.addEventListener('click', closeMenu);
+            mobileLinks.forEach(link => { link.addEventListener('click', closeMenu); });
+        })();
+    </script>
+
+
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumb"><a href="/">Home</a> / <a href="/insights/">Insights</a> / AI Reasoning Models: Skills for the New Paradigm</div>
+            <div class="article-header">
+                <div class="article-meta">
+                    <a href="/insights/category/emerging-tech/" class="article-category">Emerging Tech</a>
+                    <span class="article-date">2026-01-22</span>
+                    <span class="article-read-time">10 min read</span>
+                </div>
+                <h1>AI Reasoning Models: Skills for the New Paradigm</h1>
+                <div class="article-author-byline">
+                    <div class="article-author-avatar">RT</div>
+                    <div class="article-author-info">
+                        <span class="article-author-name">Rome Thorndike</span>
+                        <span class="article-author-title">Founder, AI Market Pulse</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <article class="article-content">
+                <p>Reasoning models—AI systems that "think" through problems step-by-step—represent a significant shift in how LLMs work. OpenAI's o1 and o3 models, along with competitors, are creating new skill requirements for AI engineers. Here's what you need to know.</p>
+<h2>What Are Reasoning Models?</h2>
+<strong>The shift:</strong> Traditional LLMs generate text token by token. Reasoning models spend "thinking time" before responding, working through problems methodically.
+<strong>Key examples:</strong>
+<ul><li>OpenAI o1 and o3 series</li><li>Anthropic's extended thinking features</li><li>Google's reasoning-focused Gemini models</li><li>Open-source reasoning attempts (DeepSeek, others)</li></ul>
+<strong>How they differ:</strong>
+<ul><li>Chain-of-thought reasoning built into the model</li><li>Trade latency for accuracy on complex problems</li><li>Better at math, coding, and logical tasks</li><li>Different prompting strategies required</li></ul>
+<strong>Career implications:</strong> Engineers who understand reasoning models and how to use them effectively are increasingly valuable.
+<h2>Why Reasoning Models Matter for Careers</h2>
+<strong>Performance on hard problems:</strong> Reasoning models outperform standard LLMs on:
+<ul><li>Complex mathematics</li><li>Multi-step coding problems</li><li>Logical reasoning tasks</li><li>Scientific analysis</li><li>Strategic planning</li></ul>
+<strong>Changing how AI is applied:</strong>
+<ul><li>Tasks previously impossible become feasible</li><li>New application categories emerge</li><li>Different development patterns needed</li><li>Evaluation becomes more complex</li></ul>
+<strong>Based on our job data:</strong>
+<ul><li>Reasoning model experience is appearing in job requirements</li><li>Companies are hiring specifically for complex problem-solving AI</li><li>Skills differentiate senior from junior AI engineers</li></ul>
+<h2>Skills for the Reasoning Model Era</h2>
+<h3>Understanding Reasoning Model Behavior</h3>
+<strong>What to know:</strong>
+<ul><li>How chain-of-thought works internally</li><li>When reasoning models help vs. hurt</li><li>Latency and cost tradeoffs</li><li>Failure modes and limitations</li></ul>
+<strong>Practical knowledge:</strong>
+<ul><li>Reasoning models think longer = more expensive</li><li>Not always better—simple tasks don't benefit</li><li>Can overthink straightforward problems</li><li>Different temperature/parameter strategies</li></ul>
+<h3>Prompting Reasoning Models</h3>
+<strong>Key differences from standard prompting:</strong>
+<ul><li>Less instruction needed—model reasons on its own</li><li>Don't force specific reasoning patterns</li><li>Let the model explore the problem space</li><li>Different prompt structures work better</li></ul>
+<strong>What to learn:</strong>
+<ul><li>When to use reasoning models vs. standard</li><li>How to frame problems effectively</li><li>Managing output expectations</li><li>Handling extended thinking outputs</li></ul>
+<h3>Building Applications with Reasoning</h3>
+<strong>Architecture considerations:</strong>
+<ul><li>Latency expectations (seconds to minutes)</li><li>Cost management at scale</li><li>Caching and optimization strategies</li><li>Fallback to faster models when appropriate</li></ul>
+<strong>Design patterns:</strong>
+<ul><li>Hybrid architectures (fast + reasoning models)</li><li>Asynchronous reasoning for user experience</li><li>Result caching for repeated queries</li><li>Graceful degradation</li></ul>
+<h3>Evaluation and Testing</h3>
+<strong>Reasoning model evaluation challenges:</strong>
+<ul><li>Intermediate reasoning is valuable</li><li>Final answer isn't the only metric</li><li>Process quality matters</li><li>Harder to create test sets</li></ul>
+<strong>Skills needed:</strong>
+<ul><li>Creating evaluation benchmarks</li><li>Assessing reasoning quality</li><li>Detecting reasoning failures</li><li>Measuring improvement rigorously</li></ul>
+<h2>Career Applications</h2>
+<h3>AI Engineering Roles</h3>
+<strong>How reasoning skills apply:</strong>
+<ul><li>Building applications that leverage complex reasoning</li><li>Choosing appropriate models for different tasks</li><li>Optimizing cost/latency/accuracy tradeoffs</li><li>Creating evaluation frameworks</li></ul>
+<strong>Where it matters most:</strong>
+<ul><li>Code generation and analysis tools</li><li>Scientific and research applications</li><li>Complex planning and analysis systems</li><li>Educational and tutoring AI</li></ul>
+<h3>Research Roles</h3>
+<strong>Reasoning research areas:</strong>
+<ul><li>Improving reasoning efficiency</li><li>Novel reasoning architectures</li><li>Combining reasoning with other capabilities</li><li>Understanding reasoning limitations</li></ul>
+<strong>Skills valued:</strong>
+<ul><li>Deep understanding of transformer internals</li><li>Experimentation with reasoning approaches</li><li>Benchmark creation and evaluation</li><li>Publication track record</li></ul>
+<h3>Product Roles</h3>
+<strong>How reasoning affects products:</strong>
+<ul><li>New product categories possible</li><li>User experience challenges (latency)</li><li>Pricing and cost considerations</li><li>Feature differentiation</li></ul>
+<strong>Skills needed:</strong>
+<ul><li>Understanding reasoning model capabilities</li><li>Translating capabilities to user value</li><li>Managing user expectations</li><li>Cost/benefit analysis</li></ul>
+<h2>Technical Deep Dive</h2>
+<h3>Chain-of-Thought Mechanics</h3>
+<strong>How it works:</strong>
+<ul><li>Model generates reasoning tokens</li><li>Each step builds on previous reasoning</li><li>More steps = more compute = more cost</li><li>Reasoning tokens may be hidden or visible</li></ul>
+<strong>Engineering implications:</strong>
+<ul><li>Token costs include hidden reasoning</li><li>Latency is proportional to reasoning depth</li><li>Can't always see why model reached conclusion</li><li>Different APIs expose reasoning differently</li></ul>
+<h3>Cost and Latency Tradeoffs</h3>
+<strong>The math:</strong>
+<ul><li>Reasoning models cost more per query (often 10-50x)</li><li>Latency can be seconds to minutes</li><li>Cost scales with problem complexity</li><li>Not economical for simple tasks</li></ul>
+<strong>Optimization strategies:</strong>
+<ul><li>Route simple queries to fast models</li><li>Cache reasoning for repeated queries</li><li>Use reasoning selectively</li><li>Batch where possible</li></ul>
+<h3>When to Use Reasoning Models</h3>
+<strong>Good fits:</strong>
+<ul><li>Complex multi-step problems</li><li>Mathematical reasoning</li><li>Code generation and debugging</li><li>Analysis requiring logic</li><li>Planning and strategy</li></ul>
+<strong>Poor fits:</strong>
+<ul><li>Simple Q&A</li><li>Creative writing (style focused)</li><li>High-volume, low-complexity tasks</li><li>Latency-critical applications</li><li>Cost-sensitive at scale</li></ul>
+<h2>Building Expertise</h2>
+<h3>Hands-On Practice</h3>
+<strong>Experiments to run:</strong>
+<ul><li>Compare reasoning vs. standard on same problems</li><li>Measure latency and cost across query types</li><li>Test prompt strategies for reasoning models</li><li>Build simple applications using both</li></ul>
+<strong>Project ideas:</strong>
+<ul><li>Math tutoring system using reasoning</li><li>Code review tool with reasoning</li><li>Complex analysis pipeline</li><li>Hybrid architecture prototype</li></ul>
+<h3>Understanding Limitations</h3>
+<strong>What to learn:</strong>
+<ul><li>Where reasoning models fail</li><li>Hallucination in reasoning chains</li><li>Overconfidence in incorrect answers</li><li>Efficiency vs. standard models</li></ul>
+<strong>How to test:</strong>
+<ul><li>Create adversarial test cases</li><li>Track failure patterns</li><li>Compare against human reasoning</li><li>Document limitations systematically</li></ul>
+<h3>Staying Current</h3>
+<strong>The field is moving fast:</strong>
+<ul><li>New reasoning models releasing regularly</li><li>Techniques evolving</li><li>Costs changing</li><li>Best practices emerging</li></ul>
+<strong>How to stay updated:</strong>
+<ul><li>Follow model release announcements</li><li>Read benchmark results critically</li><li>Experiment with new releases</li><li>Join communities discussing reasoning models</li></ul>
+<h2>Interview Preparation</h2>
+<h3>Technical Questions</h3>
+<blockquote>"When would you choose a reasoning model over a standard LLM?"</blockquote>
+<blockquote>"How do you optimize costs when using reasoning models at scale?"</blockquote>
+<blockquote>"Design a system that uses reasoning models for complex tasks but stays responsive"</blockquote>
+<h3>Design Questions</h3>
+<blockquote>"Build a code analysis tool that leverages reasoning capabilities"</blockquote>
+<blockquote>"How would you create an evaluation framework for reasoning model outputs?"</blockquote>
+<blockquote>"Design a hybrid architecture using both fast and reasoning models"</blockquote>
+<h3>Practical Questions</h3>
+<blockquote>"Walk through how you'd debug a reasoning model giving wrong answers"</blockquote>
+<blockquote>"How do you handle user experience with multi-second response times?"</blockquote>
+<blockquote>"What metrics would you track for a reasoning model deployment?"</blockquote>
+<h2>Companies and Roles</h2>
+<h3>Model Providers</h3>
+<ul><li><strong>OpenAI:</strong> o-series development</li><li><strong>Anthropic:</strong> Extended thinking features</li><li><strong>Google DeepMind:</strong> Reasoning research</li><li><strong>Meta AI:</strong> Open reasoning research</li></ul>
+<h3>Companies Using Reasoning</h3>
+<ul><li><strong>Code tools:</strong> Cursor, Replit, GitHub</li><li><strong>Research tools:</strong> Scientific analysis startups</li><li><strong>Education:</strong> Tutoring and learning platforms</li><li><strong>Enterprise:</strong> Complex analysis applications</li></ul>
+<h3>Types of Roles</h3>
+<strong>Research-focused:</strong>
+<ul><li>Reasoning model research scientist</li><li>Evaluation and benchmarking specialist</li><li>Efficiency optimization researcher</li></ul>
+<strong>Application-focused:</strong>
+<ul><li>AI engineer building reasoning-powered products</li><li>ML engineer optimizing reasoning deployment</li><li>Product engineer integrating reasoning capabilities</li></ul>
+<h2>The Bottom Line</h2>
+<p>Reasoning models represent a step-change in what AI can accomplish. Problems that seemed beyond reach—complex math, multi-step logic, sophisticated code generation—are now feasible. For AI engineers, understanding when and how to use reasoning models is becoming a core skill.</p>
+<p>The tradeoffs are real: cost, latency, and complexity all increase. Engineers who can navigate these tradeoffs—using reasoning where it matters, optimizing where it doesn't—will build better products than those who apply reasoning indiscriminately or avoid it entirely.</p>
+<p>Start experimenting with reasoning models now. Understand their behavior, limitations, and sweet spots. Build projects that leverage reasoning effectively. As these models become more capable and efficient, expertise in using them will be increasingly valuable.</p>
+<h2>FAQs</h2>
+<h3>Are reasoning models always better than standard LLMs?</h3>
+<p>No. Reasoning models excel at complex, multi-step problems but are overkill for simple tasks. They're slower, more expensive, and can actually perform worse on straightforward queries where overthinking hurts. The skill is knowing when reasoning adds value and when a fast standard model is better.</p>
+<h3>How do I get experience with reasoning models if they're expensive?</h3>
+<p>Start with free tiers and limited experiments. Most providers offer some free access to reasoning models. Focus on problems where reasoning genuinely helps—math, coding, analysis—to make the most of limited credits. Build your understanding of when reasoning models add value before scaling up usage.</p>
+
+                
+
+                <div class="article-tags"><a href="/insights/tags/reasoning/" class="article-tag">Reasoning</a> <a href="/insights/tags/llm/" class="article-tag">Llm</a> <a href="/insights/tags/skills/" class="article-tag">Skills</a> <a href="/insights/tags/ai-engineer/" class="article-tag">Ai Engineer</a> <a href="/insights/tags/openai/" class="article-tag">Openai</a></div>
+
+                
+        <div class="sources-section">
+            <h3>Sources</h3>
+            <ul class="sources-list">
+                <li><a href="/insights/" target="_blank" rel="noopener">AI Market Pulse Job Data</a></li>
+            </ul>
+        </div>
+        
+            </article>
+
+            
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many AI engineering jobs are available in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Based on our analysis of 1,969 AI job postings, demand for AI engineers continues to grow. The most in-demand skills include Python, RAG systems, and LLM frameworks like LangChain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this data collected?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We collect data from major job boards and company career pages, tracking AI, ML, and prompt engineering roles. Our database is updated weekly and includes only verified job postings with disclosed requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are reasoning models always better than standard LLMs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Reasoning models excel at complex, multi-step problems but are overkill for simple tasks. They're slower, more expensive, and can actually perform worse on straightforward queries where overthinking hurts. The skill is knowing when reasoning adds value and when a fast standard model is the better choice for the task."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get experience with reasoning models if they're expensive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with free tiers and limited experiments. Most providers offer some free access to reasoning models. Focus on problems where reasoning genuinely helps\u2014math, coding, complex analysis\u2014to make the most of limited credits. Build your understanding of when reasoning models add value before scaling up usage and cost."
+      }
+    }
+  ]
+}</script>
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>How many AI engineering jobs are available in 2026?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">Based on our analysis of 1,969 AI job postings, demand for AI engineers continues to grow. The most in-demand skills include Python, RAG systems, and LLM frameworks like LangChain.</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>How is this data collected?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">We collect data from major job boards and company career pages, tracking AI, ML, and prompt engineering roles. Our database is updated weekly and includes only verified job postings with disclosed requirements.</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>Are reasoning models always better than standard LLMs?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">No. Reasoning models excel at complex, multi-step problems but are overkill for simple tasks. They're slower, more expensive, and can actually perform worse on straightforward queries where overthinking hurts. The skill is knowing when reasoning adds value and when a fast standard model is the better choice for the task.</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>How do I get experience with reasoning models if they're expensive?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">Start with free tiers and limited experiments. Most providers offer some free access to reasoning models. Focus on problems where reasoning genuinely helps—math, coding, complex analysis—to make the most of limited credits. Build your understanding of when reasoning models add value before scaling up usage and cost.</div>
+            </div>
+        </div>
+        
+    </section>
+    
+
+            <div class="author-bio-box">
+                <div class="author-bio-avatar">RT</div>
+                <div class="author-bio-content">
+                    <h3>About the Author</h3>
+                    <div class="author-title">Founder, AI Market Pulse</div>
+                    <p>Founder of AI Market Pulse. Former Head of Sales at Datajoy (acquired by Databricks). Building AI-powered market intelligence for the AI job market.</p>
+                    <a href="https://www.linkedin.com/in/romethorndike/" target="_blank" rel="noopener" class="author-link">
+                        Connect on LinkedIn →
+                    </a>
+                </div>
+            </div>
+
+            
+        <div class="related-articles">
+            <h2>Related Insights</h2>
+            <div class="related-grid">
+                
+            <a href="/insights/breaking-into-ai-engineering/" class="related-card">
+                <div class="related-card-category">Career Guides</div>
+                <h3>Breaking Into AI Engineering From Backend Development</h3>
+                <p>A practical guide for backend developers transitioning to AI engineering roles. Learn the skills gap...</p>
+            </a>
+            
+            <a href="/insights/ai-engineer-salary-negotiation/" class="related-card">
+                <div class="related-card-category">Salary Intel</div>
+                <h3>AI Engineer Salary Negotiation: Data-Backed Tactics</h3>
+                <p>Maximize your AI engineering offer with proven negotiation strategies. Market data on salary ranges,...</p>
+            </a>
+            
+            <a href="/insights/remote-ai-jobs-pay-analysis/" class="related-card">
+                <div class="related-card-category">Salary Intel</div>
+                <h3>Remote AI Jobs: Pay Analysis and Location Strategies</h3>
+                <p>How remote AI salaries compare to in-office roles. Geographic pay bands, location-agnostic companies...</p>
+            </a>
+            
+            <a href="/insights/rag-skills-employers-want/" class="related-card">
+                <div class="related-card-category">Skills Deep Dives</div>
+                <h3>RAG Skills Employers Want: The Complete Breakdown</h3>
+                <p>74% of LLM roles require RAG experience. Exactly what vector databases, chunking strategies, and ret...</p>
+            </a>
+            
+            </div>
+        </div>
+        
+
+            
+    <div class="cta-box">
+        <h3>Get Weekly AI Career Insights</h3>
+        <p>Join our newsletter for AI job market trends, salary data, and career guidance.</p>
+        <a href="https://ainewsdigest.substack.com" class="btn btn-gold">Subscribe Free →</a>
+    </div>
+
+        </div>
+    </main>
+
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <span>&copy; 2026 <a href="/">AI Market Pulse</a></span>
+            <div class="footer-links">
+                <a href="/jobs/">AI Jobs</a>
+                <a href="/salaries/">Salaries</a>
+                <a href="/tools/">Tools</a>
+                <a href="/insights/">Market Intel</a>
+                <a href="/consulting/">Consulting</a>
+                <a href="/about/">About</a>
+                <a href="/join/">Community</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

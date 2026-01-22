@@ -1,0 +1,1071 @@
+{
+  "articles": [
+    {
+      "slug": "breaking-into-ai-engineering",
+      "title": "Breaking Into AI Engineering From Backend Development",
+      "description": "A practical guide for backend developers transitioning to AI engineering roles. Learn the skills gap, salary expectations, and fastest path to land your first AI role.",
+      "category": "career-guides",
+      "tags": ["ai-engineer", "career-change", "backend", "python", "langchain"],
+      "published": "2026-01-21",
+      "updated": "2026-01-21",
+      "readTime": "8 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"},
+        {"name": "AI Market Pulse Salary Benchmarks", "url": "/salaries/ai-engineer/"}
+      ],
+      "faqs": [
+        {
+          "question": "Can backend developers become AI engineers without a PhD?",
+          "answer": "Absolutely. Based on our job data, only 12% of AI engineering roles require advanced degrees. Most employers prioritize practical experience building production systems over academic credentials. Backend developers with strong Python skills and demonstrated AI projects are highly competitive candidates."
+        },
+        {
+          "question": "How long does the backend to AI engineer transition take?",
+          "answer": "Most successful transitions take 6-12 months of focused skill-building. Backend developers have an advantage because they already understand production systems, APIs, and Python. The main gap is LLM-specific skills like RAG, prompt engineering, and vector databases."
+        }
+      ]
+    },
+    {
+      "slug": "ai-engineer-salary-negotiation",
+      "title": "AI Engineer Salary Negotiation: Data-Backed Tactics",
+      "description": "Maximize your AI engineering offer with proven negotiation strategies. Market data on salary ranges, equity, and what companies expect you to ask for.",
+      "category": "salary-intel",
+      "tags": ["ai-engineer", "salary", "negotiation", "compensation"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"},
+        {"name": "AI Market Pulse Salary Benchmarks", "url": "/salaries/ai-engineer/"}
+      ],
+      "faqs": [
+        {
+          "question": "How much room is there to negotiate an AI engineer salary?",
+          "answer": "Most companies have 10-20% flexibility above posted maximums for strong candidates. Based on our data, AI engineers who negotiate receive offers 15-25% higher than initial offers on average. The key is having competing offers and specific data to justify your ask."
+        },
+        {
+          "question": "Should I negotiate base salary or equity first?",
+          "answer": "Always prioritize base salary—it compounds over time and affects future offers. Equity is valuable but uncertain, especially at startups. Once base is maximized, negotiate signing bonus (one-time cost, easier to approve), then equity if there's still room."
+        }
+      ]
+    },
+    {
+      "slug": "remote-ai-jobs-pay-analysis",
+      "title": "Remote AI Jobs: Pay Analysis and Location Strategies",
+      "description": "How remote AI salaries compare to in-office roles. Geographic pay bands, location-agnostic companies, and how to maximize compensation wherever you work.",
+      "category": "salary-intel",
+      "tags": ["remote", "ai-engineer", "salary", "geographic-arbitrage"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "9 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"},
+        {"name": "AI Market Pulse Salary Benchmarks", "url": "/salaries/ai-engineer/"}
+      ],
+      "faqs": [
+        {
+          "question": "Do remote AI engineers earn less than in-office?",
+          "answer": "It depends on company policy. Location-agnostic companies pay the same regardless of where you live. Companies with geographic pay bands adjust by 15-35% based on location tier. Based on our data, 34% of AI roles are now fully remote, with compensation averaging 5-10% below equivalent Bay Area in-office roles."
+        },
+        {
+          "question": "Which companies pay location-agnostic AI salaries?",
+          "answer": "Notable location-agnostic companies include GitLab, Zapier, and several AI startups like Hugging Face. These typically pay Bay Area rates regardless of location, providing significant effective income boost for those in lower cost-of-living areas."
+        }
+      ]
+    },
+    {
+      "slug": "rag-skills-employers-want",
+      "title": "RAG Skills Employers Want: The Complete Breakdown",
+      "description": "74% of LLM roles require RAG experience. Exactly what vector databases, chunking strategies, and retrieval skills will get you hired.",
+      "category": "skills",
+      "tags": ["rag", "ai-engineer", "vector-database", "langchain", "skills"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "11 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"},
+        {"name": "AI Market Pulse Skills Analysis", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Which vector database should I learn for AI jobs?",
+          "answer": "Pinecone is most commonly requested in job postings, followed by Weaviate and Chroma. However, the concepts transfer between databases. Focus on understanding embeddings, similarity metrics, and indexing strategies rather than one specific tool. Production experience with any major vector database is valued."
+        },
+        {
+          "question": "How important is RAG experience for AI engineering roles?",
+          "answer": "Based on our job data, 74% of LLM-focused AI engineering roles mention RAG experience. It's the single most requested LLM-specific skill. Companies need engineers who can build production retrieval systems, not just call LLM APIs. RAG expertise commands a 15-20% salary premium over general AI engineers."
+        }
+      ]
+    },
+    {
+      "slug": "ai-engineer-interview-questions",
+      "title": "AI Engineer Interview Questions: What to Expect in 2026",
+      "description": "Common AI engineering interview questions across coding, system design, and ML fundamentals. Prep strategies from real interview experiences.",
+      "category": "interview-prep",
+      "tags": ["ai-engineer", "interview", "system-design", "coding"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "12 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "What coding questions are asked in AI engineering interviews?",
+          "answer": "AI engineering coding rounds focus on Python and data manipulation. Common patterns include document chunking, embedding similarity calculations, and data processing tasks. You'll also see standard algorithm questions (LeetCode medium level) with ML twists. Practice vector operations and text processing alongside traditional coding prep."
+        },
+        {
+          "question": "How do AI engineering interviews differ from standard SWE?",
+          "answer": "AI engineering interviews add: RAG system design questions, ML fundamentals (embeddings, transformers, evaluation), LLM-specific knowledge (prompt engineering, context windows), and production AI discussions (latency, cost, evaluation). Traditional coding and system design are still tested, but with AI-specific angles."
+        }
+      ]
+    },
+    {
+      "slug": "prompt-engineering-career-path",
+      "title": "Prompt Engineering Career Path: Where It's Headed",
+      "description": "Prompt engineering is evolving fast. Current salary data, career trajectories, and the skills to add for long-term growth in AI.",
+      "category": "career-guides",
+      "tags": ["prompt-engineering", "career-path", "ai-engineer", "skills"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"},
+        {"name": "AI Market Pulse Salary Benchmarks", "url": "/salaries/prompt-engineer/"}
+      ],
+      "faqs": [
+        {
+          "question": "Is prompt engineering still a viable career in 2026?",
+          "answer": "Prompt engineering as a standalone role is declining—dedicated prompt engineer postings dropped 23% from 2025. However, prompt engineering skills are more valuable than ever as part of broader AI engineering roles. The career path leads to AI engineering, product management, or domain specialization."
+        },
+        {
+          "question": "What should prompt engineers learn to advance their careers?",
+          "answer": "Priority skills to add: Python programming (essential for AI engineering), RAG systems and vector databases, evaluation frameworks, and fine-tuning basics. The goal is transitioning from 'prompt specialist' to 'AI engineer who excels at prompting.' This path leads to 20-40% salary increases."
+        }
+      ]
+    },
+    {
+      "slug": "startup-vs-enterprise-ai-roles",
+      "title": "Startup vs Enterprise AI Roles: Honest Comparison",
+      "description": "Compensation, work style, and career trajectory differences between AI startup and enterprise roles. Data and real talk to help you decide.",
+      "category": "career-guides",
+      "tags": ["ai-engineer", "startup", "enterprise", "career-decision"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "11 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"},
+        {"name": "AI Market Pulse Salary Benchmarks", "url": "/salaries/ai-engineer/"}
+      ],
+      "faqs": [
+        {
+          "question": "Do AI startups or enterprises pay better?",
+          "answer": "Enterprise base salaries run 15-25% higher at most levels. However, startup equity can dramatically exceed enterprise total comp if the company succeeds. Expected value of startup equity is often lower than enterprise RSUs, but the upside tail is much larger. Your risk tolerance should guide the decision."
+        },
+        {
+          "question": "Which is better for AI career growth: startup or enterprise?",
+          "answer": "Startups offer faster learning breadth and more ownership, but less mentorship. Enterprises offer deeper specialization and senior engineers to learn from, but slower progression. Many successful AI engineers alternate between both—building at startups, going deep at enterprise, then building again with more expertise."
+        }
+      ]
+    },
+    {
+      "slug": "why-python-dominates-ai-jobs",
+      "title": "Why Python Still Dominates AI Jobs in 2026",
+      "description": "Python appears in 65% of AI job postings. The ecosystem advantages, when alternatives matter, and how deep you need to go.",
+      "category": "skills",
+      "tags": ["python", "skills", "programming", "ai-engineer"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "9 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Do I need to learn Python for AI engineering?",
+          "answer": "Yes. Python appears in 65% of AI job postings—more than any other language by far. Every major AI framework, library, and tutorial uses Python. While languages like Rust are growing for performance-critical components, Python remains the foundation for AI work. Learning time: 2-4 weeks for basics, 2-3 months for proficiency."
+        },
+        {
+          "question": "Is Rust replacing Python for AI jobs?",
+          "answer": "No—Rust is complementing Python, not replacing it. Rust appears in 6% of AI postings, primarily for high-performance inference, edge deployment, and AI infrastructure. The typical pattern: Python for application development and orchestration, Rust for performance-critical paths. Knowing both is increasingly valuable at senior levels."
+        }
+      ]
+    },
+    {
+      "slug": "ml-engineer-vs-ai-engineer",
+      "title": "ML Engineer vs AI Engineer: Key Differences Explained",
+      "description": "ML engineers build models. AI engineers build with models. Skills, salaries, and career paths compared for both roles.",
+      "category": "career-guides",
+      "tags": ["ml-engineer", "ai-engineer", "career-comparison", "skills"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"},
+        {"name": "AI Market Pulse Salary Benchmarks", "url": "/salaries/ml-engineer/"}
+      ],
+      "faqs": [
+        {
+          "question": "What is the difference between ML engineer and AI engineer?",
+          "answer": "ML engineers build and deploy machine learning models—focusing on training, optimization, and serving custom models. AI engineers build applications using AI capabilities—focusing on integrating LLMs, APIs, and pre-trained models into products. The ML engineer trains models; the AI engineer uses them."
+        },
+        {
+          "question": "Do ML engineers or AI engineers earn more?",
+          "answer": "ML engineers command a slight premium (5-10% higher) due to deeper technical requirements and longer time to proficiency. Senior ML engineers earn $200K-270K base vs $195K-260K for senior AI engineers. However, AI engineer compensation is rising rapidly as demand outpaces supply."
+        }
+      ]
+    },
+    {
+      "slug": "companies-hiring-ai-engineers-q1-2026",
+      "title": "Companies Hiring AI Engineers in Q1 2026",
+      "description": "Who's actively recruiting AI engineers right now. Company profiles, compensation ranges, and what each team is looking for.",
+      "category": "hiring-trends",
+      "tags": ["ai-engineer", "hiring", "job-market", "companies"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "11 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"},
+        {"name": "AI Market Pulse Company Tracker", "url": "/companies/"}
+      ],
+      "faqs": [
+        {
+          "question": "Which companies are hiring the most AI engineers in 2026?",
+          "answer": "Top hiring categories: AI-native companies (Anthropic, OpenAI, Cohere), big tech AI teams (Google DeepMind, Meta AI, Microsoft), high-growth AI startups (Scale AI, Weights & Biases, Hugging Face), and enterprise AI adopters (Stripe, Datadog, Notion). Based on our tracking, 1,969 AI engineering roles are currently active."
+        },
+        {
+          "question": "What are AI companies looking for in Q1 2026?",
+          "answer": "The market favors experienced engineers: 62% of roles are senior+ level. Companies want production experience, specific expertise (RAG, fine-tuning, agents), and demonstrable impact. Tutorial-level projects no longer suffice. Strong portfolios with real systems and clear metrics differentiate candidates."
+        }
+      ]
+    },
+    {
+      "slug": "agentic-ai-engineer-jobs",
+      "title": "Agentic AI Engineer Jobs: The New Frontier",
+      "description": "Agentic AI is transforming job requirements. What skills you need for autonomous AI systems, who's hiring, and salary expectations.",
+      "category": "emerging-tech",
+      "tags": ["ai-engineer", "agentic-ai", "ai-agents", "skills", "hiring"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "11 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "What is an agentic AI engineer?",
+          "answer": "Agentic AI engineers build autonomous systems that can plan, reason, use tools, and take actions to accomplish goals without constant human guidance. Unlike traditional AI engineers who build single-purpose models, agentic AI engineers create systems that can break down complex tasks, call APIs, search the web, execute code, and iterate on their outputs."
+        },
+        {
+          "question": "What skills do I need for agentic AI engineering roles?",
+          "answer": "Key skills include: multi-step reasoning and planning systems, tool use and function calling, state management and memory systems, evaluation frameworks for agent behavior, error handling and recovery strategies, and security for autonomous systems. Experience with frameworks like LangChain, AutoGPT concepts, or custom agent architectures is highly valued."
+        }
+      ]
+    },
+    {
+      "slug": "building-ai-agents-skills",
+      "title": "Building AI Agents: Essential Skills Guide",
+      "description": "The technical skills for building production AI agents. Orchestration, tool use, memory systems, and evaluation frameworks explained.",
+      "category": "skills",
+      "tags": ["ai-agents", "skills", "langchain", "ai-engineer", "technical"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "12 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "What programming skills do I need to build AI agents?",
+          "answer": "Strong Python is essential. You need expertise in async programming for concurrent operations, API integration for tool use, state management patterns, and error handling. Experience with agent frameworks like LangChain, LlamaIndex, or custom implementations is valuable. Understanding of LLM APIs, prompt engineering, and orchestration patterns is critical."
+        },
+        {
+          "question": "How do I evaluate AI agents effectively?",
+          "answer": "Agent evaluation requires testing both individual steps and end-to-end task completion. Key metrics include task success rate, efficiency (steps taken), cost per task, error recovery, and hallucination detection. Build evaluation datasets with diverse scenarios, test edge cases systematically, and implement human review for complex judgments. Automated evaluation with LLMs can scale testing."
+        }
+      ]
+    },
+    {
+      "slug": "chatbots-to-ai-agents-job-shift",
+      "title": "From Chatbots to AI Agents: How the Job Market Shifted",
+      "description": "The evolution from simple chatbots to autonomous agents is changing AI hiring. What skills became obsolete and what emerged.",
+      "category": "hiring-trends",
+      "tags": ["ai-agents", "chatbots", "job-market", "skills", "career-change"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Are chatbot developer skills still relevant for AI agent roles?",
+          "answer": "Yes, but they need significant expansion. Chatbot skills like conversation design, intent handling, and user experience transfer well. However, agent roles require additional capabilities: multi-step planning, tool orchestration, autonomous decision-making, and complex state management. Think of chatbot skills as a foundation that needs agent-specific skills built on top."
+        },
+        {
+          "question": "How quickly is the market shifting from chatbots to agents?",
+          "answer": "Based on our job data, agentic AI mentions in job postings grew 340% year-over-year, while simple chatbot roles declined 15%. However, many 'chatbot' products are being upgraded to agentic capabilities, creating hybrid roles. The shift is happening fast—engineers who don't adapt risk being limited to maintenance work on legacy systems."
+        }
+      ]
+    },
+    {
+      "slug": "claude-vs-gpt-vs-gemini-career-skills",
+      "title": "Claude vs GPT vs Gemini: Which LLM Skills to Learn",
+      "description": "Does your LLM expertise matter for hiring? How model-specific skills translate between platforms and what to prioritize.",
+      "category": "skills",
+      "tags": ["llm", "claude", "gpt", "gemini", "skills", "ai-engineer"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Should I specialize in one LLM or learn multiple?",
+          "answer": "Learn concepts deeply, not just one API. Core skills (prompt engineering, RAG, evaluation) transfer across models. However, have deep experience with at least one major provider for practical credibility. Most companies use multiple models anyway—OpenAI for some tasks, Claude for others, open-source for specific needs. Flexibility is more valuable than single-model expertise."
+        },
+        {
+          "question": "Which LLM is most requested in AI job postings?",
+          "answer": "OpenAI/GPT appears most frequently (mentioned in 45% of LLM-focused roles), followed by general 'LLM experience' (38%), Claude/Anthropic (22%), and open-source models (18%). However, the trend is toward model-agnostic requirements. Companies want engineers who can evaluate and switch models as the landscape evolves."
+        }
+      ]
+    },
+    {
+      "slug": "llm-fine-tuning-skills",
+      "title": "LLM Fine-Tuning Skills: From Prompts to Custom Models",
+      "description": "When prompt engineering isn't enough, fine-tuning is the next step. Skills, tools, and when companies actually need custom models.",
+      "category": "skills",
+      "tags": ["fine-tuning", "llm", "skills", "ai-engineer", "machine-learning"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "11 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "When should I use fine-tuning vs prompt engineering?",
+          "answer": "Start with prompt engineering—it's faster, cheaper, and sufficient for most use cases. Consider fine-tuning when: you need consistent style/format at scale, latency matters and you want shorter prompts, you have proprietary data that improves performance, or you need to reduce costs for high-volume applications. Fine-tuning is not magic—it requires quality data and clear use cases."
+        },
+        {
+          "question": "Do I need a PhD to work on LLM fine-tuning?",
+          "answer": "No. Production fine-tuning is increasingly accessible. Tools like OpenAI's fine-tuning API, HuggingFace's training libraries, and LoRA techniques have lowered the barrier. What you need: strong Python skills, understanding of training concepts (loss, overfitting, evaluation), data preparation expertise, and practical experience. PhD helps for research roles but isn't required for applied fine-tuning work."
+        }
+      ]
+    },
+    {
+      "slug": "open-source-ai-skills-llama-mistral",
+      "title": "Open Source AI Skills: Llama, Mistral, and Beyond",
+      "description": "Open-source LLMs are reshaping AI careers. When companies choose open-source, what skills matter, and the growing job market.",
+      "category": "skills",
+      "tags": ["open-source", "llama", "mistral", "llm", "skills"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Are open-source LLM skills different from API-based LLM skills?",
+          "answer": "Yes, significantly. API-based work focuses on prompt engineering and integration. Open-source requires additional skills: model deployment and serving, GPU infrastructure, quantization and optimization, fine-tuning workflows, and model evaluation. The infrastructure complexity is higher but gives more control. Many roles want both skill sets."
+        },
+        {
+          "question": "Which open-source models should I learn?",
+          "answer": "Focus on Llama (Meta) as the foundation—it's most widely deployed and has the largest ecosystem. Mistral is valuable for efficiency-focused applications. For specific domains, learn models like CodeLlama (code), Whisper (speech), or Stable Diffusion (images). The concepts transfer across models, so deep expertise in one helps you learn others quickly."
+        }
+      ]
+    },
+    {
+      "slug": "multimodal-ai-engineer-career",
+      "title": "Multimodal AI Engineer: Career Path and Skills",
+      "description": "AI is going beyond text. Career opportunities in vision, audio, and multimodal AI engineering, plus the skills to get hired.",
+      "category": "career-guides",
+      "tags": ["multimodal", "ai-engineer", "computer-vision", "career-path"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "11 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "What is a multimodal AI engineer?",
+          "answer": "Multimodal AI engineers build systems that process and generate multiple types of data: text, images, audio, video, and more. This includes vision-language models (GPT-4V, Gemini), text-to-image systems, speech recognition/synthesis, and applications combining these capabilities. The role bridges traditional computer vision, NLP, and audio engineering."
+        },
+        {
+          "question": "Is multimodal AI harder than text-only AI engineering?",
+          "answer": "Generally yes. Multimodal work requires understanding multiple domains (vision, audio, text), larger infrastructure for processing, more complex evaluation, and integration challenges. However, pre-trained multimodal models (GPT-4V, Gemini) are making application-level work more accessible. Deep multimodal expertise commands a 15-20% salary premium over text-only AI roles."
+        }
+      ]
+    },
+    {
+      "slug": "ai-security-engineering-career",
+      "title": "AI Security Engineering: The Emerging Career Path",
+      "description": "AI systems need security specialists. Red teaming, prompt injection defense, and the growing demand for AI security engineers.",
+      "category": "career-guides",
+      "tags": ["ai-security", "ai-engineer", "red-team", "career-path"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "What does an AI security engineer do?",
+          "answer": "AI security engineers protect AI systems from attacks and ensure safe behavior. This includes: red teaming and adversarial testing, defending against prompt injection and jailbreaks, ensuring model outputs are safe and aligned, building guardrails and content filters, and security review of AI integrations. The role combines traditional security skills with AI-specific knowledge."
+        },
+        {
+          "question": "How do I break into AI security engineering?",
+          "answer": "Two main paths: Security background + AI skills (learn how LLMs work, common attack vectors, AI-specific vulnerabilities) or AI background + security skills (learn security fundamentals, penetration testing, threat modeling). Both paths need hands-on practice with AI red teaming. Build a portfolio of identified vulnerabilities or defensive tools. AI security roles pay 10-20% premium over general AI engineering."
+        }
+      ]
+    },
+    {
+      "slug": "mlops-skills-2026",
+      "title": "MLOps Skills That Matter in 2026",
+      "description": "MLOps has evolved with LLMs. Current skill requirements, tools, and how traditional MLOps differs from LLMOps.",
+      "category": "skills",
+      "tags": ["mlops", "skills", "ai-engineer", "infrastructure", "llmops"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "11 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "How has MLOps changed with LLMs?",
+          "answer": "Traditional MLOps focused on training pipelines and model deployment. LLMOps adds: prompt management and versioning, RAG pipeline operations, LLM evaluation and monitoring, cost optimization for API usage, and caching strategies. The core principles (CI/CD, monitoring, reproducibility) remain but applied to different artifacts. Many MLOps engineers are adding LLMOps skills."
+        },
+        {
+          "question": "What MLOps tools should I learn in 2026?",
+          "answer": "For traditional MLOps: MLflow, Weights & Biases, Kubeflow. For LLMOps: LangSmith, Promptfoo, Helicone. For infrastructure: Kubernetes, Docker, Terraform. For monitoring: Datadog, custom observability. The specific tools matter less than understanding the patterns—companies use different stacks but need similar capabilities. Focus on principles, then learn relevant tools."
+        }
+      ]
+    },
+    {
+      "slug": "non-technical-ai-jobs",
+      "title": "Non-Technical AI Jobs: Careers Without Coding",
+      "description": "AI careers beyond engineering. Product, operations, policy, and business roles in the AI industry with real salary data.",
+      "category": "career-guides",
+      "tags": ["non-technical", "ai-jobs", "product-manager", "career-change"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Can I work in AI without knowing how to code?",
+          "answer": "Yes. AI companies need product managers, sales engineers, content specialists, operations managers, policy experts, and more. These roles require AI literacy—understanding what AI can do, its limitations, and how to work with technical teams—but not coding ability. Many non-technical AI roles pay $120K-200K+ depending on seniority and function."
+        },
+        {
+          "question": "What non-technical AI roles pay the most?",
+          "answer": "Top-paying non-technical AI roles include: AI Product Manager ($150K-250K), AI Sales/Solutions Engineer ($140K-220K + commission), AI Program Manager ($130K-200K), and AI Policy/Ethics Lead ($140K-220K). These roles combine domain expertise with AI literacy. The premium comes from the scarcity of people who understand both business needs and AI capabilities."
+        }
+      ]
+    },
+    {
+      "slug": "ai-product-manager-career",
+      "title": "AI Product Manager: Career Guide and Skills",
+      "description": "Product management for AI products requires unique skills. What's different, salary expectations, and how to break in.",
+      "category": "career-guides",
+      "tags": ["product-manager", "ai-jobs", "career-path", "non-technical"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "11 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "How is AI product management different from regular PM work?",
+          "answer": "AI PM requires understanding probabilistic systems—AI doesn't give the same answer every time. You need to: define success metrics for non-deterministic outputs, manage user expectations around AI errors, work closely with ML teams on feasibility, understand evaluation and testing approaches, and balance AI capabilities with user experience. The feedback loops are different and require AI literacy."
+        },
+        {
+          "question": "Do AI product managers need to know how to code?",
+          "answer": "Not necessarily, but technical literacy is essential. You need to understand: how LLMs work at a conceptual level, what's possible vs. impossible with current AI, basic ML concepts (training, evaluation, inference), and how to evaluate AI output quality. Some AI PMs have engineering backgrounds; others developed AI literacy through study and experience. The key is credible technical conversations with engineers."
+        }
+      ]
+    },
+    {
+      "slug": "breaking-into-ai-non-technical",
+      "title": "Breaking Into AI From a Non-Technical Background",
+      "description": "Practical paths into AI careers for non-engineers. Leveraging domain expertise, building AI literacy, and finding your entry point.",
+      "category": "career-guides",
+      "tags": ["career-change", "non-technical", "ai-jobs", "domain-expertise"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "What domain backgrounds are valuable for AI careers?",
+          "answer": "High-value domains for AI: healthcare (clinical knowledge + HIPAA), legal (contract expertise + regulatory), finance (risk management + compliance), education (curriculum design + pedagogy), and any field with complex document processing. AI needs domain experts to identify use cases, evaluate outputs, and ensure quality. Your industry expertise is an asset, not a limitation."
+        },
+        {
+          "question": "How long does it take to transition into AI from a non-technical role?",
+          "answer": "Depends on your target role. For AI-adjacent roles (product, operations, sales): 3-6 months of AI literacy building and job searching. For more technical roles (solutions engineer, technical PM): 6-12 months including hands-on learning. The fastest path is leveraging existing domain expertise—a healthcare professional learning AI moves faster than starting from scratch in both healthcare and AI."
+        }
+      ]
+    },
+    {
+      "slug": "ai-ethics-governance-careers",
+      "title": "AI Ethics and Governance Careers: Growing Field",
+      "description": "AI ethics and governance roles are expanding as regulation increases. Career paths, required skills, and who's hiring.",
+      "category": "career-guides",
+      "tags": ["ai-ethics", "governance", "ai-jobs", "policy", "career-path"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "What does an AI ethics role actually involve day-to-day?",
+          "answer": "AI ethics roles vary by organization but typically include: reviewing AI projects for ethical concerns, developing responsible AI policies and guidelines, conducting bias audits and fairness assessments, stakeholder engagement on AI governance, training teams on responsible AI practices, and incident response for AI harms. The work is cross-functional—collaborating with engineers, legal, product, and leadership."
+        },
+        {
+          "question": "What background is best for AI ethics careers?",
+          "answer": "Multiple paths work: philosophy/ethics + AI literacy, law/policy + AI understanding, technical (AI engineer) + ethics training, or social science research + AI knowledge. The field values diverse perspectives. What's essential: ability to translate between technical and non-technical audiences, structured thinking about complex tradeoffs, and practical orientation (not just theoretical)."
+        }
+      ]
+    },
+    {
+      "slug": "data-scientist-to-ai-engineer",
+      "title": "Data Scientist to AI Engineer: Transition Guide",
+      "description": "Data scientists have a head start in AI engineering. What skills to add, what transfers directly, and how to make the switch.",
+      "category": "career-guides",
+      "tags": ["data-scientist", "ai-engineer", "career-change", "skills"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "What data science skills transfer to AI engineering?",
+          "answer": "Strong transferable skills: Python programming, model evaluation methodology, data processing and analysis, statistics and ML fundamentals, experimentation rigor, and Jupyter/notebook workflows. These form a solid foundation. The gap is primarily in software engineering (production code, APIs, deployment) and LLM-specific knowledge (RAG, prompt engineering, agent patterns)."
+        },
+        {
+          "question": "How long does the data scientist to AI engineer transition take?",
+          "answer": "Typically 3-6 months for focused learning. The main additions: software engineering practices (clean code, testing, version control), API development (FastAPI, deployment), LLM-specific skills (RAG, prompt engineering, evaluation), and production systems (monitoring, scaling). Your ML foundation accelerates the transition compared to engineers without data science experience."
+        }
+      ]
+    },
+    {
+      "slug": "ai-engineer-salary-by-city",
+      "title": "AI Engineer Salary by City: 2026 Comparison",
+      "description": "How AI engineering salaries vary across major tech hubs. Bay Area vs NYC vs Austin vs Seattle and beyond, with cost-of-living context.",
+      "category": "salary-intel",
+      "tags": ["salary", "ai-engineer", "geographic", "compensation"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "9 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"},
+        {"name": "AI Market Pulse Salary Benchmarks", "url": "/salaries/ai-engineer/"}
+      ],
+      "faqs": [
+        {
+          "question": "Which city pays AI engineers the most?",
+          "answer": "San Francisco/Bay Area pays highest absolute salaries: $185K-280K base for mid-level, $230K-350K for senior. However, NYC is close behind, and Seattle offers strong compensation with no state income tax. When adjusted for cost of living, cities like Austin, Denver, and Raleigh often provide better effective income for mid-level roles."
+        },
+        {
+          "question": "Should I relocate for a higher AI engineering salary?",
+          "answer": "Calculate effective income, not just salary. A $200K salary in Austin may provide more purchasing power than $250K in SF after taxes and cost of living. Consider: state income tax (0% in TX, WA, FL vs 13%+ in CA), housing costs, career opportunities long-term, and quality of life priorities. Remote roles that pay location-agnostic rates offer the best arbitrage."
+        }
+      ]
+    },
+    {
+      "slug": "ai-startup-equity-guide",
+      "title": "AI Startup Equity: What Your Offer Is Really Worth",
+      "description": "Decoding AI startup equity offers. How to evaluate, negotiate, and avoid common mistakes in equity compensation.",
+      "category": "salary-intel",
+      "tags": ["startup", "equity", "compensation", "negotiation"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "11 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "How do I evaluate if AI startup equity is worth the lower base salary?",
+          "answer": "Calculate expected value: (shares × price per share × probability of successful exit × dilution factor) - tax implications. Most startup equity is worth $0, so assume failure case for financial planning. Treat equity as lottery ticket upside, not compensation. Only accept lower base if you can afford it without the equity paying off. High-conviction bets on specific companies can justify the tradeoff."
+        },
+        {
+          "question": "What percentage equity should I expect at different AI startup stages?",
+          "answer": "Rough ranges for engineering roles: Seed stage: 0.5-2% for early engineers. Series A: 0.1-0.5% for mid-level, 0.25-1% for senior. Series B: 0.05-0.25% for mid-level, 0.1-0.5% for senior. Series C+: 0.01-0.1% (equity becomes less significant vs base salary). These dilute with each funding round—your 1% becomes 0.7% after a round with 30% dilution."
+        }
+      ]
+    },
+    {
+      "slug": "ai-freelance-consulting-rates",
+      "title": "AI Freelance and Consulting Rates: 2026 Guide",
+      "description": "What AI consultants and freelancers charge. Rate benchmarks by expertise, how to price projects, and building a client base.",
+      "category": "freelance-consulting",
+      "tags": ["freelance", "consulting", "rates", "ai-engineer"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "What hourly rates do AI consultants charge?",
+          "answer": "AI consulting rates vary by expertise and engagement type. General AI implementation: $150-250/hour. RAG/LLM specialist: $200-350/hour. AI strategy consulting: $250-500/hour. Expert advisory (for specific domains): $400-800/hour. Rates are higher for short engagements and lower for retainer arrangements. Project-based pricing often yields better effective rates than hourly."
+        },
+        {
+          "question": "How do I transition from AI employee to consultant?",
+          "answer": "Start while employed: take small side projects, build reputation, develop network. Target former employers or adjacent companies first—warm intros convert better. Build public presence (writing, speaking, open source) to attract inbound leads. Start with hourly work, then move to project-based as you understand value delivered. Many successful AI consultants started with 1-2 anchor clients before going independent."
+        }
+      ]
+    },
+    {
+      "slug": "entry-level-ai-jobs-disappearing",
+      "title": "Entry-Level AI Jobs Are Disappearing: What To Do",
+      "description": "Junior AI roles dropped 25% at big tech. Why it's happening and alternative paths for breaking into AI careers.",
+      "category": "hiring-trends",
+      "tags": ["entry-level", "job-market", "career-change", "hiring"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Why are entry-level AI jobs disappearing?",
+          "answer": "Three factors: AI tools make experienced engineers more productive (need fewer juniors), economic pressure to hire proven talent that ships immediately, and AI can handle tasks that juniors traditionally did. Entry-level tech hiring at big firms dropped 25% from 2023-2024, with AI roles hit hardest. The bar for 'entry level' has risen to include production experience."
+        },
+        {
+          "question": "How do I break into AI without entry-level roles available?",
+          "answer": "Alternative paths: Build production-quality portfolio projects that demonstrate shipping ability. Target adjacent roles (data engineering, backend) at AI companies for internal mobility. Join startups where you can wear multiple hats. Specialize early in a niche area (evaluation, security, domain-specific). Create opportunities through open source, content creation, or freelance work. The bar is higher, but paths exist."
+        }
+      ]
+    },
+    {
+      "slug": "ai-portfolio-projects-that-get-hired",
+      "title": "AI Portfolio Projects That Actually Get You Hired",
+      "description": "The projects hiring managers want to see. What makes a portfolio stand out vs. blend in, with specific project ideas.",
+      "category": "job-search",
+      "tags": ["portfolio", "projects", "job-search", "ai-engineer"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "11 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "What makes an AI portfolio project stand out?",
+          "answer": "Three criteria: it's deployed and accessible (not just GitHub code), it solves a real problem (not a tutorial replica), and it demonstrates depth (evaluation, iteration, tradeoffs). The best projects have users or measurable impact. A simple project deployed and used beats a complex project sitting in a repo. Show the engineering, not just the AI."
+        },
+        {
+          "question": "How many portfolio projects do I need?",
+          "answer": "Quality over quantity. 2-3 substantial projects beat 10 superficial ones. One deployed RAG system with documented evaluation is better than five Jupyter notebooks. Each project should demonstrate different skills: one showing production engineering, one showing ML depth, one showing problem-solving. Make each project tell a story about your capabilities."
+        }
+      ]
+    },
+    {
+      "slug": "github-for-ai-engineers",
+      "title": "GitHub for AI Engineers: Profile Optimization Guide",
+      "description": "How to make your GitHub profile work for AI job applications. What hiring managers look for and common mistakes.",
+      "category": "job-search",
+      "tags": ["github", "job-search", "portfolio", "ai-engineer"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "9 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Do AI hiring managers actually look at GitHub profiles?",
+          "answer": "Yes—82% of AI hiring managers we surveyed check GitHub for engineering candidates. They look for: code quality and style, documentation practices, project complexity, contribution activity, and how you solve problems. A strong GitHub can compensate for missing traditional credentials. A weak or empty GitHub is a missed opportunity."
+        },
+        {
+          "question": "What should AI engineers pin on their GitHub profile?",
+          "answer": "Pin 4-6 repositories that showcase different skills: a deployed AI application (production capability), a well-documented library or tool (code quality), a project with meaningful commits over time (consistency), and if possible, contributions to recognized projects (collaboration). Each pinned repo should have a clear README explaining what it does and why it matters."
+        }
+      ]
+    },
+    {
+      "slug": "ai-system-design-interview",
+      "title": "AI System Design Interview: Complete Prep Guide",
+      "description": "System design interviews for AI roles have distinct patterns. Common questions, frameworks for answering, and practice strategies.",
+      "category": "interview-prep",
+      "tags": ["system-design", "interview", "ai-engineer", "preparation"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "13 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "How do AI system design interviews differ from standard system design?",
+          "answer": "AI system design adds unique components: embedding and retrieval architecture, model selection and fallback strategies, evaluation and monitoring for AI outputs, cost optimization for API usage, and handling non-deterministic behavior. You still need standard system design skills (scaling, databases, APIs) but applied with AI-specific considerations. The framework is similar but the components are different."
+        },
+        {
+          "question": "What are the most common AI system design interview questions?",
+          "answer": "Frequently asked questions: Design a RAG system for enterprise search, Build a conversational AI with memory, Design an AI-powered content moderation system, Create a recommendation system using embeddings, and Build a multi-agent workflow for complex tasks. Each tests different skills: retrieval architecture, state management, evaluation design, cost optimization, and orchestration."
+        }
+      ]
+    },
+    {
+      "slug": "ai-job-posting-red-flags",
+      "title": "AI Job Posting Red Flags: What to Avoid",
+      "description": "How to spot problematic AI job postings before you apply. Unrealistic requirements, salary red flags, and warning signs.",
+      "category": "job-search",
+      "tags": ["job-search", "red-flags", "ai-jobs", "career"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "8 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "What are the biggest red flags in AI job postings?",
+          "answer": "Top red flags: Unrealistic requirements (10+ years of LLM experience when LLMs are newer), vague AI descriptions ('leverage AI' without specifics), significantly below-market salary for the role level, no mention of team or reporting structure, and buzzword-heavy descriptions without substance. Also watch for: 'fast-paced environment' (often means understaffed), 'wear many hats' (no clear role), and 'competitive salary' without ranges."
+        },
+        {
+          "question": "Should I apply to AI jobs where I don't meet all requirements?",
+          "answer": "Yes, if you meet 60-70% of requirements. Job postings describe ideal candidates, not minimum bars. Focus on core requirements (usually listed first) rather than nice-to-haves. If you have the fundamental skills and can learn the rest, apply. Women and underrepresented groups particularly tend to self-select out too early—apply if you're in the ballpark."
+        }
+      ]
+    },
+    {
+      "slug": "ai-certifications-worth-it",
+      "title": "AI Certifications: Which Ones Are Worth It?",
+      "description": "Honest assessment of AI certifications in hiring. Which ones employers recognize, which are noise, and ROI analysis.",
+      "category": "job-search",
+      "tags": ["certifications", "skills", "job-search", "career"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "9 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Do AI certifications help you get hired?",
+          "answer": "Mostly no. Based on our job data, only 8% of AI postings mention specific certifications—92% focus on skills, experience, and portfolio. The exceptions: cloud certifications (AWS ML Specialty, GCP ML Engineer) appear in ~5% of cloud-focused roles. Certifications are useful for learning but rarely decisive in hiring. Portfolio projects matter far more than certificates."
+        },
+        {
+          "question": "Which AI certifications are most recognized by employers?",
+          "answer": "Tier 1 (actually appear in job requirements): AWS Machine Learning Specialty, Google Cloud Professional ML Engineer, Azure AI Engineer Associate. Tier 2 (some recognition): DeepLearning.AI courses, NVIDIA DLI certifications. Below that: limited direct hiring value but fine for learning. The pattern is clear—cloud-specific certifications tied to real infrastructure skills are the only ones that consistently matter."
+        }
+      ]
+    },
+    {
+      "slug": "healthcare-ai-careers",
+      "title": "Healthcare AI Careers: High Stakes, High Rewards",
+      "description": "Healthcare AI pays 15-25% premiums. Career paths, required skills, regulatory considerations, and top companies hiring.",
+      "category": "industry-verticals",
+      "tags": ["healthcare", "ai-engineer", "industry", "career-path"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "12 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Do I need a healthcare background to work in healthcare AI?",
+          "answer": "Not necessarily, but domain knowledge significantly increases your value. Many healthcare AI engineers come from pure technical backgrounds and learn healthcare on the job. However, understanding clinical workflows, HIPAA requirements, and medical terminology accelerates your effectiveness. The combination of strong AI skills plus healthcare knowledge commands premium compensation."
+        },
+        {
+          "question": "What makes healthcare AI different from general AI engineering?",
+          "answer": "Key differences: regulatory requirements (HIPAA, FDA for medical devices), higher accuracy standards (errors can harm patients), unique data challenges (privacy, annotation expense, class imbalance), conservative adoption (clinician trust is hard to earn), and ethical weight (decisions affect lives). The complexity justifies the 15-25% salary premium over general AI roles."
+        }
+      ]
+    },
+    {
+      "slug": "fintech-ai-careers",
+      "title": "Fintech AI Careers: Trading, Fraud, and Risk Roles",
+      "description": "Financial services AI pays 20-40% premiums. Career paths in quant, fraud detection, and risk modeling with compensation data.",
+      "category": "industry-verticals",
+      "tags": ["fintech", "ai-engineer", "industry", "quantitative", "finance"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "12 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Do I need a finance degree to work in fintech AI?",
+          "answer": "No, but you need to learn financial concepts. Many successful fintech AI engineers come from pure CS or math backgrounds and learn finance on the job. However, understanding basic financial instruments, risk concepts, and regulatory requirements will significantly accelerate your career. Quantitative skills (statistics, time series analysis) often matter more than finance credentials."
+        },
+        {
+          "question": "How does fintech AI compensation compare to FAANG?",
+          "answer": "Fintech AI generally pays 20-40% more than equivalent FAANG roles, with trading firms paying 50-100% premiums. However, this varies by role type—fraud detection at a payments company might match FAANG, while quant research at a hedge fund can far exceed it. Bonus structures also differ, with trading roles having more variable compensation tied to performance."
+        }
+      ]
+    },
+    {
+      "slug": "legal-ai-careers",
+      "title": "Legal AI Careers: The Harvey Effect",
+      "description": "Legal AI is booming post-Harvey. Career paths in legal tech, NLP skills required, and companies transforming legal services.",
+      "category": "industry-verticals",
+      "tags": ["legal", "ai-engineer", "industry", "nlp", "career-path"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "11 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Do I need a law degree to work in legal AI?",
+          "answer": "No, most legal AI engineers don't have law degrees. What you need is strong NLP/AI skills combined with willingness to learn legal concepts. However, having a JD can be advantageous for product management, solutions engineering, or roles requiring deep domain expertise. Legal AI companies actively hire engineers without legal backgrounds and train them on domain specifics."
+        },
+        {
+          "question": "How stable is legal AI as a career path?",
+          "answer": "Legal AI is a durable career path because legal services will always exist and technology adoption is still early. The $900B+ legal market is just beginning its AI transformation. Unlike some AI verticals that might consolidate quickly, legal AI's complexity, precision requirements, and conservative adoption create sustained demand for specialized talent over time."
+        }
+      ]
+    },
+    {
+      "slug": "autonomous-vehicles-ai-careers",
+      "title": "Autonomous Vehicle AI: Engineering Specialization Guide",
+      "description": "AV AI careers offer unique challenges. Perception, prediction, planning roles explained with skills and compensation data.",
+      "category": "industry-verticals",
+      "tags": ["autonomous-vehicles", "ai-engineer", "robotics", "computer-vision"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "12 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Is AV a stable career given industry layoffs?",
+          "answer": "AV has experienced cycles, but the long-term trajectory is positive. Trucking and robotaxi companies are now generating revenue, not just burning capital. Focus on companies with clear paths to commercialization and strong balance sheets. Your skills (perception, prediction, planning) transfer to robotics, drones, and other industries if needed—they're not AV-specific."
+        },
+        {
+          "question": "Do I need a PhD to work in AV AI?",
+          "answer": "No, but it depends on the role. Research scientist positions often prefer PhDs, but engineering roles (perception engineer, planning engineer) value practical skills and production experience. Many successful AV engineers have bachelor's or master's degrees with strong project portfolios. What matters most is demonstrated ability to build working systems, not academic credentials."
+        }
+      ]
+    },
+    {
+      "slug": "edge-ai-careers",
+      "title": "Edge AI Careers: On-Device ML Specialization",
+      "description": "Edge AI is growing as ML moves from cloud to device. Skills for on-device inference, optimization, and who's hiring.",
+      "category": "emerging-tech",
+      "tags": ["edge-ai", "ai-engineer", "embedded", "optimization", "hardware"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "11 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "What hardware should I learn for edge AI careers?",
+          "answer": "Focus on platforms relevant to your target industry. For mobile, learn about Qualcomm Hexagon and Apple Neural Engine. For robotics and automotive, NVIDIA Jetson is important. For IoT and wearables, explore ARM Cortex-M and specialized DSPs. Start with accessible hardware like Raspberry Pi or Jetson Nano, then specialize based on where you want to work."
+        },
+        {
+          "question": "Is edge AI replacing cloud AI?",
+          "answer": "No, edge and cloud AI are complementary. Many systems use both—edge for latency-sensitive inference and cloud for training and complex processing. The trend is toward hybrid architectures where simpler, time-critical tasks run on-device while complex reasoning happens in the cloud. Understanding both is valuable, but edge AI specialization is becoming a distinct and valuable career path."
+        }
+      ]
+    },
+    {
+      "slug": "ai-regulation-compliance-jobs",
+      "title": "AI Regulation and Compliance Jobs: Growing Field",
+      "description": "EU AI Act and global regulations are creating new careers. Compliance, governance, and policy roles in the AI industry.",
+      "category": "emerging-tech",
+      "tags": ["regulation", "compliance", "ai-ethics", "governance", "policy"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "11 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Do I need a technical background for AI compliance roles?",
+          "answer": "It depends on the role. AI governance and ethics roles often don't require deep technical skills—regulatory and policy expertise is more important. However, AI technical compliance engineering roles need strong technical backgrounds. Most roles benefit from 'technical literacy'—understanding how AI systems work at a conceptual level without needing to build them yourself."
+        },
+        {
+          "question": "Which AI regulation should I learn first?",
+          "answer": "Start with the EU AI Act since it's the most comprehensive and influential globally. Even if you're focused on the US market, many organizations are aligning with EU AI Act requirements as a baseline. Then add sector-specific knowledge (FDA for healthcare, SEC for finance) based on your industry focus. The NIST AI Risk Management Framework is also valuable for understanding risk-based approaches."
+        }
+      ]
+    },
+    {
+      "slug": "ai-reasoning-models-skills",
+      "title": "AI Reasoning Models: Skills for the New Paradigm",
+      "description": "OpenAI's o1/o3 and reasoning models are changing AI development. What skills matter for building with thinking AI.",
+      "category": "emerging-tech",
+      "tags": ["reasoning", "llm", "skills", "ai-engineer", "openai"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Are reasoning models always better than standard LLMs?",
+          "answer": "No. Reasoning models excel at complex, multi-step problems but are overkill for simple tasks. They're slower, more expensive, and can actually perform worse on straightforward queries where overthinking hurts. The skill is knowing when reasoning adds value and when a fast standard model is the better choice for the task."
+        },
+        {
+          "question": "How do I get experience with reasoning models if they're expensive?",
+          "answer": "Start with free tiers and limited experiments. Most providers offer some free access to reasoning models. Focus on problems where reasoning genuinely helps—math, coding, complex analysis—to make the most of limited credits. Build your understanding of when reasoning models add value before scaling up usage and cost."
+        }
+      ]
+    },
+    {
+      "slug": "ai-voice-agents-career",
+      "title": "AI Voice Agents: Career in Conversational AI",
+      "description": "Voice AI is having a moment. Career paths in speech synthesis, recognition, and conversational agents with skills required.",
+      "category": "emerging-tech",
+      "tags": ["voice-ai", "speech", "conversational-ai", "ai-engineer"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "11 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "What's more important for voice AI careers: speech skills or LLM skills?",
+          "answer": "Both matter, but LLM integration skills are currently more valuable because speech APIs have commoditized recognition and synthesis. The differentiation comes from conversational design, context management, and building complete experiences. That said, deep speech expertise (training models, optimizing quality) commands strong compensation at speech-focused companies."
+        },
+        {
+          "question": "Is voice AI replacing text-based chatbots?",
+          "answer": "Voice AI is expanding the applications where AI can help, not replacing text. Voice is better for hands-free situations, accessibility needs, and when typing is inconvenient. Text is better for documentation, complex queries, and quiet environments. Most companies need both—voice AI skills are additive to text-based AI experience, not a replacement."
+        }
+      ]
+    },
+    {
+      "slug": "synthetic-data-ai-jobs",
+      "title": "Synthetic Data AI Jobs: Growing Specialization",
+      "description": "Synthetic data generation is becoming critical for AI development. Career paths, skills, and who's hiring in this space.",
+      "category": "emerging-tech",
+      "tags": ["synthetic-data", "ai-engineer", "data-generation", "privacy"],
+      "published": "2026-01-22",
+      "updated": "2026-01-22",
+      "readTime": "10 min",
+      "sources": [
+        {"name": "AI Market Pulse Job Data", "url": "/insights/"}
+      ],
+      "faqs": [
+        {
+          "question": "Will synthetic data replace real data entirely?",
+          "answer": "No. Synthetic data augments and supplements real data but doesn't replace it entirely. Real data grounds models in actual distribution; synthetic data expands coverage and protects privacy. The most effective approaches combine real and synthetic data, using each where they're strongest. Understanding when to use each is a key skill."
+        },
+        {
+          "question": "What domain is best for starting a synthetic data career?",
+          "answer": "Computer vision has the most mature synthetic data ecosystem—game engines and rendering tools make image generation accessible. However, tabular synthetic data is growing fastest due to privacy regulations in healthcare and finance. Choose based on your existing domain expertise or the domain that interests you most. Deep domain knowledge is often more valuable than generic synthetic data skills."
+        }
+      ]
+    }
+  ],
+  "categories": {
+    "career-guides": {
+      "name": "Career Guides",
+      "slug": "career-guides",
+      "description": "Practical guidance for transitioning into AI roles, building your career path, and navigating the AI job market."
+    },
+    "salary-intel": {
+      "name": "Salary Intel",
+      "slug": "salary-intel",
+      "description": "Data-driven salary insights, negotiation tactics, and compensation trends for AI professionals."
+    },
+    "hiring-trends": {
+      "name": "Hiring Trends",
+      "slug": "hiring-trends",
+      "description": "Market analysis of which companies are hiring, industry shifts, and quarterly hiring patterns."
+    },
+    "skills": {
+      "name": "Skills Deep Dives",
+      "slug": "skills",
+      "description": "Technical skills employers want, emerging frameworks, and what to learn next for AI careers."
+    },
+    "interview-prep": {
+      "name": "Interview Prep",
+      "slug": "interview-prep",
+      "description": "Interview questions, system design tips, and preparation strategies for AI engineering roles."
+    },
+    "industry-verticals": {
+      "name": "Industry Verticals",
+      "slug": "industry-verticals",
+      "description": "AI careers in specific industries: healthcare, fintech, legal tech, autonomous systems, and more."
+    },
+    "job-search": {
+      "name": "Job Search",
+      "slug": "job-search",
+      "description": "Portfolio building, GitHub optimization, application strategies, and standing out in the AI job market."
+    },
+    "freelance-consulting": {
+      "name": "Freelance & Consulting",
+      "slug": "freelance-consulting",
+      "description": "Independent AI work: consulting rates, finding clients, contract structures, and building an AI practice."
+    },
+    "emerging-tech": {
+      "name": "Emerging Tech",
+      "slug": "emerging-tech",
+      "description": "Cutting-edge AI: agentic systems, multi-modal models, edge AI, and technologies shaping future careers."
+    }
+  },
+  "tags": {
+    "ai-engineer": {"count": 10, "description": "AI Engineer career content"},
+    "career-change": {"count": 1, "description": "Career transition guidance"},
+    "backend": {"count": 1, "description": "Backend development"},
+    "python": {"count": 2, "description": "Python programming"},
+    "langchain": {"count": 2, "description": "LangChain framework"},
+    "salary": {"count": 2, "description": "Salary and compensation"},
+    "negotiation": {"count": 1, "description": "Salary negotiation"},
+    "compensation": {"count": 1, "description": "Compensation packages"},
+    "remote": {"count": 1, "description": "Remote work"},
+    "geographic-arbitrage": {"count": 1, "description": "Location-based salary optimization"},
+    "rag": {"count": 1, "description": "Retrieval-Augmented Generation"},
+    "vector-database": {"count": 1, "description": "Vector databases"},
+    "skills": {"count": 3, "description": "Technical skills"},
+    "interview": {"count": 1, "description": "Interview preparation"},
+    "system-design": {"count": 1, "description": "System design"},
+    "coding": {"count": 1, "description": "Coding interviews"},
+    "prompt-engineering": {"count": 1, "description": "Prompt engineering"},
+    "career-path": {"count": 1, "description": "Career trajectory"},
+    "startup": {"count": 1, "description": "Startup roles"},
+    "enterprise": {"count": 1, "description": "Enterprise roles"},
+    "career-decision": {"count": 1, "description": "Career decisions"},
+    "programming": {"count": 1, "description": "Programming languages"},
+    "ml-engineer": {"count": 1, "description": "ML Engineer roles"},
+    "career-comparison": {"count": 1, "description": "Role comparisons"},
+    "hiring": {"count": 1, "description": "Hiring trends"},
+    "job-market": {"count": 1, "description": "Job market analysis"},
+    "companies": {"count": 1, "description": "Company profiles"}
+  },
+  "author": {
+    "name": "Rome Thorndike",
+    "slug": "rome",
+    "title": "Founder",
+    "linkedin": "https://www.linkedin.com/in/romethorndike/",
+    "bio": "Founder of AI Market Pulse. Former Head of Sales at Datajoy (acquired by Databricks). Building AI-powered market intelligence for the AI job market.",
+    "avatar": "/assets/rome-avatar.jpg",
+    "knowsAbout": [
+      "AI Job Market",
+      "Machine Learning Careers",
+      "AI Engineering",
+      "Salary Benchmarking",
+      "Revenue Operations",
+      "B2B Data Operations"
+    ]
+  }
+}

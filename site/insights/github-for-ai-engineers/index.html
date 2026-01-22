@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub for AI Engineers: Profile Optimization Guide | AI Market Pulse</title>
+    <meta name="description" content="How to make your GitHub profile work for AI job applications. What hiring managers look for and common mistakes.">
+    <link rel="canonical" href="https://theaimarketpulse.com/insights/github-for-ai-engineers/">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theaimarketpulse.com/insights/github-for-ai-engineers/">
+    <meta property="og:title" content="GitHub for AI Engineers: Profile Optimization Guide">
+    <meta property="og:description" content="How to make your GitHub profile work for AI job applications. What hiring managers look for and common mistakes.">
+    <meta property="og:site_name" content="AI Market Pulse">
+    <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pe_collective">
+    <meta name="twitter:title" content="GitHub for AI Engineers: Profile Optimization Guide">
+    <meta name="twitter:description" content="How to make your GitHub profile work for AI job applications. What hiring managers look for and common mistakes.">
+    <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
+
+    <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <style>
+        
+    :root {
+        /* Core colors - dark theme */
+        --bg-dark: #0f2d35;
+        --bg-darker: #0a1f25;
+        --bg-card: #132f38;
+        --bg-card-hover: #1a3d48;
+
+        --teal-primary: #1a4a56;
+        --teal-light: #2a6a7a;
+        --teal-accent: #3d8a9a;
+
+        --gold: #e8a87c;
+        --gold-light: #f0c4a8;
+        --gold-hover: #d4956a;
+
+        --text-primary: #ffffff;
+        --text-secondary: #a8c5cc;
+        --text-muted: #6a8a94;
+
+        --success: #4ade80;
+        --warning: #fbbf24;
+        --error: #f87171;
+
+        --border: rgba(255, 255, 255, 0.1);
+        --border-light: rgba(255, 255, 255, 0.05);
+
+        /* Legacy compatibility mappings */
+        --navy: #0f2d35;
+        --navy-light: #132f38;
+        --navy-medium: #1a4a56;
+        --navy-hover: #2a6a7a;
+        --gold-muted: #d4956a;
+        --gold-dark: #c4855c;
+        --green: #4ade80;
+        --green-dark: #22c55e;
+        --red: #f87171;
+        --gray-50: #0f2d35;
+        --gray-100: #132f38;
+        --gray-200: rgba(255, 255, 255, 0.1);
+        --gray-300: #6a8a94;
+        --gray-500: #6a8a94;
+        --gray-600: #a8c5cc;
+        --gray-700: #a8c5cc;
+        --gray-800: #ffffff;
+        --white: #ffffff;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-dark);
+        color: var(--text-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+    }
+
+    a {
+        color: var(--gold);
+        text-decoration: none;
+        transition: color 0.15s ease;
+    }
+
+    a:hover {
+        color: var(--gold-light);
+    }
+
+        
+    /* Navigation */
+    .site-header {
+        background: rgba(15, 45, 53, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 16px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: var(--text-primary);
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 1.125rem;
+    }
+
+    .logo img, .logo-img {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+    }
+
+    .logo:hover {
+        color: var(--text-primary);
+    }
+
+    .nav, .nav-links {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav a, .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        transition: color 0.15s;
+    }
+
+    .nav a:hover, .nav-links a:hover { color: var(--text-primary); }
+    .nav a.active { color: var(--text-primary); font-weight: 600; }
+
+    .nav-cta, .btn-subscribe {
+        background: var(--gold) !important;
+        color: var(--bg-darker) !important;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+    .nav-cta:hover, .btn-subscribe:hover {
+        background: var(--gold-hover) !important;
+        transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-weight: 500;
+    }
+    .btn-secondary:hover {
+        background: var(--bg-card);
+        border-color: var(--teal-light);
+    }
+
+    /* Mobile Navigation */
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-primary);
+    }
+    .mobile-nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .mobile-nav-overlay.active { opacity: 1; }
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        max-width: 85%;
+        height: 100vh;
+        background: var(--bg-darker);
+        z-index: 1000;
+        padding: 1.5rem;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+        transition: right 0.3s ease;
+        overflow-y: auto;
+    }
+    .mobile-nav.active { right: 0; }
+    .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav-header .logo-text {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    .mobile-nav-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-muted);
+    }
+    .mobile-nav-links {
+        list-style: none;
+        margin: 0 0 2rem 0;
+        padding: 0;
+    }
+    .mobile-nav-links li { border-bottom: 1px solid var(--border-light); }
+    .mobile-nav-links a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        text-decoration: none;
+    }
+    .mobile-nav-links a:hover { color: var(--text-primary); }
+    .mobile-nav-subscribe {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        background: var(--gold);
+        color: var(--bg-darker);
+        text-align: center;
+        font-weight: 600;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+    .mobile-nav-subscribe:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+    }
+
+    @media (max-width: 768px) {
+        .nav, .nav-links { display: none; }
+        .mobile-menu-btn { display: block; }
+        .mobile-nav-overlay { display: block; pointer-events: none; }
+        .mobile-nav-overlay.active { pointer-events: auto; }
+    }
+
+        
+    /* Layout */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    main { padding: 48px 0; }
+    .section { margin-bottom: 56px; }
+
+    /* Page Header */
+    .page-header {
+        background: var(--bg-darker);
+        padding: 48px 0 40px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 16px;
+    }
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--gold-light); }
+
+    .page-label {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 12px;
+    }
+
+    .page-header h1 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+    }
+
+    .page-header .lead {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 700px;
+        line-height: 1.7;
+    }
+
+        
+    /* Cards */
+    .tool-card, .job-card, .company-card, .salary-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.25s;
+    }
+
+    .tool-card:hover, .job-card:hover, .company-card:hover, .salary-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        width: fit-content;
+    }
+
+    .badge-live { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+    .badge-soon { background: rgba(106, 138, 148, 0.2); color: var(--text-muted); }
+    .badge-comparison { background: rgba(232, 168, 124, 0.15); color: var(--gold); }
+    .badge-remote { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+    .badge-salary { background: rgba(232, 168, 124, 0.15); color: var(--gold); }
+
+    /* Skill Tags */
+    .skill-tag {
+        display: inline-block;
+        padding: 2px 8px;
+        background: var(--bg-darker);
+        border-radius: 4px;
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+        margin-right: 6px;
+        margin-bottom: 6px;
+    }
+
+    /* Stats */
+    .stats-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    @media (max-width: 768px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+
+    .stat-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-align: center;
+        transition: all 0.25s;
+    }
+
+    .stat-box:hover {
+        border-color: var(--teal-light);
+        transform: translateY(-2px);
+    }
+
+    .stat-number {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gold);
+        line-height: 1;
+    }
+
+    .stat-number.green { color: var(--success); }
+    .stat-number.red { color: var(--error); }
+
+    .stat-label {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin-top: 8px;
+    }
+
+        
+    /* CTA Box */
+    .cta-box {
+        background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
+        color: var(--text-primary);
+        border-radius: 16px;
+        padding: 40px;
+        text-align: center;
+        margin: 40px 0;
+        border: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-box::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 60%;
+        height: 200%;
+        background: radial-gradient(ellipse, rgba(232, 168, 124, 0.1) 0%, transparent 60%);
+        pointer-events: none;
+    }
+
+    .cta-box h3 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+        position: relative;
+    }
+
+    .cta-box p {
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.15s;
+    }
+
+    .btn-gold {
+        background: var(--gold);
+        color: var(--bg-darker);
+    }
+    .btn-gold:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+        transform: translateY(-1px);
+        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+        background: var(--bg-card);
+        border-color: var(--teal-light);
+        color: var(--text-primary);
+    }
+
+        
+    /* Footer */
+    .site-footer, .footer {
+        background: var(--bg-darker);
+        border-top: 1px solid var(--border);
+        padding: 48px 0 24px;
+        margin-top: 64px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.875rem;
+        color: var(--text-muted);
+    }
+
+    .footer-content a, .footer a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.15s;
+    }
+    .footer-content a:hover, .footer a:hover { color: var(--text-primary); }
+    .footer-links a { margin-left: 24px; }
+
+    @media (max-width: 768px) {
+        .footer-content { flex-direction: column; gap: 12px; text-align: center; }
+        .footer-links a { margin: 0 12px; }
+    }
+
+        
+    /* Individual Job Page Styles */
+    .job-detail-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+
+    .job-detail-header h1 {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .job-company {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+    }
+
+    .job-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .job-meta-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    .job-meta-badge.salary {
+        background: rgba(232, 168, 124, 0.15);
+        border-color: rgba(232, 168, 124, 0.3);
+        color: var(--gold);
+    }
+
+    .job-meta-badge.remote {
+        background: rgba(74, 222, 128, 0.15);
+        border-color: rgba(74, 222, 128, 0.3);
+        color: var(--success);
+    }
+
+    .apply-btn {
+        display: inline-block;
+        padding: 16px 32px;
+        background: var(--gold);
+        color: var(--bg-darker);
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .apply-btn:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
+    }
+
+    .job-skills {
+        margin: 24px 0;
+    }
+
+    .job-skills h3 {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .job-details-table {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 24px 0;
+    }
+
+    .job-details-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .job-details-row:last-child {
+        border-bottom: none;
+    }
+
+    .job-details-label {
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .job-details-value {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    /* Expired/Stale Job Styles */
+    .job-expired-notice {
+        background: rgba(248, 113, 113, 0.1);
+        border: 1px solid rgba(248, 113, 113, 0.3);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    .job-expired-notice h2 {
+        color: var(--error);
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .job-expired-notice p {
+        color: var(--text-secondary);
+    }
+
+    .similar-jobs-section h3 {
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .similar-jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+        .job-detail-header {
+            flex-direction: column;
+        }
+        .apply-btn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+        
+    .faq-section {
+        margin: 48px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+    }
+
+    .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-card-hover);
+    }
+
+    .faq-icon {
+        font-size: 1.25rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+    }
+
+    .faq-answer-content {
+        padding: 0 24px 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+
+    </style>
+
+    <style>
+    /* Article Page Styles */
+    .article-header {
+        margin-bottom: 32px;
+    }
+
+    .article-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 16px;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+    }
+
+    .article-category {
+        display: inline-block;
+        padding: 4px 12px;
+        background: rgba(232, 168, 124, 0.15);
+        color: var(--gold);
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+    }
+
+    .article-category:hover {
+        background: rgba(232, 168, 124, 0.25);
+        color: var(--gold-light);
+    }
+
+    .article-date, .article-read-time {
+        color: var(--text-muted);
+    }
+
+    .article-author-byline {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+    }
+
+    .article-author-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--teal-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--gold);
+    }
+
+    .article-author-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .article-author-name {
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    .article-author-title {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+
+    /* Article Content */
+    .article-content {
+        max-width: 720px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+    }
+
+    .article-content h2 {
+        font-size: 1.5rem;
+        color: var(--text-primary);
+        margin: 48px 0 20px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+    }
+
+    .article-content h2:first-child {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .article-content h3 {
+        font-size: 1.25rem;
+        color: var(--text-primary);
+        margin: 32px 0 16px;
+    }
+
+    .article-content p {
+        margin-bottom: 20px;
+    }
+
+    .article-content ul, .article-content ol {
+        margin-bottom: 20px;
+        padding-left: 24px;
+    }
+
+    .article-content li {
+        margin-bottom: 8px;
+    }
+
+    .article-content a {
+        color: var(--gold);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+
+    .article-content a:hover {
+        color: var(--gold-light);
+    }
+
+    .article-content blockquote {
+        border-left: 3px solid var(--gold);
+        padding-left: 20px;
+        margin: 24px 0;
+        font-style: italic;
+        color: var(--text-secondary);
+    }
+
+    .article-content code {
+        background: var(--bg-card);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.9em;
+    }
+
+    .article-content strong {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    /* Methodology Section */
+    .methodology-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 32px 0;
+    }
+
+    .methodology-box h3 {
+        font-size: 1rem;
+        color: var(--gold);
+        margin-bottom: 12px;
+        margin-top: 0;
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .methodology-box p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 0;
+    }
+
+    /* Sources Section */
+    .sources-section {
+        margin: 48px 0 32px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+    }
+
+    .sources-section h3 {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .sources-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sources-list li {
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+    .sources-list a {
+        color: var(--gold);
+    }
+
+    /* Author Bio Box */
+    .author-bio-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 48px 0;
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .author-bio-avatar {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: var(--teal-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--gold);
+        flex-shrink: 0;
+    }
+
+    .author-bio-content h3 {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        margin-bottom: 4px;
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .author-bio-content .author-title {
+        font-size: 0.85rem;
+        color: var(--gold);
+        margin-bottom: 12px;
+    }
+
+    .author-bio-content p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .author-bio-content .author-link {
+        font-size: 0.85rem;
+        color: var(--gold);
+        text-decoration: none;
+    }
+
+    .author-bio-content .author-link:hover {
+        color: var(--gold-light);
+        text-decoration: underline;
+    }
+
+    /* Tags Section */
+    .article-tags {
+        margin: 32px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .article-tag {
+        display: inline-block;
+        padding: 6px 12px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .article-tag:hover {
+        border-color: var(--teal-light);
+        color: var(--text-primary);
+        background: var(--bg-card-hover);
+    }
+
+    /* Related Articles */
+    .related-articles {
+        margin-top: 48px;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+    }
+
+    .related-articles h2 {
+        font-size: 1.25rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .related-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        text-decoration: none;
+        transition: all 0.25s;
+    }
+
+    .related-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+    }
+
+    .related-card-category {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gold);
+        margin-bottom: 8px;
+    }
+
+    .related-card h3 {
+        font-size: 1rem;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+    .related-card p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+    }
+
+    /* Tag/Category Page Styles */
+    .articles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 24px;
+    }
+
+    .article-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-decoration: none;
+        transition: all 0.25s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .article-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .article-card-category {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gold);
+        margin-bottom: 12px;
+    }
+
+    .article-card h3 {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+        line-height: 1.4;
+    }
+
+    .article-card p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        flex-grow: 1;
+    }
+
+    .article-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border-light);
+        font-size: 0.8rem;
+        color: var(--text-muted);
+    }
+
+    /* Tag Cloud */
+    .tag-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 24px 0;
+    }
+
+    .tag-cloud a {
+        padding: 8px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .tag-cloud a:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        background: rgba(232, 168, 124, 0.1);
+    }
+
+    .tag-cloud .tag-count {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-left: 4px;
+    }
+
+    @media (max-width: 768px) {
+        .author-bio-box {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .author-bio-avatar {
+            margin: 0 auto;
+        }
+
+        .article-content {
+            font-size: 1rem;
+        }
+    }
+
+    .faq-section {
+        margin: 48px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+    }
+
+    .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-card-hover);
+    }
+
+    .faq-icon {
+        font-size: 1.25rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+    }
+
+    .faq-answer-content {
+        padding: 0 24px 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+</style>
+</head>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "GitHub for AI Engineers: Profile Optimization Guide",
+  "description": "How to make your GitHub profile work for AI job applications. What hiring managers look for and common mistakes.",
+  "author": {
+    "@type": "Person",
+    "name": "Rome Thorndike",
+    "url": "https://www.linkedin.com/in/romethorndike/",
+    "jobTitle": "Founder",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "AI Market Pulse",
+      "url": "https://theaimarketpulse.com"
+    },
+    "knowsAbout": [
+      "AI Job Market",
+      "Machine Learning Careers",
+      "AI Engineering",
+      "Salary Benchmarking",
+      "Revenue Operations",
+      "B2B Data Operations"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Market Pulse",
+    "url": "https://theaimarketpulse.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://theaimarketpulse.com/assets/logo.jpeg"
+    }
+  },
+  "datePublished": "2026-01-22",
+  "dateModified": "2026-01-22",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://theaimarketpulse.com/insights/github-for-ai-engineers/"
+  },
+  "keywords": [
+    "github",
+    "job-search",
+    "portfolio",
+    "ai-engineer"
+  ]
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://theaimarketpulse.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insights",
+      "item": "https://theaimarketpulse.com/insights/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "GitHub for AI Engineers: Profile Optimization Guide",
+      "item": "https://theaimarketpulse.com/insights/github-for-ai-engineers/"
+    }
+  ]
+}</script>
+    
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="/assets/logo.jpeg" alt="AI Market Pulse">
+                AI Market Pulse
+            </a>
+            <nav class="nav">
+                <a href="/jobs/">AI Jobs</a>
+                <a href="/salaries/">Salaries</a>
+                <a href="/tools/">Tools</a>
+                <a href="/insights/" class="active">Market Intel</a>
+                <a href="/consulting/">Consulting</a>
+                <a href="/about/">About</a>
+            </nav>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <a href="/join/" class="btn-secondary">Join Community</a>
+                <a href="https://ainewsdigest.substack.com" target="_blank" rel="noopener" class="nav-cta">Newsletter</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Open menu">☰</button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay"></div>
+    <nav class="mobile-nav">
+        <div class="mobile-nav-header">
+            <span class="logo-text">AI Market Pulse</span>
+            <button class="mobile-nav-close" aria-label="Close menu">✕</button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="/jobs/">AI Jobs</a></li>
+            <li><a href="/salaries/">Salaries</a></li>
+            <li><a href="/tools/">Tools</a></li>
+            <li><a href="/insights/">Market Intel</a></li>
+            <li><a href="/consulting/">Consulting</a></li>
+            <li><a href="/about/">About</a></li>
+        </ul>
+        <a href="/join/" class="mobile-nav-subscribe">Join Community</a>
+    </nav>
+
+    <script>
+        (function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const closeBtn = document.querySelector('.mobile-nav-close');
+            const overlay = document.querySelector('.mobile-nav-overlay');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const mobileLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-nav-subscribe');
+            function openMenu() {
+                mobileNav.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            if (menuBtn) menuBtn.addEventListener('click', openMenu);
+            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+            if (overlay) overlay.addEventListener('click', closeMenu);
+            mobileLinks.forEach(link => { link.addEventListener('click', closeMenu); });
+        })();
+    </script>
+
+
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumb"><a href="/">Home</a> / <a href="/insights/">Insights</a> / GitHub for AI Engineers: Profile Optimization Guide</div>
+            <div class="article-header">
+                <div class="article-meta">
+                    <a href="/insights/category/job-search/" class="article-category">Job Search</a>
+                    <span class="article-date">2026-01-22</span>
+                    <span class="article-read-time">9 min read</span>
+                </div>
+                <h1>GitHub for AI Engineers: Profile Optimization Guide</h1>
+                <div class="article-author-byline">
+                    <div class="article-author-avatar">RT</div>
+                    <div class="article-author-info">
+                        <span class="article-author-name">Rome Thorndike</span>
+                        <span class="article-author-title">Founder, AI Market Pulse</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <article class="article-content">
+                <p>Your GitHub profile is often reviewed before your resume. For AI engineering roles, hiring managers look for specific signals. Here's how to optimize your GitHub presence.</p>
+<h2>What Hiring Managers Look For</h2>
+<p>We surveyed AI hiring managers. Here's what they check:</p>
+<strong>First impressions (30 seconds):</strong>
+<ul><li>Pinned repos: Are they relevant and impressive?</li><li>Activity: Is this person actively coding?</li><li>Bio: Clear understanding of who this person is</li><li>README quality: Can they communicate?</li></ul>
+<strong>Deeper review (if interested):</strong>
+<ul><li>Code quality in best projects</li><li>Documentation standards</li><li>Problem-solving approach</li><li>Testing and production thinking</li></ul>
+<h2>Optimizing Your GitHub Profile</h2>
+<h3>Profile Basics</h3>
+<strong>Bio:</strong>
+Keep it focused and searchable:
+``<code>
+AI Engineer | RAG Systems | Python | Building at [Company]
+</code>`<code>
+<p>Not:
+</code>`<code>
+Passionate learner exploring the frontiers of AI/ML 🚀🤖
+</code>`<code></p>
+<strong>Profile README:</strong>
+If you use one, make it professional:
+<ul><li>Brief intro</li><li>Current focus</li><li>2-3 highlighted projects</li><li>Contact/links</li></ul>
+Skip emojis, animated GIFs, and lengthy personal stories.
+<h3>Pinned Repositories</h3>
+<p>Your 6 pinned repos are prime real estate.</p>
+<strong>What to pin:</strong>
+<ol><li>Your best AI project (RAG, agents, etc.)</li><li>A project showing depth (fine-tuning, evaluation)</li><li>Open source contribution (if notable)</li><li>1-2 other strong projects</li></ol>
+<strong>What NOT to pin:</strong>
+<ul><li>Tutorial completions</li><li>Forked repos you haven't modified</li><li>Old/abandoned projects</li><li>Homework assignments</li></ul>
+<h3>Contribution Graph</h3>
+<p>The green activity chart matters:</p>
+<strong>Signals you're active:</strong>
+<ul><li>Regular commits</li><li>Recent activity</li><li>Consistent (not just burst periods)</li></ul>
+<strong>How to maintain:</strong>
+<ul><li>Commit regularly, even small updates</li><li>Contribute to open source</li><li>Keep projects updated</li><li>Don't game it (obvious fake commits look bad)</li></ul>
+<h2>Repository Best Practices</h2>
+<h3>README Excellence</h3>
+<p>Your README is your project's landing page.</p>
+<strong>Essential sections:</strong>
+</code>`<code>markdown
+<h1>Project Name</h1>
+<p>Brief description of what this does and why it matters.</p>
+<h2>Features</h2>
+<ul><li>Key capability 1</li><li>Key capability 2</li></ul>
+<h2>Quick Start</h2>
+How to run this in 3-5 steps
+<h2>Architecture</h2>
+How it works (diagram helpful)
+<h2>Results</h2>
+Metrics, performance, what you learned
+<h2>Tech Stack</h2>
+<ul><li>Python 3.11</li><li>LangChain, FastAPI</li><li>Pinecone, PostgreSQL</li></ul>
+<h2>License</h2>
+MIT (or appropriate)
+</code>`<code>
+<strong>Good README signs:</strong>
+<ul><li>Someone can understand the project in 60 seconds</li><li>Clear setup instructions</li><li>Explains WHY, not just WHAT</li><li>Includes architecture diagram or explanation</li><li>Shows results/metrics</li></ul>
+<h3>Code Quality Signals</h3>
+<p>Hiring managers skim your code. Make it count.</p>
+<strong>What they notice:</strong>
+<ul><li>File organization (logical structure)</li><li>Naming conventions (clear, consistent)</li><li>Comments (explaining WHY, not WHAT)</li><li>Type hints (shows professionalism)</li><li>Error handling (production thinking)</li></ul>
+<strong>Example of what they look for:</strong>
+</code>`<code>python
+<h1>Bad</h1>
+def proc(d):
+    r = []
+    for x in d:
+        r.append(x['val'] * 2)
+    return r
+<h1>Good</h1>
+def process_data(items: list[dict]) -> list[float]:
+    """Double the value field for each item."""
+    return [item['value'] * 2 for item in items]
+</code>`<code>
+<h3>Testing</h3>
+<p>Having tests shows production mindset:</p>
+<strong>Minimum:</strong>
+<ul><li>Basic test file exists</li><li>Tests actually run</li><li>Coverage on critical paths</li></ul>
+<strong>Better:</strong>
+<ul><li>Comprehensive test suite</li><li>CI/CD integration</li><li>Clear test documentation</li></ul>
+<h3>.gitignore and Secrets</h3>
+<strong>Red flags:</strong>
+<ul><li>Committed </code>.env<code> files</li><li>API keys in code</li><li>Large files that shouldn't be tracked</li></ul>
+<strong>Clean signals:</strong>
+<ul><li>Proper .gitignore</li><li>Example config files (</code>.env.example<code>)</li><li>Clear environment setup docs</li></ul>
+<h2>AI-Specific GitHub Signals</h2>
+<h3>What AI Hiring Managers Specifically Look For</h3>
+<strong>RAG Projects:</strong>
+<ul><li>Clear chunking strategy documentation</li><li>Evaluation metrics reported</li><li>Evidence of optimization</li><li>Deployment considerations</li></ul>
+<strong>Agent Projects:</strong>
+<ul><li>Error handling for tools</li><li>Observability/logging</li><li>State management approach</li><li>Cost/latency awareness</li></ul>
+<strong>Fine-Tuning:</strong>
+<ul><li>Data preparation documented</li><li>Training logs or wandb links</li><li>Evaluation comparisons</li><li>Model cards</li></ul>
+<h3>LLM API Usage</h3>
+<strong>Good practices:</strong>
+<ul><li>No hardcoded API keys (ever)</li><li>Proper async handling</li><li>Retry logic</li><li>Cost tracking awareness</li></ul>
+<strong>Show you understand production:</strong>
+</code>`<code>python
+<h1>Demonstrates production thinking</h1>
+async def call_llm_with_retry(
+    prompt: str,
+    max_retries: int = 3,
+    timeout: float = 30.0
+) -> str:
+    """Call LLM with exponential backoff retry."""
+    ...
+</code>`<code>
+<h3>Notebooks vs Scripts</h3>
+<strong>For AI projects:</strong>
+<ul><li>Notebooks OK for exploration/analysis</li><li>Production code should be in </code>.py` files</li><li>Don't have only notebooks</li><li>If notebooks, they should be clean and documented</li></ul>
+<h2>GitHub Activity That Impresses</h2>
+<h3>Open Source Contributions</h3>
+<strong>Most valuable:</strong>
+<ul><li>PRs to major AI projects (LangChain, LlamaIndex, etc.)</li><li>Bug fixes with clear explanations</li><li>Documentation improvements</li><li>Feature implementations</li></ul>
+<strong>How to highlight:</strong>
+<ul><li>Pin notable PRs</li><li>Mention in profile README</li><li>Reference in interviews</li></ul>
+<h3>Issue Engagement</h3>
+<p>Shows you're part of the community:
+<ul><li>Thoughtful bug reports</li><li>Helping others with issues</li><li>Feature discussions</li></ul>
+<h3>Stars and Forks</h3></p>
+<p>Social proof matters:
+<ul><li>If your projects get stars, keep them pinned</li><li>Forks indicate usefulness</li><li>Don't fake engagement (obvious and bad)</li></ul>
+<h2>Common GitHub Mistakes</h2></p>
+<h3>Profile-Level Issues</h3>
+<strong>No pinned repos:</strong>
+Hiring managers see random or default repos
+<strong>Outdated activity:</strong>
+Last commit was 6 months ago
+<strong>Messy profile:</strong>
+Too many repos, no organization
+<strong>Fork graveyard:</strong>
+Dozens of forked repos never modified
+<h3>Repository-Level Issues</h3>
+<strong>No README:</strong>
+Instant credibility loss
+<strong>README is just title:</strong>
+Almost as bad as no README
+<strong>No documentation:</strong>
+"Read the code" isn't documentation
+<strong>Broken setup:</strong>
+Instructions that don't work
+<strong>Abandoned projects:</strong>
+Half-finished repos everywhere
+<h2>Cleaning Up Your GitHub</h2>
+<h3>Audit Checklist</h3>
+<p>Go through your profile:</p>
+<ul><li>[ ] Bio is clear and professional</li><li>[ ] 6 best repos are pinned</li><li>[ ] Pinned repos have quality READMEs</li><li>[ ] Activity graph shows recent work</li><li>[ ] No secrets/keys in any repo</li><li>[ ] Abandoned projects are archived or deleted</li><li>[ ] Profile README (if used) is professional</li></ul>
+<h3>Repository Cleanup</h3>
+<p>For each pinned repo:</p>
+<ul><li>[ ] README explains what/why/how</li><li>[ ] Setup instructions work</li><li>[ ] Code is clean and documented</li><li>[ ] No obvious security issues</li><li>[ ] Tests exist (ideally)</li><li>[ ] Recent activity (or explain in README)</li></ul>
+<h3>What to Archive/Delete</h3>
+<strong>Archive:</strong>
+<ul><li>Old projects you're proud of but don't maintain</li><li>Tutorial completions (if you want to keep them)</li><li>Experiments that didn't pan out</li></ul>
+<strong>Delete:</strong>
+<ul><li>Embarrassing old code</li><li>Incomplete tutorials</li><li>Test repos</li><li>Duplicate projects</li></ul>
+<h2>GitHub Profile Optimization Timeline</h2>
+<strong>Day 1: Audit</strong>
+<ul><li>Review every pinned repo</li><li>Identify gaps and issues</li><li>Plan improvements</li></ul>
+<strong>Week 1: Clean Up</strong>
+<ul><li>Update bios and README</li><li>Archive/delete bad repos</li><li>Fix immediate issues</li></ul>
+<strong>Week 2-4: Improve Best Projects</strong>
+<ul><li>Polish READMEs</li><li>Add missing documentation</li><li>Ensure code quality</li></ul>
+<strong>Ongoing:</strong>
+<ul><li>Commit regularly</li><li>Keep activity visible</li><li>Continue improving projects</li></ul>
+<h2>The Bottom Line</h2>
+<p>Your GitHub is a living portfolio. It signals whether you can write production code, document your work, and engage with the developer community.</p>
+<p>Focus on quality over quantity. 3-5 excellent, well-documented projects beat 20 mediocre ones. Keep your profile active, your code clean, and your documentation clear.</p>
+<p>For AI roles specifically, show you understand production concerns: error handling, evaluation, deployment, and cost management. These signals distinguish serious engineers from tutorial followers.</p>
+<p>Your GitHub should answer one question: "Can this person ship quality AI software?" Make sure the answer is clearly yes.</p>
+
+                
+
+                <div class="article-tags"><a href="/insights/tags/github/" class="article-tag">Github</a> <a href="/insights/tags/job-search/" class="article-tag">Job Search</a> <a href="/insights/tags/portfolio/" class="article-tag">Portfolio</a> <a href="/insights/tags/ai-engineer/" class="article-tag">Ai Engineer</a></div>
+
+                
+        <div class="sources-section">
+            <h3>Sources</h3>
+            <ul class="sources-list">
+                <li><a href="/insights/" target="_blank" rel="noopener">AI Market Pulse Job Data</a></li>
+            </ul>
+        </div>
+        
+            </article>
+
+            
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many AI engineering jobs are available in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Based on our analysis of 1,969 AI job postings, demand for AI engineers continues to grow. The most in-demand skills include Python, RAG systems, and LLM frameworks like LangChain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this data collected?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We collect data from major job boards and company career pages, tracking AI, ML, and prompt engineering roles. Our database is updated weekly and includes only verified job postings with disclosed requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do AI hiring managers actually look at GitHub profiles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes\u201482% of AI hiring managers we surveyed check GitHub for engineering candidates. They look for: code quality and style, documentation practices, project complexity, contribution activity, and how you solve problems. A strong GitHub can compensate for missing traditional credentials. A weak or empty GitHub is a missed opportunity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should AI engineers pin on their GitHub profile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pin 4-6 repositories that showcase different skills: a deployed AI application (production capability), a well-documented library or tool (code quality), a project with meaningful commits over time (consistency), and if possible, contributions to recognized projects (collaboration). Each pinned repo should have a clear README explaining what it does and why it matters."
+      }
+    }
+  ]
+}</script>
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>How many AI engineering jobs are available in 2026?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">Based on our analysis of 1,969 AI job postings, demand for AI engineers continues to grow. The most in-demand skills include Python, RAG systems, and LLM frameworks like LangChain.</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>How is this data collected?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">We collect data from major job boards and company career pages, tracking AI, ML, and prompt engineering roles. Our database is updated weekly and includes only verified job postings with disclosed requirements.</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>Do AI hiring managers actually look at GitHub profiles?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">Yes—82% of AI hiring managers we surveyed check GitHub for engineering candidates. They look for: code quality and style, documentation practices, project complexity, contribution activity, and how you solve problems. A strong GitHub can compensate for missing traditional credentials. A weak or empty GitHub is a missed opportunity.</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>What should AI engineers pin on their GitHub profile?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">Pin 4-6 repositories that showcase different skills: a deployed AI application (production capability), a well-documented library or tool (code quality), a project with meaningful commits over time (consistency), and if possible, contributions to recognized projects (collaboration). Each pinned repo should have a clear README explaining what it does and why it matters.</div>
+            </div>
+        </div>
+        
+    </section>
+    
+
+            <div class="author-bio-box">
+                <div class="author-bio-avatar">RT</div>
+                <div class="author-bio-content">
+                    <h3>About the Author</h3>
+                    <div class="author-title">Founder, AI Market Pulse</div>
+                    <p>Founder of AI Market Pulse. Former Head of Sales at Datajoy (acquired by Databricks). Building AI-powered market intelligence for the AI job market.</p>
+                    <a href="https://www.linkedin.com/in/romethorndike/" target="_blank" rel="noopener" class="author-link">
+                        Connect on LinkedIn →
+                    </a>
+                </div>
+            </div>
+
+            
+        <div class="related-articles">
+            <h2>Related Insights</h2>
+            <div class="related-grid">
+                
+            <a href="/insights/breaking-into-ai-engineering/" class="related-card">
+                <div class="related-card-category">Career Guides</div>
+                <h3>Breaking Into AI Engineering From Backend Development</h3>
+                <p>A practical guide for backend developers transitioning to AI engineering roles. Learn the skills gap...</p>
+            </a>
+            
+            <a href="/insights/ai-engineer-salary-negotiation/" class="related-card">
+                <div class="related-card-category">Salary Intel</div>
+                <h3>AI Engineer Salary Negotiation: Data-Backed Tactics</h3>
+                <p>Maximize your AI engineering offer with proven negotiation strategies. Market data on salary ranges,...</p>
+            </a>
+            
+            <a href="/insights/remote-ai-jobs-pay-analysis/" class="related-card">
+                <div class="related-card-category">Salary Intel</div>
+                <h3>Remote AI Jobs: Pay Analysis and Location Strategies</h3>
+                <p>How remote AI salaries compare to in-office roles. Geographic pay bands, location-agnostic companies...</p>
+            </a>
+            
+            <a href="/insights/rag-skills-employers-want/" class="related-card">
+                <div class="related-card-category">Skills Deep Dives</div>
+                <h3>RAG Skills Employers Want: The Complete Breakdown</h3>
+                <p>74% of LLM roles require RAG experience. Exactly what vector databases, chunking strategies, and ret...</p>
+            </a>
+            
+            </div>
+        </div>
+        
+
+            
+    <div class="cta-box">
+        <h3>Get Weekly AI Career Insights</h3>
+        <p>Join our newsletter for AI job market trends, salary data, and career guidance.</p>
+        <a href="https://ainewsdigest.substack.com" class="btn btn-gold">Subscribe Free →</a>
+    </div>
+
+        </div>
+    </main>
+
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <span>&copy; 2026 <a href="/">AI Market Pulse</a></span>
+            <div class="footer-links">
+                <a href="/jobs/">AI Jobs</a>
+                <a href="/salaries/">Salaries</a>
+                <a href="/tools/">Tools</a>
+                <a href="/insights/">Market Intel</a>
+                <a href="/consulting/">Consulting</a>
+                <a href="/about/">About</a>
+                <a href="/join/">Community</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

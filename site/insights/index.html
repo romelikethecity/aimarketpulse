@@ -841,6 +841,128 @@
             border-radius: 0 8px 8px 0;
         }
         .key-insight strong { color: var(--gold); }
+
+        /* Article Cards */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .article-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            text-decoration: none;
+            transition: all 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            border-color: var(--teal-light);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .article-card-category {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .article-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .article-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .article-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-light);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Category Cards */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-decoration: none;
+            transition: all 0.25s;
+            text-align: center;
+        }
+
+        .category-card:hover {
+            border-color: var(--gold);
+            background: rgba(232, 168, 124, 0.1);
+        }
+
+        .category-card h4 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .category-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Tag Cloud */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag-cloud a {
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .tag-cloud a:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(232, 168, 124, 0.1);
+        }
+
+        .tag-cloud .tag-count {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-left: 4px;
+        }
     </style>
 
     <div class="page-header">
@@ -1589,6 +1711,134 @@
         </div>
             </div>
             
+
+            
+    <div class="articles-section" style="margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border);">
+        <h2 style="font-size: 1.75rem; margin-bottom: 32px;">Latest Insights</h2>
+        <div class="articles-grid">
+            
+        <a href="/insights/ai-engineer-salary-negotiation/" class="article-card">
+            <div class="article-card-category">Salary Intel</div>
+            <h3>AI Engineer Salary Negotiation: Data-Backed Tactics</h3>
+            <p>Maximize your AI engineering offer with proven negotiation strategies. Market data on salary ranges, equity, and what companies expect you to ask for.</p>
+            <div class="article-card-footer">
+                <span>2026-01-22</span>
+                <span>10 min read</span>
+            </div>
+        </a>
+        
+        <a href="/insights/remote-ai-jobs-pay-analysis/" class="article-card">
+            <div class="article-card-category">Salary Intel</div>
+            <h3>Remote AI Jobs: Pay Analysis and Location Strategies</h3>
+            <p>How remote AI salaries compare to in-office roles. Geographic pay bands, location-agnostic companies, and how to maximize compensation wherever you work.</p>
+            <div class="article-card-footer">
+                <span>2026-01-22</span>
+                <span>9 min read</span>
+            </div>
+        </a>
+        
+        <a href="/insights/rag-skills-employers-want/" class="article-card">
+            <div class="article-card-category">Skills Deep Dives</div>
+            <h3>RAG Skills Employers Want: The Complete Breakdown</h3>
+            <p>74% of LLM roles require RAG experience. Exactly what vector databases, chunking strategies, and retrieval skills will get you hired.</p>
+            <div class="article-card-footer">
+                <span>2026-01-22</span>
+                <span>11 min read</span>
+            </div>
+        </a>
+        
+        <a href="/insights/ai-engineer-interview-questions/" class="article-card">
+            <div class="article-card-category">Interview Prep</div>
+            <h3>AI Engineer Interview Questions: What to Expect in 2026</h3>
+            <p>Common AI engineering interview questions across coding, system design, and ML fundamentals. Prep strategies from real interview experiences.</p>
+            <div class="article-card-footer">
+                <span>2026-01-22</span>
+                <span>12 min read</span>
+            </div>
+        </a>
+        
+        <a href="/insights/prompt-engineering-career-path/" class="article-card">
+            <div class="article-card-category">Career Guides</div>
+            <h3>Prompt Engineering Career Path: Where It's Headed</h3>
+            <p>Prompt engineering is evolving fast. Current salary data, career trajectories, and the skills to add for long-term growth in AI.</p>
+            <div class="article-card-footer">
+                <span>2026-01-22</span>
+                <span>10 min read</span>
+            </div>
+        </a>
+        
+        <a href="/insights/startup-vs-enterprise-ai-roles/" class="article-card">
+            <div class="article-card-category">Career Guides</div>
+            <h3>Startup vs Enterprise AI Roles: Honest Comparison</h3>
+            <p>Compensation, work style, and career trajectory differences between AI startup and enterprise roles. Data and real talk to help you decide.</p>
+            <div class="article-card-footer">
+                <span>2026-01-22</span>
+                <span>11 min read</span>
+            </div>
+        </a>
+        
+        </div>
+
+        <div style="margin-top: 48px;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 20px; color: var(--text-secondary);">Browse by Category</h3>
+            <div class="category-grid">
+                
+        <a href="/insights/category/career-guides/" class="category-card">
+            <h4>Career Guides</h4>
+            <p>11 articles</p>
+        </a>
+        
+        <a href="/insights/category/salary-intel/" class="category-card">
+            <h4>Salary Intel</h4>
+            <p>4 articles</p>
+        </a>
+        
+        <a href="/insights/category/hiring-trends/" class="category-card">
+            <h4>Hiring Trends</h4>
+            <p>3 articles</p>
+        </a>
+        
+        <a href="/insights/category/skills/" class="category-card">
+            <h4>Skills Deep Dives</h4>
+            <p>7 articles</p>
+        </a>
+        
+        <a href="/insights/category/interview-prep/" class="category-card">
+            <h4>Interview Prep</h4>
+            <p>2 articles</p>
+        </a>
+        
+        <a href="/insights/category/industry-verticals/" class="category-card">
+            <h4>Industry Verticals</h4>
+            <p>4 articles</p>
+        </a>
+        
+        <a href="/insights/category/job-search/" class="category-card">
+            <h4>Job Search</h4>
+            <p>4 articles</p>
+        </a>
+        
+        <a href="/insights/category/freelance-consulting/" class="category-card">
+            <h4>Freelance & Consulting</h4>
+            <p>1 article</p>
+        </a>
+        
+        <a href="/insights/category/emerging-tech/" class="category-card">
+            <h4>Emerging Tech</h4>
+            <p>6 articles</p>
+        </a>
+        
+            </div>
+        </div>
+
+        <div style="margin-top: 48px;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 20px; color: var(--text-secondary);">Browse by Topic</h3>
+            <div class="tag-cloud">
+                <a href="/insights/tags/ai-engineer/">Ai Engineer <span class="tag-count">(31)</span></a><a href="/insights/tags/skills/">Skills <span class="tag-count">(14)</span></a><a href="/insights/tags/career-path/">Career Path <span class="tag-count">(7)</span></a><a href="/insights/tags/career-change/">Career Change <span class="tag-count">(6)</span></a><a href="/insights/tags/ai-jobs/">Ai Jobs <span class="tag-count">(5)</span></a><a href="/insights/tags/llm/">Llm <span class="tag-count">(4)</span></a><a href="/insights/tags/job-search/">Job Search <span class="tag-count">(4)</span></a><a href="/insights/tags/langchain/">Langchain <span class="tag-count">(3)</span></a><a href="/insights/tags/salary/">Salary <span class="tag-count">(3)</span></a><a href="/insights/tags/compensation/">Compensation <span class="tag-count">(3)</span></a><a href="/insights/tags/hiring/">Hiring <span class="tag-count">(3)</span></a><a href="/insights/tags/job-market/">Job Market <span class="tag-count">(3)</span></a><a href="/insights/tags/ai-agents/">Ai Agents <span class="tag-count">(3)</span></a><a href="/insights/tags/non-technical/">Non Technical <span class="tag-count">(3)</span></a><a href="/insights/tags/industry/">Industry <span class="tag-count">(3)</span></a>
+            </div>
+        </div>
+    </div>
+    
 
             
     <div class="cta-box">

@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Scientist to AI Engineer: Transition Guide | AI Market Pulse</title>
+    <meta name="description" content="Data scientists have a head start in AI engineering. What skills to add, what transfers directly, and how to make the switch.">
+    <link rel="canonical" href="https://theaimarketpulse.com/insights/data-scientist-to-ai-engineer/">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theaimarketpulse.com/insights/data-scientist-to-ai-engineer/">
+    <meta property="og:title" content="Data Scientist to AI Engineer: Transition Guide">
+    <meta property="og:description" content="Data scientists have a head start in AI engineering. What skills to add, what transfers directly, and how to make the switch.">
+    <meta property="og:site_name" content="AI Market Pulse">
+    <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pe_collective">
+    <meta name="twitter:title" content="Data Scientist to AI Engineer: Transition Guide">
+    <meta name="twitter:description" content="Data scientists have a head start in AI engineering. What skills to add, what transfers directly, and how to make the switch.">
+    <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
+
+    <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <style>
+        
+    :root {
+        /* Core colors - dark theme */
+        --bg-dark: #0f2d35;
+        --bg-darker: #0a1f25;
+        --bg-card: #132f38;
+        --bg-card-hover: #1a3d48;
+
+        --teal-primary: #1a4a56;
+        --teal-light: #2a6a7a;
+        --teal-accent: #3d8a9a;
+
+        --gold: #e8a87c;
+        --gold-light: #f0c4a8;
+        --gold-hover: #d4956a;
+
+        --text-primary: #ffffff;
+        --text-secondary: #a8c5cc;
+        --text-muted: #6a8a94;
+
+        --success: #4ade80;
+        --warning: #fbbf24;
+        --error: #f87171;
+
+        --border: rgba(255, 255, 255, 0.1);
+        --border-light: rgba(255, 255, 255, 0.05);
+
+        /* Legacy compatibility mappings */
+        --navy: #0f2d35;
+        --navy-light: #132f38;
+        --navy-medium: #1a4a56;
+        --navy-hover: #2a6a7a;
+        --gold-muted: #d4956a;
+        --gold-dark: #c4855c;
+        --green: #4ade80;
+        --green-dark: #22c55e;
+        --red: #f87171;
+        --gray-50: #0f2d35;
+        --gray-100: #132f38;
+        --gray-200: rgba(255, 255, 255, 0.1);
+        --gray-300: #6a8a94;
+        --gray-500: #6a8a94;
+        --gray-600: #a8c5cc;
+        --gray-700: #a8c5cc;
+        --gray-800: #ffffff;
+        --white: #ffffff;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-dark);
+        color: var(--text-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+    }
+
+    a {
+        color: var(--gold);
+        text-decoration: none;
+        transition: color 0.15s ease;
+    }
+
+    a:hover {
+        color: var(--gold-light);
+    }
+
+        
+    /* Navigation */
+    .site-header {
+        background: rgba(15, 45, 53, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 16px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: var(--text-primary);
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 1.125rem;
+    }
+
+    .logo img, .logo-img {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+    }
+
+    .logo:hover {
+        color: var(--text-primary);
+    }
+
+    .nav, .nav-links {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav a, .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        transition: color 0.15s;
+    }
+
+    .nav a:hover, .nav-links a:hover { color: var(--text-primary); }
+    .nav a.active { color: var(--text-primary); font-weight: 600; }
+
+    .nav-cta, .btn-subscribe {
+        background: var(--gold) !important;
+        color: var(--bg-darker) !important;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+    .nav-cta:hover, .btn-subscribe:hover {
+        background: var(--gold-hover) !important;
+        transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-weight: 500;
+    }
+    .btn-secondary:hover {
+        background: var(--bg-card);
+        border-color: var(--teal-light);
+    }
+
+    /* Mobile Navigation */
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-primary);
+    }
+    .mobile-nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .mobile-nav-overlay.active { opacity: 1; }
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        max-width: 85%;
+        height: 100vh;
+        background: var(--bg-darker);
+        z-index: 1000;
+        padding: 1.5rem;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+        transition: right 0.3s ease;
+        overflow-y: auto;
+    }
+    .mobile-nav.active { right: 0; }
+    .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav-header .logo-text {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    .mobile-nav-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-muted);
+    }
+    .mobile-nav-links {
+        list-style: none;
+        margin: 0 0 2rem 0;
+        padding: 0;
+    }
+    .mobile-nav-links li { border-bottom: 1px solid var(--border-light); }
+    .mobile-nav-links a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        text-decoration: none;
+    }
+    .mobile-nav-links a:hover { color: var(--text-primary); }
+    .mobile-nav-subscribe {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        background: var(--gold);
+        color: var(--bg-darker);
+        text-align: center;
+        font-weight: 600;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+    .mobile-nav-subscribe:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+    }
+
+    @media (max-width: 768px) {
+        .nav, .nav-links { display: none; }
+        .mobile-menu-btn { display: block; }
+        .mobile-nav-overlay { display: block; pointer-events: none; }
+        .mobile-nav-overlay.active { pointer-events: auto; }
+    }
+
+        
+    /* Layout */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    main { padding: 48px 0; }
+    .section { margin-bottom: 56px; }
+
+    /* Page Header */
+    .page-header {
+        background: var(--bg-darker);
+        padding: 48px 0 40px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 16px;
+    }
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--gold-light); }
+
+    .page-label {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 12px;
+    }
+
+    .page-header h1 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+    }
+
+    .page-header .lead {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 700px;
+        line-height: 1.7;
+    }
+
+        
+    /* Cards */
+    .tool-card, .job-card, .company-card, .salary-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.25s;
+    }
+
+    .tool-card:hover, .job-card:hover, .company-card:hover, .salary-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        width: fit-content;
+    }
+
+    .badge-live { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+    .badge-soon { background: rgba(106, 138, 148, 0.2); color: var(--text-muted); }
+    .badge-comparison { background: rgba(232, 168, 124, 0.15); color: var(--gold); }
+    .badge-remote { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+    .badge-salary { background: rgba(232, 168, 124, 0.15); color: var(--gold); }
+
+    /* Skill Tags */
+    .skill-tag {
+        display: inline-block;
+        padding: 2px 8px;
+        background: var(--bg-darker);
+        border-radius: 4px;
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+        margin-right: 6px;
+        margin-bottom: 6px;
+    }
+
+    /* Stats */
+    .stats-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    @media (max-width: 768px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+
+    .stat-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-align: center;
+        transition: all 0.25s;
+    }
+
+    .stat-box:hover {
+        border-color: var(--teal-light);
+        transform: translateY(-2px);
+    }
+
+    .stat-number {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gold);
+        line-height: 1;
+    }
+
+    .stat-number.green { color: var(--success); }
+    .stat-number.red { color: var(--error); }
+
+    .stat-label {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin-top: 8px;
+    }
+
+        
+    /* CTA Box */
+    .cta-box {
+        background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
+        color: var(--text-primary);
+        border-radius: 16px;
+        padding: 40px;
+        text-align: center;
+        margin: 40px 0;
+        border: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-box::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 60%;
+        height: 200%;
+        background: radial-gradient(ellipse, rgba(232, 168, 124, 0.1) 0%, transparent 60%);
+        pointer-events: none;
+    }
+
+    .cta-box h3 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+        position: relative;
+    }
+
+    .cta-box p {
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.15s;
+    }
+
+    .btn-gold {
+        background: var(--gold);
+        color: var(--bg-darker);
+    }
+    .btn-gold:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+        transform: translateY(-1px);
+        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+        background: var(--bg-card);
+        border-color: var(--teal-light);
+        color: var(--text-primary);
+    }
+
+        
+    /* Footer */
+    .site-footer, .footer {
+        background: var(--bg-darker);
+        border-top: 1px solid var(--border);
+        padding: 48px 0 24px;
+        margin-top: 64px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.875rem;
+        color: var(--text-muted);
+    }
+
+    .footer-content a, .footer a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.15s;
+    }
+    .footer-content a:hover, .footer a:hover { color: var(--text-primary); }
+    .footer-links a { margin-left: 24px; }
+
+    @media (max-width: 768px) {
+        .footer-content { flex-direction: column; gap: 12px; text-align: center; }
+        .footer-links a { margin: 0 12px; }
+    }
+
+        
+    /* Individual Job Page Styles */
+    .job-detail-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+
+    .job-detail-header h1 {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .job-company {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+    }
+
+    .job-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .job-meta-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    .job-meta-badge.salary {
+        background: rgba(232, 168, 124, 0.15);
+        border-color: rgba(232, 168, 124, 0.3);
+        color: var(--gold);
+    }
+
+    .job-meta-badge.remote {
+        background: rgba(74, 222, 128, 0.15);
+        border-color: rgba(74, 222, 128, 0.3);
+        color: var(--success);
+    }
+
+    .apply-btn {
+        display: inline-block;
+        padding: 16px 32px;
+        background: var(--gold);
+        color: var(--bg-darker);
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .apply-btn:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
+    }
+
+    .job-skills {
+        margin: 24px 0;
+    }
+
+    .job-skills h3 {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .job-details-table {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 24px 0;
+    }
+
+    .job-details-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .job-details-row:last-child {
+        border-bottom: none;
+    }
+
+    .job-details-label {
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .job-details-value {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    /* Expired/Stale Job Styles */
+    .job-expired-notice {
+        background: rgba(248, 113, 113, 0.1);
+        border: 1px solid rgba(248, 113, 113, 0.3);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    .job-expired-notice h2 {
+        color: var(--error);
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .job-expired-notice p {
+        color: var(--text-secondary);
+    }
+
+    .similar-jobs-section h3 {
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .similar-jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+        .job-detail-header {
+            flex-direction: column;
+        }
+        .apply-btn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+        
+    .faq-section {
+        margin: 48px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+    }
+
+    .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-card-hover);
+    }
+
+    .faq-icon {
+        font-size: 1.25rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+    }
+
+    .faq-answer-content {
+        padding: 0 24px 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+
+    </style>
+
+    <style>
+    /* Article Page Styles */
+    .article-header {
+        margin-bottom: 32px;
+    }
+
+    .article-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 16px;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+    }
+
+    .article-category {
+        display: inline-block;
+        padding: 4px 12px;
+        background: rgba(232, 168, 124, 0.15);
+        color: var(--gold);
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+    }
+
+    .article-category:hover {
+        background: rgba(232, 168, 124, 0.25);
+        color: var(--gold-light);
+    }
+
+    .article-date, .article-read-time {
+        color: var(--text-muted);
+    }
+
+    .article-author-byline {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+    }
+
+    .article-author-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--teal-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--gold);
+    }
+
+    .article-author-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .article-author-name {
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    .article-author-title {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+
+    /* Article Content */
+    .article-content {
+        max-width: 720px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+    }
+
+    .article-content h2 {
+        font-size: 1.5rem;
+        color: var(--text-primary);
+        margin: 48px 0 20px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+    }
+
+    .article-content h2:first-child {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .article-content h3 {
+        font-size: 1.25rem;
+        color: var(--text-primary);
+        margin: 32px 0 16px;
+    }
+
+    .article-content p {
+        margin-bottom: 20px;
+    }
+
+    .article-content ul, .article-content ol {
+        margin-bottom: 20px;
+        padding-left: 24px;
+    }
+
+    .article-content li {
+        margin-bottom: 8px;
+    }
+
+    .article-content a {
+        color: var(--gold);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+
+    .article-content a:hover {
+        color: var(--gold-light);
+    }
+
+    .article-content blockquote {
+        border-left: 3px solid var(--gold);
+        padding-left: 20px;
+        margin: 24px 0;
+        font-style: italic;
+        color: var(--text-secondary);
+    }
+
+    .article-content code {
+        background: var(--bg-card);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.9em;
+    }
+
+    .article-content strong {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    /* Methodology Section */
+    .methodology-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 32px 0;
+    }
+
+    .methodology-box h3 {
+        font-size: 1rem;
+        color: var(--gold);
+        margin-bottom: 12px;
+        margin-top: 0;
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .methodology-box p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 0;
+    }
+
+    /* Sources Section */
+    .sources-section {
+        margin: 48px 0 32px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+    }
+
+    .sources-section h3 {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .sources-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sources-list li {
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+    .sources-list a {
+        color: var(--gold);
+    }
+
+    /* Author Bio Box */
+    .author-bio-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 48px 0;
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .author-bio-avatar {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: var(--teal-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--gold);
+        flex-shrink: 0;
+    }
+
+    .author-bio-content h3 {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        margin-bottom: 4px;
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .author-bio-content .author-title {
+        font-size: 0.85rem;
+        color: var(--gold);
+        margin-bottom: 12px;
+    }
+
+    .author-bio-content p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .author-bio-content .author-link {
+        font-size: 0.85rem;
+        color: var(--gold);
+        text-decoration: none;
+    }
+
+    .author-bio-content .author-link:hover {
+        color: var(--gold-light);
+        text-decoration: underline;
+    }
+
+    /* Tags Section */
+    .article-tags {
+        margin: 32px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .article-tag {
+        display: inline-block;
+        padding: 6px 12px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .article-tag:hover {
+        border-color: var(--teal-light);
+        color: var(--text-primary);
+        background: var(--bg-card-hover);
+    }
+
+    /* Related Articles */
+    .related-articles {
+        margin-top: 48px;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+    }
+
+    .related-articles h2 {
+        font-size: 1.25rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .related-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        text-decoration: none;
+        transition: all 0.25s;
+    }
+
+    .related-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+    }
+
+    .related-card-category {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gold);
+        margin-bottom: 8px;
+    }
+
+    .related-card h3 {
+        font-size: 1rem;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+    .related-card p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+    }
+
+    /* Tag/Category Page Styles */
+    .articles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 24px;
+    }
+
+    .article-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-decoration: none;
+        transition: all 0.25s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .article-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .article-card-category {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gold);
+        margin-bottom: 12px;
+    }
+
+    .article-card h3 {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+        line-height: 1.4;
+    }
+
+    .article-card p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        flex-grow: 1;
+    }
+
+    .article-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border-light);
+        font-size: 0.8rem;
+        color: var(--text-muted);
+    }
+
+    /* Tag Cloud */
+    .tag-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 24px 0;
+    }
+
+    .tag-cloud a {
+        padding: 8px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .tag-cloud a:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        background: rgba(232, 168, 124, 0.1);
+    }
+
+    .tag-cloud .tag-count {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-left: 4px;
+    }
+
+    @media (max-width: 768px) {
+        .author-bio-box {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .author-bio-avatar {
+            margin: 0 auto;
+        }
+
+        .article-content {
+            font-size: 1rem;
+        }
+    }
+
+    .faq-section {
+        margin: 48px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+    }
+
+    .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-card-hover);
+    }
+
+    .faq-icon {
+        font-size: 1.25rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+    }
+
+    .faq-answer-content {
+        padding: 0 24px 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+</style>
+</head>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Data Scientist to AI Engineer: Transition Guide",
+  "description": "Data scientists have a head start in AI engineering. What skills to add, what transfers directly, and how to make the switch.",
+  "author": {
+    "@type": "Person",
+    "name": "Rome Thorndike",
+    "url": "https://www.linkedin.com/in/romethorndike/",
+    "jobTitle": "Founder",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "AI Market Pulse",
+      "url": "https://theaimarketpulse.com"
+    },
+    "knowsAbout": [
+      "AI Job Market",
+      "Machine Learning Careers",
+      "AI Engineering",
+      "Salary Benchmarking",
+      "Revenue Operations",
+      "B2B Data Operations"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Market Pulse",
+    "url": "https://theaimarketpulse.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://theaimarketpulse.com/assets/logo.jpeg"
+    }
+  },
+  "datePublished": "2026-01-22",
+  "dateModified": "2026-01-22",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://theaimarketpulse.com/insights/data-scientist-to-ai-engineer/"
+  },
+  "keywords": [
+    "data-scientist",
+    "ai-engineer",
+    "career-change",
+    "skills"
+  ]
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://theaimarketpulse.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insights",
+      "item": "https://theaimarketpulse.com/insights/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Data Scientist to AI Engineer: Transition Guide",
+      "item": "https://theaimarketpulse.com/insights/data-scientist-to-ai-engineer/"
+    }
+  ]
+}</script>
+    
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="/assets/logo.jpeg" alt="AI Market Pulse">
+                AI Market Pulse
+            </a>
+            <nav class="nav">
+                <a href="/jobs/">AI Jobs</a>
+                <a href="/salaries/">Salaries</a>
+                <a href="/tools/">Tools</a>
+                <a href="/insights/" class="active">Market Intel</a>
+                <a href="/consulting/">Consulting</a>
+                <a href="/about/">About</a>
+            </nav>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <a href="/join/" class="btn-secondary">Join Community</a>
+                <a href="https://ainewsdigest.substack.com" target="_blank" rel="noopener" class="nav-cta">Newsletter</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Open menu">☰</button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay"></div>
+    <nav class="mobile-nav">
+        <div class="mobile-nav-header">
+            <span class="logo-text">AI Market Pulse</span>
+            <button class="mobile-nav-close" aria-label="Close menu">✕</button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="/jobs/">AI Jobs</a></li>
+            <li><a href="/salaries/">Salaries</a></li>
+            <li><a href="/tools/">Tools</a></li>
+            <li><a href="/insights/">Market Intel</a></li>
+            <li><a href="/consulting/">Consulting</a></li>
+            <li><a href="/about/">About</a></li>
+        </ul>
+        <a href="/join/" class="mobile-nav-subscribe">Join Community</a>
+    </nav>
+
+    <script>
+        (function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const closeBtn = document.querySelector('.mobile-nav-close');
+            const overlay = document.querySelector('.mobile-nav-overlay');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const mobileLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-nav-subscribe');
+            function openMenu() {
+                mobileNav.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            if (menuBtn) menuBtn.addEventListener('click', openMenu);
+            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+            if (overlay) overlay.addEventListener('click', closeMenu);
+            mobileLinks.forEach(link => { link.addEventListener('click', closeMenu); });
+        })();
+    </script>
+
+
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumb"><a href="/">Home</a> / <a href="/insights/">Insights</a> / Data Scientist to AI Engineer: Transition Guide</div>
+            <div class="article-header">
+                <div class="article-meta">
+                    <a href="/insights/category/career-guides/" class="article-category">Career Guides</a>
+                    <span class="article-date">2026-01-22</span>
+                    <span class="article-read-time">10 min read</span>
+                </div>
+                <h1>Data Scientist to AI Engineer: Transition Guide</h1>
+                <div class="article-author-byline">
+                    <div class="article-author-avatar">RT</div>
+                    <div class="article-author-info">
+                        <span class="article-author-name">Rome Thorndike</span>
+                        <span class="article-author-title">Founder, AI Market Pulse</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <article class="article-content">
+                <p>Data scientists are uniquely positioned to transition into AI engineering. You already understand models, data, and evaluation—you're closer than you think. Here's how to make the move.</p>
+<h2>Why Data Scientists Have an Advantage</h2>
+<p>Your existing skills transfer directly:</p>
+<strong>Skills you have:</strong>
+<ul><li>Statistical thinking and ML fundamentals</li><li>Python proficiency</li><li>Data manipulation (pandas, SQL)</li><li>Model evaluation and metrics</li><li>Experiment design</li><li>Business problem translation</li></ul>
+<strong>Gap to fill:</strong>
+<ul><li>LLM-specific knowledge (prompting, RAG, agents)</li><li>Production engineering (APIs, deployment)</li><li>Software engineering practices</li><li>Real-time systems</li></ul>
+The gap is smaller than you think—mostly it's applying your existing skills to new tools.
+<h2>The Data Scientist to AI Engineer Comparison</h2>
+<p>| Aspect | Data Scientist | AI Engineer |
+|--------|---------------|-------------|
+| Primary tool | Notebooks, scripts | Production code |
+| Model usage | Train custom models | Use/integrate existing models |
+| Data work | Analysis, feature engineering | RAG, data pipelines |
+| Output | Reports, models | Deployed applications |
+| Stakeholders | Business, analytics | Engineering, product |
+| Success metric | Model accuracy | Application performance |</p>
+<h2>Skills to Build</h2>
+<h3>Priority 1: LLM Fundamentals (Weeks 1-4)</h3>
+<strong>Prompting</strong>
+<ul><li>System prompts and instruction design</li><li>Few-shot examples</li><li>Chain-of-thought reasoning</li><li>Output formatting</li></ul>
+<strong>APIs and SDKs</strong>
+<ul><li>OpenAI, Anthropic APIs</li><li>Token management</li><li>Error handling</li><li>Cost optimization</li></ul>
+<strong>Evaluation</strong>
+Apply your DS evaluation skills to LLMs:
+<ul><li>Building eval datasets</li><li>Quality metrics for generative outputs</li><li>A/B testing LLM variants</li><li>Regression detection</li></ul>
+<h3>Priority 2: RAG Systems (Weeks 5-8)</h3>
+<strong>Vector Databases</strong>
+<ul><li>Embedding models</li><li>Similarity search</li><li>Index management</li><li>Query optimization</li></ul>
+<strong>Retrieval Patterns</strong>
+<ul><li>Chunking strategies</li><li>Hybrid search</li><li>Re-ranking</li><li>Metadata filtering</li></ul>
+This is where your data skills shine—RAG is a data pipeline problem.
+<h3>Priority 3: Software Engineering (Weeks 9-12)</h3>
+<strong>Application Development</strong>
+<ul><li>FastAPI or Flask</li><li>Async programming</li><li>Error handling</li><li>Logging and monitoring</li></ul>
+<strong>Production Practices</strong>
+<ul><li>Git workflows</li><li>Code review</li><li>Testing</li><li>CI/CD basics</li></ul>
+<strong>Deployment</strong>
+<ul><li>Docker basics</li><li>Cloud deployment</li><li>API design</li><li>Scaling considerations</li></ul>
+<h3>Priority 4: Agent Systems (Weeks 13-16)</h3>
+<strong>Agent Frameworks</strong>
+<ul><li>LangGraph or LangChain</li><li>Tool integration</li><li>State management</li><li>Multi-step workflows</li></ul>
+<strong>Production Agents</strong>
+<ul><li>Reliability patterns</li><li>Observability</li><li>Cost management</li><li>Human-in-the-loop</li></ul>
+<h2>Your Transition Plan</h2>
+<h3>Month 1: Foundation Switch</h3>
+<strong>Week 1-2:</strong>
+<ul><li>Set up LLM development environment</li><li>Make API calls, experiment with prompting</li><li>Read LangChain documentation</li></ul>
+<strong>Week 3-4:</strong>
+<ul><li>Build your first LLM application</li><li>Apply evaluation skills to LLM outputs</li><li>Create an eval dataset</li></ul>
+<strong>Portfolio piece:</strong> LLM application with proper evaluation framework
+<h3>Month 2: RAG Deep Dive</h3>
+<strong>Week 1-2:</strong>
+<ul><li>Learn embedding models</li><li>Set up vector database (Pinecone or Chroma)</li><li>Build basic RAG pipeline</li></ul>
+<strong>Week 3-4:</strong>
+<ul><li>Optimize retrieval quality</li><li>Experiment with chunking strategies</li><li>Add hybrid search</li></ul>
+<strong>Portfolio piece:</strong> RAG system with documented retrieval optimization
+<h3>Month 3: Production Skills</h3>
+<strong>Week 1-2:</strong>
+<ul><li>Build an API with FastAPI</li><li>Add error handling and logging</li><li>Write tests</li></ul>
+<strong>Week 3-4:</strong>
+<ul><li>Deploy to cloud</li><li>Add monitoring</li><li>Document the system</li></ul>
+<strong>Portfolio piece:</strong> Deployed AI application with production practices
+<h3>Month 4: Advanced and Job Search</h3>
+<strong>Week 1-2:</strong>
+<ul><li>Learn agent basics</li><li>Build a multi-step workflow</li><li>Add tool use</li></ul>
+<strong>Week 3-4:</strong>
+<ul><li>Polish portfolio</li><li>Update resume and LinkedIn</li><li>Start applying</li></ul>
+<h2>What Employers Value From DS Background</h2>
+<strong>Highlight these in interviews:</strong>
+<strong>Evaluation expertise:</strong>
+<blockquote>"I bring rigorous evaluation methodology to AI systems—I've built eval frameworks that caught issues before production."</blockquote>
+<strong>Statistical intuition:</strong>
+<blockquote>"I understand why AI systems behave the way they do—sampling, distributions, uncertainty."</blockquote>
+<strong>Business translation:</strong>
+<blockquote>"I can translate business problems into AI solutions and explain AI capabilities to stakeholders."</blockquote>
+<strong>Data skills:</strong>
+<blockquote>"RAG systems are data pipelines—I know how to optimize data quality, chunking, and retrieval."</blockquote>
+<h2>Interview Differences</h2>
+<h3>DS Interview vs AI Engineer Interview</h3>
+<strong>Data Science Interview:</strong>
+<ul><li>Statistics and probability questions</li><li>ML algorithm deep dives</li><li>Feature engineering discussions</li><li>A/B test design</li><li>SQL queries</li></ul>
+<strong>AI Engineering Interview:</strong>
+<ul><li>RAG system design</li><li>LLM capabilities and limitations</li><li>Prompt engineering problems</li><li>Production system architecture</li><li>Agent workflow design</li></ul>
+<strong>Overlap (your advantage):</strong>
+<ul><li>Evaluation and metrics</li><li>Python coding</li><li>Data handling</li><li>Problem decomposition</li></ul>
+<h3>Prepare for AI-Specific Questions</h3>
+<blockquote>"Design a RAG system for customer support"</blockquote>
+<blockquote>"How would you evaluate this chatbot's quality?"</blockquote>
+<blockquote>"Walk through how you'd optimize retrieval accuracy"</blockquote>
+<blockquote>"When would you use fine-tuning vs prompting vs RAG?"</blockquote>
+<h2>Common Mistakes to Avoid</h2>
+<h3>Over-Indexing on ML Theory</h3>
+<p>AI engineering is less about model training and more about application building. You don't need deep neural network theory—you need to know how to use LLMs effectively.</p>
+<h3>Undervaluing Software Engineering</h3>
+<p>Production AI requires solid engineering. Don't skip:
+<ul><li>Testing</li><li>Error handling</li><li>Documentation</li><li>Deployment</li></ul>
+<h3>Staying in Notebook Mode</h3></p>
+<p>Move from exploratory notebooks to production code. Build applications, not analyses.</p>
+<h3>Ignoring Prompting</h3>
+<p>Many DS assume prompting is "soft" skill. It's not—it's how you program LLMs. Take it seriously.</p>
+<h2>Salary Expectations</h2>
+<p>The transition typically comes with a bump:</p>
+<p>| Level | Data Scientist | AI Engineer |
+|-------|---------------|-------------|
+| Mid | $140K - $180K | $165K - $210K |
+| Senior | $170K - $220K | $200K - $270K |
+| Staff | $200K - $270K | $250K - $340K |</p>
+<p>The premium reflects both skill scarcity and the application focus (directly tied to product value).</p>
+<h2>Companies That Value DS → AI Engineer</h2>
+<strong>Good targets:</strong>
+<ul><li>Companies with existing DS teams adding AI engineering</li><li>Startups building AI products (value hybrid skills)</li><li>Consulting firms (AI practices)</li><li>Enterprise AI teams</li></ul>
+<strong>Your selling point:</strong>
+"I bring rigorous, data-driven thinking to AI engineering—not just building features, but measuring them properly."
+<h2>The 90-Day Challenge</h2>
+<strong>Commit to this:</strong>
+<strong>Days 1-30:</strong> Build an LLM application with proper evaluation
+<strong>Days 31-60:</strong> Build a RAG system and deploy it
+<strong>Days 61-90:</strong> Build an agent system and start applying to jobs
+<p>After 90 days, you'll have:
+<ul><li>3 portfolio projects</li><li>Production experience</li><li>LLM, RAG, and agent skills</li><li>Interview-ready knowledge</li></ul>
+<h2>The Bottom Line</h2></p>
+<p>Data scientists have 70% of what they need for AI engineering already. The gap is LLM-specific tools, production practices, and application mindset.</p>
+<p>Your advantages are significant: evaluation discipline, statistical intuition, data skills, and business translation. These differentiate you from engineers who learned AI without data background.</p>
+<p>Spend 3-4 months building the missing skills, create portfolio projects that demonstrate the combination, and position yourself as a rigorous, data-driven AI engineer. The market values this profile highly.</p>
+
+                
+
+                <div class="article-tags"><a href="/insights/tags/data-scientist/" class="article-tag">Data Scientist</a> <a href="/insights/tags/ai-engineer/" class="article-tag">Ai Engineer</a> <a href="/insights/tags/career-change/" class="article-tag">Career Change</a> <a href="/insights/tags/skills/" class="article-tag">Skills</a></div>
+
+                
+        <div class="sources-section">
+            <h3>Sources</h3>
+            <ul class="sources-list">
+                <li><a href="/insights/" target="_blank" rel="noopener">AI Market Pulse Job Data</a></li>
+            </ul>
+        </div>
+        
+            </article>
+
+            
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many AI engineering jobs are available in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Based on our analysis of 1,969 AI job postings, demand for AI engineers continues to grow. The most in-demand skills include Python, RAG systems, and LLM frameworks like LangChain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to transition into AI engineering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most career transitions into AI engineering take 6-12 months of focused learning and project building. The timeline depends on your existing technical background and the specific AI role you're targeting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this data collected?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We collect data from major job boards and company career pages, tracking AI, ML, and prompt engineering roles. Our database is updated weekly and includes only verified job postings with disclosed requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What data science skills transfer to AI engineering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Strong transferable skills: Python programming, model evaluation methodology, data processing and analysis, statistics and ML fundamentals, experimentation rigor, and Jupyter/notebook workflows. These form a solid foundation. The gap is primarily in software engineering (production code, APIs, deployment) and LLM-specific knowledge (RAG, prompt engineering, agent patterns)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does the data scientist to AI engineer transition take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typically 3-6 months for focused learning. The main additions: software engineering practices (clean code, testing, version control), API development (FastAPI, deployment), LLM-specific skills (RAG, prompt engineering, evaluation), and production systems (monitoring, scaling). Your ML foundation accelerates the transition compared to engineers without data science experience."
+      }
+    }
+  ]
+}</script>
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>How many AI engineering jobs are available in 2026?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">Based on our analysis of 1,969 AI job postings, demand for AI engineers continues to grow. The most in-demand skills include Python, RAG systems, and LLM frameworks like LangChain.</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>How long does it take to transition into AI engineering?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">Most career transitions into AI engineering take 6-12 months of focused learning and project building. The timeline depends on your existing technical background and the specific AI role you're targeting.</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>How is this data collected?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">We collect data from major job boards and company career pages, tracking AI, ML, and prompt engineering roles. Our database is updated weekly and includes only verified job postings with disclosed requirements.</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>What data science skills transfer to AI engineering?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">Strong transferable skills: Python programming, model evaluation methodology, data processing and analysis, statistics and ML fundamentals, experimentation rigor, and Jupyter/notebook workflows. These form a solid foundation. The gap is primarily in software engineering (production code, APIs, deployment) and LLM-specific knowledge (RAG, prompt engineering, agent patterns).</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>How long does the data scientist to AI engineer transition take?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">Typically 3-6 months for focused learning. The main additions: software engineering practices (clean code, testing, version control), API development (FastAPI, deployment), LLM-specific skills (RAG, prompt engineering, evaluation), and production systems (monitoring, scaling). Your ML foundation accelerates the transition compared to engineers without data science experience.</div>
+            </div>
+        </div>
+        
+    </section>
+    
+
+            <div class="author-bio-box">
+                <div class="author-bio-avatar">RT</div>
+                <div class="author-bio-content">
+                    <h3>About the Author</h3>
+                    <div class="author-title">Founder, AI Market Pulse</div>
+                    <p>Founder of AI Market Pulse. Former Head of Sales at Datajoy (acquired by Databricks). Building AI-powered market intelligence for the AI job market.</p>
+                    <a href="https://www.linkedin.com/in/romethorndike/" target="_blank" rel="noopener" class="author-link">
+                        Connect on LinkedIn →
+                    </a>
+                </div>
+            </div>
+
+            
+        <div class="related-articles">
+            <h2>Related Insights</h2>
+            <div class="related-grid">
+                
+            <a href="/insights/breaking-into-ai-engineering/" class="related-card">
+                <div class="related-card-category">Career Guides</div>
+                <h3>Breaking Into AI Engineering From Backend Development</h3>
+                <p>A practical guide for backend developers transitioning to AI engineering roles. Learn the skills gap...</p>
+            </a>
+            
+            <a href="/insights/ai-engineer-salary-negotiation/" class="related-card">
+                <div class="related-card-category">Salary Intel</div>
+                <h3>AI Engineer Salary Negotiation: Data-Backed Tactics</h3>
+                <p>Maximize your AI engineering offer with proven negotiation strategies. Market data on salary ranges,...</p>
+            </a>
+            
+            <a href="/insights/remote-ai-jobs-pay-analysis/" class="related-card">
+                <div class="related-card-category">Salary Intel</div>
+                <h3>Remote AI Jobs: Pay Analysis and Location Strategies</h3>
+                <p>How remote AI salaries compare to in-office roles. Geographic pay bands, location-agnostic companies...</p>
+            </a>
+            
+            <a href="/insights/rag-skills-employers-want/" class="related-card">
+                <div class="related-card-category">Skills Deep Dives</div>
+                <h3>RAG Skills Employers Want: The Complete Breakdown</h3>
+                <p>74% of LLM roles require RAG experience. Exactly what vector databases, chunking strategies, and ret...</p>
+            </a>
+            
+            </div>
+        </div>
+        
+
+            
+    <div class="cta-box">
+        <h3>Get Weekly AI Career Insights</h3>
+        <p>Join our newsletter for AI job market trends, salary data, and career guidance.</p>
+        <a href="https://ainewsdigest.substack.com" class="btn btn-gold">Subscribe Free →</a>
+    </div>
+
+        </div>
+    </main>
+
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <span>&copy; 2026 <a href="/">AI Market Pulse</a></span>
+            <div class="footer-links">
+                <a href="/jobs/">AI Jobs</a>
+                <a href="/salaries/">Salaries</a>
+                <a href="/tools/">Tools</a>
+                <a href="/insights/">Market Intel</a>
+                <a href="/consulting/">Consulting</a>
+                <a href="/about/">About</a>
+                <a href="/join/">Community</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
