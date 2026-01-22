@@ -649,49 +649,102 @@ If you're new to deep learning, PyTorch's intuitive API and excellent debugging 
 
 # Add remaining tools with shorter content (to be expanded)
 TOOL_REVIEWS.update({
-    'google-ai': {
-        'name': 'Google AI',
+    'google-gemini': {
+        'name': 'Google Gemini',
         'category': 'LLM Providers',
-        'tagline': 'Gemini models and Vertex AI platform',
-        'website': 'https://ai.google',
-        'logo_placeholder': '/assets/logos/google_ai_logo.png',
+        'tagline': 'Google\'s frontier AI model family with industry-leading context windows',
+        'website': 'https://deepmind.google/technologies/gemini/',
+        'logo_placeholder': '/assets/logos/google_gemini_logo.png',
         'rating': '4.4',
-        'rating_count': '200+',
+        'rating_count': '250+',
         'stats': [
             {'value': '4.4/5', 'label': 'G2 Rating'},
-            {'value': '1M+', 'label': 'Gemini Context'},
-            {'value': 'Gemini', 'label': 'Latest Model'},
-            {'value': 'Free', 'label': 'AI Studio'},
+            {'value': '2M', 'label': 'Token Context'},
+            {'value': 'Gemini 2.0', 'label': 'Latest Model'},
+            {'value': 'Free', 'label': 'AI Studio Tier'},
         ],
-        'verdict': '''Google\'s Gemini models are competitive with GPT-4 and Claude, with the unique advantage of massive context windows (up to 2M tokens in Gemini 1.5). For teams in the Google Cloud ecosystem, Vertex AI provides a comprehensive ML platform. Worth evaluating as a third LLM provider.''',
-        'overview': '''Google AI offers the Gemini family of models along with Vertex AI for enterprise ML deployment. Gemini 1.5 Pro\'s 1M+ token context window enables use cases impossible with other providers. Vertex AI provides training, deployment, and MLOps tools integrated with Google Cloud.''',
-        'pricing': '''Gemini API pricing (per million tokens):
-- Gemini 1.5 Pro: $3.50 input / $10.50 output
-- Gemini 1.5 Flash: $0.35 input / $1.05 output
+        'verdict': '''Google Gemini has evolved from "also-ran" to genuine contender. Gemini 2.0 Flash matches or exceeds GPT-4o on many benchmarks at a fraction of the cost, and no one else offers 2M token context windows. For long-document analysis, video understanding, or cost-sensitive applications, Gemini deserves serious evaluation alongside OpenAI and Anthropic.''',
+        'overview': '''Google Gemini is Google DeepMind's flagship AI model family, launched in December 2023 and rapidly iterated since. The Gemini lineup includes Gemini 2.0 Flash (fast and cheap), Gemini 1.5 Pro (balanced), and Gemini Ultra (most capable). The standout feature is context length: Gemini 1.5 Pro supports up to 2 million tokens—enough to process entire codebases, books, or hours of video in a single prompt.
 
-Google AI Studio is free for experimentation. Vertex AI pricing varies by service.''',
-        'pricing_note': '''Gemini Flash is very cost-effective for high-volume applications.''',
+Google offers Gemini through multiple channels: the consumer Gemini app (formerly Bard), Google AI Studio for developers, and Vertex AI for enterprise deployment. The models are natively multimodal, processing text, images, audio, and video without separate vision or audio models.
+
+For AI engineers, Gemini expertise is increasingly valuable as enterprises diversify beyond OpenAI. Job postings mentioning Gemini have grown 3x year-over-year.''',
+        'pricing': '''Gemini API pricing through Google AI Studio (per million tokens):
+
+| Model | Input | Output | Context |
+|-------|-------|--------|---------|
+| Gemini 2.0 Flash | $0.10 | $0.40 | 1M |
+| Gemini 1.5 Pro | $1.25 | $5.00 | 2M |
+| Gemini 1.5 Flash | $0.075 | $0.30 | 1M |
+
+**Free tier**: 15 requests/minute, 1M tokens/day on Gemini Flash in AI Studio—generous for prototyping.
+
+**Vertex AI pricing** is slightly higher but includes enterprise features (SLAs, VPC, compliance). Enterprise agreements available for high-volume users.
+
+**Gemini Advanced**: $20/month consumer subscription includes Gemini Ultra, 2TB Google One storage, and Workspace integration.''',
+        'pricing_note': '''Gemini Flash is 10-50x cheaper than GPT-4o for comparable quality on many tasks. The free tier in AI Studio is the most generous in the industry—use it for prototyping before committing to any provider.''',
         'features': [
-            {'icon': '📚', 'title': 'Massive Context', 'desc': 'Up to 2M token context window in Gemini 1.5.'},
-            {'icon': '🔗', 'title': 'Vertex AI', 'desc': 'Full ML platform with training, deployment, and monitoring.'},
-            {'icon': '👁️', 'title': 'Multimodal', 'desc': 'Native support for text, images, audio, and video.'},
-            {'icon': '🌐', 'title': 'Google Integration', 'desc': 'Works with Search, Docs, Gmail, and Workspace.'},
-            {'icon': '⚡', 'title': 'Gemini Flash', 'desc': 'Fast, cost-effective model for high-volume use.'},
-            {'icon': '🔧', 'title': 'AI Studio', 'desc': 'Free playground for experimentation and prototyping.'},
+            {'icon': '📚', 'title': '2M Token Context', 'desc': 'Process entire codebases, books, or hours of video in a single prompt. No chunking required.'},
+            {'icon': '👁️', 'title': 'Native Multimodal', 'desc': 'Single model handles text, images, audio, and video—no separate vision APIs needed.'},
+            {'icon': '⚡', 'title': 'Gemini Flash', 'desc': 'Best price-to-performance ratio in the market. Sub-second responses at minimal cost.'},
+            {'icon': '🔧', 'title': 'Google AI Studio', 'desc': 'Free development environment with prompt testing, API keys, and model comparison tools.'},
+            {'icon': '🏢', 'title': 'Vertex AI Integration', 'desc': 'Enterprise deployment with grounding, RAG, fine-tuning, and Google Cloud security.'},
+            {'icon': '🌐', 'title': 'Workspace Integration', 'desc': 'Gemini built into Gmail, Docs, Sheets, and Meet for enterprise productivity.'},
         ],
-        'limitations': '''The Gemini API is newer and less battle-tested than OpenAI or Anthropic. Vertex AI has a steeper learning curve than simpler alternatives. Google\'s enterprise sales process can be slow.''',
-        'pros': ['Massive context windows', 'Multimodal capabilities', 'Strong GCP integration', 'Cost-effective Flash model'],
-        'cons': ['API less mature', 'Steeper learning curve', 'Limited third-party integrations'],
-        'buy_if': ['You need very long context windows', 'You\'re already on Google Cloud', 'You want multimodal capabilities'],
-        'skip_if': ['You want the most battle-tested APIs', 'You\'re not in the GCP ecosystem'],
+        'limitations': '''**Ecosystem Maturity**
+The Gemini API ecosystem is younger than OpenAI\'s. Fewer third-party libraries, templates, and community resources. LangChain and LlamaIndex support exists but OpenAI examples are more abundant.
+
+**Function Calling Reliability**
+Gemini\'s function calling works but is less refined than OpenAI\'s. Complex tool-use patterns may require more prompt engineering. Structured output can be inconsistent.
+
+**Rate Limits and Availability**
+Free tier rate limits are restrictive for production use. Paid tier limits are reasonable but lower than OpenAI Enterprise. Some regions have limited availability.
+
+**Model Versioning**
+Google iterates quickly, which means model behavior can change. Less predictable versioning than OpenAI\'s dated snapshots. Test thoroughly before production updates.''',
+        'pros': [
+            'Industry-leading 2M token context window',
+            'Best price-to-performance with Gemini Flash',
+            'Native multimodal (no separate vision model)',
+            'Generous free tier for prototyping',
+            'Strong Workspace and GCP integration',
+            'Rapid model improvements (Gemini 2.0 is impressive)',
+        ],
+        'cons': [
+            'Smaller developer ecosystem than OpenAI',
+            'Function calling less mature',
+            'Model versioning less predictable',
+            'Some features GCP-only',
+        ],
+        'buy_if': [
+            'You need to process very long documents (legal, research, code)',
+            'Cost efficiency is a priority (Flash is incredibly cheap)',
+            'You\'re already in the Google Cloud ecosystem',
+            'You need native video or audio understanding',
+            'You want multimodal without managing separate models',
+        ],
+        'skip_if': [
+            'You need the largest third-party ecosystem',
+            'Complex function calling is core to your use case',
+            'You want maximum API stability and predictability',
+            'Your team has deep OpenAI expertise you want to leverage',
+        ],
         'alternatives': [
-            {'name': 'OpenAI GPT-4', 'strength': 'Largest ecosystem', 'pricing': 'Premium'},
-            {'name': 'Anthropic Claude', 'strength': '200K context, safety focus', 'pricing': 'Competitive'},
+            {'name': 'OpenAI GPT-4o', 'strength': 'Largest ecosystem, best function calling', 'pricing': '$2.50-10/M tokens'},
+            {'name': 'Anthropic Claude', 'strength': '200K context, strong reasoning', 'pricing': '$3-15/M tokens'},
+            {'name': 'Mistral Large', 'strength': 'EU-hosted, open weights available', 'pricing': '$2-6/M tokens'},
         ],
-        'questions': ['Do we need the massive context windows?', 'Are we already using Google Cloud?', 'Have we evaluated Gemini vs GPT-4 on our use cases?'],
-        'bottom_line': '''Gemini is a legitimate contender, especially for long-context and multimodal applications. Consider it as a second or third LLM provider.''',
-        'skills': ['Gemini', 'Vertex AI', 'Google Cloud AI', 'Multimodal AI'],
-        'use_cases': ['Long document analysis', 'Multimodal AI', 'Enterprise search', 'GCP workloads'],
+        'questions': [
+            'What\'s our average document/context length? (If >100K tokens, Gemini has a significant advantage)',
+            'How price-sensitive is our application? (Gemini Flash could cut costs 80%+)',
+            'Do we need multimodal capabilities? (Gemini\'s native approach is cleaner)',
+            'Are we already using Google Cloud? (Vertex AI integration is seamless)',
+            'How complex is our function calling? (OpenAI is still ahead here)',
+            'Can we tolerate some API instability during rapid iteration?',
+        ],
+        'bottom_line': '''**Gemini has earned a seat at the table.** The 2M token context window is genuinely differentiated—no one else comes close. Gemini Flash offers the best price-to-performance in the industry. For cost-sensitive applications or long-context use cases, Gemini should be your first evaluation, not your fallback. For complex agentic applications with heavy function calling, OpenAI still has the edge, but that gap is closing fast.''',
+        'skills': ['Google Gemini', 'Gemini API', 'Vertex AI', 'Google AI Studio', 'Multimodal AI', 'Long Context LLMs'],
+        'use_cases': ['Long document analysis', 'Video understanding', 'Codebase Q&A', 'Cost-optimized chatbots', 'Multimodal applications', 'Enterprise search'],
     },
 
     'llamaindex': {
