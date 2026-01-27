@@ -28,6 +28,18 @@
 
   <link rel="icon" type="image/jpeg" href="../assets/logo.jpeg">
   <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://theaimarketpulse.com/"},
+      {"@type": "ListItem", "position": 2, "name": "About", "item": "https://theaimarketpulse.com/about/"}
+    ]
+  }
+  </script>
   
   <style>
     .about-hero {
@@ -234,6 +246,13 @@
   </header>
 
   <main id="main">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" style="padding: 1rem 0; max-width: 1200px; margin: 0 auto;">
+      <div class="container">
+        <a href="/">Home</a> <span class="sep">/</span> <span>About</span>
+      </div>
+    </nav>
+
     <!-- Hero -->
     <section class="about-hero">
       <div class="container">

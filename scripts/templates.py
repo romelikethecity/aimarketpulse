@@ -196,42 +196,22 @@ CSS_VARIABLES = '''
 
         --border: rgba(255, 255, 255, 0.1);
         --border-light: rgba(255, 255, 255, 0.05);
-
-        /* Legacy compatibility mappings */
-        --navy: #0f2d35;
-        --navy-light: #132f38;
-        --navy-medium: #1a4a56;
-        --navy-hover: #2a6a7a;
-        --gold-muted: #d4956a;
-        --gold-dark: #c4855c;
-        --green: #4ade80;
-        --green-dark: #22c55e;
-        --red: #f87171;
-        --gray-50: #0f2d35;
-        --gray-100: #132f38;
-        --gray-200: rgba(255, 255, 255, 0.1);
-        --gray-300: #6a8a94;
-        --gray-500: #6a8a94;
-        --gray-600: #a8c5cc;
-        --gray-700: #a8c5cc;
-        --gray-800: #ffffff;
-        --white: #ffffff;
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
+    /* Critical: box-sizing and smooth text */
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         background: var(--bg-dark);
         color: var(--text-primary);
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Space Grotesk', sans-serif;
+        font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
         font-weight: 600;
         line-height: 1.2;
         letter-spacing: -0.02em;
@@ -284,6 +264,9 @@ CSS_NAV = '''
         width: 36px;
         height: 36px;
         border-radius: 8px;
+        /* Prevent CLS by reserving space */
+        aspect-ratio: 1;
+        object-fit: cover;
     }
 
     .logo:hover {
@@ -480,7 +463,7 @@ CSS_LAYOUT = '''
 '''
 
 CSS_CARDS = '''
-    /* Cards */
+    /* Cards - optimized for rendering performance */
     .tool-card, .job-card, .company-card, .salary-card {
         background: var(--bg-card);
         border: 1px solid var(--border);
@@ -488,7 +471,10 @@ CSS_CARDS = '''
         padding: 24px;
         text-decoration: none;
         color: inherit;
-        transition: all 0.25s;
+        transition: border-color 0.25s, background-color 0.25s, transform 0.25s, box-shadow 0.25s;
+        /* Reduce paint operations */
+        contain: layout style;
+        will-change: transform;
     }
 
     .tool-card:hover, .job-card:hover, .company-card:hover, .salary-card:hover {
@@ -852,7 +838,7 @@ def get_base_styles():
 # =============================================================================
 
 def get_html_head(title, description, page_path, include_styles=True, extra_head='', robots='index, follow'):
-    """Generate SEO-compliant head section.
+    """Generate SEO-compliant head section with Core Web Vitals optimizations.
 
     Args:
         title: Page title
@@ -861,27 +847,31 @@ def get_html_head(title, description, page_path, include_styles=True, extra_head
         include_styles: Whether to include base CSS styles
         extra_head: Additional content to include in <head>
         robots: Robots meta tag content (default: 'index, follow')
+
+    Core Web Vitals optimizations:
+        - Preconnect to font origins before font request
+        - font-display: swap to prevent FOIT (invisible text)
+        - Deferred analytics to not block rendering
+        - Inline critical CSS to avoid render-blocking
     """
     styles = get_base_styles() if include_styles else ''
 
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E2SX5J91V"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){{dataLayer.push(arguments);}}
-        gtag('js', new Date());
-        gtag('config', 'G-1E2SX5J91V');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} | {SITE_NAME}</title>
     <meta name="description" content="{description}">
     <link rel="canonical" href="{BASE_URL}/{page_path}">
     <meta name="robots" content="{robots}">
+
+    <!-- Preconnect to font origins - must be early for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts with font-display: swap to prevent FOIT -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
 
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
@@ -903,10 +893,17 @@ def get_html_head(title, description, page_path, include_styles=True, extra_head
     <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.jpeg">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     {styles}
     {extra_head}
+
+    <!-- Deferred Google Analytics - does not block rendering -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E2SX5J91V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){{dataLayer.push(arguments);}}
+        gtag('js', new Date());
+        gtag('config', 'G-1E2SX5J91V');
+    </script>
 </head>
 '''
 
