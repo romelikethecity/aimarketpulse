@@ -3,15 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ai Ml at Ai Ml - Position Filled | AI Market Pulse</title>
-    <meta name="description" content="This Ai Ml position at Ai Ml is no longer available. Browse similar AI and ML engineering opportunities.">
+    <title>AI/ML Engineer Jobs - 967 Jobs | AI Market Pulse</title>
+    <meta name="description" content="Machine Learning and AI Engineer positions.">
     <link rel="canonical" href="https://theaimarketpulse.com/jobs/ai-ml-engineer/">
-    <meta name="robots" content="noindex, follow">
+    <meta name="robots" content="index, follow">
 
-    <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
+    <!-- Hreflang tags for international SEO -->
+    <link rel="alternate" hreflang="en-US" href="https://theaimarketpulse.com/jobs/ai-ml-engineer/">
+    <link rel="alternate" hreflang="en" href="https://theaimarketpulse.com/jobs/ai-ml-engineer/">
+    <link rel="alternate" hreflang="x-default" href="https://theaimarketpulse.com/jobs/ai-ml-engineer/">
+
+    <!-- Preconnect to font origins - must be early for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <!-- Fonts with font-display: swap to prevent FOIT -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theaimarketpulse.com/jobs/ai-ml-engineer/">
+    <meta property="og:title" content="AI/ML Engineer Jobs - 967 Jobs">
+    <meta property="og:description" content="Machine Learning and AI Engineer positions.">
+    <meta property="og:site_name" content="AI Market Pulse">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
+    <meta property="og:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pe_collective">
+    <meta name="twitter:title" content="AI/ML Engineer Jobs - 967 Jobs">
+    <meta name="twitter:description" content="Machine Learning and AI Engineer positions.">
+    <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
+
+    <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.jpeg">
+
+    
     <style>
         
     :root {
@@ -500,75 +530,236 @@
         .footer-links a { margin: 0 12px; }
     }
 
+        
+    /* Individual Job Page Styles */
+    .job-detail-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
 
-        .expired-header {
-            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
-            padding: 48px 0;
+    .job-detail-header h1 {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .job-company {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+    }
+
+    .job-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .job-meta-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    .job-meta-badge.salary {
+        background: rgba(232, 168, 124, 0.15);
+        border-color: rgba(232, 168, 124, 0.3);
+        color: var(--gold);
+    }
+
+    .job-meta-badge.remote {
+        background: rgba(74, 222, 128, 0.15);
+        border-color: rgba(74, 222, 128, 0.3);
+        color: var(--success);
+    }
+
+    .apply-btn {
+        display: inline-block;
+        padding: 16px 32px;
+        background: var(--gold);
+        color: var(--bg-darker);
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .apply-btn:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
+    }
+
+    .job-skills {
+        margin: 24px 0;
+    }
+
+    .job-skills h3 {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .job-details-table {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 24px 0;
+    }
+
+    .job-details-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .job-details-row:last-child {
+        border-bottom: none;
+    }
+
+    .job-details-label {
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .job-details-value {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    /* Expired/Stale Job Styles */
+    .job-expired-notice {
+        background: rgba(248, 113, 113, 0.1);
+        border: 1px solid rgba(248, 113, 113, 0.3);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    .job-expired-notice h2 {
+        color: var(--error);
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .job-expired-notice p {
+        color: var(--text-secondary);
+    }
+
+    .similar-jobs-section h3 {
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .similar-jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+        .job-detail-header {
+            flex-direction: column;
+        }
+        .apply-btn {
+            width: 100%;
             text-align: center;
         }
-        .expired-header .container { max-width: 800px; }
-        .expired-badge {
-            display: inline-block;
-            background: var(--error);
-            color: white;
-            font-weight: 600;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-bottom: 16px;
-        }
-        .expired-header h1 {
-            font-size: 1.75rem;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-        .expired-header .company {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-        }
-        .content { padding: 48px 0; }
-        .content .container { max-width: 900px; }
-        .message-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 32px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .message-box h2 {
-            color: var(--text-primary);
-            margin-bottom: 12px;
-        }
-        .message-box p {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
-        .browse-all-btn {
-            display: inline-block;
-            background: var(--gold);
-            color: var(--bg-darker);
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .browse-all-btn:hover {
-            background: var(--gold-hover);
-            color: var(--bg-darker);
-        }
-        .similar-section { margin-bottom: 40px; }
-        .similar-section h2 {
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        .similar-jobs-grid {
-            display: grid;
-            gap: 16px;
-        }
+    }
+
+        
+    .faq-section {
+        margin: 48px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+    }
+
+    .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-card-hover);
+    }
+
+    .faq-icon {
+        font-size: 1.25rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+    }
+
+    .faq-answer-content {
+        padding: 0 24px 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+
     </style>
+
+    
+
+    <!-- Deferred Google Analytics - does not block rendering -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E2SX5J91V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1E2SX5J91V');
+    </script>
 </head>
+
 
 <body>
     <header class="site-header">
@@ -638,84 +829,633 @@
     </script>
 
 
-    <header class="expired-header">
+    <div class="page-header">
         <div class="container">
-            <span class="expired-badge">Position Filled</span>
-            <h1>Ai Ml</h1>
-            <div class="company">Ai Ml</div>
-        </div>
-    </header>
-
-    <div class="content">
-        <div class="container">
-            <div class="message-box">
-                <h2>This position is no longer available</h2>
-                <p>Good news - we have similar AI opportunities that might be a great fit for you.</p>
-                <a href="/jobs/" class="browse-all-btn">Browse All AI Jobs →</a>
+            <div class="breadcrumb"><a href="/">Home</a> → <a href="/jobs/">AI Jobs</a> → AI/ML Engineer Jobs</div>
+            <h1>AI/ML Engineer Jobs</h1>
+            <p class="lead">Machine Learning and AI Engineer positions.</p>
+            <div class="stats-row">
+                <div class="stat-box"><div class="stat-number">967</div><div class="stat-label">Open Roles</div></div>
+                <div class="stat-box"><div class="stat-number">$214K</div><div class="stat-label">Avg Salary</div></div>
             </div>
+        </div>
+    </div>
 
-            <div class="similar-section">
-                <h2>Similar Opportunities</h2>
-                <div class="similar-jobs-grid">
-                    
-            <a href="/jobs/orpical-senior-ai-native-full-stack-engineer-laravel-vue-i-c7577b/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">Orpical</div>
-                    <div class="job-card__title">Senior AI-Native Full-Stack Engineer (Laravel / Vue / Inertia)</div>
-                    <div class="job-card__meta">
-                        <span class="job-card__tag job-card__tag--salary">$95K - $135K</span>
-                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+    <main>
+        <div class="container">
+            
+            <div class="crosslink-section" style="margin-top: 24px; margin-bottom: 24px; padding: 20px; background: linear-gradient(135deg, var(--teal-primary), var(--bg-card)); border-radius: 12px; border: 1px solid var(--border);">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                    <div>
+                        <p style="color: var(--text-primary); font-weight: 600; margin: 0;">Research AI/ML Engineer salaries</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 4px 0 0;">See compensation benchmarks based on real job postings.</p>
                     </div>
+                    <a href="/salaries/ai-ml-engineer/" class="btn" style="background: var(--gold); color: var(--bg-dark); padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600;">View Salary Data →</a>
                 </div>
-            </a>
+            </div>
         
-            <a href="/jobs/netail-artificial-intelligence-engineer-0efa6b/" class="job-card" style="display: block;">
+            <style>.jobs-grid { display: flex; flex-direction: column; gap: 12px; }</style>
+            <div class="jobs-grid">
+            <a href="/jobs/netail-artificial-intelligence-engineer-0efa6b/" class="job-card">
                 <div class="job-card__content">
                     <div class="job-card__company">Netail</div>
                     <div class="job-card__title">Artificial Intelligence Engineer</div>
                     <div class="job-card__meta">
                         <span class="job-card__tag job-card__tag--salary">$90K - $120K</span>
                         <span class="job-card__tag job-card__tag--remote">Remote</span>
+                        
                     </div>
                 </div>
             </a>
         
-            <a href="/jobs/freshworks-ai-engineer-agentic-automation-e42aa8/" class="job-card" style="display: block;">
+            <a href="/jobs/freshworks-ai-engineer---agentic-automation-e42aa8/" class="job-card">
                 <div class="job-card__content">
                     <div class="job-card__company">freshworks</div>
                     <div class="job-card__title">AI Engineer - Agentic Automation</div>
                     <div class="job-card__meta">
                         <span class="job-card__tag job-card__tag--salary">$90K - $119K</span>
-                        <span class="job-card__tag job-card__tag--remote">Bellevue, WA, US</span>
+                        
+                        <span class="job-card__tag">Bellevue, WA, US</span>
                     </div>
                 </div>
             </a>
         
-            <a href="/jobs/freshworks-ai-engineer-agentic-automation-1fe524/" class="job-card" style="display: block;">
+            <a href="/jobs/freshworks-ai-engineer---agentic-automation-1fe524/" class="job-card">
                 <div class="job-card__content">
                     <div class="job-card__company">freshworks</div>
                     <div class="job-card__title">AI Engineer - Agentic Automation</div>
                     <div class="job-card__meta">
                         <span class="job-card__tag job-card__tag--salary">$90K - $119K</span>
-                        <span class="job-card__tag job-card__tag--remote">San Mateo, CA, US</span>
+                        
+                        <span class="job-card__tag">San Mateo, CA, US</span>
                     </div>
                 </div>
             </a>
         
-            <a href="/jobs/freshworks-ai-engineer-agentic-automation-e4f131/" class="job-card" style="display: block;">
+            <a href="/jobs/freshworks-ai-engineer---agentic-automation-e4f131/" class="job-card">
                 <div class="job-card__content">
                     <div class="job-card__company">freshworks</div>
                     <div class="job-card__title">AI Engineer - Agentic Automation</div>
                     <div class="job-card__meta">
                         <span class="job-card__tag job-card__tag--salary">$90K - $119K</span>
-                        <span class="job-card__tag job-card__tag--remote">Boston, MA, US</span>
+                        
+                        <span class="job-card__tag">Boston, MA, US</span>
                     </div>
                 </div>
             </a>
         
+            <a href="/jobs/intapp-data-ai-intern-976801/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Intapp</div>
+                    <div class="job-card__title">Data AI Intern</div>
+                    <div class="job-card__meta">
+                        
+                        
+                        <span class="job-card__tag">Palo Alto, CA, US</span>
+                    </div>
                 </div>
-            </div>
-
+            </a>
+        
+            <a href="/jobs/google-software-engineer-search-live-quality-generative-a-5dbc92/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Google</div>
+                    <div class="job-card__title">Software Engineer, Search, Live Quality, Generative AI</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$141K - $202K</span>
+                        
+                        <span class="job-card__tag">New York, NY, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/general-motors-gm-sr-software-engineering-manager--ai-development-a183ba/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">General Motors (GM)</div>
+                    <div class="job-card__title">Sr. Software Engineering Manager- AI Development</div>
+                    <div class="job-card__meta">
+                        
+                        
+                        <span class="job-card__tag">Austin, TX, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/peraton-generative-ai-engineering-intern-graduate-fe0d73/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Peraton</div>
+                    <div class="job-card__title">Generative AI Engineering Intern (Graduate)</div>
+                    <div class="job-card__meta">
+                        
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                        
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/unknown-ai-engineer-generative-ai-llm-ef9cee/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Unknown</div>
+                    <div class="job-card__title">AI Engineer (Generative AI &amp; LLM)</div>
+                    <div class="job-card__meta">
+                        
+                        
+                        <span class="job-card__tag">Waukesha, WI, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/visionist-inc-applied-ai-engineer-e7ad5b/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Visionist, INC</div>
+                    <div class="job-card__title">Applied AI Engineer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$115K - $160K</span>
+                        
+                        <span class="job-card__tag">Columbia, MD, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/adobe-senior-ai-vfx-engineer-2c63fd/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Adobe</div>
+                    <div class="job-card__title">Senior AI VFX Engineer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$207K - $345K</span>
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                        
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/babel-street-generative-agentic-ai-engineer-3a81b9/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Babel Street</div>
+                    <div class="job-card__title">Generative &amp; Agentic AI Engineer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$140K - $180K</span>
+                        
+                        <span class="job-card__tag">Reston, VA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/uare-senior-machine-learning-engineer-5005bb/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Uare</div>
+                    <div class="job-card__title">Senior Machine Learning Engineer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$180K - $250K</span>
+                        
+                        <span class="job-card__tag">Los Altos, CA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/resource-pro-senior-forward-deployed-ai-engineer-36ed51/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">ReSource Pro</div>
+                    <div class="job-card__title">Senior Forward Deployed AI Engineer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$106K - $180K</span>
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                        
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/resource-pro-senior-forward-deployed-ai-engineer-36ed51/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">ReSource Pro</div>
+                    <div class="job-card__title">Senior Forward Deployed AI Engineer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$106K - $180K</span>
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                        
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/zoom-communications-ai-engineer---agent-automation-2deec5/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Zoom Communications</div>
+                    <div class="job-card__title">AI Engineer - Agent Automation</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$151K - $332K</span>
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                        
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/keeper-security-senior-machine-learning-engineer-cybersecurity-thr-671b94/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Keeper Security</div>
+                    <div class="job-card__title">Senior Machine Learning Engineer, Cybersecurity / Threat Detection</div>
+                    <div class="job-card__meta">
+                        
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                        
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/checkr-staff-operations-ai-engineer-f7d834/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Checkr</div>
+                    <div class="job-card__title">Staff Operations AI Engineer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$150K - $176K</span>
+                        
+                        <span class="job-card__tag">Denver, CO, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/google-field-solutions-architect-iii-generative-ai-google-e8d4e6/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Google</div>
+                    <div class="job-card__title">Field Solutions Architect III, Generative AI, Google Cloud</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$177K - $263K</span>
+                        
+                        <span class="job-card__tag">Mountain View, CA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/google-field-solutions-architect-iii-generative-ai-google-ece158/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Google</div>
+                    <div class="job-card__title">Field Solutions Architect III, Generative AI, Google Cloud</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$177K - $263K</span>
+                        
+                        <span class="job-card__tag">Sunnyvale, CA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/altruist-staff-back-end-engineer-ai-products-249651/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">ALTRUIST</div>
+                    <div class="job-card__title">Staff Back End Engineer, AI Products</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$203K - $265K</span>
+                        
+                        <span class="job-card__tag">San Francisco, CA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/intuit-manager-3-ai-platform-technology-power-the-ai-expe-d6e2a2/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Intuit</div>
+                    <div class="job-card__title">Manager 3, AI Platform Technology (Power the AI Experiance)</div>
+                    <div class="job-card__meta">
+                        
+                        
+                        <span class="job-card__tag">Mountain View, CA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/intuit-manager-3-ai-platform-technology-power-the-ai-expe-dfadf6/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Intuit</div>
+                    <div class="job-card__title">Manager 3, AI Platform Technology (Power the AI Experiance)</div>
+                    <div class="job-card__meta">
+                        
+                        
+                        <span class="job-card__tag">San Francisco, CA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/jpmorganchase-software-engineer-iii---aiml-7e5178/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">JPMorganChase</div>
+                    <div class="job-card__title">Software Engineer III - AI/ML</div>
+                    <div class="job-card__meta">
+                        
+                        
+                        <span class="job-card__tag">Houston, TX, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/jpmorganchase-vice-president-applied-aiml-lead-14e35b/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">JPMorganChase</div>
+                    <div class="job-card__title">Vice President-Applied AI/ML Lead</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$164K - $260K</span>
+                        
+                        <span class="job-card__tag">Jersey City, NJ, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/jpmorganchase-applied-ai-ml-lead-engineer-14f103/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">JPMorganChase</div>
+                    <div class="job-card__title">Applied AI ML Lead Engineer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$164K - $260K</span>
+                        
+                        <span class="job-card__tag">Jersey City, NJ, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/westinghouse-electric-company-llc-senior-ai-solutions-architect-d4e028/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Westinghouse Electric Company, LLC</div>
+                    <div class="job-card__title">Senior AI Solutions Architect</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$124K - $156K</span>
+                        
+                        <span class="job-card__tag">Wadsworth, TX, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/ironclad-ai-engineer-55a380/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Ironclad</div>
+                    <div class="job-card__title">AI Engineer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$150K - $165K</span>
+                        
+                        <span class="job-card__tag">San Francisco, CA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/blackbaud-cyber-security-manager-gen-ai-2dc557/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Blackbaud</div>
+                    <div class="job-card__title">Cyber Security Manager, Gen AI</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$117K - $157K</span>
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                        
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/altruist-staff-back-end-engineer-ai-products-tags-0845ad/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">ALTRUIST</div>
+                    <div class="job-card__title">Staff Back End Engineer, AI Products tags.</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$203K - $265K</span>
+                        
+                        <span class="job-card__tag">San Francisco, CA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/riley-power-group-senior-ai-solutions-developer-4e2713/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Riley Power Group</div>
+                    <div class="job-card__title">Senior AI Solutions Developer</div>
+                    <div class="job-card__meta">
+                        
+                        
+                        <span class="job-card__tag">Bay City, TX, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/intuit-manager-3-ai-platform-technology-power-the-ai-expe-dfadf6/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Intuit</div>
+                    <div class="job-card__title">Manager 3, AI Platform Technology (Power the AI Experiance)</div>
+                    <div class="job-card__meta">
+                        
+                        
+                        <span class="job-card__tag">San Francisco, CA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/playstation-staff-technical-product-owner-generative-ai-344a3b/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">PlayStation</div>
+                    <div class="job-card__title">Staff Technical Product Owner, Generative AI</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$225K - $338K</span>
+                        
+                        <span class="job-card__tag">San Mateo, CA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/cognizant-technology-solutions-gen-ai-test-leadarchitect-42f3eb/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Cognizant Technology Solutions</div>
+                    <div class="job-card__title">GEN AI Test Lead/Architect</div>
+                    <div class="job-card__meta">
+                        
+                        
+                        <span class="job-card__tag">Charlotte, NC, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/tecolote-research-ai-developer-e3e839/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Tecolote Research</div>
+                    <div class="job-card__title">AI Developer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$75K - $85K</span>
+                        
+                        <span class="job-card__tag">Tacoma, WA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/tecolote-research-ai-developer-c6fbe5/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Tecolote Research</div>
+                    <div class="job-card__title">AI Developer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$75K - $85K</span>
+                        
+                        <span class="job-card__tag">Goleta, CA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/tecolote-research-ai-developer-ba3708/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Tecolote Research</div>
+                    <div class="job-card__title">AI Developer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$75K - $85K</span>
+                        
+                        <span class="job-card__tag">El Segundo, CA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/sp-global-genai-cloud-security-chief-architect-388073/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">S&amp;P Global</div>
+                    <div class="job-card__title">GenAI Cloud Security Chief Architect</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$166K - $213K</span>
+                        
+                        <span class="job-card__tag">Princeton, NJ, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/zoom-communications-ai-engineer---agentic-verticals-10c426/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Zoom Communications</div>
+                    <div class="job-card__title">AI Engineer - Agentic Verticals</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$137K - $275K</span>
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                        
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/tech-holding-machine-learning-engineer-contractor-eb71cc/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Tech Holding</div>
+                    <div class="job-card__title">Machine Learning Engineer (Contractor)</div>
+                    <div class="job-card__meta">
+                        
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                        
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/unknown-genai-data-scientist-47e9db/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Unknown</div>
+                    <div class="job-card__title">GenAI Data Scientist</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$86K - $134K</span>
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                        
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/unknown-ai-engineer-new-graduate-d4f6fd/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Unknown</div>
+                    <div class="job-card__title">AI Engineer (New Graduate)</div>
+                    <div class="job-card__meta">
+                        
+                        
+                        <span class="job-card__tag">San Francisco, CA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/red-hat-senior-principal-machine-learning-engineer-6aad60/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Red Hat</div>
+                    <div class="job-card__title">Senior Principal Machine Learning Engineer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$206K - $351K</span>
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                        
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/salesforce-sr-director---ai-engineering-030fa5/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Salesforce</div>
+                    <div class="job-card__title">Sr. Director - AI Engineering</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$239K - $401K</span>
+                        
+                        <span class="job-card__tag">New York, NY, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/red-hat-principal-machine-learning-engineer-90492c/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Red Hat</div>
+                    <div class="job-card__title">Principal Machine Learning Engineer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$189K - $312K</span>
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                        
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/infosys-gen-ai-agentic-ai-lead-1a0f47/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Infosys</div>
+                    <div class="job-card__title">Gen AI / Agentic AI Lead</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$73K - $122K</span>
+                        
+                        <span class="job-card__tag">Florida, NY, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/infosys-gen-ai-agentic-ai-lead-1a0f47/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Infosys</div>
+                    <div class="job-card__title">Gen AI / Agentic AI Lead</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$73K - $122K</span>
+                        
+                        <span class="job-card__tag">Florida, NY, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/infosys-gen-ai-agentic-ai-lead-1a0f47/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Infosys</div>
+                    <div class="job-card__title">Gen AI / Agentic AI Lead</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$73K - $122K</span>
+                        
+                        <span class="job-card__tag">Florida, NY, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/infosys-gen-ai-agentic-ai-lead-1a0f47/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Infosys</div>
+                    <div class="job-card__title">Gen AI / Agentic AI Lead</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$73K - $122K</span>
+                        
+                        <span class="job-card__tag">Florida, NY, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/infosys-gen-ai-agentic-ai-lead-1a0f47/" class="job-card">
+                <div class="job-card__content">
+                    <div class="job-card__company">Infosys</div>
+                    <div class="job-card__title">Gen AI / Agentic AI Lead</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$73K - $122K</span>
+                        
+                        <span class="job-card__tag">Florida, NY, US</span>
+                    </div>
+                </div>
+            </a>
+        </div>
             
     <div class="cta-box">
         <h3>Join the AI Community</h3>
@@ -724,7 +1464,7 @@
     </div>
 
         </div>
-    </div>
+    </main>
 
 
     <footer class="site-footer">
