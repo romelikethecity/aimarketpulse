@@ -137,6 +137,35 @@ def get_experience_display(level):
     return mapping.get(str(level).lower(), str(level).title())
 
 
+def get_img_tag(src, alt, css_class='', loading='lazy', width=None, height=None):
+    """
+    Generate an SEO-optimized image tag with alt text and lazy loading.
+
+    Args:
+        src: Image source URL
+        alt: Alt text describing the image (required for SEO/accessibility)
+        css_class: Optional CSS class(es)
+        loading: Loading strategy ('lazy' or 'eager')
+        width: Optional width attribute
+        height: Optional height attribute
+
+    Returns:
+        HTML img tag string
+    """
+    attrs = [f'src="{src}"', f'alt="{alt}"']
+
+    if css_class:
+        attrs.append(f'class="{css_class}"')
+    if loading:
+        attrs.append(f'loading="{loading}"')
+    if width:
+        attrs.append(f'width="{width}"')
+    if height:
+        attrs.append(f'height="{height}"')
+
+    return f'<img {" ".join(attrs)}>'
+
+
 # =============================================================================
 # CSS CONSTANTS - AI Market Pulse Dark Teal + Gold Theme
 # =============================================================================
@@ -906,7 +935,7 @@ def get_nav_html(active_page=None):
     <header class="site-header">
         <div class="header-container">
             <a href="/" class="logo">
-                <img src="/assets/logo.jpeg" alt="{SITE_NAME}">
+                <img src="/assets/logo.jpeg" alt="{SITE_NAME} logo - AI jobs and market intelligence" loading="eager">
                 {SITE_NAME}
             </a>
             <nav class="nav">

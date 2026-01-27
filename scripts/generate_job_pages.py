@@ -30,6 +30,7 @@ try:
     from templates import (
         get_html_head, get_nav_html, get_footer_html, get_cta_box,
         get_job_posting_schema, slugify, format_salary, is_remote,
+        get_breadcrumb_html, get_img_tag,
         BASE_URL, SITE_NAME, CSS_VARIABLES, CSS_NAV, CSS_LAYOUT, CSS_CARDS, CSS_CTA, CSS_FOOTER, CSS_JOB_PAGE
     )
     from seo_core import generate_breadcrumb_schema
@@ -181,13 +182,14 @@ def create_job_page(job, idx):
     # === JOBPOSTING SCHEMA ===
     schema_json = get_job_posting_schema(job)
 
-    # === BREADCRUMB SCHEMA ===
+    # === BREADCRUMB DATA ===
     breadcrumbs = [
         {'name': 'Home', 'url': '/'},
         {'name': 'AI Jobs', 'url': '/jobs/'},
         {'name': f'{title_escaped} at {company_escaped}', 'url': f'/jobs/{slug}/'}
     ]
     breadcrumb_schema = generate_breadcrumb_schema(breadcrumbs)
+    breadcrumb_html = get_breadcrumb_html(breadcrumbs)
 
     # === SKILLS HTML ===
     skills_html = ""
@@ -253,7 +255,6 @@ def create_job_page(job, idx):
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     {schema_json}
-    {breadcrumb_schema}
 
     <style>
         {CSS_VARIABLES}
@@ -305,9 +306,7 @@ def create_job_page(job, idx):
 
     <header class="job-header">
         <div class="container">
-            <div class="breadcrumb">
-                <a href="/">Home</a> → <a href="/jobs/">AI Jobs</a> → {company_link}
-            </div>
+            {breadcrumb_html}
             <h1>{title_escaped}</h1>
             <div class="job-company">{company_link}</div>
             <div class="job-meta">

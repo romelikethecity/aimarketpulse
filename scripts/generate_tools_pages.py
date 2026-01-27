@@ -24,10 +24,10 @@ sys.path.insert(0, 'scripts')
 
 from templates import (
     slugify, BASE_URL, get_html_head, get_nav_html, get_footer_html,
-    get_cta_box, get_base_styles, CSS_VARIABLES, CSS_NAV, CSS_LAYOUT,
-    CSS_CARDS, CSS_CTA, CSS_FOOTER
+    get_cta_box, get_base_styles, get_breadcrumb_html, get_img_tag,
+    CSS_VARIABLES, CSS_NAV, CSS_LAYOUT, CSS_CARDS, CSS_CTA, CSS_FOOTER
 )
-from seo_core import generate_collectionpage_schema, generate_itemlist_schema, generate_review_schema
+from seo_core import generate_collectionpage_schema, generate_itemlist_schema, generate_review_schema, generate_breadcrumb_schema
 from nav_config import SITE_NAME
 
 DATA_DIR = 'data'
@@ -1825,8 +1825,9 @@ def generate_tool_review_page(slug, tool_data, job_count):
     for q in tool_data.get('questions', []):
         questions_html += f"<li>{q}</li>"
 
-    # Get logo placeholder
-    logo_html = f'<img src="{tool_data.get("logo_placeholder", "")}" alt="{tool_data["name"]} Logo">' if tool_data.get('logo_placeholder') else '🔧'
+    # Get logo placeholder with proper alt text
+    logo_alt = f"{tool_data['name']} logo - {tool_data.get('category', 'AI tool')}"
+    logo_html = get_img_tag(tool_data.get("logo_placeholder", ""), logo_alt, loading="eager") if tool_data.get('logo_placeholder') else '🔧'
 
     # Generate Review schema for rich snippets
     tool_for_schema = {
@@ -1841,10 +1842,21 @@ def generate_tool_review_page(slug, tool_data, job_count):
     }
     review_schema = generate_review_schema(tool_for_schema)
 
+    # Generate breadcrumbs with schema
+    breadcrumbs = [
+        {'name': 'Home', 'url': '/'},
+        {'name': 'AI Tools', 'url': '/tools/'},
+        {'name': tool_data['name'], 'url': f'/tools/{slug}/'}
+    ]
+    breadcrumb_html_block = get_breadcrumb_html(breadcrumbs)
+
     extra_styles = f'<style>{REVIEW_PAGE_STYLES}</style>\n    {review_schema}'
 
+    # SEO-optimized title (max 60 chars for SERP display)
+    page_title = f'{tool_data["name"]} Review 2026: Pricing & Pros/Cons'
+
     html = get_html_head(
-        title=f'{tool_data["name"]} Review 2026: Pricing, Pros & Cons | AI Market Pulse',
+        title=page_title,
         description=f'{tool_data["name"]} review for 2026. {tool_data.get("tagline", "")}. Honest assessment with pricing, pros/cons, and alternatives.',
         page_path=f'tools/{slug}/',
         extra_head=extra_styles
@@ -1855,9 +1867,7 @@ def generate_tool_review_page(slug, tool_data, job_count):
     html += f'''
     <header class="hero">
         <div class="container">
-            <div class="breadcrumb">
-                <a href="/tools/">Tools</a> / <a href="/tools/">{tool_data['category']}</a> / {tool_data['name']}
-            </div>
+            {breadcrumb_html_block}
             <span class="badge">{tool_data['category'].upper()}</span>
             <div class="hero-header">
                 <div class="hero-logo">{logo_html}</div>

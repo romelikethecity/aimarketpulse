@@ -22,7 +22,8 @@ sys.path.insert(0, 'scripts')
 
 from templates import (
     slugify, format_salary, BASE_URL, SITE_NAME,
-    get_html_head, get_nav_html, get_footer_html, get_cta_box
+    get_html_head, get_nav_html, get_footer_html, get_cta_box,
+    get_breadcrumb_html, get_img_tag
 )
 from seo_core import generate_breadcrumb_schema, generate_collectionpage_schema
 
@@ -189,6 +190,14 @@ def generate_company_page(company_name, jobs_df):
     breadcrumb_schema = get_company_breadcrumb_schema(company_escaped, company_slug)
     org_schema = get_organization_schema(company_escaped, company_slug, num_jobs, categories, locations) if num_jobs >= MIN_JOBS_FOR_INDEX else ''
 
+    # Generate breadcrumb HTML with schema
+    breadcrumbs = [
+        {'name': 'Home', 'url': '/'},
+        {'name': 'Companies', 'url': '/companies/'},
+        {'name': company_name, 'url': f'/companies/{company_slug}/'}
+    ]
+    breadcrumb_html_block = get_breadcrumb_html(breadcrumbs)
+
     # Page title for display
     page_title = f"{company_escaped} AI Jobs - {num_jobs} Open Positions"
 
@@ -296,16 +305,14 @@ def generate_company_page(company_name, jobs_df):
         page_title,
         meta_desc,
         f"companies/{company_slug}/",
-        extra_head=f'{breadcrumb_schema}\\n{org_schema}\\n{company_css}',
+        extra_head=f'{org_schema}\\n{company_css}',
         robots=robots_directive
     )}
 {get_nav_html('companies')}
 
     <div class="page-header">
         <div class="container">
-            <div class="breadcrumb">
-                <a href="/">Home</a> / <a href="/companies/">Companies</a> / {company_escaped}
-            </div>
+            {breadcrumb_html_block}
             <h1>{company_escaped}</h1>
             <div class="company-stats">
                 <div class="company-stat">
