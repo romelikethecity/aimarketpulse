@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E2SX5J91V"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-1E2SX5J91V');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hardware - AI Career Insights | AI Market Pulse</title>
@@ -17,12 +8,25 @@
     <link rel="canonical" href="https://theaimarketpulse.com/insights/tags/hardware/">
     <meta name="robots" content="noindex, follow">
 
+    <!-- Hreflang tags for international SEO -->
+    <link rel="alternate" hreflang="en-US" href="https://theaimarketpulse.com/insights/tags/hardware/">
+    <link rel="alternate" hreflang="en" href="https://theaimarketpulse.com/insights/tags/hardware/">
+    <link rel="alternate" hreflang="x-default" href="https://theaimarketpulse.com/insights/tags/hardware/">
+
+    <!-- Preconnect to font origins - must be early for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts with font-display: swap to prevent FOIT -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://theaimarketpulse.com/insights/tags/hardware/">
     <meta property="og:title" content="Hardware - AI Career Insights">
     <meta property="og:description" content="Articles about hardware in AI careers. 1 insights on jobs, salaries, and skills.">
     <meta property="og:site_name" content="AI Market Pulse">
+    <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
     <meta property="og:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
 
@@ -37,8 +41,6 @@
     <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.jpeg">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <style>
         
@@ -67,42 +69,22 @@
 
         --border: rgba(255, 255, 255, 0.1);
         --border-light: rgba(255, 255, 255, 0.05);
-
-        /* Legacy compatibility mappings */
-        --navy: #0f2d35;
-        --navy-light: #132f38;
-        --navy-medium: #1a4a56;
-        --navy-hover: #2a6a7a;
-        --gold-muted: #d4956a;
-        --gold-dark: #c4855c;
-        --green: #4ade80;
-        --green-dark: #22c55e;
-        --red: #f87171;
-        --gray-50: #0f2d35;
-        --gray-100: #132f38;
-        --gray-200: rgba(255, 255, 255, 0.1);
-        --gray-300: #6a8a94;
-        --gray-500: #6a8a94;
-        --gray-600: #a8c5cc;
-        --gray-700: #a8c5cc;
-        --gray-800: #ffffff;
-        --white: #ffffff;
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
+    /* Critical: box-sizing and smooth text */
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         background: var(--bg-dark);
         color: var(--text-primary);
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Space Grotesk', sans-serif;
+        font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
         font-weight: 600;
         line-height: 1.2;
         letter-spacing: -0.02em;
@@ -154,6 +136,9 @@
         width: 36px;
         height: 36px;
         border-radius: 8px;
+        /* Prevent CLS by reserving space */
+        aspect-ratio: 1;
+        object-fit: cover;
     }
 
     .logo:hover {
@@ -348,7 +333,7 @@
     }
 
         
-    /* Cards */
+    /* Cards - optimized for rendering performance */
     .tool-card, .job-card, .company-card, .salary-card {
         background: var(--bg-card);
         border: 1px solid var(--border);
@@ -356,7 +341,10 @@
         padding: 24px;
         text-decoration: none;
         color: inherit;
-        transition: all 0.25s;
+        transition: border-color 0.25s, background-color 0.25s, transform 0.25s, box-shadow 0.25s;
+        /* Reduce paint operations */
+        contain: layout style;
+        will-change: transform;
     }
 
     .tool-card:hover, .job-card:hover, .company-card:hover, .salary-card:hover {
@@ -1209,6 +1197,15 @@
         }
     }
 </style>
+
+    <!-- Deferred Google Analytics - does not block rendering -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E2SX5J91V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1E2SX5J91V');
+    </script>
 </head>
 
     <script type="application/ld+json">{
@@ -1278,12 +1275,12 @@
     </nav>
 
     <script>
-        (function() {
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            const closeBtn = document.querySelector('.mobile-nav-close');
-            const overlay = document.querySelector('.mobile-nav-overlay');
-            const mobileNav = document.querySelector('.mobile-nav');
-            const mobileLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-nav-subscribe');
+        /* Mobile nav - uses passive listeners for better scroll performance */
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuBtn = document.querySelector('.mobile-menu-btn');
+            var closeBtn = document.querySelector('.mobile-nav-close');
+            var overlay = document.querySelector('.mobile-nav-overlay');
+            var mobileNav = document.querySelector('.mobile-nav');
             function openMenu() {
                 mobileNav.classList.add('active');
                 overlay.classList.add('active');
@@ -1294,11 +1291,13 @@
                 overlay.classList.remove('active');
                 document.body.style.overflow = '';
             }
-            if (menuBtn) menuBtn.addEventListener('click', openMenu);
-            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-            if (overlay) overlay.addEventListener('click', closeMenu);
-            mobileLinks.forEach(link => { link.addEventListener('click', closeMenu); });
-        })();
+            if (menuBtn) menuBtn.addEventListener('click', openMenu, {passive: true});
+            if (closeBtn) closeBtn.addEventListener('click', closeMenu, {passive: true});
+            if (overlay) overlay.addEventListener('click', closeMenu, {passive: true});
+            document.querySelectorAll('.mobile-nav-links a, .mobile-nav-subscribe').forEach(function(link) {
+                link.addEventListener('click', closeMenu, {passive: true});
+            });
+        }, {once: true});
     </script>
 
 

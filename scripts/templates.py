@@ -853,8 +853,15 @@ def get_html_head(title, description, page_path, include_styles=True, extra_head
         - font-display: swap to prevent FOIT (invisible text)
         - Deferred analytics to not block rendering
         - Inline critical CSS to avoid render-blocking
+
+    International SEO:
+        - hreflang tags for language/region targeting
+        - x-default for default version
     """
     styles = get_base_styles() if include_styles else ''
+
+    # Construct full canonical URL
+    canonical_url = f"{BASE_URL}/{page_path}"
 
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -863,8 +870,13 @@ def get_html_head(title, description, page_path, include_styles=True, extra_head
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} | {SITE_NAME}</title>
     <meta name="description" content="{description}">
-    <link rel="canonical" href="{BASE_URL}/{page_path}">
+    <link rel="canonical" href="{canonical_url}">
     <meta name="robots" content="{robots}">
+
+    <!-- Hreflang tags for international SEO -->
+    <link rel="alternate" hreflang="en-US" href="{canonical_url}">
+    <link rel="alternate" hreflang="en" href="{canonical_url}">
+    <link rel="alternate" hreflang="x-default" href="{canonical_url}">
 
     <!-- Preconnect to font origins - must be early for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -875,10 +887,11 @@ def get_html_head(title, description, page_path, include_styles=True, extra_head
 
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{BASE_URL}/{page_path}">
+    <meta property="og:url" content="{canonical_url}">
     <meta property="og:title" content="{title}">
     <meta property="og:description" content="{description}">
     <meta property="og:site_name" content="{SITE_NAME}">
+    <meta property="og:locale" content="en_US">
     <meta property="og:image" content="{BASE_URL}/assets/social-preview.png">
     <meta property="og:image:alt" content="{SITE_NAME} - AI jobs, salary benchmarks, and market intelligence">
 
@@ -960,12 +973,12 @@ def get_nav_html(active_page=None):
     </nav>
 
     <script>
-        (function() {{
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            const closeBtn = document.querySelector('.mobile-nav-close');
-            const overlay = document.querySelector('.mobile-nav-overlay');
-            const mobileNav = document.querySelector('.mobile-nav');
-            const mobileLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-nav-subscribe');
+        /* Mobile nav - uses passive listeners for better scroll performance */
+        document.addEventListener('DOMContentLoaded', function() {{
+            var menuBtn = document.querySelector('.mobile-menu-btn');
+            var closeBtn = document.querySelector('.mobile-nav-close');
+            var overlay = document.querySelector('.mobile-nav-overlay');
+            var mobileNav = document.querySelector('.mobile-nav');
             function openMenu() {{
                 mobileNav.classList.add('active');
                 overlay.classList.add('active');
@@ -976,11 +989,13 @@ def get_nav_html(active_page=None):
                 overlay.classList.remove('active');
                 document.body.style.overflow = '';
             }}
-            if (menuBtn) menuBtn.addEventListener('click', openMenu);
-            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-            if (overlay) overlay.addEventListener('click', closeMenu);
-            mobileLinks.forEach(link => {{ link.addEventListener('click', closeMenu); }});
-        }})();
+            if (menuBtn) menuBtn.addEventListener('click', openMenu, {{passive: true}});
+            if (closeBtn) closeBtn.addEventListener('click', closeMenu, {{passive: true}});
+            if (overlay) overlay.addEventListener('click', closeMenu, {{passive: true}});
+            document.querySelectorAll('.mobile-nav-links a, .mobile-nav-subscribe').forEach(function(link) {{
+                link.addEventListener('click', closeMenu, {{passive: true}});
+            }});
+        }}, {{once: true}});
     </script>
 '''
 

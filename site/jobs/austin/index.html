@@ -1,45 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E2SX5J91V"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-1E2SX5J91V');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Jobs in Austin 2026 | AI Market Pulse</title>
-    <meta name="description" content="Find AI jobs in Austin, Texas - a growing tech hub. Machine learning and AI engineer positions.">
+    <title>AI Engineer at This Company - Position Filled | AI Market Pulse</title>
+    <meta name="description" content="This AI Engineer position at This Company is no longer available. Browse similar AI and ML engineering opportunities.">
     <link rel="canonical" href="https://theaimarketpulse.com/jobs/austin/">
-    <meta name="robots" content="index, follow">
-
-    <!-- Open Graph Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://theaimarketpulse.com/jobs/austin/">
-    <meta property="og:title" content="AI Jobs in Austin 2026">
-    <meta property="og:description" content="Find AI jobs in Austin, Texas - a growing tech hub. Machine learning and AI engineer positions.">
-    <meta property="og:site_name" content="AI Market Pulse">
-    <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
-    <meta property="og:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pe_collective">
-    <meta name="twitter:title" content="AI Jobs in Austin 2026">
-    <meta name="twitter:description" content="Find AI jobs in Austin, Texas - a growing tech hub. Machine learning and AI engineer positions.">
-    <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
-    <meta name="twitter:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
+    <meta name="robots" content="noindex, follow">
 
     <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.jpeg">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
     <style>
         
     :root {
@@ -67,42 +39,22 @@
 
         --border: rgba(255, 255, 255, 0.1);
         --border-light: rgba(255, 255, 255, 0.05);
-
-        /* Legacy compatibility mappings */
-        --navy: #0f2d35;
-        --navy-light: #132f38;
-        --navy-medium: #1a4a56;
-        --navy-hover: #2a6a7a;
-        --gold-muted: #d4956a;
-        --gold-dark: #c4855c;
-        --green: #4ade80;
-        --green-dark: #22c55e;
-        --red: #f87171;
-        --gray-50: #0f2d35;
-        --gray-100: #132f38;
-        --gray-200: rgba(255, 255, 255, 0.1);
-        --gray-300: #6a8a94;
-        --gray-500: #6a8a94;
-        --gray-600: #a8c5cc;
-        --gray-700: #a8c5cc;
-        --gray-800: #ffffff;
-        --white: #ffffff;
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
+    /* Critical: box-sizing and smooth text */
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         background: var(--bg-dark);
         color: var(--text-primary);
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Space Grotesk', sans-serif;
+        font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
         font-weight: 600;
         line-height: 1.2;
         letter-spacing: -0.02em;
@@ -154,6 +106,9 @@
         width: 36px;
         height: 36px;
         border-radius: 8px;
+        /* Prevent CLS by reserving space */
+        aspect-ratio: 1;
+        object-fit: cover;
     }
 
     .logo:hover {
@@ -348,7 +303,7 @@
     }
 
         
-    /* Cards */
+    /* Cards - optimized for rendering performance */
     .tool-card, .job-card, .company-card, .salary-card {
         background: var(--bg-card);
         border: 1px solid var(--border);
@@ -356,7 +311,10 @@
         padding: 24px;
         text-decoration: none;
         color: inherit;
-        transition: all 0.25s;
+        transition: border-color 0.25s, background-color 0.25s, transform 0.25s, box-shadow 0.25s;
+        /* Reduce paint operations */
+        contain: layout style;
+        will-change: transform;
     }
 
     .tool-card:hover, .job-card:hover, .company-card:hover, .salary-card:hover {
@@ -542,537 +500,75 @@
         .footer-links a { margin: 0 12px; }
     }
 
-        
-    /* Individual Job Page Styles */
-    .job-detail-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 24px;
-        margin-bottom: 32px;
-    }
 
-    .job-detail-header h1 {
-        font-size: 2rem;
-        margin-bottom: 8px;
-    }
-
-    .job-company {
-        font-size: 1.25rem;
-        color: var(--text-secondary);
-        margin-bottom: 16px;
-    }
-
-    .job-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-bottom: 24px;
-    }
-
-    .job-meta-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 12px;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        font-size: 0.875rem;
-        color: var(--text-secondary);
-    }
-
-    .job-meta-badge.salary {
-        background: rgba(232, 168, 124, 0.15);
-        border-color: rgba(232, 168, 124, 0.3);
-        color: var(--gold);
-    }
-
-    .job-meta-badge.remote {
-        background: rgba(74, 222, 128, 0.15);
-        border-color: rgba(74, 222, 128, 0.3);
-        color: var(--success);
-    }
-
-    .apply-btn {
-        display: inline-block;
-        padding: 16px 32px;
-        background: var(--gold);
-        color: var(--bg-darker);
-        font-size: 1rem;
-        font-weight: 700;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: all 0.15s;
-    }
-
-    .apply-btn:hover {
-        background: var(--gold-hover);
-        color: var(--bg-darker);
-        transform: translateY(-2px);
-        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
-    }
-
-    .job-skills {
-        margin: 24px 0;
-    }
-
-    .job-skills h3 {
-        font-size: 1rem;
-        color: var(--text-secondary);
-        margin-bottom: 12px;
-    }
-
-    .job-details-table {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 24px;
-        margin: 24px 0;
-    }
-
-    .job-details-row {
-        display: flex;
-        justify-content: space-between;
-        padding: 12px 0;
-        border-bottom: 1px solid var(--border-light);
-    }
-
-    .job-details-row:last-child {
-        border-bottom: none;
-    }
-
-    .job-details-label {
-        color: var(--text-muted);
-        font-weight: 500;
-    }
-
-    .job-details-value {
-        color: var(--text-primary);
-        font-weight: 600;
-    }
-
-    /* Expired/Stale Job Styles */
-    .job-expired-notice {
-        background: rgba(248, 113, 113, 0.1);
-        border: 1px solid rgba(248, 113, 113, 0.3);
-        border-radius: 12px;
-        padding: 24px;
-        margin-bottom: 32px;
-        text-align: center;
-    }
-
-    .job-expired-notice h2 {
-        color: var(--error);
-        font-size: 1.25rem;
-        margin-bottom: 8px;
-    }
-
-    .job-expired-notice p {
-        color: var(--text-secondary);
-    }
-
-    .similar-jobs-section h3 {
-        margin-bottom: 20px;
-        color: var(--text-primary);
-    }
-
-    .similar-jobs-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 16px;
-    }
-
-    @media (max-width: 768px) {
-        .job-detail-header {
-            flex-direction: column;
-        }
-        .apply-btn {
-            width: 100%;
+        .expired-header {
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
+            padding: 48px 0;
             text-align: center;
         }
-    }
-
-        
-    .faq-section {
-        margin: 48px 0;
-    }
-
-    .faq-section h2 {
-        font-size: 1.5rem;
-        margin-bottom: 24px;
-        color: var(--text-primary);
-    }
-
-    .faq-item {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        margin-bottom: 16px;
-        overflow: hidden;
-    }
-
-    .faq-question {
-        width: 100%;
-        padding: 20px 24px;
-        background: transparent;
-        border: none;
-        text-align: left;
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--text-primary);
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: background 0.2s;
-    }
-
-    .faq-question:hover {
-        background: var(--bg-card-hover);
-    }
-
-    .faq-icon {
-        font-size: 1.25rem;
-        color: var(--gold);
-        transition: transform 0.3s;
-    }
-
-    .faq-item.active .faq-icon {
-        transform: rotate(45deg);
-    }
-
-    .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-    }
-
-    .faq-item.active .faq-answer {
-        max-height: 500px;
-    }
-
-    .faq-answer-content {
-        padding: 0 24px 20px;
-        color: var(--text-secondary);
-        line-height: 1.7;
-    }
-
+        .expired-header .container { max-width: 800px; }
+        .expired-badge {
+            display: inline-block;
+            background: var(--error);
+            color: white;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+        }
+        .expired-header h1 {
+            font-size: 1.75rem;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .expired-header .company {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        .content { padding: 48px 0; }
+        .content .container { max-width: 900px; }
+        .message-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .message-box h2 {
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        .message-box p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        .browse-all-btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--bg-darker);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .browse-all-btn:hover {
+            background: var(--gold-hover);
+            color: var(--bg-darker);
+        }
+        .similar-section { margin-bottom: 40px; }
+        .similar-section h2 {
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .similar-jobs-grid {
+            display: grid;
+            gap: 16px;
+        }
     </style>
-
-    
 </head>
-
-    <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://theaimarketpulse.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "AI Jobs",
-      "item": "https://theaimarketpulse.com/jobs/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "AI Jobs in Austin",
-      "item": "https://theaimarketpulse.com/jobs/austin/"
-    }
-  ]
-}</script>
-    <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "AI Jobs in Austin",
-  "description": "Find AI jobs in Austin, Texas - a growing tech hub. Machine learning and AI engineer positions.",
-  "url": "https://theaimarketpulse.com/jobs/austin/",
-  "mainEntity": {
-    "@type": "ItemList",
-    "numberOfItems": 108
-  },
-  "provider": {
-    "@type": "Organization",
-    "name": "AI Market Pulse",
-    "url": "https://theaimarketpulse.com"
-  },
-  "keywords": [
-    "austin AI jobs",
-    "austin ML jobs",
-    "AI engineer jobs",
-    "machine learning jobs"
-  ]
-}</script>
-    <style>
-    .landing-header {
-        padding: 48px 0;
-        background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
-        border-bottom: 1px solid var(--border);
-    }
-
-    .landing-header h1 {
-        font-size: 2.5rem;
-        margin-bottom: 16px;
-    }
-
-    .landing-header .lead {
-        font-size: 1.1rem;
-        color: var(--text-secondary);
-        max-width: 700px;
-    }
-
-    .landing-stats {
-        display: flex;
-        gap: 32px;
-        margin-top: 24px;
-    }
-
-    .landing-stat {
-        text-align: center;
-    }
-
-    .landing-stat-value {
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--gold);
-    }
-
-    .landing-stat-label {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-    }
-
-    .filters-section {
-        padding: 24px 0;
-        border-bottom: 1px solid var(--border);
-        background: var(--bg-darker);
-    }
-
-    .filters-row {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-
-    .filter-btn {
-        padding: 8px 16px;
-        border-radius: 20px;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        color: var(--text-secondary);
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: all 0.2s;
-    }
-
-    .filter-btn:hover {
-        background: var(--bg-card-hover);
-        border-color: var(--teal-light);
-        color: var(--text-primary);
-    }
-
-    .filter-btn.active {
-        background: var(--gold);
-        color: var(--bg-darker);
-        border-color: var(--gold);
-    }
-
-    .jobs-grid {
-        display: grid;
-        gap: 16px;
-        padding: 32px 0;
-    }
-
-    .landing-job-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 24px;
-        text-decoration: none;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 16px;
-        align-items: center;
-        transition: all 0.25s;
-    }
-
-    .landing-job-card:hover {
-        border-color: var(--teal-light);
-        background: var(--bg-card-hover);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .job-card-main {
-        min-width: 0;
-    }
-
-    .job-card-category {
-        font-size: 0.7rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: var(--gold);
-        margin-bottom: 8px;
-    }
-
-    .job-card-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: var(--text-primary);
-        margin-bottom: 6px;
-    }
-
-    .job-card-company {
-        font-size: 0.95rem;
-        color: var(--text-secondary);
-        margin-bottom: 12px;
-    }
-
-    .job-card-meta {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-    }
-
-    .job-card-badge {
-        font-size: 0.8rem;
-        padding: 4px 10px;
-        border-radius: 4px;
-        background: var(--bg-darker);
-        color: var(--text-secondary);
-    }
-
-    .job-card-badge.salary {
-        background: rgba(232, 168, 124, 0.15);
-        color: var(--gold);
-    }
-
-    .job-card-badge.remote {
-        background: rgba(74, 222, 128, 0.15);
-        color: var(--success);
-    }
-
-    .job-card-cta {
-        flex-shrink: 0;
-    }
-
-    .job-card-cta .btn {
-        white-space: nowrap;
-    }
-
-    .related-landing-pages {
-        margin: 40px 0;
-        padding-top: 32px;
-        border-top: 1px solid var(--border);
-    }
-
-    .related-landing-pages h2 {
-        font-size: 1.25rem;
-        margin-bottom: 20px;
-    }
-
-    .related-pages-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-
-    .related-page-link {
-        padding: 8px 16px;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        color: var(--text-secondary);
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: all 0.2s;
-    }
-
-    .related-page-link:hover {
-        background: var(--bg-card-hover);
-        border-color: var(--teal-light);
-        color: var(--text-primary);
-    }
-
-    @media (max-width: 768px) {
-        .landing-header h1 { font-size: 1.75rem; }
-        .landing-stats { flex-direction: column; gap: 16px; }
-        .landing-job-card { grid-template-columns: 1fr; }
-        .job-card-cta { justify-self: start; }
-    }
-
-    .faq-section {
-        margin: 48px 0;
-    }
-
-    .faq-section h2 {
-        font-size: 1.5rem;
-        margin-bottom: 24px;
-        color: var(--text-primary);
-    }
-
-    .faq-item {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        margin-bottom: 16px;
-        overflow: hidden;
-    }
-
-    .faq-question {
-        width: 100%;
-        padding: 20px 24px;
-        background: transparent;
-        border: none;
-        text-align: left;
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--text-primary);
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: background 0.2s;
-    }
-
-    .faq-question:hover {
-        background: var(--bg-card-hover);
-    }
-
-    .faq-icon {
-        font-size: 1.25rem;
-        color: var(--gold);
-        transition: transform 0.3s;
-    }
-
-    .faq-item.active .faq-icon {
-        transform: rotate(45deg);
-    }
-
-    .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-    }
-
-    .faq-item.active .faq-answer {
-        max-height: 500px;
-    }
-
-    .faq-answer-content {
-        padding: 0 24px 20px;
-        color: var(--text-secondary);
-        line-height: 1.7;
-    }
-</style>
 
 <body>
     <header class="site-header">
@@ -1116,12 +612,12 @@
     </nav>
 
     <script>
-        (function() {
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            const closeBtn = document.querySelector('.mobile-nav-close');
-            const overlay = document.querySelector('.mobile-nav-overlay');
-            const mobileNav = document.querySelector('.mobile-nav');
-            const mobileLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-nav-subscribe');
+        /* Mobile nav - uses passive listeners for better scroll performance */
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuBtn = document.querySelector('.mobile-menu-btn');
+            var closeBtn = document.querySelector('.mobile-nav-close');
+            var overlay = document.querySelector('.mobile-nav-overlay');
+            var mobileNav = document.querySelector('.mobile-nav');
             function openMenu() {
                 mobileNav.classList.add('active');
                 overlay.classList.add('active');
@@ -1132,853 +628,93 @@
                 overlay.classList.remove('active');
                 document.body.style.overflow = '';
             }
-            if (menuBtn) menuBtn.addEventListener('click', openMenu);
-            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-            if (overlay) overlay.addEventListener('click', closeMenu);
-            mobileLinks.forEach(link => { link.addEventListener('click', closeMenu); });
-        })();
+            if (menuBtn) menuBtn.addEventListener('click', openMenu, {passive: true});
+            if (closeBtn) closeBtn.addEventListener('click', closeMenu, {passive: true});
+            if (overlay) overlay.addEventListener('click', closeMenu, {passive: true});
+            document.querySelectorAll('.mobile-nav-links a, .mobile-nav-subscribe').forEach(function(link) {
+                link.addEventListener('click', closeMenu, {passive: true});
+            });
+        }, {once: true});
     </script>
 
 
-    <div class="landing-header">
+    <header class="expired-header">
         <div class="container">
-            <nav class="breadcrumb"><a href="/">Home</a> / <a href="/jobs/">AI Jobs</a> / AI Jobs in Austin</nav>
-            <h1>AI & Machine Learning Jobs in Austin</h1>
-            <p class="lead">Find AI jobs in Austin, Texas - a growing tech hub. Machine learning and AI engineer positions.</p>
-            <div class="landing-stats">
-                <div class="landing-stat">
-                    <div class="landing-stat-value">108</div>
-                    <div class="landing-stat-label">Open Positions</div>
-                </div>
-                <div class="landing-stat"><div class="landing-stat-value">$229K</div><div class="landing-stat-label">Avg. Salary</div></div>
-            </div>
+            <span class="expired-badge">Position Filled</span>
+            <h1>AI Engineer</h1>
+            <div class="company">This Company</div>
         </div>
-    </div>
+    </header>
 
-    <main>
+    <div class="content">
         <div class="container">
-            <div class="jobs-grid">
-                
-        <a href="/jobs/general-motors-gm-sr-software-engineering-manager-ai-development-a183ba/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Sr. Software Engineering Manager- AI Development</div>
-                <div class="job-card-company">General Motors (GM)</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/trend-micro-inc-applied-ai-architect-austin-tx-cfe4e1/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI Architect</div>
-                <div class="job-card-title">Applied AI Architect - Austin, TX</div>
-                <div class="job-card-company">Trend Micro Inc.</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/raynmaker-inc-senior-product-manager-9edcad/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">Prompt Engineer</div>
-                <div class="job-card-title">Senior Product Manager</div>
-                <div class="job-card-company">RaYnmaker Inc</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$140K - $165K</span>
-                    <span class="job-card-badge remote">Remote</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazon-web-services-senior-applied-scientist-generative-ai-innovation--277f61/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">Research Scientist</div>
-                <div class="job-card-title">Senior Applied Scientist, Generative AI Innovation Center</div>
-                <div class="job-card-company">Amazon Web Services</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$150K - $260K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazon-web-services-applied-science-manager-aws-marketplace-partner-se-9fda9b/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">Prompt Engineer</div>
-                <div class="job-card-title">Applied Science Manager, AWS Marketplace &amp; Partner Services</div>
-                <div class="job-card-company">Amazon Web Services</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$165K - $286K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/software-technology-inc-lead-ai-engineer-435606/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Lead AI Engineer</div>
-                <div class="job-card-company">Software Technology, Inc.</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/unknown-ml-ops-data-operations-engineer-new-f152bc/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">MLOps Engineer</div>
-                <div class="job-card-title">ML Ops / Data Operations Engineer New</div>
-                <div class="job-card-company">Unknown</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/qualcomm-software-verification-engineer-d68612/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Software Verification Engineer</div>
-                <div class="job-card-company">Qualcomm</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$98K - $147K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazon-web-services-delivery-consultant-genaiml-data-science-aws-indus-bf1ae1/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Delivery Consultant- GenAI/ML &amp; Data Science, AWS Industries</div>
-                <div class="job-card-company">Amazon Web Services</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$131K - $204K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazoncom-sr-applied-scientist-amazon-advertising-b4c418/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">Research Scientist</div>
-                <div class="job-card-title">Sr. Applied Scientist, Amazon Advertising</div>
-                <div class="job-card-company">Amazon.com</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$150K - $260K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazoncom-software-development-engineer-search-prime-video-a347bd/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">LLM Engineer</div>
-                <div class="job-card-title">Software Development Engineer, Search - Prime Video</div>
-                <div class="job-card-company">Amazon.com</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$129K - $223K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazoncom-software-development-engineer-ii-amazon-customer-s-2ad27e/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">LLM Engineer</div>
-                <div class="job-card-title">Software Development Engineer II- Amazon Customer Service, Amazon Customer Service</div>
-                <div class="job-card-company">Amazon.com</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$129K - $223K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazoncom-cloud-hardware-dev-engineer-aws-generative-ai-ml-s-db7ed7/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Cloud Hardware Dev Engineer (AWS Generative AI &amp; ML Servers), AWS Generative AI &amp; ML Servers</div>
-                <div class="job-card-company">Amazon.com</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$143K - $257K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazon-web-services-senior-hardware-development-engineer-aws-ai-ml-acc-db01cf/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Senior Hardware Development Engineer AWS AI &amp; ML, Accelerator Servers</div>
-                <div class="job-card-company">Amazon Web Services</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$143K - $257K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazon-web-services-cc-hardware-software-co-design-sde-machine-learnin-51f33c/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">C/C++ Hardware / Software Co-Design SDE, Machine Learning Acceleration Systems</div>
-                <div class="job-card-company">Amazon Web Services</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$129K - $223K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazon-web-services-sr-cloud-hardware-dev-engineer-aws-generative-ai-m-1bc4a8/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Sr. Cloud Hardware Dev Engineer (AWS Generative AI &amp; ML Servers), AWS Generative AI &amp; ML Servers</div>
-                <div class="job-card-company">Amazon Web Services</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$143K - $257K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazon-web-services-sr-sde-cc-hardwaresoftware-co-design-machine-learn-d60017/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Sr. SDE C/C++ Hardware/Software Co-Design, Machine Learning Acceleration Systems</div>
-                <div class="job-card-company">Amazon Web Services</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$151K - $261K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazoncom-principal-applied-scientist-delivery-foundation-mo-5a9167/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">Research Scientist</div>
-                <div class="job-card-title">Principal Applied Scientist, Delivery Foundation Model</div>
-                <div class="job-card-company">Amazon.com</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$179K - $309K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazon-web-services-embedded-c-software-engineer-machine-learning-acce-4989a4/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Embedded C++ Software Engineer, Machine Learning Acceleration</div>
-                <div class="job-card-company">Amazon Web Services</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$129K - $223K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/cit-job-26904-data-ai-architect-austin-tx-d7a18a/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI Architect</div>
-                <div class="job-card-title">[Job - 26904] Data &amp; AI Architect, Austin TX</div>
-                <div class="job-card-company">Ci&amp;T</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/servicenow-senior-technical-consultant-ai-platform-products-e-adaadc/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">LLM Engineer</div>
-                <div class="job-card-title">Senior Technical Consultant (AI), Platform Products Expert Implementation Services</div>
-                <div class="job-card-company">ServiceNow</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge remote">Remote</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/unknown-cloud-solution-architect-bd1983/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Cloud Solution Architect</div>
-                <div class="job-card-company">Unknown</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$176K - $208K</span>
-                    <span class="job-card-badge remote">Remote</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/visa-software-engineer-new-college-grad-2026-austin-tx-e3f1b1/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">Prompt Engineer</div>
-                <div class="job-card-title">Software Engineer, New College Grad - 2026, Austin, TX</div>
-                <div class="job-card-company">Visa</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/visa-staff-software-engineer-2aeadc/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Staff Software Engineer</div>
-                <div class="job-card-company">Visa</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$131K - $210K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/accenture-agentic-ai-engineer-6090758-a6b0a8/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Agentic AI Engineer - 6090758</div>
-                <div class="job-card-company">Accenture</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$137K - $158K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/accenture-agentic-ai-engineer-6065064-9595ba/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Agentic AI Engineer - 6065064</div>
-                <div class="job-card-company">Accenture</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$120K - $141K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/apple-finance-machine-learning-engineer-tech-lead-53e3d2/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Finance Machine Learning Engineer - Tech Lead</div>
-                <div class="job-card-company">Apple</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/airwallex-senior-software-engineer-ai-global-treasury-paymen-585ac3/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI Software Engineer</div>
-                <div class="job-card-title">Senior Software Engineer, AI - Global Treasury Payment Network (Relocate to Singapore)</div>
-                <div class="job-card-company">Airwallex</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$180K - $245K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/airwallex-senior-software-engineer-ai-global-treasury-paymen-bc2de0/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI Software Engineer</div>
-                <div class="job-card-title">Senior Software Engineer, AI - Global Treasury Payment Network, San Francisco</div>
-                <div class="job-card-company">Airwallex</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$200K - $250K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/crowe-llp-ai-devops-and-cloud-infrastructure-engineer-06d593/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">AI DevOps and Cloud Infrastructure Engineer</div>
-                <div class="job-card-company">Crowe LLP</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$102K - $204K</span>
-                    <span class="job-card-badge remote">Remote</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/blueflag-llp-senior-cloud-engineer-fd54bd/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">MLOps Engineer</div>
-                <div class="job-card-title">Senior Cloud Engineer</div>
-                <div class="job-card-company">BlueFlag LLP</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge remote">Remote</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/siena-ai-product-manager-ai-agent-deployment-14ffae/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI Agent Developer</div>
-                <div class="job-card-title">Product Manager, AI Agent Deployment</div>
-                <div class="job-card-company">Siena AI</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge remote">Remote</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazon-web-services-systems-development-eng-aws-generative-ai-ml-serve-b160c9/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Systems Development Eng (AWS Generative AI &amp; ML Servers), AWS Hardware Engineering Accelerators</div>
-                <div class="job-card-company">Amazon Web Services</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$136K - $235K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazon-web-services-systems-development-eng-aws-generative-ai-ml-serve-b160c9/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Systems Development Eng (AWS Generative AI &amp; ML Servers), AWS Hardware Engineering Accelerators</div>
-                <div class="job-card-company">Amazon Web Services</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$136K - $235K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/oracle-senior-software-engineer-ai-infra-compute-b9e9f5/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI Software Engineer</div>
-                <div class="job-card-title">Senior Software Engineer - AI Infra Compute</div>
-                <div class="job-card-company">Oracle</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/deloitte-aiml-product-architect-dd26bc/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI Product Manager</div>
-                <div class="job-card-title">AI/ML Product Architect</div>
-                <div class="job-card-company">Deloitte</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$124K - $255K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazoncom-hardware-development-engineer-aws-ai-ml-mainstream-9745ee/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Hardware Development Engineer AWS AI &amp; ML, Mainstream Accelerators</div>
-                <div class="job-card-company">Amazon.com</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$136K - $212K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazoncom-sr-hardware-development-engineer-high-performance--27bff5/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Sr Hardware Development Engineer, High Performance AI &amp; ML Servers</div>
-                <div class="job-card-company">Amazon.com</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$143K - $257K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/amazoncom-sr-system-development-engineer-high-performance-ac-d2baa6/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Sr. System Development Engineer, High-Performance Accelerator Servers for AI/ML</div>
-                <div class="job-card-company">Amazon.com</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$136K - $235K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/lyra-health-sr-machine-learning-engineer-mlai-982e26/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Sr. Machine Learning Engineer (ML/AI)</div>
-                <div class="job-card-company">Lyra Health</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$143K - $197K</span>
-                    <span class="job-card-badge remote">Remote</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/pwc-ai-genai-data-scientist-manager-b8be21/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">AI &amp; GenAI Data Scientist - Manager</div>
-                <div class="job-card-company">PwC</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$99K - $232K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/siena-ai-technical-account-manager-437920/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">Prompt Engineer</div>
-                <div class="job-card-title">Technical Account Manager</div>
-                <div class="job-card-company">Siena AI</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge remote">Remote</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/8am-product-designer-ai-3864e8/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Product Designer, AI</div>
-                <div class="job-card-company">8am</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$100K - $140K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/apple-software-engineer-aml-ai-data-platforms-aidp-2b3304/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Software Engineer (AML), AI &amp; Data Platforms (AiDP)</div>
-                <div class="job-card-company">Apple</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/apple-software-engineer-aml-ai-data-platforms-aidp-2b3304/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Software Engineer (AML), AI &amp; Data Platforms (AiDP)</div>
-                <div class="job-card-company">Apple</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/udemy-principal-data-scientist-product-pricing-analytics-b616b9/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">Data Scientist</div>
-                <div class="job-card-title">Principal Data Scientist, Product &amp; Pricing Analytics</div>
-                <div class="job-card-company">Udemy</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$204K - $255K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/hntb-corporation-principal-data-scientist-aedb6f/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">Data Scientist</div>
-                <div class="job-card-title">Principal Data Scientist</div>
-                <div class="job-card-company">HNTB Corporation</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$158K - $252K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/oracle-sde-3-ai-infrastructure-9a2882/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">MLOps Engineer</div>
-                <div class="job-card-title">SDE 3, AI Infrastructure</div>
-                <div class="job-card-company">Oracle</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/oracle-principal-member-of-technical-staff-ai-infrastruct-f55a4c/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">MLOps Engineer</div>
-                <div class="job-card-title">Principal Member of Technical Staff, AI Infrastructure</div>
-                <div class="job-card-company">Oracle</div>
-                <div class="job-card-meta">
-                    
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
-        <a href="/jobs/texas-health-and-human-services-commission-cloud-data-architect-377ff6/" class="landing-job-card">
-            <div class="job-card-main">
-                <div class="job-card-category">AI/ML Engineer</div>
-                <div class="job-card-title">Cloud Data Architect</div>
-                <div class="job-card-company">Texas Health and Human Services Commission</div>
-                <div class="job-card-meta">
-                    <span class="job-card-badge salary">$8K - $12K</span>
-                    <span class="job-card-badge">Austin, TX, US</span>
-                </div>
-            </div>
-            <div class="job-card-cta">
-                <span class="btn btn-outline">View Role →</span>
-            </div>
-        </a>
-    
+            <div class="message-box">
+                <h2>This position is no longer available</h2>
+                <p>Good news - we have similar AI opportunities that might be a great fit for you.</p>
+                <a href="/jobs/" class="browse-all-btn">Browse All AI Jobs →</a>
             </div>
 
-            <p style="text-align: center; color: var(--text-muted);">Showing 50 of 108 jobs</p>
-
-            
-    <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How many AI jobs are available in Austin?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "AI Market Pulse currently tracks 108 AI and machine learning job openings in Austin. This includes roles like AI engineer, ML engineer, data scientist, and prompt engineer positions."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the average AI engineer salary in Austin?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Based on job postings with disclosed compensation, AI roles in Austin pay an average of $229K. Actual salaries vary based on experience, specific skills (like RAG or LangChain), and company size."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why work in AI in Austin?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Austin combines a growing tech scene with lower cost of living than coastal cities. Many AI companies have opened offices here, and the city offers a good work-life balance."
-      }
-    }
-  ]
-}</script>
-    <section class="faq-section">
-        <h2>Frequently Asked Questions</h2>
+            <div class="similar-section">
+                <h2>Similar Opportunities</h2>
+                <div class="similar-jobs-grid">
+                    
+            <a href="/jobs/orpical-senior-ai-native-full-stack-engineer-laravel-vue-i-c7577b/" class="job-card" style="display: block;">
+                <div class="job-card__content">
+                    <div class="job-card__company">Orpical</div>
+                    <div class="job-card__title">Senior AI-Native Full-Stack Engineer (Laravel / Vue / Inertia)</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$95K - $135K</span>
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                    </div>
+                </div>
+            </a>
         
-        <div class="faq-item">
-            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                <span>How many AI jobs are available in Austin?</span>
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-content">AI Market Pulse currently tracks 108 AI and machine learning job openings in Austin. This includes roles like AI engineer, ML engineer, data scientist, and prompt engineer positions.</div>
+            <a href="/jobs/netail-artificial-intelligence-engineer-0efa6b/" class="job-card" style="display: block;">
+                <div class="job-card__content">
+                    <div class="job-card__company">Netail</div>
+                    <div class="job-card__title">Artificial Intelligence Engineer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$90K - $120K</span>
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/realign-aws-developer-5-e89fba/" class="job-card" style="display: block;">
+                <div class="job-card__content">
+                    <div class="job-card__company">Realign</div>
+                    <div class="job-card__title">AWS Developer-5</div>
+                    <div class="job-card__meta">
+                        
+                        <span class="job-card__tag job-card__tag--remote">Malvern, PA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/realign-ai-enterprise-architect-5-ca8047/" class="job-card" style="display: block;">
+                <div class="job-card__content">
+                    <div class="job-card__company">Realign</div>
+                    <div class="job-card__title">AI Enterprise Architect-5</div>
+                    <div class="job-card__meta">
+                        
+                        <span class="job-card__tag job-card__tag--remote">McLean, VA, US</span>
+                    </div>
+                </div>
+            </a>
+        
+            <a href="/jobs/visa-software-engineer-new-college-grad-2026-highlands--99e90e/" class="job-card" style="display: block;">
+                <div class="job-card__content">
+                    <div class="job-card__company">Visa</div>
+                    <div class="job-card__title">Software Engineer, New College Grad - 2026, Highlands Ranch, CO</div>
+                    <div class="job-card__meta">
+                        
+                        <span class="job-card__tag job-card__tag--remote">Highlands Ranch, CO, US</span>
+                    </div>
+                </div>
+            </a>
+        
+                </div>
             </div>
-        </div>
-        
-        <div class="faq-item">
-            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                <span>What is the average AI engineer salary in Austin?</span>
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-content">Based on job postings with disclosed compensation, AI roles in Austin pay an average of $229K. Actual salaries vary based on experience, specific skills (like RAG or LangChain), and company size.</div>
-            </div>
-        </div>
-        
-        <div class="faq-item">
-            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                <span>Why work in AI in Austin?</span>
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-content">Austin combines a growing tech scene with lower cost of living than coastal cities. Many AI companies have opened offices here, and the city offers a good work-life balance.</div>
-            </div>
-        </div>
-        
-    </section>
-    
 
             
     <div class="cta-box">
@@ -1987,15 +723,8 @@
         <a href="/join/" class="btn btn-gold">Join Community →</a>
     </div>
 
-
-            <section class="related-landing-pages">
-                <h2>Browse Jobs by Location</h2>
-                <div class="related-pages-grid">
-                    <a href="/jobs/remote/" class="related-page-link">Remote AI Jobs</a><a href="/jobs/san-francisco/" class="related-page-link">AI Jobs in San Francisco</a><a href="/jobs/new-york/" class="related-page-link">AI Jobs in New York</a><a href="/jobs/seattle/" class="related-page-link">AI Jobs in Seattle</a><a href="/jobs/boston/" class="related-page-link">AI Jobs in Boston</a><a href="/jobs/los-angeles/" class="related-page-link">AI Jobs in Los Angeles</a>
-                </div>
-            </section>
         </div>
-    </main>
+    </div>
 
 
     <footer class="site-footer">
