@@ -1861,7 +1861,7 @@ def generate_tool_review_page(slug, tool_data, job_count):
         })
     # Add key features FAQ
     if tool_data.get('features'):
-        feature_names = [f['name'] for f in tool_data['features'][:4]]
+        feature_names = [f['title'] for f in tool_data['features'][:4]]
         faqs.append({
             'question': f"What are the main features of {tool_data['name']}?",
             'answer': f"Key features include: {', '.join(feature_names)}. {tool_data['name']} is known for: {tool_data.get('tagline', '')}."
