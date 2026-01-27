@@ -1013,6 +1013,70 @@
         .landing-job-card { grid-template-columns: 1fr; }
         .job-card-cta { justify-self: start; }
     }
+
+    .faq-section {
+        margin: 48px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+    }
+
+    .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-card-hover);
+    }
+
+    .faq-icon {
+        font-size: 1.25rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+    }
+
+    .faq-answer-content {
+        padding: 0 24px 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
 </style>
 
 <body>
@@ -1857,6 +1921,73 @@
             </div>
 
             <p style="text-align: center; color: var(--text-muted);">Showing 50 of 194 jobs</p>
+
+            
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many AI jobs require LLM & Large Language Model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI Market Pulse currently tracks 194 AI job openings that require LLM & Large Language Model skills. 61 of these are remote positions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I specialize in one LLM or learn multiple?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Learn concepts deeply, not just one API. Core skills (prompt engineering, RAG, evaluation) transfer across models. Most companies use multiple models\u2014OpenAI for some tasks, Claude for others. Flexibility is more valuable than single-model expertise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What salary can I expect with LLM & Large Language Model skills?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI roles requiring LLM & Large Language Model pay an average of $226K based on disclosed compensation. Specialized skills like LLM & Large Language Model combined with production experience typically command 10-20% premiums over general AI roles."
+      }
+    }
+  ]
+}</script>
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>How many AI jobs require LLM & Large Language Model?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">AI Market Pulse currently tracks 194 AI job openings that require LLM & Large Language Model skills. 61 of these are remote positions.</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>Should I specialize in one LLM or learn multiple?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">Learn concepts deeply, not just one API. Core skills (prompt engineering, RAG, evaluation) transfer across models. Most companies use multiple models—OpenAI for some tasks, Claude for others. Flexibility is more valuable than single-model expertise.</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>What salary can I expect with LLM & Large Language Model skills?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">AI roles requiring LLM & Large Language Model pay an average of $226K based on disclosed compensation. Specialized skills like LLM & Large Language Model combined with production experience typically command 10-20% premiums over general AI roles.</div>
+            </div>
+        </div>
+        
+    </section>
+    
 
             
     <div class="cta-box">

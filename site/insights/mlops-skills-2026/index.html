@@ -1272,6 +1272,56 @@
         color: var(--text-secondary);
         line-height: 1.7;
     }
+
+    .related-resources-section {
+        margin: 40px 0;
+        padding: 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .related-resources-section h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .related-resources-grid {
+        display: grid;
+        gap: 12px;
+    }
+
+    .related-resource-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--bg-darker);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .related-resource-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+    }
+
+    .resource-icon {
+        font-size: 1.25rem;
+    }
+
+    .resource-title {
+        flex: 1;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    .resource-arrow {
+        color: var(--gold);
+    }
 </style>
 </head>
 
@@ -1476,7 +1526,7 @@ Most "MLOps" roles now require both skill sets.
 <strong>Feature Stores</strong>
 <ul><li>Feature engineering at scale</li><li>Feature versioning</li><li>Online/offline feature serving</li><li>Feature discovery and reuse</li></ul>
 <strong>Experiment Tracking</strong>
-<ul><li>MLflow / Weights & Biases</li><li>Experiment comparison</li><li>Artifact management</li><li>Reproducibility</li></ul>
+<ul><li>MLflow / <a href="/tools/weights-biases/">Weights & Biases</a></li><li>Experiment comparison</li><li>Artifact management</li><li>Reproducibility</li></ul>
 <strong>Cost Optimization</strong>
 <ul><li>GPU utilization monitoring</li><li>Spot instance strategies</li><li>Autoscaling configuration</li><li>Multi-model serving</li></ul>
 <h2>LLMOps: The New Requirements</h2>
@@ -1528,14 +1578,14 @@ Most "MLOps" roles now require both skill sets.
 <strong>Experiment Tracking:</strong>
 | Tool | Best For |
 |------|----------|
-| MLflow | Open source, flexible |
+| <a href="/tools/mlflow/">MLflow</a> | Open source, flexible |
 | Weights & Biases | Collaboration, visualizations |
 | Comet | Enterprise features |
 | Neptune | Scale and integrations |
 <strong>LLM Operations:</strong>
 | Tool | Best For |
 |------|----------|
-| LangSmith | LangChain ecosystem |
+| LangSmith | <a href="/tools/langchain/">LangChain</a> ecosystem |
 | Helicone | Cost tracking, caching |
 | PromptFoo | Evaluation automation |
 | Braintrust | Enterprise LLM eval |
@@ -1543,7 +1593,7 @@ Most "MLOps" roles now require both skill sets.
 <p>MLOps skills significantly affect compensation:</p>
 <p>| Role | Without MLOps | With MLOps |
 |------|---------------|------------|
-| AI Engineer | $160K - $200K | $180K - $230K |
+| <a href="/salaries/ai-engineer/">AI Engineer</a> | $160K - $200K | $180K - $230K |
 | Senior AI Engineer | $200K - $260K | $230K - $290K |
 | Staff AI Engineer | $250K - $320K | $280K - $360K |</p>
 <p>Dedicated MLOps/ML Platform roles:
@@ -1692,6 +1742,39 @@ Pure AI engineers who can't deploy are less valuable. Pure MLOps engineers witho
             </div>
         </div>
         
+    </section>
+    
+
+            
+    <section class="related-resources-section">
+        <h2>Related Resources</h2>
+        <div class="related-resources-grid">
+            
+        <a href="/jobs/skills/mlops/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">MLOps Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/salaries/ai-engineer/" class="related-resource-card">
+            <span class="resource-icon">💰</span>
+            <span class="resource-title">AI Engineer Salary Data</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/jobs/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">Browse AI Engineer Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/jobs/skills/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">AI Jobs by Skill</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        </div>
     </section>
     
 

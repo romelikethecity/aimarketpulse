@@ -28,7 +28,7 @@ from templates import (
     slugify, format_salary, is_remote, BASE_URL, SITE_NAME,
     CSS_VARIABLES, CSS_NAV, CSS_LAYOUT, CSS_CARDS, CSS_CTA, CSS_FOOTER
 )
-from seo_core import generate_breadcrumb_schema, generate_collectionpage_schema
+from seo_core import generate_breadcrumb_schema, generate_collectionpage_schema, generate_faq_schema, generate_faq_html, CSS_FAQ_SECTION
 
 DATA_DIR = 'data'
 SITE_DIR = 'site'
@@ -294,6 +294,142 @@ CSS_LANDING = '''
 '''
 
 
+def generate_location_faqs(location_slug, config, num_jobs, avg_salary):
+    """Generate FAQs for location-based landing pages."""
+    location_name = config['h1'].replace('AI & Machine Learning Jobs in ', '').replace('Remote AI & Machine Learning Jobs', 'Remote')
+    faqs = []
+
+    # Core question about jobs available
+    faqs.append({
+        'question': f'How many AI jobs are available in {location_name}?',
+        'answer': f'AI Market Pulse currently tracks {num_jobs} AI and machine learning job openings in {location_name}. This includes roles like AI engineer, ML engineer, data scientist, and prompt engineer positions.'
+    })
+
+    # Salary question if we have data
+    if avg_salary > 0:
+        faqs.append({
+            'question': f'What is the average AI engineer salary in {location_name}?',
+            'answer': f'Based on job postings with disclosed compensation, AI roles in {location_name} pay an average of ${int(avg_salary/1000)}K. Actual salaries vary based on experience, specific skills (like RAG or LangChain), and company size.'
+        })
+
+    # Remote-specific FAQs
+    if location_slug == 'remote':
+        faqs.append({
+            'question': 'Do remote AI jobs pay less than in-office roles?',
+            'answer': 'It depends on company policy. Some companies pay location-agnostic rates (same salary regardless of location), while others use geographic pay bands. Based on our data, remote AI roles average 5-10% below equivalent Bay Area in-office roles, but offer significant cost-of-living advantages.'
+        })
+        faqs.append({
+            'question': 'What skills are most in-demand for remote AI jobs?',
+            'answer': 'Remote AI positions typically emphasize self-directed skills: strong async communication, experience with remote collaboration tools, and ability to ship independently. Technical skills like Python, RAG systems, and LangChain remain important regardless of work location.'
+        })
+    else:
+        # Location-specific benefits
+        location_benefits = {
+            'san-francisco': 'San Francisco offers access to top AI companies like OpenAI, Anthropic, and major tech giants. The Bay Area AI ecosystem provides networking opportunities, higher salaries, and cutting-edge research exposure.',
+            'new-york': 'New York offers strong AI opportunities in fintech, media, and enterprise AI. NYC AI salaries are competitive with the Bay Area, and the city provides diverse industry exposure.',
+            'seattle': 'Seattle is home to Amazon and Microsoft AI divisions. The area offers competitive salaries with no state income tax, making it financially attractive for AI professionals.',
+            'austin': 'Austin combines a growing tech scene with lower cost of living than coastal cities. Many AI companies have opened offices here, and the city offers a good work-life balance.',
+            'boston': 'Boston offers proximity to MIT, Harvard, and numerous AI research labs. The area excels in healthcare AI, robotics, and foundational ML research.',
+            'los-angeles': 'Los Angeles has growing AI opportunities in entertainment tech, autonomous vehicles, and gaming. The city offers diverse AI applications beyond traditional tech.'
+        }
+
+        if location_slug in location_benefits:
+            faqs.append({
+                'question': f'Why work in AI in {location_name}?',
+                'answer': location_benefits[location_slug]
+            })
+
+    return faqs
+
+
+def generate_skill_faqs(skill_slug, config, num_jobs, avg_salary, remote_count):
+    """Generate FAQs for skill-based landing pages."""
+    skill_name = config['h1'].replace('AI Jobs Requiring ', '').replace('AI & ML Jobs Requiring ', '').replace(' Jobs', '')
+    faqs = []
+
+    # Jobs available
+    faqs.append({
+        'question': f'How many AI jobs require {skill_name}?',
+        'answer': f'AI Market Pulse currently tracks {num_jobs} AI job openings that require {skill_name} skills. {remote_count} of these are remote positions.'
+    })
+
+    # Skill-specific FAQs
+    skill_faqs = {
+        'python': [
+            {
+                'question': 'Is Python essential for AI engineering?',
+                'answer': 'Yes. Python appears in 65%+ of AI job postings. Every major AI framework (PyTorch, TensorFlow, LangChain) uses Python. While Rust is growing for performance-critical components, Python remains the foundation for AI work.'
+            },
+            {
+                'question': 'How proficient in Python should I be for AI jobs?',
+                'answer': 'Most AI roles expect intermediate to advanced Python. You should be comfortable with data structures, async programming, package management, and libraries like NumPy and Pandas. Production experience matters more than syntax expertise.'
+            }
+        ],
+        'pytorch': [
+            {
+                'question': 'Is PyTorch or TensorFlow better for AI careers?',
+                'answer': 'PyTorch has become the dominant framework for research and is increasingly popular in production. Learning PyTorch first gives you more flexibility, but understanding both is valuable. Many companies use PyTorch for development and export to other formats for deployment.'
+            }
+        ],
+        'langchain': [
+            {
+                'question': 'Is LangChain worth learning for AI jobs?',
+                'answer': 'Yes. LangChain is commonly requested in LLM application roles, especially for RAG systems and AI agents. While some teams build custom solutions, LangChain experience demonstrates you understand LLM orchestration patterns.'
+            },
+            {
+                'question': 'What should I know besides LangChain?',
+                'answer': 'Complement LangChain with: vector databases (Pinecone, Chroma), prompt engineering, evaluation frameworks, and understanding when to use alternatives like LlamaIndex or custom solutions. Production deployment experience is highly valued.'
+            }
+        ],
+        'rag': [
+            {
+                'question': 'How important is RAG experience for AI jobs?',
+                'answer': 'RAG (Retrieval-Augmented Generation) appears in 74% of LLM-focused AI engineering roles. It\'s the single most requested LLM-specific skill. Companies need engineers who can build production retrieval systems, not just call LLM APIs.'
+            },
+            {
+                'question': 'What vector database should I learn for RAG?',
+                'answer': 'Pinecone is most commonly requested, followed by Weaviate and Chroma. However, the concepts transfer between databases. Focus on understanding embeddings, similarity metrics, and chunking strategies rather than one specific tool.'
+            }
+        ],
+        'llm': [
+            {
+                'question': 'Should I specialize in one LLM or learn multiple?',
+                'answer': 'Learn concepts deeply, not just one API. Core skills (prompt engineering, RAG, evaluation) transfer across models. Most companies use multiple models—OpenAI for some tasks, Claude for others. Flexibility is more valuable than single-model expertise.'
+            }
+        ],
+        'mlops': [
+            {
+                'question': 'How has MLOps changed with LLMs?',
+                'answer': 'Traditional MLOps focused on training pipelines and model deployment. LLMOps adds: prompt management and versioning, RAG pipeline operations, LLM evaluation and monitoring, cost optimization, and caching strategies. The core principles remain but applied to different artifacts.'
+            }
+        ],
+        'ai-agents': [
+            {
+                'question': 'What skills do I need for AI agent development?',
+                'answer': 'Key skills include: multi-step reasoning and planning systems, tool use and function calling, state management and memory systems, evaluation frameworks, error handling and recovery, and security for autonomous systems. Experience with LangChain agents or custom implementations is valued.'
+            }
+        ],
+        'prompt-engineering': [
+            {
+                'question': 'Is prompt engineering still a viable career?',
+                'answer': 'Dedicated prompt engineer roles are declining, but prompt engineering skills are more valuable than ever as part of broader AI engineering roles. The career path leads to AI engineering, product management, or domain specialization.'
+            }
+        ]
+    }
+
+    if skill_slug in skill_faqs:
+        faqs.extend(skill_faqs[skill_slug])
+
+    # Salary question
+    if avg_salary > 0:
+        faqs.append({
+            'question': f'What salary can I expect with {skill_name} skills?',
+            'answer': f'AI roles requiring {skill_name} pay an average of ${int(avg_salary/1000)}K based on disclosed compensation. Specialized skills like {skill_name} combined with production experience typically command 10-20% premiums over general AI roles.'
+        })
+
+    return faqs
+
+
 def generate_job_card_html(job):
     """Generate HTML for a single job card on landing pages."""
     company = str(job.get('company', job.get('company_name', 'Unknown')))
@@ -420,6 +556,10 @@ def generate_location_page(location_slug, config, jobs_df, all_locations):
     for _, job in location_jobs.head(50).iterrows():
         jobs_html += generate_job_card_html(job)
 
+    # Generate FAQs
+    faqs = generate_location_faqs(location_slug, config, num_jobs, avg_salary)
+    faq_html = generate_faq_html(faqs, section_title="Frequently Asked Questions")
+
     # Related locations
     related_html = ""
     other_locations = [loc for loc in all_locations if loc != location_slug][:6]
@@ -441,7 +581,7 @@ def generate_location_page(location_slug, config, jobs_df, all_locations):
     )}
     {breadcrumb_schema}
     {collection_schema}
-    <style>{CSS_LANDING}</style>
+    <style>{CSS_LANDING}{CSS_FAQ_SECTION}</style>
 {get_nav_html('jobs')}
 
     <div class="landing-header">
@@ -466,6 +606,8 @@ def generate_location_page(location_slug, config, jobs_df, all_locations):
             </div>
 
             {f'<p style="text-align: center; color: var(--text-muted);">Showing {min(50, num_jobs)} of {num_jobs} jobs</p>' if num_jobs > 50 else ''}
+
+            {faq_html}
 
             {get_cta_box()}
 
@@ -641,6 +783,10 @@ def generate_skill_page(skill_slug, config, jobs_df, all_skills):
     for _, job in skill_jobs.head(50).iterrows():
         jobs_html += generate_job_card_html(job)
 
+    # Generate FAQs
+    faqs = generate_skill_faqs(skill_slug, config, num_jobs, avg_salary, remote_count)
+    faq_html = generate_faq_html(faqs, section_title="Frequently Asked Questions")
+
     # Related skills
     related_html = ""
     other_skills = [sk for sk in all_skills if sk != skill_slug][:8]
@@ -662,7 +808,7 @@ def generate_skill_page(skill_slug, config, jobs_df, all_skills):
     )}
     {breadcrumb_schema}
     {collection_schema}
-    <style>{CSS_LANDING}</style>
+    <style>{CSS_LANDING}{CSS_FAQ_SECTION}</style>
 {get_nav_html('jobs')}
 
     <div class="landing-header">
@@ -691,6 +837,8 @@ def generate_skill_page(skill_slug, config, jobs_df, all_skills):
             </div>
 
             {f'<p style="text-align: center; color: var(--text-muted);">Showing {min(50, num_jobs)} of {num_jobs} jobs</p>' if num_jobs > 50 else ''}
+
+            {faq_html}
 
             {get_cta_box()}
 

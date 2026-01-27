@@ -26,7 +26,8 @@ from templates import (
 )
 from seo_core import (
     generate_breadcrumb_schema, generate_faq_schema, generate_faq_html,
-    generate_article_schema, generate_article_faqs, CSS_FAQ_SECTION
+    generate_article_schema, generate_article_faqs, CSS_FAQ_SECTION,
+    auto_link_content
 )
 
 # Directories
@@ -123,6 +124,215 @@ def parse_markdown(content):
 def escape_html(text):
     """Escape HTML special characters."""
     return str(text).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
+
+
+# =============================================================================
+# RELATED RESOURCES - Cross-link to job/salary pages
+# =============================================================================
+
+# Mapping of article tags to relevant job/salary pages
+TAG_TO_RESOURCES = {
+    'ai-engineer': [
+        {'title': 'AI Engineer Salary Data', 'url': '/salaries/ai-engineer/', 'type': 'salary'},
+        {'title': 'Browse AI Engineer Jobs', 'url': '/jobs/', 'type': 'jobs'},
+    ],
+    'ml-engineer': [
+        {'title': 'ML Engineer Salary Data', 'url': '/salaries/ml-engineer/', 'type': 'salary'},
+        {'title': 'Browse ML Jobs', 'url': '/jobs/', 'type': 'jobs'},
+    ],
+    'prompt-engineering': [
+        {'title': 'Prompt Engineer Salary Data', 'url': '/salaries/prompt-engineer/', 'type': 'salary'},
+        {'title': 'Prompt Engineering Jobs', 'url': '/jobs/skills/prompt-engineering/', 'type': 'jobs'},
+    ],
+    'salary': [
+        {'title': 'All AI Salary Data', 'url': '/salaries/', 'type': 'salary'},
+    ],
+    'remote': [
+        {'title': 'Remote AI Jobs', 'url': '/jobs/remote/', 'type': 'jobs'},
+    ],
+    'python': [
+        {'title': 'Python AI Jobs', 'url': '/jobs/skills/python/', 'type': 'jobs'},
+    ],
+    'langchain': [
+        {'title': 'LangChain AI Jobs', 'url': '/jobs/skills/langchain/', 'type': 'jobs'},
+        {'title': 'LangChain Tool Review', 'url': '/tools/langchain/', 'type': 'tool'},
+    ],
+    'rag': [
+        {'title': 'RAG Jobs', 'url': '/jobs/skills/rag/', 'type': 'jobs'},
+    ],
+    'ai-agents': [
+        {'title': 'AI Agent Jobs', 'url': '/jobs/skills/ai-agents/', 'type': 'jobs'},
+    ],
+    'mlops': [
+        {'title': 'MLOps Jobs', 'url': '/jobs/skills/mlops/', 'type': 'jobs'},
+    ],
+    'fine-tuning': [
+        {'title': 'Fine-Tuning Jobs', 'url': '/jobs/skills/fine-tuning/', 'type': 'jobs'},
+    ],
+    'llm': [
+        {'title': 'LLM Engineer Jobs', 'url': '/jobs/skills/llm/', 'type': 'jobs'},
+    ],
+    'computer-vision': [
+        {'title': 'Computer Vision Jobs', 'url': '/jobs/skills/computer-vision/', 'type': 'jobs'},
+    ],
+    'nlp': [
+        {'title': 'NLP Jobs', 'url': '/jobs/skills/nlp/', 'type': 'jobs'},
+    ],
+    'hiring': [
+        {'title': 'Companies Hiring AI Talent', 'url': '/companies/', 'type': 'companies'},
+        {'title': 'Browse All AI Jobs', 'url': '/jobs/', 'type': 'jobs'},
+    ],
+    'companies': [
+        {'title': 'Companies Hiring AI Talent', 'url': '/companies/', 'type': 'companies'},
+    ],
+    'interview': [
+        {'title': 'Browse AI Jobs', 'url': '/jobs/', 'type': 'jobs'},
+    ],
+    'career-change': [
+        {'title': 'Browse AI Jobs', 'url': '/jobs/', 'type': 'jobs'},
+        {'title': 'AI Salary Benchmarks', 'url': '/salaries/', 'type': 'salary'},
+    ],
+    'job-search': [
+        {'title': 'Browse AI Jobs', 'url': '/jobs/', 'type': 'jobs'},
+        {'title': 'Companies Hiring', 'url': '/companies/', 'type': 'companies'},
+    ],
+    'startup': [
+        {'title': 'Browse AI Jobs', 'url': '/jobs/', 'type': 'jobs'},
+    ],
+}
+
+
+def get_related_resources(tags, category):
+    """Get related job/salary resources based on article tags and category."""
+    resources = []
+    seen_urls = set()
+
+    # Add resources based on tags
+    for tag in tags:
+        if tag in TAG_TO_RESOURCES:
+            for resource in TAG_TO_RESOURCES[tag]:
+                if resource['url'] not in seen_urls:
+                    resources.append(resource)
+                    seen_urls.add(resource['url'])
+
+    # Add category-based resources
+    category_resources = {
+        'salary-intel': [
+            {'title': 'All AI Salary Data', 'url': '/salaries/', 'type': 'salary'},
+        ],
+        'career-guides': [
+            {'title': 'Browse AI Jobs', 'url': '/jobs/', 'type': 'jobs'},
+            {'title': 'AI Salary Benchmarks', 'url': '/salaries/', 'type': 'salary'},
+        ],
+        'hiring-trends': [
+            {'title': 'Companies Hiring AI Talent', 'url': '/companies/', 'type': 'companies'},
+            {'title': 'Browse AI Jobs', 'url': '/jobs/', 'type': 'jobs'},
+        ],
+        'skills': [
+            {'title': 'AI Jobs by Skill', 'url': '/jobs/skills/', 'type': 'jobs'},
+        ],
+        'interview-prep': [
+            {'title': 'Browse AI Jobs', 'url': '/jobs/', 'type': 'jobs'},
+        ],
+        'job-search': [
+            {'title': 'Browse AI Jobs', 'url': '/jobs/', 'type': 'jobs'},
+            {'title': 'Companies Hiring', 'url': '/companies/', 'type': 'companies'},
+        ],
+    }
+
+    if category in category_resources:
+        for resource in category_resources[category]:
+            if resource['url'] not in seen_urls:
+                resources.append(resource)
+                seen_urls.add(resource['url'])
+
+    # Limit to 4 resources max
+    return resources[:4]
+
+
+def generate_related_resources_html(resources):
+    """Generate HTML for related resources section."""
+    if not resources:
+        return ""
+
+    resource_cards = []
+    for resource in resources:
+        icon = {
+            'jobs': '💼',
+            'salary': '💰',
+            'tool': '🛠️',
+            'companies': '🏢',
+        }.get(resource['type'], '📊')
+
+        resource_cards.append(f'''
+        <a href="{resource['url']}" class="related-resource-card">
+            <span class="resource-icon">{icon}</span>
+            <span class="resource-title">{resource['title']}</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        ''')
+
+    return f'''
+    <section class="related-resources-section">
+        <h2>Related Resources</h2>
+        <div class="related-resources-grid">
+            {''.join(resource_cards)}
+        </div>
+    </section>
+    '''
+
+
+CSS_RELATED_RESOURCES = '''
+    .related-resources-section {
+        margin: 40px 0;
+        padding: 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .related-resources-section h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .related-resources-grid {
+        display: grid;
+        gap: 12px;
+    }
+
+    .related-resource-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--bg-darker);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .related-resource-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+    }
+
+    .resource-icon {
+        font-size: 1.25rem;
+    }
+
+    .resource-title {
+        flex: 1;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    .resource-arrow {
+        color: var(--gold);
+    }
+'''
 
 
 # =============================================================================
@@ -664,6 +874,13 @@ def generate_article_page(article, author, market_data, all_articles):
         </div>
         '''
 
+    # Related resources (cross-link to job/salary pages)
+    related_resources = get_related_resources(tags, category)
+    related_resources_html = generate_related_resources_html(related_resources)
+
+    # Auto-link content to relevant tools and salary pages
+    content_html = auto_link_content(content_html, exclude_links=[f'/insights/{slug}/'], max_links=5)
+
     # Related articles
     related_html = ''
     related = [a for a in all_articles if a['slug'] != slug][:4]
@@ -687,12 +904,14 @@ def generate_article_page(article, author, market_data, all_articles):
         </div>
         '''
 
-    # Build page
+    # Build page - truncate title for SEO (60 chars max before site name suffix)
+    seo_title = title if len(title) <= 43 else title[:40] + '...'
+
     html = f'''{get_html_head(
-        title,
+        seo_title,
         description,
         f"insights/{slug}/",
-        extra_head=f'<style>{CSS_ARTICLE}{CSS_FAQ_SECTION}</style>'
+        extra_head=f'<style>{CSS_ARTICLE}{CSS_FAQ_SECTION}{CSS_RELATED_RESOURCES}</style>'
     )}
     {article_schema}
     {breadcrumb_schema}
@@ -732,6 +951,8 @@ def generate_article_page(article, author, market_data, all_articles):
             </article>
 
             {faq_html}
+
+            {related_resources_html}
 
             <div class="author-bio-box">
                 <div class="author-bio-avatar">{author_initials}</div>
@@ -888,7 +1109,7 @@ def generate_category_page(category, category_info, articles, all_categories):
     other_cats_html = ' · '.join(other_cats) if other_cats else ''
 
     html = f'''{get_html_head(
-        f"{category_name} - AI Market Pulse",
+        f"{category_name} - AI Insights",
         category_desc or f"AI career {category_name.lower()}. {article_count} insights on the AI job market.",
         f"insights/category/{category}/",
         extra_head=f'<style>{CSS_ARTICLE}</style>'

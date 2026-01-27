@@ -12,7 +12,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI System Design Interview: Complete Prep Guide | AI Market Pulse</title>
+    <title>AI System Design Interview: Complete Pre... | AI Market Pulse</title>
     <meta name="description" content="System design interviews for AI roles have distinct patterns. Common questions, frameworks for answering, and practice strategies.">
     <link rel="canonical" href="https://theaimarketpulse.com/insights/ai-system-design-interview/">
     <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://theaimarketpulse.com/insights/ai-system-design-interview/">
-    <meta property="og:title" content="AI System Design Interview: Complete Prep Guide">
+    <meta property="og:title" content="AI System Design Interview: Complete Pre...">
     <meta property="og:description" content="System design interviews for AI roles have distinct patterns. Common questions, frameworks for answering, and practice strategies.">
     <meta property="og:site_name" content="AI Market Pulse">
     <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
@@ -29,7 +29,7 @@
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pe_collective">
-    <meta name="twitter:title" content="AI System Design Interview: Complete Prep Guide">
+    <meta name="twitter:title" content="AI System Design Interview: Complete Pre...">
     <meta name="twitter:description" content="System design interviews for AI roles have distinct patterns. Common questions, frameworks for answering, and practice strategies.">
     <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
     <meta name="twitter:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
@@ -1272,6 +1272,56 @@
         color: var(--text-secondary);
         line-height: 1.7;
     }
+
+    .related-resources-section {
+        margin: 40px 0;
+        padding: 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .related-resources-section h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .related-resources-grid {
+        display: grid;
+        gap: 12px;
+    }
+
+    .related-resource-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--bg-darker);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .related-resource-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+    }
+
+    .resource-icon {
+        font-size: 1.25rem;
+    }
+
+    .resource-title {
+        flex: 1;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    .resource-arrow {
+        color: var(--gold);
+    }
 </style>
 </head>
 
@@ -1479,7 +1529,7 @@ The principles (scalability, reliability, tradeoffs) apply, but the components a
 <strong>Clarifying questions:</strong>
 <ul><li>How many documents? How often do they update?</li><li>Expected QPS?</li><li>What latency is acceptable?</li><li>What accuracy/hallucination rate is tolerable?</li><li>Multi-language support?</li></ul>
 <strong>Key design decisions:</strong>
-<ul><li>Chunking strategy (size, overlap, method)</li><li>Embedding model (OpenAI vs open source)</li><li>Vector database (Pinecone, Weaviate, pgvector)</li><li>Retrieval strategy (simple vs hybrid vs re-rank)</li><li>LLM choice and prompt design</li></ul>
+<ul><li>Chunking strategy (size, overlap, method)</li><li>Embedding model (<a href="/tools/openai-api/">OpenAI</a> vs open source)</li><li>Vector database (<a href="/tools/pinecone/">Pinecone</a>, <a href="/tools/weaviate/">Weaviate</a>, pgvector)</li><li>Retrieval strategy (simple vs hybrid vs re-rank)</li><li>LLM choice and prompt design</li></ul>
 <strong>Tradeoffs to discuss:</strong>
 <ul><li>Chunking size: smaller = more precise, more retrieval calls</li><li>Hybrid search: better recall, more complexity</li><li>Re-ranking: better precision, added latency</li><li>Caching: faster responses, stale content risk</li></ul>
 <h3>Agent System Design</h3>
@@ -1533,7 +1583,7 @@ The principles (scalability, reliability, tradeoffs) apply, but the components a
 <h3>Cost Management</h3>
 <p>AI systems have unique cost considerations:</p>
 <strong>LLM API costs:</strong>
-<ul><li>Model selection (GPT-4 vs GPT-3.5 vs open source)</li><li>Token optimization (shorter prompts, efficient retrieval)</li><li>Caching (avoid redundant calls)</li><li>Tiering (expensive model for hard cases)</li></ul>
+<ul><li>Model selection (<a href="/tools/openai-api/">GPT-4</a> vs GPT-3.5 vs open source)</li><li>Token optimization (shorter prompts, efficient retrieval)</li><li>Caching (avoid redundant calls)</li><li>Tiering (expensive model for hard cases)</li></ul>
 <strong>Infrastructure costs:</strong>
 <ul><li>GPU instances for inference</li><li>Vector database storage and queries</li><li>Data storage and processing</li></ul>
 <h3>Reliability Patterns</h3>
@@ -1687,6 +1737,27 @@ For each:
             </div>
         </div>
         
+    </section>
+    
+
+            
+    <section class="related-resources-section">
+        <h2>Related Resources</h2>
+        <div class="related-resources-grid">
+            
+        <a href="/jobs/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">Browse AI Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/salaries/ai-engineer/" class="related-resource-card">
+            <span class="resource-icon">💰</span>
+            <span class="resource-title">AI Engineer Salary Data</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        </div>
     </section>
     
 

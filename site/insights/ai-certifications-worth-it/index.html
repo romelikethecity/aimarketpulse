@@ -1272,6 +1272,56 @@
         color: var(--text-secondary);
         line-height: 1.7;
     }
+
+    .related-resources-section {
+        margin: 40px 0;
+        padding: 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .related-resources-section h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .related-resources-grid {
+        display: grid;
+        gap: 12px;
+    }
+
+    .related-resource-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--bg-darker);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .related-resource-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+    }
+
+    .resource-icon {
+        font-size: 1.25rem;
+    }
+
+    .resource-title {
+        flex: 1;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    .resource-arrow {
+        color: var(--gold);
+    }
 </style>
 </head>
 
@@ -1448,9 +1498,9 @@
 <p>These actually appear in job postings and are recognized by employers.</p>
 <strong>AWS Machine Learning Specialty</strong>
 <ul><li>Most commonly mentioned (appears in ~5% of relevant postings)</li><li>Signals cloud ML deployment skills</li><li>Valuable for enterprise roles</li><li>Cost: ~$300</li></ul>
-<strong>Google Cloud Professional ML Engineer</strong>
+<strong>Google Cloud Professional <a href="/salaries/ml-engineer/">ML Engineer</a></strong>
 <ul><li>Strong for GCP-heavy companies</li><li>Covers ML pipeline design</li><li>Cost: ~$200</li></ul>
-<strong>Azure AI Engineer Associate</strong>
+<strong>Azure <a href="/salaries/ai-engineer/">AI Engineer</a> Associate</strong>
 <ul><li>Relevant for Microsoft ecosystem</li><li>Growing in enterprise</li><li>Cost: ~$165</li></ul>
 <strong>Why these matter:</strong>
 <ul><li>Tied to real infrastructure skills</li><li>Companies use these platforms</li><li>Validates practical knowledge</li></ul>
@@ -1489,7 +1539,7 @@ Complete 1-2 respected courses (DeepLearning.AI, fast.ai) AND build projects.</p
 <ul><li>40 hours → One substantial AI project</li><li>More valuable than any certificate</li><li>Demonstrates actual capability</li></ul>
 <h3>Contribute to Open Source</h3></p>
 <p>Any contribution to recognized projects:
-<ul><li>LangChain, LlamaIndex, etc.</li><li>Shows you can work with real codebases</li><li>Creates verifiable track record</li></ul>
+<ul><li>LangChain, <a href="/tools/llamaindex/">LlamaIndex</a>, etc.</li><li>Shows you can work with real codebases</li><li>Creates verifiable track record</li></ul>
 <h3>Create Technical Content</h3></p>
 <p>Writing and teaching:
 <ul><li>Blog posts explaining AI concepts</li><li>YouTube tutorials</li><li>Thoughtful LinkedIn posts</li></ul>
@@ -1615,6 +1665,27 @@ Don't spend thousands on certifications hoping they'll get you hired. Spend that
             </div>
         </div>
         
+    </section>
+    
+
+            
+    <section class="related-resources-section">
+        <h2>Related Resources</h2>
+        <div class="related-resources-grid">
+            
+        <a href="/jobs/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">Browse AI Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/companies/" class="related-resource-card">
+            <span class="resource-icon">🏢</span>
+            <span class="resource-title">Companies Hiring</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        </div>
     </section>
     
 

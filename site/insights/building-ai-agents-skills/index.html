@@ -1272,6 +1272,56 @@
         color: var(--text-secondary);
         line-height: 1.7;
     }
+
+    .related-resources-section {
+        margin: 40px 0;
+        padding: 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .related-resources-section h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .related-resources-grid {
+        display: grid;
+        gap: 12px;
+    }
+
+    .related-resource-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--bg-darker);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .related-resource-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+    }
+
+    .resource-icon {
+        font-size: 1.25rem;
+    }
+
+    .resource-title {
+        flex: 1;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    .resource-arrow {
+        color: var(--gold);
+    }
 </style>
 </head>
 
@@ -1448,7 +1498,7 @@ Agents involve concurrent operations:
 <ul><li>asyncio for parallel tool calls</li><li>Error handling in async contexts</li><li>State management patterns</li><li>API client design</li></ul>
 <h3>Tier 2: Agent Frameworks (Pick One to Master)</h3>
 <strong>LangGraph</strong> (Most In-Demand)
-<ul><li>Graph-based workflow definition</li><li>Built-in state management</li><li>Human-in-the-loop support</li><li>Strong LangChain ecosystem integration</li></ul>
+<ul><li>Graph-based workflow definition</li><li>Built-in state management</li><li>Human-in-the-loop support</li><li>Strong <a href="/tools/langchain/">LangChain</a> ecosystem integration</li></ul>
 ``<code>python
 <h1>LangGraph mental model</h1>
 <h1>Define nodes (functions that do work)</h1>
@@ -1482,7 +1532,7 @@ Many production systems use custom patterns:
 <h2>Learning Path: Zero to Agent Builder</h2>
 <h3>Month 1: Foundations</h3>
 <strong>Week 1-2: LLM Deep Dive</strong>
-<ul><li>Master function calling with OpenAI/Anthropic</li><li>Build 3-4 tools and use them via function calling</li><li>Understand structured outputs</li></ul>
+<ul><li>Master function calling with <a href="/tools/openai-api/">OpenAI</a>/Anthropic</li><li>Build 3-4 tools and use them via function calling</li><li>Understand structured outputs</li></ul>
 <strong>Week 3-4: First Agent</strong>
 <ul><li>Build a simple ReAct agent from scratch</li><li>Understand the loop: think → act → observe</li><li>Add 2-3 tools and see how selection works</li></ul>
 <h3>Month 2: Framework Mastery</h3>
@@ -1636,6 +1686,39 @@ For anything consequential, include human approval steps. Trust builds gradually
             </div>
         </div>
         
+    </section>
+    
+
+            
+    <section class="related-resources-section">
+        <h2>Related Resources</h2>
+        <div class="related-resources-grid">
+            
+        <a href="/jobs/skills/ai-agents/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">AI Agent Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/jobs/skills/langchain/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">LangChain AI Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/tools/langchain/" class="related-resource-card">
+            <span class="resource-icon">🛠️</span>
+            <span class="resource-title">LangChain Tool Review</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/salaries/ai-engineer/" class="related-resource-card">
+            <span class="resource-icon">💰</span>
+            <span class="resource-title">AI Engineer Salary Data</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        </div>
     </section>
     
 

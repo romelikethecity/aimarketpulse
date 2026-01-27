@@ -12,7 +12,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Source AI Skills: Llama, Mistral, and Beyond | AI Market Pulse</title>
+    <title>Open Source AI Skills: Llama, Mistral, a... | AI Market Pulse</title>
     <meta name="description" content="Open-source LLMs are reshaping AI careers. When companies choose open-source, what skills matter, and the growing job market.">
     <link rel="canonical" href="https://theaimarketpulse.com/insights/open-source-ai-skills-llama-mistral/">
     <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://theaimarketpulse.com/insights/open-source-ai-skills-llama-mistral/">
-    <meta property="og:title" content="Open Source AI Skills: Llama, Mistral, and Beyond">
+    <meta property="og:title" content="Open Source AI Skills: Llama, Mistral, a...">
     <meta property="og:description" content="Open-source LLMs are reshaping AI careers. When companies choose open-source, what skills matter, and the growing job market.">
     <meta property="og:site_name" content="AI Market Pulse">
     <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
@@ -29,7 +29,7 @@
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pe_collective">
-    <meta name="twitter:title" content="Open Source AI Skills: Llama, Mistral, and Beyond">
+    <meta name="twitter:title" content="Open Source AI Skills: Llama, Mistral, a...">
     <meta name="twitter:description" content="Open-source LLMs are reshaping AI careers. When companies choose open-source, what skills matter, and the growing job market.">
     <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
     <meta name="twitter:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
@@ -1272,6 +1272,56 @@
         color: var(--text-secondary);
         line-height: 1.7;
     }
+
+    .related-resources-section {
+        margin: 40px 0;
+        padding: 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .related-resources-section h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .related-resources-grid {
+        display: grid;
+        gap: 12px;
+    }
+
+    .related-resource-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--bg-darker);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .related-resource-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+    }
+
+    .resource-icon {
+        font-size: 1.25rem;
+    }
+
+    .resource-title {
+        flex: 1;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    .resource-arrow {
+        color: var(--gold);
+    }
 </style>
 </head>
 
@@ -1453,7 +1503,7 @@ Based on our job data, 28% of AI engineering postings mention open-source model 
 <h2>Open-Source AI Skills Stack</h2>
 <h3>Tier 1: Model Deployment (Foundation)</h3>
 <strong>Local/Cloud Inference</strong>
-<ul><li>vLLM for high-throughput serving</li><li>Ollama for local development</li><li>TGI (Text Generation Inference) for HuggingFace models</li><li>llama.cpp for edge/CPU deployment</li></ul>
+<ul><li>vLLM for high-throughput serving</li><li>Ollama for local development</li><li>TGI (Text Generation Inference) for <a href="/tools/hugging-face/">HuggingFace</a> models</li><li>llama.cpp for edge/CPU deployment</li></ul>
 <strong>Quantization</strong>
 <ul><li>Understanding precision tradeoffs (FP16, INT8, INT4)</li><li>GPTQ, AWQ, GGUF formats</li><li>When to use which quantization level</li><li>Quality vs speed vs memory tradeoffs</li></ul>
 <strong>Hardware Knowledge</strong>
@@ -1514,7 +1564,7 @@ At >1M tokens/day, self-hosted often beats API pricing:
 <strong>Speed to Market</strong>
 <ul><li>Prototyping and MVPs</li><li>When infrastructure isn't your focus</li><li>Small-scale applications</li></ul>
 <strong>Capability Ceiling</strong>
-<ul><li>Tasks where GPT-4o/Claude significantly outperform open models</li><li>Complex reasoning tasks</li><li>Latest capabilities (new releases)</li></ul>
+<ul><li>Tasks where <a href="/tools/openai-api/">GPT-4o</a>/Claude significantly outperform open models</li><li>Complex reasoning tasks</li><li>Latest capabilities (new releases)</li></ul>
 <strong>Limited ML Expertise</strong>
 <ul><li>Team lacks deployment skills</li><li>No infrastructure team</li><li>Focus on application, not models</li></ul>
 <h2>Interview Questions</h2>
@@ -1642,6 +1692,27 @@ Engineers who can bridge both worlds are rare and valuable. The typical path:
             </div>
         </div>
         
+    </section>
+    
+
+            
+    <section class="related-resources-section">
+        <h2>Related Resources</h2>
+        <div class="related-resources-grid">
+            
+        <a href="/jobs/skills/llm/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">LLM Engineer Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/jobs/skills/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">AI Jobs by Skill</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        </div>
     </section>
     
 

@@ -1013,6 +1013,70 @@
         .landing-job-card { grid-template-columns: 1fr; }
         .job-card-cta { justify-self: start; }
     }
+
+    .faq-section {
+        margin: 48px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+    }
+
+    .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-card-hover);
+    }
+
+    .faq-icon {
+        font-size: 1.25rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+    }
+
+    .faq-answer-content {
+        padding: 0 24px 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
 </style>
 
 <body>
@@ -1857,6 +1921,91 @@
             </div>
 
             <p style="text-align: center; color: var(--text-muted);">Showing 50 of 244 jobs</p>
+
+            
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many AI jobs require LangChain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI Market Pulse currently tracks 244 AI job openings that require LangChain skills. 45 of these are remote positions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is LangChain worth learning for AI jobs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. LangChain is commonly requested in LLM application roles, especially for RAG systems and AI agents. While some teams build custom solutions, LangChain experience demonstrates you understand LLM orchestration patterns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I know besides LangChain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Complement LangChain with: vector databases (Pinecone, Chroma), prompt engineering, evaluation frameworks, and understanding when to use alternatives like LlamaIndex or custom solutions. Production deployment experience is highly valued."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What salary can I expect with LangChain skills?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI roles requiring LangChain pay an average of $181K based on disclosed compensation. Specialized skills like LangChain combined with production experience typically command 10-20% premiums over general AI roles."
+      }
+    }
+  ]
+}</script>
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>How many AI jobs require LangChain?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">AI Market Pulse currently tracks 244 AI job openings that require LangChain skills. 45 of these are remote positions.</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>Is LangChain worth learning for AI jobs?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">Yes. LangChain is commonly requested in LLM application roles, especially for RAG systems and AI agents. While some teams build custom solutions, LangChain experience demonstrates you understand LLM orchestration patterns.</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>What should I know besides LangChain?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">Complement LangChain with: vector databases (Pinecone, Chroma), prompt engineering, evaluation frameworks, and understanding when to use alternatives like LlamaIndex or custom solutions. Production deployment experience is highly valued.</div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                <span>What salary can I expect with LangChain skills?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">AI roles requiring LangChain pay an average of $181K based on disclosed compensation. Specialized skills like LangChain combined with production experience typically command 10-20% premiums over general AI roles.</div>
+            </div>
+        </div>
+        
+    </section>
+    
 
             
     <div class="cta-box">

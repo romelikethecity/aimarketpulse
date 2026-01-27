@@ -12,7 +12,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub for AI Engineers: Profile Optimization Guide | AI Market Pulse</title>
+    <title>GitHub for AI Engineers: Profile Optimiz... | AI Market Pulse</title>
     <meta name="description" content="How to make your GitHub profile work for AI job applications. What hiring managers look for and common mistakes.">
     <link rel="canonical" href="https://theaimarketpulse.com/insights/github-for-ai-engineers/">
     <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://theaimarketpulse.com/insights/github-for-ai-engineers/">
-    <meta property="og:title" content="GitHub for AI Engineers: Profile Optimization Guide">
+    <meta property="og:title" content="GitHub for AI Engineers: Profile Optimiz...">
     <meta property="og:description" content="How to make your GitHub profile work for AI job applications. What hiring managers look for and common mistakes.">
     <meta property="og:site_name" content="AI Market Pulse">
     <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
@@ -29,7 +29,7 @@
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pe_collective">
-    <meta name="twitter:title" content="GitHub for AI Engineers: Profile Optimization Guide">
+    <meta name="twitter:title" content="GitHub for AI Engineers: Profile Optimiz...">
     <meta name="twitter:description" content="How to make your GitHub profile work for AI job applications. What hiring managers look for and common mistakes.">
     <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
     <meta name="twitter:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
@@ -1272,6 +1272,56 @@
         color: var(--text-secondary);
         line-height: 1.7;
     }
+
+    .related-resources-section {
+        margin: 40px 0;
+        padding: 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .related-resources-section h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .related-resources-grid {
+        display: grid;
+        gap: 12px;
+    }
+
+    .related-resource-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--bg-darker);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .related-resource-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+    }
+
+    .resource-icon {
+        font-size: 1.25rem;
+    }
+
+    .resource-title {
+        flex: 1;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    .resource-arrow {
+        color: var(--gold);
+    }
 </style>
 </head>
 
@@ -1448,7 +1498,7 @@
 <strong>Bio:</strong>
 Keep it focused and searchable:
 ``<code>
-AI Engineer | RAG Systems | Python | Building at [Company]
+<a href="/salaries/ai-engineer/">AI Engineer</a> | RAG Systems | Python | Building at [Company]
 </code>`<code>
 <p>Not:
 </code>`<code>
@@ -1527,7 +1577,7 @@ def process_data(items: list[dict]) -> list[float]:
 <strong>Agent Projects:</strong>
 <ul><li>Error handling for tools</li><li>Observability/logging</li><li>State management approach</li><li>Cost/latency awareness</li></ul>
 <strong>Fine-Tuning:</strong>
-<ul><li>Data preparation documented</li><li>Training logs or wandb links</li><li>Evaluation comparisons</li><li>Model cards</li></ul>
+<ul><li>Data preparation documented</li><li>Training logs or <a href="/tools/weights-biases/">wandb</a> links</li><li>Evaluation comparisons</li><li>Model cards</li></ul>
 <h3>LLM API Usage</h3>
 <strong>Good practices:</strong>
 <ul><li>No hardcoded API keys (ever)</li><li>Proper async handling</li><li>Retry logic</li><li>Cost tracking awareness</li></ul>
@@ -1548,7 +1598,7 @@ async def call_llm_with_retry(
 <h2>GitHub Activity That Impresses</h2>
 <h3>Open Source Contributions</h3>
 <strong>Most valuable:</strong>
-<ul><li>PRs to major AI projects (LangChain, LlamaIndex, etc.)</li><li>Bug fixes with clear explanations</li><li>Documentation improvements</li><li>Feature implementations</li></ul>
+<ul><li>PRs to major AI projects (<a href="/tools/langchain/">LangChain</a>, <a href="/tools/llamaindex/">LlamaIndex</a>, etc.)</li><li>Bug fixes with clear explanations</li><li>Documentation improvements</li><li>Feature implementations</li></ul>
 <strong>How to highlight:</strong>
 <ul><li>Pin notable PRs</li><li>Mention in profile README</li><li>Reference in interviews</li></ul>
 <h3>Issue Engagement</h3>
@@ -1701,6 +1751,33 @@ Half-finished repos everywhere
             </div>
         </div>
         
+    </section>
+    
+
+            
+    <section class="related-resources-section">
+        <h2>Related Resources</h2>
+        <div class="related-resources-grid">
+            
+        <a href="/jobs/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">Browse AI Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/companies/" class="related-resource-card">
+            <span class="resource-icon">🏢</span>
+            <span class="resource-title">Companies Hiring</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/salaries/ai-engineer/" class="related-resource-card">
+            <span class="resource-icon">💰</span>
+            <span class="resource-title">AI Engineer Salary Data</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        </div>
     </section>
     
 

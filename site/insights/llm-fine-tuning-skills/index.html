@@ -12,7 +12,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLM Fine-Tuning Skills: From Prompts to Custom Models | AI Market Pulse</title>
+    <title>LLM Fine-Tuning Skills: From Prompts to ... | AI Market Pulse</title>
     <meta name="description" content="When prompt engineering isn't enough, fine-tuning is the next step. Skills, tools, and when companies actually need custom models.">
     <link rel="canonical" href="https://theaimarketpulse.com/insights/llm-fine-tuning-skills/">
     <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://theaimarketpulse.com/insights/llm-fine-tuning-skills/">
-    <meta property="og:title" content="LLM Fine-Tuning Skills: From Prompts to Custom Models">
+    <meta property="og:title" content="LLM Fine-Tuning Skills: From Prompts to ...">
     <meta property="og:description" content="When prompt engineering isn't enough, fine-tuning is the next step. Skills, tools, and when companies actually need custom models.">
     <meta property="og:site_name" content="AI Market Pulse">
     <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
@@ -29,7 +29,7 @@
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pe_collective">
-    <meta name="twitter:title" content="LLM Fine-Tuning Skills: From Prompts to Custom Models">
+    <meta name="twitter:title" content="LLM Fine-Tuning Skills: From Prompts to ...">
     <meta name="twitter:description" content="When prompt engineering isn't enough, fine-tuning is the next step. Skills, tools, and when companies actually need custom models.">
     <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
     <meta name="twitter:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
@@ -1272,6 +1272,56 @@
         color: var(--text-secondary);
         line-height: 1.7;
     }
+
+    .related-resources-section {
+        margin: 40px 0;
+        padding: 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .related-resources-section h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .related-resources-grid {
+        display: grid;
+        gap: 12px;
+    }
+
+    .related-resource-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--bg-darker);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .related-resource-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+    }
+
+    .resource-icon {
+        font-size: 1.25rem;
+    }
+
+    .resource-title {
+        flex: 1;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    .resource-arrow {
+        color: var(--gold);
+    }
 </style>
 </head>
 
@@ -1469,7 +1519,7 @@ LoRA on quantized models. Enables fine-tuning large models on consumer hardware.
 <strong>Data Preparation</strong>
 <ul><li>Instruction-response pair formatting</li><li>Data quality filtering</li><li>Deduplication and cleaning</li><li>Train/validation splits</li></ul>
 <strong>Training Basics</strong>
-<ul><li>Loading pretrained models (HuggingFace)</li><li>Basic training loops</li><li>Loss monitoring</li><li>Checkpoint management</li></ul>
+<ul><li>Loading pretrained models (<a href="/tools/hugging-face/">HuggingFace</a>)</li><li>Basic training loops</li><li>Loss monitoring</li><li>Checkpoint management</li></ul>
 <strong>Evaluation</strong>
 <ul><li>Benchmark selection</li><li>Overfitting detection</li><li>Comparison to base model</li><li>Task-specific metrics</li></ul>
 <h3>Tier 2: Production Skills (Expected for Senior Roles)</h3>
@@ -1652,6 +1702,39 @@ Prompting (RAG) is better when:
             </div>
         </div>
         
+    </section>
+    
+
+            
+    <section class="related-resources-section">
+        <h2>Related Resources</h2>
+        <div class="related-resources-grid">
+            
+        <a href="/jobs/skills/fine-tuning/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">Fine-Tuning Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/jobs/skills/llm/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">LLM Engineer Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/salaries/ai-engineer/" class="related-resource-card">
+            <span class="resource-icon">💰</span>
+            <span class="resource-title">AI Engineer Salary Data</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/jobs/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">Browse AI Engineer Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        </div>
     </section>
     
 

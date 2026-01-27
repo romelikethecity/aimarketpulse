@@ -12,7 +12,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAG Skills Employers Want: The Complete Breakdown | AI Market Pulse</title>
+    <title>RAG Skills Employers Want: The Complete ... | AI Market Pulse</title>
     <meta name="description" content="74% of LLM roles require RAG experience. Exactly what vector databases, chunking strategies, and retrieval skills will get you hired.">
     <link rel="canonical" href="https://theaimarketpulse.com/insights/rag-skills-employers-want/">
     <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://theaimarketpulse.com/insights/rag-skills-employers-want/">
-    <meta property="og:title" content="RAG Skills Employers Want: The Complete Breakdown">
+    <meta property="og:title" content="RAG Skills Employers Want: The Complete ...">
     <meta property="og:description" content="74% of LLM roles require RAG experience. Exactly what vector databases, chunking strategies, and retrieval skills will get you hired.">
     <meta property="og:site_name" content="AI Market Pulse">
     <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
@@ -29,7 +29,7 @@
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pe_collective">
-    <meta name="twitter:title" content="RAG Skills Employers Want: The Complete Breakdown">
+    <meta name="twitter:title" content="RAG Skills Employers Want: The Complete ...">
     <meta name="twitter:description" content="74% of LLM roles require RAG experience. Exactly what vector databases, chunking strategies, and retrieval skills will get you hired.">
     <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
     <meta name="twitter:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
@@ -1272,6 +1272,56 @@
         color: var(--text-secondary);
         line-height: 1.7;
     }
+
+    .related-resources-section {
+        margin: 40px 0;
+        padding: 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .related-resources-section h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .related-resources-grid {
+        display: grid;
+        gap: 12px;
+    }
+
+    .related-resource-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--bg-darker);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .related-resource-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+    }
+
+    .resource-icon {
+        font-size: 1.25rem;
+    }
+
+    .resource-title {
+        flex: 1;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    .resource-arrow {
+        color: var(--gold);
+    }
 </style>
 </head>
 
@@ -1449,7 +1499,7 @@ Every company building AI products needs engineers who can build reliable RAG sy
 What to demonstrate: Building and optimizing vector indexes, choosing appropriate distance metrics, handling updates and deletions at scale.
 <h3>2. Embedding Models (Required)</h3>
 <p>Understanding which embedding models to use and why:</p>
-<ul><li><strong>OpenAI embeddings</strong>: text-embedding-3-large is the current standard</li><li><strong>Cohere embeddings</strong>: Strong multilingual support</li><li><strong>Open-source options</strong>: BGE, E5, GTE models from Hugging Face</li><li><strong>Fine-tuned embeddings</strong>: Domain-specific tuning for specialized retrieval</li></ul>
+<ul><li><strong>OpenAI embeddings</strong>: text-embedding-3-large is the current standard</li><li><strong>Cohere embeddings</strong>: Strong multilingual support</li><li><strong>Open-source options</strong>: BGE, E5, GTE models from <a href="/tools/hugging-face/">Hugging Face</a></li><li><strong>Fine-tuned embeddings</strong>: Domain-specific tuning for specialized retrieval</li></ul>
 What to demonstrate: Benchmarking embedding models for your domain, understanding dimensionality tradeoffs, implementing embedding caching strategies.
 <h3>3. Chunking Strategies (Highly Valued)</h3>
 <p>How you split documents dramatically affects retrieval quality:</p>
@@ -1462,7 +1512,7 @@ What to demonstrate: A/B testing retrieval approaches, measuring and improving r
 <h3>5. LLM Integration (Required)</h3>
 <p>Connecting retrieval to generation effectively:</p>
 <ul><li><strong>Context window management</strong>: Fitting retrieved content within limits</li><li><strong>Prompt engineering for RAG</strong>: Instructing models to use retrieved context</li><li><strong>Citation and attribution</strong>: Tracing answers back to sources</li><li><strong>Streaming responses</strong>: Real-time generation with retrieved context</li></ul>
-Frameworks employers want: LangChain, LlamaIndex, or custom implementations.
+Frameworks employers want: <a href="/tools/langchain/">LangChain</a>, <a href="/tools/llamaindex/">LlamaIndex</a>, or custom implementations.
 <h2>What Job Postings Actually Say</h2>
 <p>Here's language from real AI engineering job postings:</p>
 <blockquote>"Experience building production RAG systems with vector databases"</blockquote>
@@ -1608,6 +1658,39 @@ Companies are desperate for engineers who can ship production RAG systems. The s
             </div>
         </div>
         
+    </section>
+    
+
+            
+    <section class="related-resources-section">
+        <h2>Related Resources</h2>
+        <div class="related-resources-grid">
+            
+        <a href="/jobs/skills/rag/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">RAG Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/salaries/ai-engineer/" class="related-resource-card">
+            <span class="resource-icon">💰</span>
+            <span class="resource-title">AI Engineer Salary Data</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/jobs/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">Browse AI Engineer Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/jobs/skills/langchain/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">LangChain AI Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        </div>
     </section>
     
 

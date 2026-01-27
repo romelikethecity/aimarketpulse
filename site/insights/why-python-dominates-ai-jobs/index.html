@@ -1272,6 +1272,56 @@
         color: var(--text-secondary);
         line-height: 1.7;
     }
+
+    .related-resources-section {
+        margin: 40px 0;
+        padding: 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .related-resources-section h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .related-resources-grid {
+        display: grid;
+        gap: 12px;
+    }
+
+    .related-resource-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--bg-darker);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .related-resource-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+    }
+
+    .resource-icon {
+        font-size: 1.25rem;
+    }
+
+    .resource-title {
+        flex: 1;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    .resource-arrow {
+        color: var(--gold);
+    }
 </style>
 </head>
 
@@ -1457,12 +1507,12 @@ Every major AI advancement releases Python bindings first, if not Python-native.
 Python's syntax and tooling (Jupyter notebooks) are optimized for this workflow. Languages like Java or C++ add friction that slows experimentation.
 <h3>3. Scientific Computing Heritage</h3>
 <p>Python inherited AI's predecessor: data science. The migration path was natural:</p>
-<p>Data Analysis (pandas) → Machine Learning (scikit-learn) → Deep Learning (PyTorch) → LLMs (LangChain)</p>
+<p>Data Analysis (pandas) → Machine Learning (scikit-learn) → Deep Learning (PyTorch) → LLMs (<a href="/tools/langchain/">LangChain</a>)</p>
 <p>Each wave built on existing Python knowledge and infrastructure.</p>
 <h3>4. Community and Documentation</h3>
 <p>The AI Python community produces:</p>
 <ul><li>Extensive tutorials and courses</li><li>Active Stack Overflow presence</li><li>Open-source implementations of new papers</li><li>Integration examples for every use case</li></ul>
-When GPT-4 launched, Python examples appeared within hours. Other languages took days or weeks.
+When <a href="/tools/openai-api/">GPT-4</a> launched, Python examples appeared within hours. Other languages took days or weeks.
 <h2>The Python Limitations (And Why They Don't Matter Yet)</h2>
 <h3>Performance</h3>
 <p>Python is slow for computation-heavy tasks. But in AI:</p>
@@ -1507,7 +1557,7 @@ For most AI applications, Python's concurrency is sufficient.
 <strong>Diminishing returns:</strong>
 <ul><li>CPython internals</li><li>Advanced metaprogramming</li><li>Exotic language features</li><li>Python core development</li></ul>
 Time spent on advanced Python is better invested in RAG systems, ML fundamentals, or domain expertise.
-<h2>The Multi-Language AI Engineer</h2>
+<h2>The Multi-Language <a href="/salaries/ai-engineer/">AI Engineer</a></h2>
 <p>The most in-demand AI engineers combine:</p>
 <ol><li><strong>Python</strong> (primary): All AI work</li><li><strong>SQL</strong>: Data extraction and analysis</li><li><strong>TypeScript/JavaScript</strong>: Frontend integration</li><li><strong>Rust or Go</strong> (optional): Performance-critical components</li></ol>
 This stack covers 90%+ of AI engineering work.
@@ -1635,6 +1685,39 @@ Learning time: 2-4 weeks for basics, 2-3 months for proficiency.</p>
             </div>
         </div>
         
+    </section>
+    
+
+            
+    <section class="related-resources-section">
+        <h2>Related Resources</h2>
+        <div class="related-resources-grid">
+            
+        <a href="/jobs/skills/python/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">Python AI Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/salaries/ai-engineer/" class="related-resource-card">
+            <span class="resource-icon">💰</span>
+            <span class="resource-title">AI Engineer Salary Data</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/jobs/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">Browse AI Engineer Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/jobs/skills/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">AI Jobs by Skill</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        </div>
     </section>
     
 

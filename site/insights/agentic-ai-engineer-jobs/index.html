@@ -1272,6 +1272,56 @@
         color: var(--text-secondary);
         line-height: 1.7;
     }
+
+    .related-resources-section {
+        margin: 40px 0;
+        padding: 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .related-resources-section h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .related-resources-grid {
+        display: grid;
+        gap: 12px;
+    }
+
+    .related-resource-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--bg-darker);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .related-resource-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+    }
+
+    .resource-icon {
+        font-size: 1.25rem;
+    }
+
+    .resource-title {
+        flex: 1;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    .resource-arrow {
+        color: var(--gold);
+    }
 </style>
 </head>
 
@@ -1451,7 +1501,7 @@ Companies are moving from "what can AI chat about" to "what can AI do." That req
 <strong>Explicitly agentic roles:</strong>
 <ul><li>AI Agent Engineer</li><li>Autonomous Systems Engineer</li><li>Multi-Agent Systems Developer</li><li>AI Automation Engineer</li></ul>
 <strong>Roles with agentic components:</strong>
-<ul><li>Senior AI Engineer (with agent experience)</li><li>AI Platform Engineer</li><li>LLM Applications Engineer</li><li>AI Solutions Architect</li></ul>
+<ul><li>Senior <a href="/salaries/ai-engineer/">AI Engineer</a> (with agent experience)</li><li>AI Platform Engineer</li><li>LLM Applications Engineer</li><li>AI Solutions Architect</li></ul>
 The explicit "agent" titles are still emerging—most agentic work is currently embedded in broader AI engineering roles.
 <h2>Skills Employers Want for Agentic AI</h2>
 <h3>Core Technical Skills</h3>
@@ -1494,9 +1544,9 @@ The premium is 15-25% above general AI engineering roles, reflecting both skill 
 <blockquote>"How do you monitor and debug agent behavior in production?"</blockquote>
 <h2>Companies Hiring for Agentic AI</h2>
 <strong>AI Labs and Platforms:</strong>
-<ul><li>Anthropic (Claude agents)</li><li>OpenAI (GPT agents, Assistants API)</li><li>LangChain (LangGraph team)</li><li>Weights & Biases (agent observability)</li></ul>
+<ul><li>Anthropic (<a href="/tools/anthropic-claude/">Claude</a> agents)</li><li>OpenAI (GPT agents, Assistants API)</li><li>LangChain (LangGraph team)</li><li>Weights & Biases (agent observability)</li></ul>
 <strong>Enterprise AI:</strong>
-<ul><li>Salesforce (Einstein agents)</li><li>ServiceNow (workflow automation)</li><li>Microsoft (Copilot agents)</li><li>Google (Vertex AI agents)</li></ul>
+<ul><li>Salesforce (Einstein agents)</li><li>ServiceNow (workflow automation)</li><li>Microsoft (<a href="/tools/github-copilot/">Copilot</a> agents)</li><li>Google (Vertex AI agents)</li></ul>
 <strong>Startups:</strong>
 <ul><li>Cognition (Devin)</li><li>Adept</li><li>Induced AI</li><li>Relevance AI</li></ul>
 <h2>The Hype vs Reality</h2>
@@ -1604,6 +1654,39 @@ This means there's opportunity for engineers who can deliver reliable, productio
             </div>
         </div>
         
+    </section>
+    
+
+            
+    <section class="related-resources-section">
+        <h2>Related Resources</h2>
+        <div class="related-resources-grid">
+            
+        <a href="/salaries/ai-engineer/" class="related-resource-card">
+            <span class="resource-icon">💰</span>
+            <span class="resource-title">AI Engineer Salary Data</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/jobs/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">Browse AI Engineer Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/jobs/skills/ai-agents/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">AI Agent Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/companies/" class="related-resource-card">
+            <span class="resource-icon">🏢</span>
+            <span class="resource-title">Companies Hiring AI Talent</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        </div>
     </section>
     
 

@@ -12,7 +12,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Scientist to AI Engineer: Transition Guide | AI Market Pulse</title>
+    <title>Data Scientist to AI Engineer: Transitio... | AI Market Pulse</title>
     <meta name="description" content="Data scientists have a head start in AI engineering. What skills to add, what transfers directly, and how to make the switch.">
     <link rel="canonical" href="https://theaimarketpulse.com/insights/data-scientist-to-ai-engineer/">
     <meta name="robots" content="index, follow">
@@ -20,7 +20,7 @@
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://theaimarketpulse.com/insights/data-scientist-to-ai-engineer/">
-    <meta property="og:title" content="Data Scientist to AI Engineer: Transition Guide">
+    <meta property="og:title" content="Data Scientist to AI Engineer: Transitio...">
     <meta property="og:description" content="Data scientists have a head start in AI engineering. What skills to add, what transfers directly, and how to make the switch.">
     <meta property="og:site_name" content="AI Market Pulse">
     <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
@@ -29,7 +29,7 @@
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@pe_collective">
-    <meta name="twitter:title" content="Data Scientist to AI Engineer: Transition Guide">
+    <meta name="twitter:title" content="Data Scientist to AI Engineer: Transitio...">
     <meta name="twitter:description" content="Data scientists have a head start in AI engineering. What skills to add, what transfers directly, and how to make the switch.">
     <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
     <meta name="twitter:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
@@ -1272,6 +1272,56 @@
         color: var(--text-secondary);
         line-height: 1.7;
     }
+
+    .related-resources-section {
+        margin: 40px 0;
+        padding: 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .related-resources-section h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .related-resources-grid {
+        display: grid;
+        gap: 12px;
+    }
+
+    .related-resource-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--bg-darker);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .related-resource-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+    }
+
+    .resource-icon {
+        font-size: 1.25rem;
+    }
+
+    .resource-title {
+        flex: 1;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    .resource-arrow {
+        color: var(--gold);
+    }
 </style>
 </head>
 
@@ -1444,7 +1494,7 @@
 <strong>Gap to fill:</strong>
 <ul><li>LLM-specific knowledge (prompting, RAG, agents)</li><li>Production engineering (APIs, deployment)</li><li>Software engineering practices</li><li>Real-time systems</li></ul>
 The gap is smaller than you think—mostly it's applying your existing skills to new tools.
-<h2>The Data Scientist to AI Engineer Comparison</h2>
+<h2>The Data Scientist to <a href="/salaries/ai-engineer/">AI Engineer</a> Comparison</h2>
 <p>| Aspect | Data Scientist | AI Engineer |
 |--------|---------------|-------------|
 | Primary tool | Notebooks, scripts | Production code |
@@ -1458,7 +1508,7 @@ The gap is smaller than you think—mostly it's applying your existing skills to
 <strong>Prompting</strong>
 <ul><li>System prompts and instruction design</li><li>Few-shot examples</li><li>Chain-of-thought reasoning</li><li>Output formatting</li></ul>
 <strong>APIs and SDKs</strong>
-<ul><li>OpenAI, Anthropic APIs</li><li>Token management</li><li>Error handling</li><li>Cost optimization</li></ul>
+<ul><li>OpenAI, <a href="/tools/anthropic-claude/">Anthropic</a> APIs</li><li>Token management</li><li>Error handling</li><li>Cost optimization</li></ul>
 <strong>Evaluation</strong>
 Apply your DS evaluation skills to LLMs:
 <ul><li>Building eval datasets</li><li>Quality metrics for generative outputs</li><li>A/B testing LLM variants</li><li>Regression detection</li></ul>
@@ -1477,7 +1527,7 @@ This is where your data skills shine—RAG is a data pipeline problem.
 <ul><li>Docker basics</li><li>Cloud deployment</li><li>API design</li><li>Scaling considerations</li></ul>
 <h3>Priority 4: Agent Systems (Weeks 13-16)</h3>
 <strong>Agent Frameworks</strong>
-<ul><li>LangGraph or LangChain</li><li>Tool integration</li><li>State management</li><li>Multi-step workflows</li></ul>
+<ul><li>LangGraph or <a href="/tools/langchain/">LangChain</a></li><li>Tool integration</li><li>State management</li><li>Multi-step workflows</li></ul>
 <strong>Production Agents</strong>
 <ul><li>Reliability patterns</li><li>Observability</li><li>Cost management</li><li>Human-in-the-loop</li></ul>
 <h2>Your Transition Plan</h2>
@@ -1489,7 +1539,7 @@ This is where your data skills shine—RAG is a data pipeline problem.
 <strong>Portfolio piece:</strong> LLM application with proper evaluation framework
 <h3>Month 2: RAG Deep Dive</h3>
 <strong>Week 1-2:</strong>
-<ul><li>Learn embedding models</li><li>Set up vector database (Pinecone or Chroma)</li><li>Build basic RAG pipeline</li></ul>
+<ul><li>Learn embedding models</li><li>Set up vector database (<a href="/tools/pinecone/">Pinecone</a> or <a href="/tools/chromadb/">Chroma</a>)</li><li>Build basic RAG pipeline</li></ul>
 <strong>Week 3-4:</strong>
 <ul><li>Optimize retrieval quality</li><li>Experiment with chunking strategies</li><li>Add hybrid search</li></ul>
 <strong>Portfolio piece:</strong> RAG system with documented retrieval optimization
@@ -1676,6 +1726,33 @@ This is where your data skills shine—RAG is a data pipeline problem.
             </div>
         </div>
         
+    </section>
+    
+
+            
+    <section class="related-resources-section">
+        <h2>Related Resources</h2>
+        <div class="related-resources-grid">
+            
+        <a href="/salaries/ai-engineer/" class="related-resource-card">
+            <span class="resource-icon">💰</span>
+            <span class="resource-title">AI Engineer Salary Data</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/jobs/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">Browse AI Engineer Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/salaries/" class="related-resource-card">
+            <span class="resource-icon">💰</span>
+            <span class="resource-title">AI Salary Benchmarks</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        </div>
     </section>
     
 

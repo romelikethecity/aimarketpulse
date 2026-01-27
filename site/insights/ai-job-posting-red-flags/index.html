@@ -1272,6 +1272,56 @@
         color: var(--text-secondary);
         line-height: 1.7;
     }
+
+    .related-resources-section {
+        margin: 40px 0;
+        padding: 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .related-resources-section h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .related-resources-grid {
+        display: grid;
+        gap: 12px;
+    }
+
+    .related-resource-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--bg-darker);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+
+    .related-resource-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+    }
+
+    .resource-icon {
+        font-size: 1.25rem;
+    }
+
+    .resource-title {
+        flex: 1;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    .resource-arrow {
+        color: var(--gold);
+    }
 </style>
 </head>
 
@@ -1445,13 +1495,13 @@
 <strong>What it means:</strong>
 <ul><li>They don't understand AI</li><li>Marketing wrote the job description</li><li>Role may be poorly defined</li></ul>
 <strong>Acceptable:</strong>
-<blockquote>"Build RAG systems for customer support using LangChain and vector databases"</blockquote>
+<blockquote>"Build RAG systems for customer support using <a href="/tools/langchain/">LangChain</a> and vector databases"</blockquote>
 <p>Specificity indicates they know what they need.</p>
 <h3>Unrealistic Requirements</h3>
 <strong>Warning signs:</strong>
 <blockquote>"5+ years of LLM experience required"</blockquote>
 <p>(LLMs were niche until 2022)</p>
-<blockquote>"Expert in GPT-4, Claude, Gemini, Llama, Mistral, AND deep experience with fine-tuning, RLHF, and multi-agent systems"</blockquote>
+<blockquote>"Expert in <a href="/tools/openai-api/">GPT-4</a>, <a href="/tools/anthropic-claude/">Claude</a>, Gemini, Llama, Mistral, AND deep experience with fine-tuning, RLHF, and multi-agent systems"</blockquote>
 <strong>What it means:</strong>
 <ul><li>They're copying competitor job postings</li><li>They don't understand the market</li><li>Expectations may be unrealistic</li></ul>
 <strong>Watch for:</strong>
@@ -1651,6 +1701,27 @@ Trust your instincts. If multiple things feel off, they probably are. It's bette
             </div>
         </div>
         
+    </section>
+    
+
+            
+    <section class="related-resources-section">
+        <h2>Related Resources</h2>
+        <div class="related-resources-grid">
+            
+        <a href="/jobs/" class="related-resource-card">
+            <span class="resource-icon">💼</span>
+            <span class="resource-title">Browse AI Jobs</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        <a href="/companies/" class="related-resource-card">
+            <span class="resource-icon">🏢</span>
+            <span class="resource-title">Companies Hiring</span>
+            <span class="resource-arrow">→</span>
+        </a>
+        
+        </div>
     </section>
     
 
