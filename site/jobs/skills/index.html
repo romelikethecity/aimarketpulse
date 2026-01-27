@@ -3,45 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Jobs by Skill | AI Market Pulse</title>
-    <meta name="description" content="Browse AI and machine learning jobs by required skill. Find Python, PyTorch, LangChain, RAG, and more.">
+    <title>AI Engineer at This Company - Position Filled | AI Market Pulse</title>
+    <meta name="description" content="This AI Engineer position at This Company is no longer available. Browse similar AI and ML engineering opportunities.">
     <link rel="canonical" href="https://theaimarketpulse.com/jobs/skills/">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="noindex, follow">
 
-    <!-- Hreflang tags for international SEO -->
-    <link rel="alternate" hreflang="en-US" href="https://theaimarketpulse.com/jobs/skills/">
-    <link rel="alternate" hreflang="en" href="https://theaimarketpulse.com/jobs/skills/">
-    <link rel="alternate" hreflang="x-default" href="https://theaimarketpulse.com/jobs/skills/">
-
-    <!-- Preconnect to font origins - must be early for performance -->
+    <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Fonts with font-display: swap to prevent FOIT -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
-
-    <!-- Open Graph Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://theaimarketpulse.com/jobs/skills/">
-    <meta property="og:title" content="AI Jobs by Skill">
-    <meta property="og:description" content="Browse AI and machine learning jobs by required skill. Find Python, PyTorch, LangChain, RAG, and more.">
-    <meta property="og:site_name" content="AI Market Pulse">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
-    <meta property="og:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pe_collective">
-    <meta name="twitter:title" content="AI Jobs by Skill">
-    <meta name="twitter:description" content="Browse AI and machine learning jobs by required skill. Find Python, PyTorch, LangChain, RAG, and more.">
-    <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
-    <meta name="twitter:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
-
-    <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.jpeg">
-
-    
     <style>
         
     :root {
@@ -530,487 +500,75 @@
         .footer-links a { margin: 0 12px; }
     }
 
-        
-    /* Individual Job Page Styles */
-    .job-detail-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 24px;
-        margin-bottom: 32px;
-    }
 
-    .job-detail-header h1 {
-        font-size: 2rem;
-        margin-bottom: 8px;
-    }
-
-    .job-company {
-        font-size: 1.25rem;
-        color: var(--text-secondary);
-        margin-bottom: 16px;
-    }
-
-    .job-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-bottom: 24px;
-    }
-
-    .job-meta-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 12px;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        font-size: 0.875rem;
-        color: var(--text-secondary);
-    }
-
-    .job-meta-badge.salary {
-        background: rgba(232, 168, 124, 0.15);
-        border-color: rgba(232, 168, 124, 0.3);
-        color: var(--gold);
-    }
-
-    .job-meta-badge.remote {
-        background: rgba(74, 222, 128, 0.15);
-        border-color: rgba(74, 222, 128, 0.3);
-        color: var(--success);
-    }
-
-    .apply-btn {
-        display: inline-block;
-        padding: 16px 32px;
-        background: var(--gold);
-        color: var(--bg-darker);
-        font-size: 1rem;
-        font-weight: 700;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: all 0.15s;
-    }
-
-    .apply-btn:hover {
-        background: var(--gold-hover);
-        color: var(--bg-darker);
-        transform: translateY(-2px);
-        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
-    }
-
-    .job-skills {
-        margin: 24px 0;
-    }
-
-    .job-skills h3 {
-        font-size: 1rem;
-        color: var(--text-secondary);
-        margin-bottom: 12px;
-    }
-
-    .job-details-table {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 24px;
-        margin: 24px 0;
-    }
-
-    .job-details-row {
-        display: flex;
-        justify-content: space-between;
-        padding: 12px 0;
-        border-bottom: 1px solid var(--border-light);
-    }
-
-    .job-details-row:last-child {
-        border-bottom: none;
-    }
-
-    .job-details-label {
-        color: var(--text-muted);
-        font-weight: 500;
-    }
-
-    .job-details-value {
-        color: var(--text-primary);
-        font-weight: 600;
-    }
-
-    /* Expired/Stale Job Styles */
-    .job-expired-notice {
-        background: rgba(248, 113, 113, 0.1);
-        border: 1px solid rgba(248, 113, 113, 0.3);
-        border-radius: 12px;
-        padding: 24px;
-        margin-bottom: 32px;
-        text-align: center;
-    }
-
-    .job-expired-notice h2 {
-        color: var(--error);
-        font-size: 1.25rem;
-        margin-bottom: 8px;
-    }
-
-    .job-expired-notice p {
-        color: var(--text-secondary);
-    }
-
-    .similar-jobs-section h3 {
-        margin-bottom: 20px;
-        color: var(--text-primary);
-    }
-
-    .similar-jobs-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 16px;
-    }
-
-    @media (max-width: 768px) {
-        .job-detail-header {
-            flex-direction: column;
-        }
-        .apply-btn {
-            width: 100%;
+        .expired-header {
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
+            padding: 48px 0;
             text-align: center;
         }
-    }
-
-        
-    .faq-section {
-        margin: 48px 0;
-    }
-
-    .faq-section h2 {
-        font-size: 1.5rem;
-        margin-bottom: 24px;
-        color: var(--text-primary);
-    }
-
-    .faq-item {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        margin-bottom: 16px;
-        overflow: hidden;
-    }
-
-    .faq-question {
-        width: 100%;
-        padding: 20px 24px;
-        background: transparent;
-        border: none;
-        text-align: left;
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--text-primary);
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: background 0.2s;
-    }
-
-    .faq-question:hover {
-        background: var(--bg-card-hover);
-    }
-
-    .faq-icon {
-        font-size: 1.25rem;
-        color: var(--gold);
-        transition: transform 0.3s;
-    }
-
-    .faq-item.active .faq-icon {
-        transform: rotate(45deg);
-    }
-
-    .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-    }
-
-    .faq-item.active .faq-answer {
-        max-height: 500px;
-    }
-
-    .faq-answer-content {
-        padding: 0 24px 20px;
-        color: var(--text-secondary);
-        line-height: 1.7;
-    }
-
-    </style>
-
-    
-
-    <!-- Deferred Google Analytics - does not block rendering -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E2SX5J91V"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-1E2SX5J91V');
-    </script>
-</head>
-
-    <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "AI Jobs by Skill",
-  "description": "Browse AI and machine learning jobs by required skill. Find Python, PyTorch, LangChain, and more.",
-  "url": "https://theaimarketpulse.com/jobs/skills/",
-  "mainEntity": {
-    "@type": "ItemList",
-    "numberOfItems": 13
-  },
-  "provider": {
-    "@type": "Organization",
-    "name": "AI Market Pulse",
-    "url": "https://theaimarketpulse.com"
-  },
-  "keywords": [
-    "AI jobs by skill",
-    "ML jobs",
-    "AI skills",
-    "machine learning skills"
-  ]
-}</script>
-    <style>
-        
-    .landing-header {
-        padding: 48px 0;
-        background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
-        border-bottom: 1px solid var(--border);
-    }
-
-    .landing-header h1 {
-        font-size: 2.5rem;
-        margin-bottom: 16px;
-    }
-
-    .landing-header .lead {
-        font-size: 1.1rem;
-        color: var(--text-secondary);
-        max-width: 700px;
-    }
-
-    .landing-stats {
-        display: flex;
-        gap: 32px;
-        margin-top: 24px;
-    }
-
-    .landing-stat {
-        text-align: center;
-    }
-
-    .landing-stat-value {
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--gold);
-    }
-
-    .landing-stat-label {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-    }
-
-    .filters-section {
-        padding: 24px 0;
-        border-bottom: 1px solid var(--border);
-        background: var(--bg-darker);
-    }
-
-    .filters-row {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-
-    .filter-btn {
-        padding: 8px 16px;
-        border-radius: 20px;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        color: var(--text-secondary);
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: all 0.2s;
-    }
-
-    .filter-btn:hover {
-        background: var(--bg-card-hover);
-        border-color: var(--teal-light);
-        color: var(--text-primary);
-    }
-
-    .filter-btn.active {
-        background: var(--gold);
-        color: var(--bg-darker);
-        border-color: var(--gold);
-    }
-
-    .jobs-grid {
-        display: grid;
-        gap: 16px;
-        padding: 32px 0;
-    }
-
-    .landing-job-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 24px;
-        text-decoration: none;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 16px;
-        align-items: center;
-        transition: all 0.25s;
-    }
-
-    .landing-job-card:hover {
-        border-color: var(--teal-light);
-        background: var(--bg-card-hover);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .job-card-main {
-        min-width: 0;
-    }
-
-    .job-card-category {
-        font-size: 0.7rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: var(--gold);
-        margin-bottom: 8px;
-    }
-
-    .job-card-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: var(--text-primary);
-        margin-bottom: 6px;
-    }
-
-    .job-card-company {
-        font-size: 0.95rem;
-        color: var(--text-secondary);
-        margin-bottom: 12px;
-    }
-
-    .job-card-meta {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-    }
-
-    .job-card-badge {
-        font-size: 0.8rem;
-        padding: 4px 10px;
-        border-radius: 4px;
-        background: var(--bg-darker);
-        color: var(--text-secondary);
-    }
-
-    .job-card-badge.salary {
-        background: rgba(232, 168, 124, 0.15);
-        color: var(--gold);
-    }
-
-    .job-card-badge.remote {
-        background: rgba(74, 222, 128, 0.15);
-        color: var(--success);
-    }
-
-    .job-card-cta {
-        flex-shrink: 0;
-    }
-
-    .job-card-cta .btn {
-        white-space: nowrap;
-    }
-
-    .related-landing-pages {
-        margin: 40px 0;
-        padding-top: 32px;
-        border-top: 1px solid var(--border);
-    }
-
-    .related-landing-pages h2 {
-        font-size: 1.25rem;
-        margin-bottom: 20px;
-    }
-
-    .related-pages-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-
-    .related-page-link {
-        padding: 8px 16px;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        color: var(--text-secondary);
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: all 0.2s;
-    }
-
-    .related-page-link:hover {
-        background: var(--bg-card-hover);
-        border-color: var(--teal-light);
-        color: var(--text-primary);
-    }
-
-    @media (max-width: 768px) {
-        .landing-header h1 { font-size: 1.75rem; }
-        .landing-stats { flex-direction: column; gap: 16px; }
-        .landing-job-card { grid-template-columns: 1fr; }
-        .job-card-cta { justify-self: start; }
-    }
-
-        .skills-index-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 16px;
-            padding: 32px 0;
+        .expired-header .container { max-width: 800px; }
+        .expired-badge {
+            display: inline-block;
+            background: var(--error);
+            color: white;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 16px;
         }
-        .skill-index-card {
+        .expired-header h1 {
+            font-size: 1.75rem;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .expired-header .company {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        .content { padding: 48px 0; }
+        .content .container { max-width: 900px; }
+        .message-box {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 20px;
-            text-decoration: none;
-            transition: all 0.25s;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 40px;
         }
-        .skill-index-card:hover {
-            border-color: var(--teal-light);
-            background: var(--bg-card-hover);
-            transform: translateY(-2px);
-        }
-        .skill-index-card h3 {
+        .message-box h2 {
             color: var(--text-primary);
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
-        .skill-index-card p {
-            color: var(--gold);
-            font-size: 0.9rem;
+        .message-box p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        .browse-all-btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--bg-darker);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .browse-all-btn:hover {
+            background: var(--gold-hover);
+            color: var(--bg-darker);
+        }
+        .similar-section { margin-bottom: 40px; }
+        .similar-section h2 {
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .similar-jobs-grid {
+            display: grid;
+            gap: 16px;
         }
     </style>
+</head>
 
 <body>
     <header class="site-header">
@@ -1080,82 +638,82 @@
     </script>
 
 
-    <div class="page-header">
+    <header class="expired-header">
         <div class="container">
-            <h1>AI Jobs by Skill</h1>
-            <p class="lead">Find AI and machine learning jobs by the skills and technologies they require.</p>
+            <span class="expired-badge">Position Filled</span>
+            <h1>AI Engineer</h1>
+            <div class="company">This Company</div>
         </div>
-    </div>
+    </header>
 
-    <main>
+    <div class="content">
         <div class="container">
-            <div class="skills-index-grid">
-                
-        <a href="/jobs/skills/ai-agents/" class="skill-index-card">
-            <h3>AI Agent Jobs</h3>
-            <p>623 jobs</p>
-        </a>
+            <div class="message-box">
+                <h2>This position is no longer available</h2>
+                <p>Good news - we have similar AI opportunities that might be a great fit for you.</p>
+                <a href="/jobs/" class="browse-all-btn">Browse All AI Jobs →</a>
+            </div>
+
+            <div class="similar-section">
+                <h2>Similar Opportunities</h2>
+                <div class="similar-jobs-grid">
+                    
+            <a href="/jobs/orpical-senior-ai-native-full-stack-engineer-laravel-vue-i-c7577b/" class="job-card" style="display: block;">
+                <div class="job-card__content">
+                    <div class="job-card__company">Orpical</div>
+                    <div class="job-card__title">Senior AI-Native Full-Stack Engineer (Laravel / Vue / Inertia)</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$95K - $135K</span>
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                    </div>
+                </div>
+            </a>
         
-        <a href="/jobs/skills/aws/" class="skill-index-card">
-            <h3>AWS AI Jobs</h3>
-            <p>1126 jobs</p>
-        </a>
+            <a href="/jobs/netail-artificial-intelligence-engineer-0efa6b/" class="job-card" style="display: block;">
+                <div class="job-card__content">
+                    <div class="job-card__company">Netail</div>
+                    <div class="job-card__title">Artificial Intelligence Engineer</div>
+                    <div class="job-card__meta">
+                        <span class="job-card__tag job-card__tag--salary">$90K - $120K</span>
+                        <span class="job-card__tag job-card__tag--remote">Remote</span>
+                    </div>
+                </div>
+            </a>
         
-        <a href="/jobs/skills/computer-vision/" class="skill-index-card">
-            <h3>Computer Vision Jobs</h3>
-            <p>16 jobs</p>
-        </a>
+            <a href="/jobs/realign-aws-developer-5-e89fba/" class="job-card" style="display: block;">
+                <div class="job-card__content">
+                    <div class="job-card__company">Realign</div>
+                    <div class="job-card__title">AWS Developer-5</div>
+                    <div class="job-card__meta">
+                        
+                        <span class="job-card__tag job-card__tag--remote">Malvern, PA, US</span>
+                    </div>
+                </div>
+            </a>
         
-        <a href="/jobs/skills/fine-tuning/" class="skill-index-card">
-            <h3>Fine-Tuning AI Jobs</h3>
-            <p>350 jobs</p>
-        </a>
+            <a href="/jobs/realign-ai-enterprise-architect-5-ca8047/" class="job-card" style="display: block;">
+                <div class="job-card__content">
+                    <div class="job-card__company">Realign</div>
+                    <div class="job-card__title">AI Enterprise Architect-5</div>
+                    <div class="job-card__meta">
+                        
+                        <span class="job-card__tag job-card__tag--remote">McLean, VA, US</span>
+                    </div>
+                </div>
+            </a>
         
-        <a href="/jobs/skills/langchain/" class="skill-index-card">
-            <h3>LangChain AI Jobs</h3>
-            <p>244 jobs</p>
-        </a>
+            <a href="/jobs/visa-software-engineer-new-college-grad-2026-highlands--99e90e/" class="job-card" style="display: block;">
+                <div class="job-card__content">
+                    <div class="job-card__company">Visa</div>
+                    <div class="job-card__title">Software Engineer, New College Grad - 2026, Highlands Ranch, CO</div>
+                    <div class="job-card__meta">
+                        
+                        <span class="job-card__tag job-card__tag--remote">Highlands Ranch, CO, US</span>
+                    </div>
+                </div>
+            </a>
         
-        <a href="/jobs/skills/llm/" class="skill-index-card">
-            <h3>LLM Engineer Jobs</h3>
-            <p>194 jobs</p>
-        </a>
-        
-        <a href="/jobs/skills/mlops/" class="skill-index-card">
-            <h3>MLOps Jobs</h3>
-            <p>95 jobs</p>
-        </a>
-        
-        <a href="/jobs/skills/nlp/" class="skill-index-card">
-            <h3>NLP Jobs</h3>
-            <p>2 jobs</p>
-        </a>
-        
-        <a href="/jobs/skills/prompt-engineering/" class="skill-index-card">
-            <h3>Prompt Engineering Jobs</h3>
-            <p>390 jobs</p>
-        </a>
-        
-        <a href="/jobs/skills/python/" class="skill-index-card">
-            <h3>Python AI Jobs</h3>
-            <p>1281 jobs</p>
-        </a>
-        
-        <a href="/jobs/skills/pytorch/" class="skill-index-card">
-            <h3>PyTorch AI Jobs</h3>
-            <p>360 jobs</p>
-        </a>
-        
-        <a href="/jobs/skills/rag/" class="skill-index-card">
-            <h3>RAG AI Jobs</h3>
-            <p>1466 jobs</p>
-        </a>
-        
-        <a href="/jobs/skills/tensorflow/" class="skill-index-card">
-            <h3>TensorFlow AI Jobs</h3>
-            <p>336 jobs</p>
-        </a>
-        
+                </div>
             </div>
 
             
@@ -1166,7 +724,7 @@
     </div>
 
         </div>
-    </main>
+    </div>
 
 
     <footer class="site-footer">
