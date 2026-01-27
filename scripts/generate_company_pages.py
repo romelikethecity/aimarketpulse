@@ -91,7 +91,186 @@ def get_organization_schema(company_name, company_slug, num_jobs, categories, lo
     return f'<script type="application/ld+json">\n{json.dumps(schema, indent=2)}\n</script>'
 
 
-def generate_company_page(company_name, jobs_df):
+def find_similar_companies(company_name, jobs_df, all_companies_data, num_similar=6):
+    """Find similar companies based on categories, skills, and job counts."""
+    if not all_companies_data:
+        return []
+
+    # Get current company's characteristics
+    company_jobs = jobs_df[jobs_df['company'] == company_name]
+    company_categories = set()
+    company_skills = set()
+
+    if 'job_category' in company_jobs.columns:
+        company_categories = set(company_jobs['job_category'].dropna().unique())
+
+    if 'skills_tags' in company_jobs.columns:
+        for skills in company_jobs['skills_tags'].dropna():
+            if isinstance(skills, str):
+                company_skills.update([s.strip() for s in skills.split(',')])
+
+    # Score other companies
+    scored_companies = []
+    for other_company, other_data in all_companies_data.items():
+        if other_company == company_name:
+            continue
+
+        score = 0
+        other_jobs = jobs_df[jobs_df['company'] == other_company]
+
+        # Category overlap
+        other_categories = set()
+        if 'job_category' in other_jobs.columns:
+            other_categories = set(other_jobs['job_category'].dropna().unique())
+        category_overlap = len(company_categories & other_categories)
+        score += category_overlap * 20
+
+        # Skill overlap
+        other_skills = set()
+        if 'skills_tags' in other_jobs.columns:
+            for skills in other_jobs['skills_tags'].dropna():
+                if isinstance(skills, str):
+                    other_skills.update([s.strip() for s in skills.split(',')])
+        skill_overlap = len(company_skills & other_skills)
+        score += skill_overlap * 5
+
+        # Similar job count (prefer companies with similar scale)
+        current_count = len(company_jobs)
+        other_count = other_data.get('count', 0)
+        if other_count > 0:
+            size_ratio = min(current_count, other_count) / max(current_count, other_count)
+            score += int(size_ratio * 15)
+
+        # Bonus for companies with disclosed salary
+        if other_data.get('salary_range'):
+            score += 5
+
+        if score > 0:
+            scored_companies.append({
+                'name': other_company,
+                'slug': slugify(other_company),
+                'count': other_data.get('count', 0),
+                'salary_range': other_data.get('salary_range', ''),
+                'categories': list(other_categories)[:3],
+                'score': score
+            })
+
+    # Sort by score and return top N
+    scored_companies.sort(key=lambda x: (x['score'], x['count']), reverse=True)
+    return scored_companies[:num_similar]
+
+
+def generate_similar_companies_html(similar_companies, current_company):
+    """Generate HTML for similar companies section."""
+    if not similar_companies:
+        return ""
+
+    companies_html = ""
+    for company in similar_companies:
+        name_escaped = escape_html(company['name'])
+        slug = company['slug']
+        count = company['count']
+        salary_range = company.get('salary_range', '')
+        categories = company.get('categories', [])
+
+        category_text = ', '.join(escape_html(c) for c in categories[:2]) if categories else ''
+
+        companies_html += f'''
+            <a href="/companies/{slug}/" class="similar-company-card">
+                <div class="similar-company-name">{name_escaped}</div>
+                <div class="similar-company-meta">
+                    <span class="similar-company-jobs">{count} AI Roles</span>
+                    {f'<span class="similar-company-salary">{salary_range}</span>' if salary_range else ''}
+                </div>
+                {f'<div class="similar-company-categories">{category_text}</div>' if category_text else ''}
+            </a>
+        '''
+
+    return f'''
+        <section class="similar-companies-section">
+            <h2>Similar Companies Hiring</h2>
+            <div class="similar-companies-grid">
+                {companies_html}
+            </div>
+            <div class="similar-companies-cta">
+                <a href="/companies/" class="btn-outline">Browse All Companies →</a>
+            </div>
+        </section>
+    '''
+
+
+# CSS for similar companies section
+CSS_SIMILAR_COMPANIES = '''
+    .similar-companies-section {
+        margin: 40px 0;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+    }
+
+    .similar-companies-section h2 {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .similar-companies-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .similar-company-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        text-decoration: none;
+        transition: all 0.25s;
+    }
+
+    .similar-company-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .similar-company-name {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+    }
+
+    .similar-company-meta {
+        display: flex;
+        gap: 12px;
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    .similar-company-jobs {
+        color: var(--text-secondary);
+    }
+
+    .similar-company-salary {
+        color: var(--gold);
+        font-weight: 600;
+    }
+
+    .similar-company-categories {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+    }
+
+    .similar-companies-cta {
+        text-align: center;
+    }
+'''
+
+
+def generate_company_page(company_name, jobs_df, all_companies_data=None):
     """Generate a single company page with full SEO optimization"""
     company_slug = slugify(company_name)
     if not company_slug:
@@ -201,6 +380,12 @@ def generate_company_page(company_name, jobs_df):
     # Page title for display
     page_title = f"{company_escaped} AI Jobs - {num_jobs} Open Positions"
 
+    # === SIMILAR COMPANIES ===
+    similar_companies_html = ""
+    if all_companies_data and len(all_companies_data) > 1:
+        similar_companies = find_similar_companies(company_name, jobs_df, all_companies_data, num_similar=6)
+        similar_companies_html = generate_similar_companies_html(similar_companies, company_name)
+
     # Custom CSS for company pages
     company_css = '''
     <style>
@@ -298,6 +483,7 @@ def generate_company_page(company_name, jobs_df):
             .company-header h1 { font-size: 1.75rem; }
             .company-stats { flex-direction: column; }
         }
+        ''' + CSS_SIMILAR_COMPANIES + '''
     </style>
     '''
 
@@ -344,6 +530,8 @@ def generate_company_page(company_name, jobs_df):
             </section>
 
             {get_cta_box()}
+
+            {similar_companies_html}
         </div>
     </main>
 
@@ -482,12 +670,8 @@ def main():
 
     print(f"  Found {len(companies_to_generate)} companies with 2+ jobs")
 
-    # Generate individual company pages
+    # First pass: collect all companies data for similar companies feature
     companies_data = {}
-    generated = 0
-    indexed_count = 0
-    noindex_count = 0
-
     for company in companies_to_generate:
         if pd.isna(company) or not company or company == 'Unknown':
             continue
@@ -508,7 +692,14 @@ def main():
             'salary_range': salary_range
         }
 
-        result = generate_company_page(company, jobs_df)
+    # Second pass: generate individual company pages with similar companies
+    print(f"  (with similar companies internal linking)")
+    generated = 0
+    indexed_count = 0
+    noindex_count = 0
+
+    for company in companies_data.keys():
+        result = generate_company_page(company, jobs_df, all_companies_data=companies_data)
         if result:
             slug, is_thin = result
             generated += 1

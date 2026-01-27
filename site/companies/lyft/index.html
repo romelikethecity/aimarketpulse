@@ -875,6 +875,74 @@
             .company-header h1 { font-size: 1.75rem; }
             .company-stats { flex-direction: column; }
         }
+        
+    .similar-companies-section {
+        margin: 40px 0;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+    }
+
+    .similar-companies-section h2 {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .similar-companies-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .similar-company-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        text-decoration: none;
+        transition: all 0.25s;
+    }
+
+    .similar-company-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .similar-company-name {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+    }
+
+    .similar-company-meta {
+        display: flex;
+        gap: 12px;
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    .similar-company-jobs {
+        color: var(--text-secondary);
+    }
+
+    .similar-company-salary {
+        color: var(--gold);
+        font-weight: 600;
+    }
+
+    .similar-company-categories {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+    }
+
+    .similar-companies-cta {
+        text-align: center;
+    }
+
     </style>
     
 </head>
@@ -1077,6 +1145,72 @@
         <a href="/join/" class="btn btn-gold">Join Community →</a>
     </div>
 
+
+            
+        <section class="similar-companies-section">
+            <h2>Similar Companies Hiring</h2>
+            <div class="similar-companies-grid">
+                
+            <a href="/companies/twilio/" class="similar-company-card">
+                <div class="similar-company-name">Twilio</div>
+                <div class="similar-company-meta">
+                    <span class="similar-company-jobs">6 AI Roles</span>
+                    <span class="similar-company-salary">$224K - $304K</span>
+                </div>
+                <div class="similar-company-categories">AI/ML Engineer, Data Scientist</div>
+            </a>
+        
+            <a href="/companies/youtube/" class="similar-company-card">
+                <div class="similar-company-name">Youtube</div>
+                <div class="similar-company-meta">
+                    <span class="similar-company-jobs">10 AI Roles</span>
+                    <span class="similar-company-salary">$202K - $414K</span>
+                </div>
+                <div class="similar-company-categories">AI/ML Engineer, Data Scientist</div>
+            </a>
+        
+            <a href="/companies/google/" class="similar-company-card">
+                <div class="similar-company-name">Google</div>
+                <div class="similar-company-meta">
+                    <span class="similar-company-jobs">91 AI Roles</span>
+                    <span class="similar-company-salary">$176K - $414K</span>
+                </div>
+                <div class="similar-company-categories">AI/ML Engineer, AI Safety</div>
+            </a>
+        
+            <a href="/companies/amazoncom/" class="similar-company-card">
+                <div class="similar-company-name">Amazon.com</div>
+                <div class="similar-company-meta">
+                    <span class="similar-company-jobs">362 AI Roles</span>
+                    <span class="similar-company-salary">$114K - $350K</span>
+                </div>
+                <div class="similar-company-categories">Research Scientist, AI/ML Engineer</div>
+            </a>
+        
+            <a href="/companies/amazon-web-services/" class="similar-company-card">
+                <div class="similar-company-name">Amazon Web Services</div>
+                <div class="similar-company-meta">
+                    <span class="similar-company-jobs">141 AI Roles</span>
+                    <span class="similar-company-salary">$178K - $350K</span>
+                </div>
+                <div class="similar-company-categories">AI/ML Engineer, Research Scientist</div>
+            </a>
+        
+            <a href="/companies/intuit/" class="similar-company-card">
+                <div class="similar-company-name">Intuit</div>
+                <div class="similar-company-meta">
+                    <span class="similar-company-jobs">11 AI Roles</span>
+                    <span class="similar-company-salary">$266K - $357K</span>
+                </div>
+                <div class="similar-company-categories">AI/ML Engineer, Research Scientist</div>
+            </a>
+        
+            </div>
+            <div class="similar-companies-cta">
+                <a href="/companies/" class="btn-outline">Browse All Companies →</a>
+            </div>
+        </section>
+    
         </div>
     </main>
 

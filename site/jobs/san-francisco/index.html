@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E2SX5J91V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1E2SX5J91V');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Engineer at This Company - Position Filled | AI Market Pulse</title>
-    <meta name="description" content="This AI Engineer position at This Company is no longer available. Browse similar AI and ML engineering opportunities.">
+    <title>AI Jobs in San Francisco 2026 | AI Market Pulse</title>
+    <meta name="description" content="Find AI jobs in San Francisco, the heart of tech innovation. ML engineer, AI researcher, and prompt engineer positions in the Bay Area.">
     <link rel="canonical" href="https://theaimarketpulse.com/jobs/san-francisco/">
-    <meta name="robots" content="noindex, follow">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theaimarketpulse.com/jobs/san-francisco/">
+    <meta property="og:title" content="AI Jobs in San Francisco 2026">
+    <meta property="og:description" content="Find AI jobs in San Francisco, the heart of tech innovation. ML engineer, AI researcher, and prompt engineer positions in the Bay Area.">
+    <meta property="og:site_name" content="AI Market Pulse">
+    <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
+    <meta property="og:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pe_collective">
+    <meta name="twitter:title" content="AI Jobs in San Francisco 2026">
+    <meta name="twitter:description" content="Find AI jobs in San Francisco, the heart of tech innovation. ML engineer, AI researcher, and prompt engineer positions in the Bay Area.">
+    <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
 
     <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.jpeg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    
     <style>
         
     :root {
@@ -514,75 +542,473 @@
         .footer-links a { margin: 0 12px; }
     }
 
+        
+    /* Individual Job Page Styles */
+    .job-detail-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
 
-        .expired-header {
-            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
-            padding: 48px 0;
+    .job-detail-header h1 {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .job-company {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+    }
+
+    .job-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .job-meta-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    .job-meta-badge.salary {
+        background: rgba(232, 168, 124, 0.15);
+        border-color: rgba(232, 168, 124, 0.3);
+        color: var(--gold);
+    }
+
+    .job-meta-badge.remote {
+        background: rgba(74, 222, 128, 0.15);
+        border-color: rgba(74, 222, 128, 0.3);
+        color: var(--success);
+    }
+
+    .apply-btn {
+        display: inline-block;
+        padding: 16px 32px;
+        background: var(--gold);
+        color: var(--bg-darker);
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .apply-btn:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
+    }
+
+    .job-skills {
+        margin: 24px 0;
+    }
+
+    .job-skills h3 {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .job-details-table {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 24px 0;
+    }
+
+    .job-details-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .job-details-row:last-child {
+        border-bottom: none;
+    }
+
+    .job-details-label {
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .job-details-value {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    /* Expired/Stale Job Styles */
+    .job-expired-notice {
+        background: rgba(248, 113, 113, 0.1);
+        border: 1px solid rgba(248, 113, 113, 0.3);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    .job-expired-notice h2 {
+        color: var(--error);
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .job-expired-notice p {
+        color: var(--text-secondary);
+    }
+
+    .similar-jobs-section h3 {
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .similar-jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+        .job-detail-header {
+            flex-direction: column;
+        }
+        .apply-btn {
+            width: 100%;
             text-align: center;
         }
-        .expired-header .container { max-width: 800px; }
-        .expired-badge {
-            display: inline-block;
-            background: var(--error);
-            color: white;
-            font-weight: 600;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-bottom: 16px;
-        }
-        .expired-header h1 {
-            font-size: 1.75rem;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-        .expired-header .company {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-        }
-        .content { padding: 48px 0; }
-        .content .container { max-width: 900px; }
-        .message-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 32px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .message-box h2 {
-            color: var(--text-primary);
-            margin-bottom: 12px;
-        }
-        .message-box p {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
-        .browse-all-btn {
-            display: inline-block;
-            background: var(--gold);
-            color: var(--bg-darker);
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .browse-all-btn:hover {
-            background: var(--gold-hover);
-            color: var(--bg-darker);
-        }
-        .similar-section { margin-bottom: 40px; }
-        .similar-section h2 {
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        .similar-jobs-grid {
-            display: grid;
-            gap: 16px;
-        }
+    }
+
+        
+    .faq-section {
+        margin: 48px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+    }
+
+    .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-card-hover);
+    }
+
+    .faq-icon {
+        font-size: 1.25rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+    }
+
+    .faq-answer-content {
+        padding: 0 24px 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+
     </style>
+
+    
 </head>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://theaimarketpulse.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI Jobs",
+      "item": "https://theaimarketpulse.com/jobs/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI Jobs in San Francisco",
+      "item": "https://theaimarketpulse.com/jobs/san-francisco/"
+    }
+  ]
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "AI Jobs in San Francisco",
+  "description": "Find AI jobs in San Francisco, the heart of tech innovation. ML engineer, AI researcher, and prompt engineer positions in the Bay Area.",
+  "url": "https://theaimarketpulse.com/jobs/san-francisco/",
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": 114
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "AI Market Pulse",
+    "url": "https://theaimarketpulse.com"
+  },
+  "keywords": [
+    "san-francisco AI jobs",
+    "san-francisco ML jobs",
+    "AI engineer jobs",
+    "machine learning jobs"
+  ]
+}</script>
+    <style>
+    .landing-header {
+        padding: 48px 0;
+        background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .landing-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 16px;
+    }
+
+    .landing-header .lead {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 700px;
+    }
+
+    .landing-stats {
+        display: flex;
+        gap: 32px;
+        margin-top: 24px;
+    }
+
+    .landing-stat {
+        text-align: center;
+    }
+
+    .landing-stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gold);
+    }
+
+    .landing-stat-label {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+
+    .filters-section {
+        padding: 24px 0;
+        border-bottom: 1px solid var(--border);
+        background: var(--bg-darker);
+    }
+
+    .filters-row {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .filter-btn {
+        padding: 8px 16px;
+        border-radius: 20px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--teal-light);
+        color: var(--text-primary);
+    }
+
+    .filter-btn.active {
+        background: var(--gold);
+        color: var(--bg-darker);
+        border-color: var(--gold);
+    }
+
+    .jobs-grid {
+        display: grid;
+        gap: 16px;
+        padding: 32px 0;
+    }
+
+    .landing-job-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-decoration: none;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 16px;
+        align-items: center;
+        transition: all 0.25s;
+    }
+
+    .landing-job-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .job-card-main {
+        min-width: 0;
+    }
+
+    .job-card-category {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gold);
+        margin-bottom: 8px;
+    }
+
+    .job-card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 6px;
+    }
+
+    .job-card-company {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .job-card-meta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .job-card-badge {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+        border-radius: 4px;
+        background: var(--bg-darker);
+        color: var(--text-secondary);
+    }
+
+    .job-card-badge.salary {
+        background: rgba(232, 168, 124, 0.15);
+        color: var(--gold);
+    }
+
+    .job-card-badge.remote {
+        background: rgba(74, 222, 128, 0.15);
+        color: var(--success);
+    }
+
+    .job-card-cta {
+        flex-shrink: 0;
+    }
+
+    .job-card-cta .btn {
+        white-space: nowrap;
+    }
+
+    .related-landing-pages {
+        margin: 40px 0;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+    }
+
+    .related-landing-pages h2 {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+    }
+
+    .related-pages-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .related-page-link {
+        padding: 8px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+    }
+
+    .related-page-link:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--teal-light);
+        color: var(--text-primary);
+    }
+
+    @media (max-width: 768px) {
+        .landing-header h1 { font-size: 1.75rem; }
+        .landing-stats { flex-direction: column; gap: 16px; }
+        .landing-job-card { grid-template-columns: 1fr; }
+        .job-card-cta { justify-self: start; }
+    }
+</style>
 
 <body>
     <header class="site-header">
@@ -650,83 +1076,778 @@
     </script>
 
 
-    <header class="expired-header">
+    <div class="landing-header">
         <div class="container">
-            <span class="expired-badge">Position Filled</span>
-            <h1>AI Engineer</h1>
-            <div class="company">This Company</div>
+            <nav class="breadcrumb"><a href="/">Home</a> / <a href="/jobs/">AI Jobs</a> / AI Jobs in San Francisco</nav>
+            <h1>AI & Machine Learning Jobs in San Francisco</h1>
+            <p class="lead">Find AI jobs in San Francisco, the heart of tech innovation. ML engineer, AI researcher, and prompt engineer positions in the Bay Area.</p>
+            <div class="landing-stats">
+                <div class="landing-stat">
+                    <div class="landing-stat-value">114</div>
+                    <div class="landing-stat-label">Open Positions</div>
+                </div>
+                <div class="landing-stat"><div class="landing-stat-value">$259K</div><div class="landing-stat-label">Avg. Salary</div></div>
+            </div>
         </div>
-    </header>
+    </div>
 
-    <div class="content">
+    <main>
         <div class="container">
-            <div class="message-box">
-                <h2>This position is no longer available</h2>
-                <p>Good news - we have similar AI opportunities that might be a great fit for you.</p>
-                <a href="/jobs/" class="browse-all-btn">Browse All AI Jobs →</a>
+            <div class="jobs-grid">
+                
+        <a href="/jobs/salesforce-lead-full-stack-engineer-generative-ui-services-75bc9c/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Prompt Engineer</div>
+                <div class="job-card-title">Lead Full Stack Engineer, Generative UI Services</div>
+                <div class="job-card-company">Salesforce</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$189K - $285K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/altruist-staff-back-end-engineer-ai-products-249651/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Staff Back End Engineer, AI Products</div>
+                <div class="job-card-company">ALTRUIST</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$203K - $265K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/intuit-manager-3-ai-platform-technology-power-the-ai-expe-dfadf6/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Manager 3, AI Platform Technology (Power the AI Experiance)</div>
+                <div class="job-card-company">Intuit</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/ironclad-ai-engineer-55a380/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">AI Engineer</div>
+                <div class="job-card-company">Ironclad</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $165K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/altruist-staff-back-end-engineer-ai-products-tags-0845ad/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Staff Back End Engineer, AI Products tags.</div>
+                <div class="job-card-company">ALTRUIST</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$203K - $265K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/intuit-manager-3-ai-platform-technology-power-the-ai-expe-dfadf6/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Manager 3, AI Platform Technology (Power the AI Experiance)</div>
+                <div class="job-card-company">Intuit</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/unknown-ai-engineer-new-graduate-d4f6fd/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">AI Engineer (New Graduate)</div>
+                <div class="job-card-company">Unknown</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/google-staff-software-engineer-full-stack-google-fi-94dd95/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">MLOps Engineer</div>
+                <div class="job-card-title">Staff Software Engineer, Full Stack, Google Fi</div>
+                <div class="job-card-company">Google</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$197K - $291K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/uber-graduate-2026-phd-software-engineer-ii-consumer-st-929eba/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Graduate 2026 PhD Software Engineer II (Consumer Structural Pricing), United States</div>
+                <div class="job-card-company">Uber</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/brain-early-career-aiml-engineer-961329/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Early Career AI/ML Engineer</div>
+                <div class="job-card-company">BRAIN</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/adobe-2026-intern-machine-learning-engineer-b87a30/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">2026 Intern - Machine Learning Engineer</div>
+                <div class="job-card-company">Adobe</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$93K - $114K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/adobe-senior-research-scientist-1b568d/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Senior Research Scientist</div>
+                <div class="job-card-company">Adobe</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$164K - $313K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/clariti-cloud-inc-senior-mlops-engineer-3d3624/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">MLOps Engineer</div>
+                <div class="job-card-title">Senior MLOps Engineer</div>
+                <div class="job-card-company">Clariti Cloud Inc.</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$190K - $230K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/lyft-ml-software-engineer-integrity-ed9343/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">ML Software Engineer, Integrity</div>
+                <div class="job-card-company">Lyft</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$140K - $176K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/bedrock-robotics-earth-moving-data-products-engineer-d0503e/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Data Scientist</div>
+                <div class="job-card-title">Earth Moving Data Products Engineer</div>
+                <div class="job-card-company">Bedrock Robotics</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-principal-applied-scientist-far-frontier-ai-roboti-715803/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Principal Applied Scientist, FAR (Frontier AI &amp; Robotics)</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$179K - $309K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-software-development-engineer-far-frontier-ai-r-670ff8/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Sr. Software Development Engineer, FAR (Frontier AI &amp; Robotics)</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$151K - $261K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-software-development-engineer-frontier-ai-robotics-0a3c20/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Software Development Engineer, Frontier AI &amp; Robotics</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$129K - $223K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/cleric-software-engineer-ai-256af8/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Software Engineer</div>
+                <div class="job-card-title">Software Engineer, AI</div>
+                <div class="job-card-company">Cleric</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/genentech-2026-summer-intern-ddc-applied-ai-engineer-agents--c929f1/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">2026 Summer Intern - DDC - Applied AI Engineer - Agents &amp; Evaluation</div>
+                <div class="job-card-company">Genentech</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/uber-applied-scientist-ii-safety-476dee/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Applied Scientist II, Safety</div>
+                <div class="job-card-company">Uber</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$155K - $172K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/genentech-2026-summer-intern-ddc-applied-ai-engineer-agents--c929f1/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">2026 Summer Intern - DDC - Applied AI Engineer - Agents &amp; Evaluation</div>
+                <div class="job-card-company">Genentech</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/reflection-member-of-technical-staff-open-source-lead-b729de/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Member of Technical Staff - Open Source Lead</div>
+                <div class="job-card-company">REFLECTION</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/bland-customer-engineer-2002d1/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">LLM Engineer</div>
+                <div class="job-card-title">Customer Engineer</div>
+                <div class="job-card-company">BLAND</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$120K - $150K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/samsara-principal-product-manager-837240/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Prompt Engineer</div>
+                <div class="job-card-title">Principal Product Manager</div>
+                <div class="job-card-company">Samsara</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$134K - $240K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/sofi-staff-software-engineer-chat-030bd5/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Prompt Engineer</div>
+                <div class="job-card-title">Staff Software Engineer, Chat</div>
+                <div class="job-card-company">SoFi</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/plaid-staff-software-engineer-ai-abfe6b/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Software Engineer</div>
+                <div class="job-card-title">Staff Software Engineer - AI</div>
+                <div class="job-card-company">Plaid</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$253K - $400K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/outsystems-principal-ai-engineer-75e940/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Principal AI Engineer</div>
+                <div class="job-card-company">OutSystems</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$229K - $270K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/apple-ml-safety-research-engineer-d68d4b/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Engineer</div>
+                <div class="job-card-title">ML Safety Research Engineer</div>
+                <div class="job-card-company">Apple</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/google-senior-datacloud-blackbelt-data-and-ai-69c29f/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">LLM Engineer</div>
+                <div class="job-card-title">Senior Datacloud Blackbelt, Data and AI</div>
+                <div class="job-card-company">Google</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$147K - $216K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/turing-senior-engineering-manager-fc9782/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">LLM Engineer</div>
+                <div class="job-card-title">Senior Engineering Manager</div>
+                <div class="job-card-company">turing</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$220K - $260K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-mts-developer-experience-00f82c/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Data Scientist</div>
+                <div class="job-card-title">MTS, Developer Experience</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $325K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/forecareer-lead-software-engineer-model-serving-platform-ai-i-ffce63/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">MLOps Engineer</div>
+                <div class="job-card-title">Lead Software Engineer, Model Serving Platform (AI Infrastructure)</div>
+                <div class="job-card-company">Forecareer</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$230K - $300K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/accenture-agentic-ai-engineer-6090758-d4a560/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Agentic AI Engineer - 6090758</div>
+                <div class="job-card-company">Accenture</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$137K - $158K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/accenture-agentic-ai-engineer-6065064-c36086/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Agentic AI Engineer - 6065064</div>
+                <div class="job-card-company">Accenture</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$120K - $141K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/lyft-senior-software-engineer-central-market-management-0d2dd4/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">MLOps Engineer</div>
+                <div class="job-card-title">Senior Software Engineer, Central Market Management &amp; AI</div>
+                <div class="job-card-company">Lyft</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$148K - $185K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/airwallex-senior-software-engineer-ai-global-treasury-paymen-63b15f/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Software Engineer</div>
+                <div class="job-card-title">Senior Software Engineer, AI - Global Treasury Payment Network, San Francisco</div>
+                <div class="job-card-company">Airwallex</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$200K - $250K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/airwallex-senior-software-engineer-ai-global-treasury-paymen-702cc5/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Software Engineer</div>
+                <div class="job-card-title">Senior Software Engineer, AI - Global Treasury Payment Network (Relocate to Singapore)</div>
+                <div class="job-card-company">Airwallex</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$180K - $245K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/airwallex-senior-software-engineer-ai-global-treasury-paymen-63b15f/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Software Engineer</div>
+                <div class="job-card-title">Senior Software Engineer, AI - Global Treasury Payment Network, San Francisco</div>
+                <div class="job-card-company">Airwallex</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$200K - $250K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/crowe-llp-ai-devops-and-cloud-infrastructure-engineer-95a03d/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">AI DevOps and Cloud Infrastructure Engineer</div>
+                <div class="job-card-company">Crowe LLP</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$102K - $204K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/genentech-senior-ai-product-manager-agentic-digital-experien-026011/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Product Manager</div>
+                <div class="job-card-title">Senior AI Product Manager, Agentic &amp; Digital Experience</div>
+                <div class="job-card-company">Genentech</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$207K - $385K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/genentech-senior-ai-product-manager-agentic-digital-experien-026011/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Product Manager</div>
+                <div class="job-card-title">Senior AI Product Manager, Agentic &amp; Digital Experience</div>
+                <div class="job-card-company">Genentech</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$207K - $385K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/lilt-lega-italiana-per-la-lotta-contro-i-tumori-talent-community-partner-expert-recruitment-d0e68f/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">LLM Engineer</div>
+                <div class="job-card-title">Talent &amp; Community Partner – Expert Recruitment</div>
+                <div class="job-card-company">Lilt- Lega Italiana per la Lotta contro i Tumori</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazon-web-services-senior-customer-success-specialist-genai-aws-speci-d9f9c6/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Senior Customer Success Specialist - GenAI, AWS Specialist and Partner Organization</div>
+                <div class="job-card-company">Amazon Web Services</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$138K - $239K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-research-scientist-iii-ww-sustainability-0c3733/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Sr. Research Scientist III, WW Sustainability</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$143K - $247K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-2026-applied-science-internship-united-states-phd--14c154/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">2026 Applied Science Internship - United States, PhD Student Science Recruiting, Frontier AI &amp; Robotics</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$135K - $222K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-applied-science-manager-artificial-general-intelli-1b8912/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Applied Science Manager, Artificial General Intelligence</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$165K - $286K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-applied-scientist-privacy-privacy-engineering-649145/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Sr. Applied Scientist - Privacy, Privacy Engineering</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $260K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/block-staff-machine-learning-engineer-modeling-support-ba89a7/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Staff Machine Learning Engineer (Modeling), Support</div>
+                <div class="job-card-company">Block</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$276K - $415K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/geico-senior-conversational-designer-ivr-d94e84/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Prompt Engineer</div>
+                <div class="job-card-title">Senior Conversational Designer - IVR</div>
+                <div class="job-card-company">GEICO</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$109K - $172K</span>
+                    <span class="job-card-badge">San Francisco, CA, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
             </div>
 
-            <div class="similar-section">
-                <h2>Similar Opportunities</h2>
-                <div class="similar-jobs-grid">
-                    
-            <a href="/jobs/orpical-senior-ai-native-full-stack-engineer-laravel-vue-i-c7577b/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">Orpical</div>
-                    <div class="job-card__title">Senior AI-Native Full-Stack Engineer (Laravel / Vue / Inertia)</div>
-                    <div class="job-card__meta">
-                        <span class="job-card__tag job-card__tag--salary">$95K - $135K</span>
-                        <span class="job-card__tag job-card__tag--remote">Remote</span>
-                    </div>
-                </div>
-            </a>
-        
-            <a href="/jobs/netail-artificial-intelligence-engineer-0efa6b/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">Netail</div>
-                    <div class="job-card__title">Artificial Intelligence Engineer</div>
-                    <div class="job-card__meta">
-                        <span class="job-card__tag job-card__tag--salary">$90K - $120K</span>
-                        <span class="job-card__tag job-card__tag--remote">Remote</span>
-                    </div>
-                </div>
-            </a>
-        
-            <a href="/jobs/freshworks-ai-engineer-agentic-automation-e42aa8/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">freshworks</div>
-                    <div class="job-card__title">AI Engineer - Agentic Automation</div>
-                    <div class="job-card__meta">
-                        <span class="job-card__tag job-card__tag--salary">$90K - $119K</span>
-                        <span class="job-card__tag job-card__tag--remote">Bellevue, WA, US</span>
-                    </div>
-                </div>
-            </a>
-        
-            <a href="/jobs/freshworks-ai-engineer-agentic-automation-1fe524/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">freshworks</div>
-                    <div class="job-card__title">AI Engineer - Agentic Automation</div>
-                    <div class="job-card__meta">
-                        <span class="job-card__tag job-card__tag--salary">$90K - $119K</span>
-                        <span class="job-card__tag job-card__tag--remote">San Mateo, CA, US</span>
-                    </div>
-                </div>
-            </a>
-        
-            <a href="/jobs/freshworks-ai-engineer-agentic-automation-e4f131/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">freshworks</div>
-                    <div class="job-card__title">AI Engineer - Agentic Automation</div>
-                    <div class="job-card__meta">
-                        <span class="job-card__tag job-card__tag--salary">$90K - $119K</span>
-                        <span class="job-card__tag job-card__tag--remote">Boston, MA, US</span>
-                    </div>
-                </div>
-            </a>
-        
-                </div>
-            </div>
+            <p style="text-align: center; color: var(--text-muted);">Showing 50 of 114 jobs</p>
 
             
     <div class="cta-box">
@@ -735,8 +1856,15 @@
         <a href="/join/" class="btn btn-gold">Join Community →</a>
     </div>
 
+
+            <section class="related-landing-pages">
+                <h2>Browse Jobs by Location</h2>
+                <div class="related-pages-grid">
+                    <a href="/jobs/remote/" class="related-page-link">Remote AI Jobs</a><a href="/jobs/new-york/" class="related-page-link">AI Jobs in New York</a><a href="/jobs/seattle/" class="related-page-link">AI Jobs in Seattle</a><a href="/jobs/austin/" class="related-page-link">AI Jobs in Austin</a><a href="/jobs/boston/" class="related-page-link">AI Jobs in Boston</a><a href="/jobs/los-angeles/" class="related-page-link">AI Jobs in Los Angeles</a>
+                </div>
+            </section>
         </div>
-    </div>
+    </main>
 
 
     <footer class="site-footer">

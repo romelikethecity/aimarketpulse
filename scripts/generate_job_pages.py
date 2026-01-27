@@ -105,7 +105,208 @@ def parse_skills(skills_value):
     return []
 
 
-def create_job_page(job, idx):
+def find_related_jobs(job, all_jobs_df, num_related=4):
+    """Find related jobs based on company, category, and skills."""
+    related = []
+    company = str(job.get('company', job.get('company_name', '')))
+    category = str(job.get('job_category', ''))
+    skills = parse_skills(job.get('skills_tags'))
+    current_title = str(job.get('title', ''))
+    current_location = str(job.get('location', ''))
+
+    # Score each job
+    scored_jobs = []
+    for idx, other_job in all_jobs_df.iterrows():
+        other_company = str(other_job.get('company', other_job.get('company_name', '')))
+        other_title = str(other_job.get('title', ''))
+        other_location = str(other_job.get('location', ''))
+
+        # Skip same job
+        if other_company == company and other_title == current_title and other_location == current_location:
+            continue
+
+        score = 0
+
+        # Same company is highly relevant
+        if other_company == company:
+            score += 50
+
+        # Same category is relevant
+        other_category = str(other_job.get('job_category', ''))
+        if category and other_category == category:
+            score += 30
+
+        # Skill overlap
+        other_skills = parse_skills(other_job.get('skills_tags'))
+        if skills and other_skills:
+            overlap = len(set(skills) & set(other_skills))
+            score += overlap * 10
+
+        # Remote preference match
+        if is_remote(job) and is_remote(other_job):
+            score += 15
+
+        # Has salary (more valuable to show)
+        if pd.notna(other_job.get('salary_max', other_job.get('max_amount'))):
+            try:
+                if float(other_job.get('salary_max', other_job.get('max_amount', 0))) > 0:
+                    score += 5
+            except:
+                pass
+
+        if score > 0:
+            scored_jobs.append((idx, score, other_job))
+
+    # Sort by score and return top N
+    scored_jobs.sort(key=lambda x: x[1], reverse=True)
+    return [job_data for _, _, job_data in scored_jobs[:num_related]]
+
+
+def generate_related_jobs_html(related_jobs, current_company):
+    """Generate HTML for related jobs section."""
+    if not related_jobs:
+        return ""
+
+    jobs_html = ""
+    for job in related_jobs:
+        company = str(job.get('company', job.get('company_name', 'Unknown')))
+        title = str(job.get('title', 'AI Role'))
+        location = str(job.get('location', '')) if pd.notna(job.get('location')) else ''
+        salary = format_salary(job.get('salary_min', job.get('min_amount')), job.get('salary_max', job.get('max_amount')))
+        category = job.get('job_category', '') if pd.notna(job.get('job_category')) else ''
+        remote_status = is_remote(job)
+
+        # Generate slug for this job
+        job_slug = f"{make_slug(company)}-{make_slug(title)}"
+        hash_suffix = hashlib.md5(f"{company}{title}{location}".encode()).hexdigest()[:6]
+        job_slug = f"{job_slug}-{hash_suffix}"
+
+        location_badge = 'Remote' if remote_status else escape_html(location) if location else ''
+        company_escaped = escape_html(company)
+        title_escaped = escape_html(title)
+
+        # Highlight if same company
+        same_company_badge = f'<span class="related-badge same-company">More at {company_escaped}</span>' if company == current_company else ''
+
+        jobs_html += f'''
+            <a href="/jobs/{job_slug}/" class="related-job-card">
+                <div class="related-job-category">{escape_html(category)}</div>
+                <div class="related-job-title">{title_escaped}</div>
+                <div class="related-job-company">{company_escaped} {same_company_badge}</div>
+                <div class="related-job-meta">
+                    {f'<span class="related-job-salary">{salary}</span>' if salary else ''}
+                    {f'<span class="related-job-location">{location_badge}</span>' if location_badge else ''}
+                </div>
+            </a>
+        '''
+
+    return f'''
+        <section class="related-jobs-section">
+            <h2>Related AI Jobs</h2>
+            <div class="related-jobs-grid">
+                {jobs_html}
+            </div>
+            <div class="related-jobs-cta">
+                <a href="/jobs/" class="btn-outline">Browse All AI Jobs →</a>
+            </div>
+        </section>
+    '''
+
+
+# CSS for related jobs section
+CSS_RELATED_JOBS = '''
+    .related-jobs-section {
+        margin: 40px 0;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+    }
+
+    .related-jobs-section h2 {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .related-jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .related-job-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        text-decoration: none;
+        transition: all 0.25s;
+    }
+
+    .related-job-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .related-job-category {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gold);
+        margin-bottom: 8px;
+    }
+
+    .related-job-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 6px;
+        line-height: 1.3;
+    }
+
+    .related-job-company {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .related-badge.same-company {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        background: rgba(74, 222, 128, 0.15);
+        color: var(--success);
+        border-radius: 4px;
+    }
+
+    .related-job-meta {
+        display: flex;
+        gap: 12px;
+        font-size: 0.8rem;
+    }
+
+    .related-job-salary {
+        color: var(--gold);
+        font-weight: 600;
+    }
+
+    .related-job-location {
+        color: var(--text-muted);
+    }
+
+    .related-jobs-cta {
+        text-align: center;
+    }
+'''
+
+
+def create_job_page(job, idx, all_jobs_df=None):
     """Generate an individual job page with full SEO optimization"""
 
     company = str(job.get('company', job.get('company_name', 'Unknown')))
@@ -221,6 +422,12 @@ def create_job_page(job, idx):
     meta_badges.append(f'<span class="job-meta-badge">{escape_html(job_category)}</span>')
     meta_badges_html = '\n                    '.join(meta_badges)
 
+    # === RELATED JOBS ===
+    related_jobs_html = ""
+    if all_jobs_df is not None and len(all_jobs_df) > 1:
+        related_jobs = find_related_jobs(job, all_jobs_df, num_related=4)
+        related_jobs_html = generate_related_jobs_html(related_jobs, company)
+
     # Build the page
     html = f'''<!DOCTYPE html>
 <html lang="en">
@@ -300,6 +507,7 @@ def create_job_page(job, idx):
             flex-wrap: wrap;
             gap: 8px;
         }}
+        {CSS_RELATED_JOBS}
     </style>
 </head>
 {get_nav_html('jobs').replace('<body>', '<body>')}
@@ -357,6 +565,8 @@ def create_job_page(job, idx):
             </div>
 
             {get_cta_box()}
+
+            {related_jobs_html}
         </div>
     </div>
 
@@ -373,10 +583,11 @@ def create_job_page(job, idx):
 
 # Generate individual job pages
 print(f"\n Generating individual job pages...")
+print(f"   (with related jobs internal linking)")
 job_slugs = []
 for idx, row in df.iterrows():
     if pd.notna(row.get('title')) and pd.notna(row.get('company', row.get('company_name'))):
-        slug = create_job_page(row, idx)
+        slug = create_job_page(row, idx, all_jobs_df=df)
         job_slugs.append(slug)
         if len(job_slugs) % 100 == 0:
             print(f"   Generated {len(job_slugs)} pages...")

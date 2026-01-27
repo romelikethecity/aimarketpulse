@@ -856,6 +856,74 @@
             .company-header h1 { font-size: 1.75rem; }
             .company-stats { flex-direction: column; }
         }
+        
+    .similar-companies-section {
+        margin: 40px 0;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+    }
+
+    .similar-companies-section h2 {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .similar-companies-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .similar-company-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        text-decoration: none;
+        transition: all 0.25s;
+    }
+
+    .similar-company-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .similar-company-name {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+    }
+
+    .similar-company-meta {
+        display: flex;
+        gap: 12px;
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    .similar-company-jobs {
+        color: var(--text-secondary);
+    }
+
+    .similar-company-salary {
+        color: var(--gold);
+        font-weight: 600;
+    }
+
+    .similar-company-categories {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+    }
+
+    .similar-companies-cta {
+        text-align: center;
+    }
+
     </style>
     
 </head>
@@ -1013,6 +1081,72 @@
         <a href="/join/" class="btn btn-gold">Join Community →</a>
     </div>
 
+
+            
+        <section class="similar-companies-section">
+            <h2>Similar Companies Hiring</h2>
+            <div class="similar-companies-grid">
+                
+            <a href="/companies/tennessee-department-of-finance-administration/" class="similar-company-card">
+                <div class="similar-company-name">Tennessee Department of Finance &amp; Administration</div>
+                <div class="similar-company-meta">
+                    <span class="similar-company-jobs">2 AI Roles</span>
+                    <span class="similar-company-salary">$12K - $14K</span>
+                </div>
+                <div class="similar-company-categories">RAG Engineer, Data Scientist</div>
+            </a>
+        
+            <a href="/companies/ancestry/" class="similar-company-card">
+                <div class="similar-company-name">Ancestry</div>
+                <div class="similar-company-meta">
+                    <span class="similar-company-jobs">2 AI Roles</span>
+                    
+                </div>
+                <div class="similar-company-categories">Data Scientist</div>
+            </a>
+        
+            <a href="/companies/prudential/" class="similar-company-card">
+                <div class="similar-company-name">Prudential</div>
+                <div class="similar-company-meta">
+                    <span class="similar-company-jobs">2 AI Roles</span>
+                    <span class="similar-company-salary">$257K - $333K</span>
+                </div>
+                <div class="similar-company-categories">AI/ML Engineer, Data Scientist</div>
+            </a>
+        
+            <a href="/companies/compact-information-systems/" class="similar-company-card">
+                <div class="similar-company-name">Compact Information Systems</div>
+                <div class="similar-company-meta">
+                    <span class="similar-company-jobs">2 AI Roles</span>
+                    <span class="similar-company-salary">$225K - $225K</span>
+                </div>
+                <div class="similar-company-categories">AI/ML Engineer, Data Scientist</div>
+            </a>
+        
+            <a href="/companies/amazon-web-services/" class="similar-company-card">
+                <div class="similar-company-name">Amazon Web Services</div>
+                <div class="similar-company-meta">
+                    <span class="similar-company-jobs">141 AI Roles</span>
+                    <span class="similar-company-salary">$178K - $350K</span>
+                </div>
+                <div class="similar-company-categories">AI/ML Engineer, Research Scientist</div>
+            </a>
+        
+            <a href="/companies/fanatics/" class="similar-company-card">
+                <div class="similar-company-name">Fanatics</div>
+                <div class="similar-company-meta">
+                    <span class="similar-company-jobs">3 AI Roles</span>
+                    <span class="similar-company-salary">$181K - $300K</span>
+                </div>
+                <div class="similar-company-categories">Data Scientist, MLOps Engineer</div>
+            </a>
+        
+            </div>
+            <div class="similar-companies-cta">
+                <a href="/companies/" class="btn-outline">Browse All Companies →</a>
+            </div>
+        </section>
+    
         </div>
     </main>
 

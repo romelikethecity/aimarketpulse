@@ -757,6 +757,96 @@
             flex-wrap: wrap;
             gap: 8px;
         }
+        
+    .related-jobs-section {
+        margin: 40px 0;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+    }
+
+    .related-jobs-section h2 {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .related-jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .related-job-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        text-decoration: none;
+        transition: all 0.25s;
+    }
+
+    .related-job-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .related-job-category {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gold);
+        margin-bottom: 8px;
+    }
+
+    .related-job-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 6px;
+        line-height: 1.3;
+    }
+
+    .related-job-company {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .related-badge.same-company {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        background: rgba(74, 222, 128, 0.15);
+        color: var(--success);
+        border-radius: 4px;
+    }
+
+    .related-job-meta {
+        display: flex;
+        gap: 12px;
+        font-size: 0.8rem;
+    }
+
+    .related-job-salary {
+        color: var(--gold);
+        font-weight: 600;
+    }
+
+    .related-job-location {
+        color: var(--text-muted);
+    }
+
+    .related-jobs-cta {
+        text-align: center;
+    }
+
     </style>
 </head>
 
@@ -921,6 +1011,58 @@
         <a href="/join/" class="btn btn-gold">Join Community →</a>
     </div>
 
+
+            
+        <section class="related-jobs-section">
+            <h2>Related AI Jobs</h2>
+            <div class="related-jobs-grid">
+                
+            <a href="/jobs/youtube-senior-product-manager-youtube-shorts-ml-infrastru-098f6c/" class="related-job-card">
+                <div class="related-job-category">MLOps Engineer</div>
+                <div class="related-job-title">Senior Product Manager, YouTube Shorts ML Infrastructure</div>
+                <div class="related-job-company">Youtube <span class="related-badge same-company">More at Youtube</span></div>
+                <div class="related-job-meta">
+                    <span class="related-job-salary">$183K - $271K</span>
+                    <span class="related-job-location">San Bruno, CA, US</span>
+                </div>
+            </a>
+        
+            <a href="/jobs/youtube-product-manager-youtube-sensitive-content-f998ac/" class="related-job-card">
+                <div class="related-job-category">LLM Engineer</div>
+                <div class="related-job-title">Product Manager, YouTube Sensitive Content</div>
+                <div class="related-job-company">Youtube <span class="related-badge same-company">More at Youtube</span></div>
+                <div class="related-job-meta">
+                    <span class="related-job-salary">$156K - $229K</span>
+                    <span class="related-job-location">San Bruno, CA, US</span>
+                </div>
+            </a>
+        
+            <a href="/jobs/youtube-software-engineer-iii-aiml-youtube-ads-quality-0343e4/" class="related-job-card">
+                <div class="related-job-category">AI/ML Engineer</div>
+                <div class="related-job-title">Software Engineer III, AI/ML, YouTube Ads Quality</div>
+                <div class="related-job-company">Youtube <span class="related-badge same-company">More at Youtube</span></div>
+                <div class="related-job-meta">
+                    <span class="related-job-salary">$141K - $202K</span>
+                    <span class="related-job-location">Mountain View, CA, US</span>
+                </div>
+            </a>
+        
+            <a href="/jobs/youtube-senior-software-engineer-aiml-computer-vision-yout-ca86da/" class="related-job-card">
+                <div class="related-job-category">AI/ML Engineer</div>
+                <div class="related-job-title">Senior Software Engineer, AI/ML Computer Vision, YouTube</div>
+                <div class="related-job-company">Youtube <span class="related-badge same-company">More at Youtube</span></div>
+                <div class="related-job-meta">
+                    <span class="related-job-salary">$166K - $244K</span>
+                    <span class="related-job-location">Mountain View, CA, US</span>
+                </div>
+            </a>
+        
+            </div>
+            <div class="related-jobs-cta">
+                <a href="/jobs/" class="btn-outline">Browse All AI Jobs →</a>
+            </div>
+        </section>
+    
         </div>
     </div>
 

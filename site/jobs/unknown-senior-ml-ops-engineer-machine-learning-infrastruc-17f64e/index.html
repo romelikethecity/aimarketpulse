@@ -763,6 +763,96 @@
             flex-wrap: wrap;
             gap: 8px;
         }
+        
+    .related-jobs-section {
+        margin: 40px 0;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+    }
+
+    .related-jobs-section h2 {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .related-jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .related-job-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        text-decoration: none;
+        transition: all 0.25s;
+    }
+
+    .related-job-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .related-job-category {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gold);
+        margin-bottom: 8px;
+    }
+
+    .related-job-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 6px;
+        line-height: 1.3;
+    }
+
+    .related-job-company {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .related-badge.same-company {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        background: rgba(74, 222, 128, 0.15);
+        color: var(--success);
+        border-radius: 4px;
+    }
+
+    .related-job-meta {
+        display: flex;
+        gap: 12px;
+        font-size: 0.8rem;
+    }
+
+    .related-job-salary {
+        color: var(--gold);
+        font-weight: 600;
+    }
+
+    .related-job-location {
+        color: var(--text-muted);
+    }
+
+    .related-jobs-cta {
+        text-align: center;
+    }
+
     </style>
 </head>
 
@@ -927,6 +1017,58 @@
         <a href="/join/" class="btn btn-gold">Join Community →</a>
     </div>
 
+
+            
+        <section class="related-jobs-section">
+            <h2>Related AI Jobs</h2>
+            <div class="related-jobs-grid">
+                
+            <a href="/jobs/unknown-principalsr-software-engineer-dataml-platform-430462/" class="related-job-card">
+                <div class="related-job-category">MLOps Engineer</div>
+                <div class="related-job-title">Principal/Sr. Software Engineer, Data/ML Platform</div>
+                <div class="related-job-company">Unknown <span class="related-badge same-company">More at Unknown</span></div>
+                <div class="related-job-meta">
+                    
+                    <span class="related-job-location">Remote</span>
+                </div>
+            </a>
+        
+            <a href="/jobs/unknown-cloud-solution-architect-bd1983/" class="related-job-card">
+                <div class="related-job-category">AI/ML Engineer</div>
+                <div class="related-job-title">Cloud Solution Architect</div>
+                <div class="related-job-company">Unknown <span class="related-badge same-company">More at Unknown</span></div>
+                <div class="related-job-meta">
+                    <span class="related-job-salary">$176K - $208K</span>
+                    <span class="related-job-location">Remote</span>
+                </div>
+            </a>
+        
+            <a href="/jobs/unknown-sr-generative-ai-ml-engineer-477600/" class="related-job-card">
+                <div class="related-job-category">AI/ML Engineer</div>
+                <div class="related-job-title">Sr. Generative AI &amp; ML Engineer</div>
+                <div class="related-job-company">Unknown <span class="related-badge same-company">More at Unknown</span></div>
+                <div class="related-job-meta">
+                    <span class="related-job-salary">$150K - $180K</span>
+                    <span class="related-job-location">Remote</span>
+                </div>
+            </a>
+        
+            <a href="/jobs/unknown-ml-ops-data-operations-engineer-new-f152bc/" class="related-job-card">
+                <div class="related-job-category">MLOps Engineer</div>
+                <div class="related-job-title">ML Ops / Data Operations Engineer New</div>
+                <div class="related-job-company">Unknown <span class="related-badge same-company">More at Unknown</span></div>
+                <div class="related-job-meta">
+                    
+                    <span class="related-job-location">Austin, TX, US</span>
+                </div>
+            </a>
+        
+            </div>
+            <div class="related-jobs-cta">
+                <a href="/jobs/" class="btn-outline">Browse All AI Jobs →</a>
+            </div>
+        </section>
+    
         </div>
     </div>
 

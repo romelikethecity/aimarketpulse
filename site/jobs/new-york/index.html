@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E2SX5J91V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1E2SX5J91V');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Engineer at This Company - Position Filled | AI Market Pulse</title>
-    <meta name="description" content="This AI Engineer position at This Company is no longer available. Browse similar AI and ML engineering opportunities.">
+    <title>AI Jobs in New York 2026 | AI Market Pulse</title>
+    <meta name="description" content="Discover AI jobs in New York City. Machine learning engineer, AI researcher, and data science positions in NYC.">
     <link rel="canonical" href="https://theaimarketpulse.com/jobs/new-york/">
-    <meta name="robots" content="noindex, follow">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theaimarketpulse.com/jobs/new-york/">
+    <meta property="og:title" content="AI Jobs in New York 2026">
+    <meta property="og:description" content="Discover AI jobs in New York City. Machine learning engineer, AI researcher, and data science positions in NYC.">
+    <meta property="og:site_name" content="AI Market Pulse">
+    <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
+    <meta property="og:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pe_collective">
+    <meta name="twitter:title" content="AI Jobs in New York 2026">
+    <meta name="twitter:description" content="Discover AI jobs in New York City. Machine learning engineer, AI researcher, and data science positions in NYC.">
+    <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
 
     <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.jpeg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    
     <style>
         
     :root {
@@ -514,75 +542,473 @@
         .footer-links a { margin: 0 12px; }
     }
 
+        
+    /* Individual Job Page Styles */
+    .job-detail-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
 
-        .expired-header {
-            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
-            padding: 48px 0;
+    .job-detail-header h1 {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .job-company {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+    }
+
+    .job-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .job-meta-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    .job-meta-badge.salary {
+        background: rgba(232, 168, 124, 0.15);
+        border-color: rgba(232, 168, 124, 0.3);
+        color: var(--gold);
+    }
+
+    .job-meta-badge.remote {
+        background: rgba(74, 222, 128, 0.15);
+        border-color: rgba(74, 222, 128, 0.3);
+        color: var(--success);
+    }
+
+    .apply-btn {
+        display: inline-block;
+        padding: 16px 32px;
+        background: var(--gold);
+        color: var(--bg-darker);
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .apply-btn:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
+    }
+
+    .job-skills {
+        margin: 24px 0;
+    }
+
+    .job-skills h3 {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .job-details-table {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 24px 0;
+    }
+
+    .job-details-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .job-details-row:last-child {
+        border-bottom: none;
+    }
+
+    .job-details-label {
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .job-details-value {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    /* Expired/Stale Job Styles */
+    .job-expired-notice {
+        background: rgba(248, 113, 113, 0.1);
+        border: 1px solid rgba(248, 113, 113, 0.3);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    .job-expired-notice h2 {
+        color: var(--error);
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .job-expired-notice p {
+        color: var(--text-secondary);
+    }
+
+    .similar-jobs-section h3 {
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .similar-jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+        .job-detail-header {
+            flex-direction: column;
+        }
+        .apply-btn {
+            width: 100%;
             text-align: center;
         }
-        .expired-header .container { max-width: 800px; }
-        .expired-badge {
-            display: inline-block;
-            background: var(--error);
-            color: white;
-            font-weight: 600;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-bottom: 16px;
-        }
-        .expired-header h1 {
-            font-size: 1.75rem;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-        .expired-header .company {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-        }
-        .content { padding: 48px 0; }
-        .content .container { max-width: 900px; }
-        .message-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 32px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .message-box h2 {
-            color: var(--text-primary);
-            margin-bottom: 12px;
-        }
-        .message-box p {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
-        .browse-all-btn {
-            display: inline-block;
-            background: var(--gold);
-            color: var(--bg-darker);
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .browse-all-btn:hover {
-            background: var(--gold-hover);
-            color: var(--bg-darker);
-        }
-        .similar-section { margin-bottom: 40px; }
-        .similar-section h2 {
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        .similar-jobs-grid {
-            display: grid;
-            gap: 16px;
-        }
+    }
+
+        
+    .faq-section {
+        margin: 48px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+    }
+
+    .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-card-hover);
+    }
+
+    .faq-icon {
+        font-size: 1.25rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+    }
+
+    .faq-answer-content {
+        padding: 0 24px 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+
     </style>
+
+    
 </head>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://theaimarketpulse.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI Jobs",
+      "item": "https://theaimarketpulse.com/jobs/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI Jobs in New York",
+      "item": "https://theaimarketpulse.com/jobs/new-york/"
+    }
+  ]
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "AI Jobs in New York",
+  "description": "Discover AI jobs in New York City. Machine learning engineer, AI researcher, and data science positions in NYC.",
+  "url": "https://theaimarketpulse.com/jobs/new-york/",
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": 197
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "AI Market Pulse",
+    "url": "https://theaimarketpulse.com"
+  },
+  "keywords": [
+    "new-york AI jobs",
+    "new-york ML jobs",
+    "AI engineer jobs",
+    "machine learning jobs"
+  ]
+}</script>
+    <style>
+    .landing-header {
+        padding: 48px 0;
+        background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .landing-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 16px;
+    }
+
+    .landing-header .lead {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 700px;
+    }
+
+    .landing-stats {
+        display: flex;
+        gap: 32px;
+        margin-top: 24px;
+    }
+
+    .landing-stat {
+        text-align: center;
+    }
+
+    .landing-stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gold);
+    }
+
+    .landing-stat-label {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+
+    .filters-section {
+        padding: 24px 0;
+        border-bottom: 1px solid var(--border);
+        background: var(--bg-darker);
+    }
+
+    .filters-row {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .filter-btn {
+        padding: 8px 16px;
+        border-radius: 20px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--teal-light);
+        color: var(--text-primary);
+    }
+
+    .filter-btn.active {
+        background: var(--gold);
+        color: var(--bg-darker);
+        border-color: var(--gold);
+    }
+
+    .jobs-grid {
+        display: grid;
+        gap: 16px;
+        padding: 32px 0;
+    }
+
+    .landing-job-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-decoration: none;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 16px;
+        align-items: center;
+        transition: all 0.25s;
+    }
+
+    .landing-job-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .job-card-main {
+        min-width: 0;
+    }
+
+    .job-card-category {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gold);
+        margin-bottom: 8px;
+    }
+
+    .job-card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 6px;
+    }
+
+    .job-card-company {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .job-card-meta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .job-card-badge {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+        border-radius: 4px;
+        background: var(--bg-darker);
+        color: var(--text-secondary);
+    }
+
+    .job-card-badge.salary {
+        background: rgba(232, 168, 124, 0.15);
+        color: var(--gold);
+    }
+
+    .job-card-badge.remote {
+        background: rgba(74, 222, 128, 0.15);
+        color: var(--success);
+    }
+
+    .job-card-cta {
+        flex-shrink: 0;
+    }
+
+    .job-card-cta .btn {
+        white-space: nowrap;
+    }
+
+    .related-landing-pages {
+        margin: 40px 0;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+    }
+
+    .related-landing-pages h2 {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+    }
+
+    .related-pages-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .related-page-link {
+        padding: 8px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+    }
+
+    .related-page-link:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--teal-light);
+        color: var(--text-primary);
+    }
+
+    @media (max-width: 768px) {
+        .landing-header h1 { font-size: 1.75rem; }
+        .landing-stats { flex-direction: column; gap: 16px; }
+        .landing-job-card { grid-template-columns: 1fr; }
+        .job-card-cta { justify-self: start; }
+    }
+</style>
 
 <body>
     <header class="site-header">
@@ -650,83 +1076,778 @@
     </script>
 
 
-    <header class="expired-header">
+    <div class="landing-header">
         <div class="container">
-            <span class="expired-badge">Position Filled</span>
-            <h1>AI Engineer</h1>
-            <div class="company">This Company</div>
+            <nav class="breadcrumb"><a href="/">Home</a> / <a href="/jobs/">AI Jobs</a> / AI Jobs in New York</nav>
+            <h1>AI & Machine Learning Jobs in New York</h1>
+            <p class="lead">Discover AI jobs in New York City. Machine learning engineer, AI researcher, and data science positions in NYC.</p>
+            <div class="landing-stats">
+                <div class="landing-stat">
+                    <div class="landing-stat-value">197</div>
+                    <div class="landing-stat-label">Open Positions</div>
+                </div>
+                <div class="landing-stat"><div class="landing-stat-value">$238K</div><div class="landing-stat-label">Avg. Salary</div></div>
+            </div>
         </div>
-    </header>
+    </div>
 
-    <div class="content">
+    <main>
         <div class="container">
-            <div class="message-box">
-                <h2>This position is no longer available</h2>
-                <p>Good news - we have similar AI opportunities that might be a great fit for you.</p>
-                <a href="/jobs/" class="browse-all-btn">Browse All AI Jobs →</a>
+            <div class="jobs-grid">
+                
+        <a href="/jobs/google-software-engineer-search-live-quality-generative-a-5dbc92/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Software Engineer, Search, Live Quality, Generative AI</div>
+                <div class="job-card-company">Google</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$141K - $202K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/geico-senior-staff-machine-learning-engineer-agent-engin-affe3c/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Agent Developer</div>
+                <div class="job-card-title">Senior Staff Machine Learning Engineer – Agent Engineering</div>
+                <div class="job-card-company">GEICO</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$130K - $300K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/salesforce-sr-director-ai-engineering-030fa5/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Sr. Director - AI Engineering</div>
+                <div class="job-card-company">Salesforce</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$239K - $401K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazon-web-services-senior-applied-scientist-generative-ai-innovation--953a08/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Senior Applied Scientist, Generative AI Innovation Center</div>
+                <div class="job-card-company">Amazon Web Services</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $260K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-software-development-manager-sponsored-products-an-d9e04c/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Prompt Engineer</div>
+                <div class="job-card-title">Software Development Manager, Sponsored Products and Brands</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$166K - $287K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-principal-applied-scientist-sponsored-products-and-530e3a/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Principal Applied Scientist, Sponsored Products and Brands</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$179K - $309K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazon-web-services-senior-applied-scientist-generative-ai-innovation--953a08/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Senior Applied Scientist, Generative AI Innovation Center</div>
+                <div class="job-card-company">Amazon Web Services</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$167K - $260K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/viatouch-media-inc-senior-computer-vision-engineer-embedded-edge-ai-n-5e4948/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Senior Computer Vision Engineer (Embedded / Edge AI) — NVIDIA Jetson Orin</div>
+                <div class="job-card-company">Viatouch Media Inc</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$85K - $125K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/paypal-sr-data-scientist-personalization-e05787/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Data Scientist</div>
+                <div class="job-card-title">Sr Data Scientist, Personalization</div>
+                <div class="job-card-company">PayPal</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$123K - $212K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/geico-senior-machine-learning-engineer-document-intellig-ac45f2/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Senior Machine Learning Engineer Document Intelligence</div>
+                <div class="job-card-company">GEICO</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$115K - $230K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/humana-lead-ai-engineer-834485/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Lead AI Engineer</div>
+                <div class="job-card-company">Humana</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$156K - $215K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/humana-applied-ai-engineer-3147f2/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Applied AI Engineer</div>
+                <div class="job-card-company">Humana</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$142K - $195K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/geico-machine-learning-engineer-ii-fraud-risk-modeling-9c6677/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Machine Learning Engineer II, Fraud Risk Modeling</div>
+                <div class="job-card-company">GEICO</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$105K - $215K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/lyft-ml-software-engineer-integrity-ed0d1c/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">ML Software Engineer, Integrity</div>
+                <div class="job-card-company">Lyft</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$140K - $176K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-software-dev-engineer-machine-learning-sponsore-cb032e/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Sr Software Dev Engineer, Machine Learning, Sponsored Products and Brands Ads Response Prediction</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$151K - $261K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-applied-scientist-agi-foundations-3b7db0/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Sr. Applied Scientist, AGI Foundations</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $260K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazon-web-services-delivery-consultant-genaiml-data-science-aws-indus-d6586f/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Delivery Consultant- GenAI/ML &amp; Data Science, AWS Industries</div>
+                <div class="job-card-company">Amazon Web Services</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$131K - $204K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-software-dev-engineer-sponsored-products-and-br-e6abe0/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Sr. Software Dev Engineer, Sponsored Products and Brands Ads Response Prediction</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$151K - $261K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazon-web-services-sr-principal-scientist-secure-work-enablement-709ca5/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">LLM Engineer</div>
+                <div class="job-card-title">Sr. Principal Scientist, Secure Work Enablement</div>
+                <div class="job-card-company">Amazon Web Services</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$240K - $350K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-applied-scientist-ii-prime-video-personalization-a-27c6d4/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Applied Scientist II, Prime Video - Personalization and Discovery Science, Personalization and Discovery Science</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$136K - $223K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-applied-scientist-ii-prime-video-personalization-a-df8109/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Applied Scientist II, Prime Video - Personalization and Discovery Science</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$136K - $223K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-applied-scientist-prime-video-personalization-a-16fab2/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Sr. Applied Scientist, Prime Video - Personalization and Discovery Science</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $260K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazon-web-services-senior-applied-scientist-model-customization-gener-af1467/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Senior Applied Scientist, Model Customization, Generative AI Innovation Center</div>
+                <div class="job-card-company">Amazon Web Services</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $260K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-senior-applied-scientist-artificial-general-intell-3a961e/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Senior Applied Scientist, Artificial General Intelligence</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $260K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-applied-scientist-prime-video-personalization-a-16fab2/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Sr. Applied Scientist, Prime Video - Personalization and Discovery Science</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $260K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-applied-scientist-ii-prime-video-personalization-a-df8109/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Applied Scientist II, Prime Video - Personalization and Discovery Science</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$136K - $223K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-principal-applied-scientist-agi-foundations-agi-fo-e4a993/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Principal Applied Scientist, AGI Foundations, AGI Foundations</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$179K - $309K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-applied-scientist-amazon-advertising-34d383/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Sr. Applied Scientist, Amazon Advertising</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $260K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-applied-scientist-prime-video-personalization-and--7ed9aa/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Applied Scientist, Prime Video - Personalization and Discovery Science</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$136K - $223K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-software-development-engineer-search-prime-video-d5417c/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">LLM Engineer</div>
+                <div class="job-card-title">Software Development Engineer, Search - Prime Video</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$129K - $223K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-applied-science-manager-sponsored-products-and-bra-c15169/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Applied Science Manager, Sponsored Products and Brands</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$165K - $286K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-software-development-engineer-sponsored-products-933fd9/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Software Development Engineer, Sponsored Products</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$129K - $223K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-applied-scientist-agi-2bbc97/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Applied Scientist, AGI</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$136K - $223K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-applied-scientist-amazon-ads-064e2b/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Sr. Applied Scientist, Amazon Ads</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $260K</span>
+                    <span class="job-card-badge">Brooklyn, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-applied-scientist-amazon-ads-532f2d/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Sr. Applied Scientist, Amazon Ads</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $260K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-applied-scientist-spb-advertiser-guidance-954168/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Sr. Applied Scientist, SPB Advertiser Guidance</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $260K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-applied-scientist-ii-spb-advertiser-guidance-cff5e5/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Applied Scientist II, SPB Advertiser Guidance</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$136K - $223K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazon-web-services-principal-applied-scientist-aws-agentic-ai-science-5724ff/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Principal Applied Scientist, AWS Agentic AI Science</div>
+                <div class="job-card-company">Amazon Web Services</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$179K - $309K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazon-web-services-applied-scientist-aws-agentic-ai-2b7b82/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Applied Scientist, AWS Agentic AI</div>
+                <div class="job-card-company">Amazon Web Services</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$136K - $223K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-applied-scientist-spb-advertiser-guidance-954168/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Sr. Applied Scientist, SPB Advertiser Guidance</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $260K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-principal-applied-scientist-amazon-sponsored-produ-554685/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Principal Applied Scientist, Amazon - Sponsored Products</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$179K - $309K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-applied-scientist-sales-ai-7645e0/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Sr. Applied Scientist, Sales AI</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $260K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-principal-applied-scientist-delivery-foundation-mo-bbbbce/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Principal Applied Scientist, Delivery Foundation Model</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$179K - $309K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-principal-applied-scientist-delivery-foundation-mo-bbbbce/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Principal Applied Scientist, Delivery Foundation Model</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$179K - $309K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/google-software-engineer-iii-aiml-genai-google-workspace-85a583/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Software Engineer III, AI/ML GenAI, Google Workspace</div>
+                <div class="job-card-company">Google</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$141K - $202K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/code-and-theory-associate-technical-director-enterprise-systems-8aa06a/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">LLM Engineer</div>
+                <div class="job-card-title">Associate Technical Director, Enterprise Systems</div>
+                <div class="job-card-company">Code and Theory</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $185K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/match-group-machine-learning-engineer-dating-outcomes-5fd02d/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Machine Learning Engineer, Dating Outcomes</div>
+                <div class="job-card-company">Match Group</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$162K - $210K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-mle-creative-x-amazon-advertising-creative-x-79a333/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">LLM Engineer</div>
+                <div class="job-card-title">Sr. MLE, Creative-X, Amazon Advertising, Creative-X</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$151K - $261K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazon-web-services-applied-scientist-generative-ai-innovation-center--606b03/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">Applied Scientist, Generative AI Innovation Center, Model Customization</div>
+                <div class="job-card-company">Amazon Web Services</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$136K - $223K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/amazoncom-sr-ai-language-engineer-amazon-rufus-3d06fa/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Sr AI Language Engineer, Amazon Rufus</div>
+                <div class="job-card-company">Amazon.com</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$84K - $185K</span>
+                    <span class="job-card-badge">New York, NY, US</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
             </div>
 
-            <div class="similar-section">
-                <h2>Similar Opportunities</h2>
-                <div class="similar-jobs-grid">
-                    
-            <a href="/jobs/orpical-senior-ai-native-full-stack-engineer-laravel-vue-i-c7577b/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">Orpical</div>
-                    <div class="job-card__title">Senior AI-Native Full-Stack Engineer (Laravel / Vue / Inertia)</div>
-                    <div class="job-card__meta">
-                        <span class="job-card__tag job-card__tag--salary">$95K - $135K</span>
-                        <span class="job-card__tag job-card__tag--remote">Remote</span>
-                    </div>
-                </div>
-            </a>
-        
-            <a href="/jobs/netail-artificial-intelligence-engineer-0efa6b/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">Netail</div>
-                    <div class="job-card__title">Artificial Intelligence Engineer</div>
-                    <div class="job-card__meta">
-                        <span class="job-card__tag job-card__tag--salary">$90K - $120K</span>
-                        <span class="job-card__tag job-card__tag--remote">Remote</span>
-                    </div>
-                </div>
-            </a>
-        
-            <a href="/jobs/freshworks-ai-engineer-agentic-automation-e42aa8/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">freshworks</div>
-                    <div class="job-card__title">AI Engineer - Agentic Automation</div>
-                    <div class="job-card__meta">
-                        <span class="job-card__tag job-card__tag--salary">$90K - $119K</span>
-                        <span class="job-card__tag job-card__tag--remote">Bellevue, WA, US</span>
-                    </div>
-                </div>
-            </a>
-        
-            <a href="/jobs/freshworks-ai-engineer-agentic-automation-1fe524/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">freshworks</div>
-                    <div class="job-card__title">AI Engineer - Agentic Automation</div>
-                    <div class="job-card__meta">
-                        <span class="job-card__tag job-card__tag--salary">$90K - $119K</span>
-                        <span class="job-card__tag job-card__tag--remote">San Mateo, CA, US</span>
-                    </div>
-                </div>
-            </a>
-        
-            <a href="/jobs/freshworks-ai-engineer-agentic-automation-e4f131/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">freshworks</div>
-                    <div class="job-card__title">AI Engineer - Agentic Automation</div>
-                    <div class="job-card__meta">
-                        <span class="job-card__tag job-card__tag--salary">$90K - $119K</span>
-                        <span class="job-card__tag job-card__tag--remote">Boston, MA, US</span>
-                    </div>
-                </div>
-            </a>
-        
-                </div>
-            </div>
+            <p style="text-align: center; color: var(--text-muted);">Showing 50 of 197 jobs</p>
 
             
     <div class="cta-box">
@@ -735,8 +1856,15 @@
         <a href="/join/" class="btn btn-gold">Join Community →</a>
     </div>
 
+
+            <section class="related-landing-pages">
+                <h2>Browse Jobs by Location</h2>
+                <div class="related-pages-grid">
+                    <a href="/jobs/remote/" class="related-page-link">Remote AI Jobs</a><a href="/jobs/san-francisco/" class="related-page-link">AI Jobs in San Francisco</a><a href="/jobs/seattle/" class="related-page-link">AI Jobs in Seattle</a><a href="/jobs/austin/" class="related-page-link">AI Jobs in Austin</a><a href="/jobs/boston/" class="related-page-link">AI Jobs in Boston</a><a href="/jobs/los-angeles/" class="related-page-link">AI Jobs in Los Angeles</a>
+                </div>
+            </section>
         </div>
-    </div>
+    </main>
 
 
     <footer class="site-footer">

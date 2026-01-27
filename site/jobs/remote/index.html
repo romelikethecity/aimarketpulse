@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1E2SX5J91V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1E2SX5J91V');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Engineer at This Company - Position Filled | AI Market Pulse</title>
-    <meta name="description" content="This AI Engineer position at This Company is no longer available. Browse similar AI and ML engineering opportunities.">
+    <title>Remote AI Jobs 2026 | AI Market Pulse</title>
+    <meta name="description" content="Browse remote AI jobs that let you work from anywhere. Remote ML engineer, AI researcher, and prompt engineer positions.">
     <link rel="canonical" href="https://theaimarketpulse.com/jobs/remote/">
-    <meta name="robots" content="noindex, follow">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theaimarketpulse.com/jobs/remote/">
+    <meta property="og:title" content="Remote AI Jobs 2026">
+    <meta property="og:description" content="Browse remote AI jobs that let you work from anywhere. Remote ML engineer, AI researcher, and prompt engineer positions.">
+    <meta property="og:site_name" content="AI Market Pulse">
+    <meta property="og:image" content="https://theaimarketpulse.com/assets/social-preview.png">
+    <meta property="og:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pe_collective">
+    <meta name="twitter:title" content="Remote AI Jobs 2026">
+    <meta name="twitter:description" content="Browse remote AI jobs that let you work from anywhere. Remote ML engineer, AI researcher, and prompt engineer positions.">
+    <meta name="twitter:image" content="https://theaimarketpulse.com/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="AI Market Pulse - AI jobs, salary benchmarks, and market intelligence">
 
     <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.jpeg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    
     <style>
         
     :root {
@@ -514,75 +542,473 @@
         .footer-links a { margin: 0 12px; }
     }
 
+        
+    /* Individual Job Page Styles */
+    .job-detail-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
 
-        .expired-header {
-            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
-            padding: 48px 0;
+    .job-detail-header h1 {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .job-company {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+    }
+
+    .job-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .job-meta-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    .job-meta-badge.salary {
+        background: rgba(232, 168, 124, 0.15);
+        border-color: rgba(232, 168, 124, 0.3);
+        color: var(--gold);
+    }
+
+    .job-meta-badge.remote {
+        background: rgba(74, 222, 128, 0.15);
+        border-color: rgba(74, 222, 128, 0.3);
+        color: var(--success);
+    }
+
+    .apply-btn {
+        display: inline-block;
+        padding: 16px 32px;
+        background: var(--gold);
+        color: var(--bg-darker);
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.15s;
+    }
+
+    .apply-btn:hover {
+        background: var(--gold-hover);
+        color: var(--bg-darker);
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(232, 168, 124, 0.3);
+    }
+
+    .job-skills {
+        margin: 24px 0;
+    }
+
+    .job-skills h3 {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .job-details-table {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 24px 0;
+    }
+
+    .job-details-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .job-details-row:last-child {
+        border-bottom: none;
+    }
+
+    .job-details-label {
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .job-details-value {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    /* Expired/Stale Job Styles */
+    .job-expired-notice {
+        background: rgba(248, 113, 113, 0.1);
+        border: 1px solid rgba(248, 113, 113, 0.3);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    .job-expired-notice h2 {
+        color: var(--error);
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .job-expired-notice p {
+        color: var(--text-secondary);
+    }
+
+    .similar-jobs-section h3 {
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+
+    .similar-jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+        .job-detail-header {
+            flex-direction: column;
+        }
+        .apply-btn {
+            width: 100%;
             text-align: center;
         }
-        .expired-header .container { max-width: 800px; }
-        .expired-badge {
-            display: inline-block;
-            background: var(--error);
-            color: white;
-            font-weight: 600;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-bottom: 16px;
-        }
-        .expired-header h1 {
-            font-size: 1.75rem;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-        .expired-header .company {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-        }
-        .content { padding: 48px 0; }
-        .content .container { max-width: 900px; }
-        .message-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 32px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .message-box h2 {
-            color: var(--text-primary);
-            margin-bottom: 12px;
-        }
-        .message-box p {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
-        .browse-all-btn {
-            display: inline-block;
-            background: var(--gold);
-            color: var(--bg-darker);
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .browse-all-btn:hover {
-            background: var(--gold-hover);
-            color: var(--bg-darker);
-        }
-        .similar-section { margin-bottom: 40px; }
-        .similar-section h2 {
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        .similar-jobs-grid {
-            display: grid;
-            gap: 16px;
-        }
+    }
+
+        
+    .faq-section {
+        margin: 48px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+    }
+
+    .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        background: transparent;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+        background: var(--bg-card-hover);
+    }
+
+    .faq-icon {
+        font-size: 1.25rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 500px;
+    }
+
+    .faq-answer-content {
+        padding: 0 24px 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+
     </style>
+
+    
 </head>
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://theaimarketpulse.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI Jobs",
+      "item": "https://theaimarketpulse.com/jobs/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Remote AI Jobs",
+      "item": "https://theaimarketpulse.com/jobs/remote/"
+    }
+  ]
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Remote AI Jobs",
+  "description": "Browse remote AI jobs that let you work from anywhere. Remote ML engineer, AI researcher, and prompt engineer positions.",
+  "url": "https://theaimarketpulse.com/jobs/remote/",
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": 468
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "AI Market Pulse",
+    "url": "https://theaimarketpulse.com"
+  },
+  "keywords": [
+    "remote AI jobs",
+    "remote ML jobs",
+    "AI engineer jobs",
+    "machine learning jobs"
+  ]
+}</script>
+    <style>
+    .landing-header {
+        padding: 48px 0;
+        background: linear-gradient(135deg, var(--teal-primary) 0%, var(--bg-darker) 100%);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .landing-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 16px;
+    }
+
+    .landing-header .lead {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 700px;
+    }
+
+    .landing-stats {
+        display: flex;
+        gap: 32px;
+        margin-top: 24px;
+    }
+
+    .landing-stat {
+        text-align: center;
+    }
+
+    .landing-stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gold);
+    }
+
+    .landing-stat-label {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+
+    .filters-section {
+        padding: 24px 0;
+        border-bottom: 1px solid var(--border);
+        background: var(--bg-darker);
+    }
+
+    .filters-row {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .filter-btn {
+        padding: 8px 16px;
+        border-radius: 20px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--teal-light);
+        color: var(--text-primary);
+    }
+
+    .filter-btn.active {
+        background: var(--gold);
+        color: var(--bg-darker);
+        border-color: var(--gold);
+    }
+
+    .jobs-grid {
+        display: grid;
+        gap: 16px;
+        padding: 32px 0;
+    }
+
+    .landing-job-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-decoration: none;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 16px;
+        align-items: center;
+        transition: all 0.25s;
+    }
+
+    .landing-job-card:hover {
+        border-color: var(--teal-light);
+        background: var(--bg-card-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .job-card-main {
+        min-width: 0;
+    }
+
+    .job-card-category {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gold);
+        margin-bottom: 8px;
+    }
+
+    .job-card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 6px;
+    }
+
+    .job-card-company {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+    }
+
+    .job-card-meta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .job-card-badge {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+        border-radius: 4px;
+        background: var(--bg-darker);
+        color: var(--text-secondary);
+    }
+
+    .job-card-badge.salary {
+        background: rgba(232, 168, 124, 0.15);
+        color: var(--gold);
+    }
+
+    .job-card-badge.remote {
+        background: rgba(74, 222, 128, 0.15);
+        color: var(--success);
+    }
+
+    .job-card-cta {
+        flex-shrink: 0;
+    }
+
+    .job-card-cta .btn {
+        white-space: nowrap;
+    }
+
+    .related-landing-pages {
+        margin: 40px 0;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+    }
+
+    .related-landing-pages h2 {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+    }
+
+    .related-pages-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .related-page-link {
+        padding: 8px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+    }
+
+    .related-page-link:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--teal-light);
+        color: var(--text-primary);
+    }
+
+    @media (max-width: 768px) {
+        .landing-header h1 { font-size: 1.75rem; }
+        .landing-stats { flex-direction: column; gap: 16px; }
+        .landing-job-card { grid-template-columns: 1fr; }
+        .job-card-cta { justify-self: start; }
+    }
+</style>
 
 <body>
     <header class="site-header">
@@ -650,83 +1076,778 @@
     </script>
 
 
-    <header class="expired-header">
+    <div class="landing-header">
         <div class="container">
-            <span class="expired-badge">Position Filled</span>
-            <h1>AI Engineer</h1>
-            <div class="company">This Company</div>
+            <nav class="breadcrumb"><a href="/">Home</a> / <a href="/jobs/">AI Jobs</a> / Remote AI Jobs</nav>
+            <h1>Remote AI & Machine Learning Jobs</h1>
+            <p class="lead">Browse remote AI jobs that let you work from anywhere. Remote ML engineer, AI researcher, and prompt engineer positions.</p>
+            <div class="landing-stats">
+                <div class="landing-stat">
+                    <div class="landing-stat-value">468</div>
+                    <div class="landing-stat-label">Open Positions</div>
+                </div>
+                <div class="landing-stat"><div class="landing-stat-value">$206K</div><div class="landing-stat-label">Avg. Salary</div></div>
+            </div>
         </div>
-    </header>
+    </div>
 
-    <div class="content">
+    <main>
         <div class="container">
-            <div class="message-box">
-                <h2>This position is no longer available</h2>
-                <p>Good news - we have similar AI opportunities that might be a great fit for you.</p>
-                <a href="/jobs/" class="browse-all-btn">Browse All AI Jobs →</a>
+            <div class="jobs-grid">
+                
+        <a href="/jobs/orpical-senior-ai-native-full-stack-engineer-laravel-vue-i-c7577b/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Software Engineer</div>
+                <div class="job-card-title">Senior AI-Native Full-Stack Engineer (Laravel / Vue / Inertia)</div>
+                <div class="job-card-company">Orpical</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$95K - $135K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/netail-artificial-intelligence-engineer-0efa6b/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Artificial Intelligence Engineer</div>
+                <div class="job-card-company">Netail</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$90K - $120K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/sanctuary-computer-senior-data-engineer-66d299/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Data Engineer</div>
+                <div class="job-card-title">Senior Data Engineer</div>
+                <div class="job-card-company">Sanctuary Computer</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$374K - $478K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/peraton-generative-ai-engineering-intern-graduate-fe0d73/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Generative AI Engineering Intern (Graduate)</div>
+                <div class="job-card-company">Peraton</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/lenovo-sr-engineer-cloud-ai-architect-d3ace5/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Architect</div>
+                <div class="job-card-title">Sr Engineer, Cloud AI Architect</div>
+                <div class="job-card-company">Lenovo</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $200K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/unknown-sr-software-engineer-ai-founding-d6d205/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Software Engineer</div>
+                <div class="job-card-title">Sr. Software Engineer, AI (Founding)</div>
+                <div class="job-card-company">Unknown</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$160K - $200K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/unknown-sr-software-engineer-ai-founding-d6d205/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Software Engineer</div>
+                <div class="job-card-title">Sr. Software Engineer, AI (Founding)</div>
+                <div class="job-card-company">Unknown</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$160K - $200K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/adobe-senior-ai-vfx-engineer-2c63fd/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Senior AI VFX Engineer</div>
+                <div class="job-card-company">Adobe</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$207K - $345K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/knock-senior-software-engineer-backend-remote-anywhere-i-0a0511/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Prompt Engineer</div>
+                <div class="job-card-title">Senior Software Engineer (Backend) - REMOTE (anywhere in the US)</div>
+                <div class="job-card-company">Knock</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$156K - $185K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/resource-pro-senior-forward-deployed-ai-engineer-36ed51/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Senior Forward Deployed AI Engineer</div>
+                <div class="job-card-company">ReSource Pro</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$106K - $180K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/resource-pro-senior-forward-deployed-ai-engineer-36ed51/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Senior Forward Deployed AI Engineer</div>
+                <div class="job-card-company">ReSource Pro</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$106K - $180K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/pubmatic-senior-principal-software-engineer-mobile-app-mone-1fc76a/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Prompt Engineer</div>
+                <div class="job-card-title">Senior Principal Software Engineer, Mobile App Monetization</div>
+                <div class="job-card-company">PubMatic</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$195K - $212K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/zoom-communications-ai-engineer-agent-automation-2deec5/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">AI Engineer - Agent Automation</div>
+                <div class="job-card-company">Zoom Communications</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$151K - $332K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/keeper-security-senior-machine-learning-engineer-cybersecurity-thr-671b94/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Senior Machine Learning Engineer, Cybersecurity / Threat Detection</div>
+                <div class="job-card-company">Keeper Security</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/agero-inc-engineering-manager-ml-optimization-systems-4f2d8a/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Engineering Manager</div>
+                <div class="job-card-title">Engineering Manager, ML &amp; Optimization Systems</div>
+                <div class="job-card-company">Agero, Inc.</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$150K - $200K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/yo-it-consulting-ios-swift-engineer-llm-remote-85de38/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">LLM Engineer</div>
+                <div class="job-card-title">iOS Swift Engineer LLM - Remote</div>
+                <div class="job-card-company">YO IT CONSULTING</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/yo-it-consulting-android-kotlin-engineer-llm-remote-92a152/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">LLM Engineer</div>
+                <div class="job-card-title">Android Kotlin Engineer LLM - Remote</div>
+                <div class="job-card-company">YO IT CONSULTING</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/blackbaud-cyber-security-manager-gen-ai-2dc557/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Cyber Security Manager, Gen AI</div>
+                <div class="job-card-company">Blackbaud</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$117K - $157K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/esystems-inc-aiml-graduate-intern-ai-compass-program-3364a3/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Prompt Engineer</div>
+                <div class="job-card-title">AI/ML Graduate Intern (AI Compass Program)</div>
+                <div class="job-card-company">ESYSTEMS, INC</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/zoom-communications-ai-engineer-agentic-verticals-10c426/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">AI Engineer - Agentic Verticals</div>
+                <div class="job-card-company">Zoom Communications</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$137K - $275K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/tech-holding-machine-learning-engineer-contractor-eb71cc/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Machine Learning Engineer (Contractor)</div>
+                <div class="job-card-company">Tech Holding</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/unknown-genai-data-scientist-47e9db/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">GenAI Data Scientist</div>
+                <div class="job-card-company">Unknown</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$86K - $134K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/best-egg-senior-software-engineer-ml-operations-505396/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Software Engineer</div>
+                <div class="job-card-title">Senior Software Engineer, ML Operations</div>
+                <div class="job-card-company">Best Egg</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$145K - $165K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/red-hat-senior-principal-machine-learning-engineer-6aad60/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Senior Principal Machine Learning Engineer</div>
+                <div class="job-card-company">Red Hat</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$206K - $351K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/salesforce-technical-support-engineer-agentforce-data360-span-9634aa/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Prompt Engineer</div>
+                <div class="job-card-title">Technical Support Engineer - Agentforce / Data360 - Spanish or Portuguese Speaking</div>
+                <div class="job-card-company">Salesforce</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$89K - $122K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/red-hat-principal-machine-learning-engineer-90492c/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Principal Machine Learning Engineer</div>
+                <div class="job-card-company">Red Hat</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$189K - $312K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/sentara-senior-data-scientist-machine-learning-operations--44d856/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Senior Data Scientist Machine Learning Operations Gen AI - Remote</div>
+                <div class="job-card-company">Sentara</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$91K - $152K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/answer-financial-inc-full-stack-ai-engineer-remote-opportunity-993b4a/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Full-Stack AI Engineer-Remote Opportunity</div>
+                <div class="job-card-company">Answer Financial Inc.</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$100K - $177K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/raynmaker-inc-senior-product-manager-9edcad/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Prompt Engineer</div>
+                <div class="job-card-title">Senior Product Manager</div>
+                <div class="job-card-company">RaYnmaker Inc</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$140K - $165K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/raynmaker-inc-senior-product-manager-bf18df/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Prompt Engineer</div>
+                <div class="job-card-title">Senior Product Manager</div>
+                <div class="job-card-company">RaYnmaker Inc</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$140K - $165K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/johns-hopkins-university-software-engineer-ai-focus-center-for-technology-i-5e3ff9/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI Software Engineer</div>
+                <div class="job-card-title">Software Engineer - AI Focus (Center for Technology in Education)</div>
+                <div class="job-card-company">Johns Hopkins University</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$76K - $135K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/unknown-director-of-research-technologies-3b454b/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Data Scientist</div>
+                <div class="job-card-title">Director of Research Technologies</div>
+                <div class="job-card-company">Unknown</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$175K - $200K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/waymo-ml-engineer-foundation-model-infrastructure-55b37a/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">ML Engineer, Foundation Model Infrastructure</div>
+                <div class="job-card-company">Waymo</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$204K - $259K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/premera-blue-cross-ai-engineer-iv-560255/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">AI Engineer IV</div>
+                <div class="job-card-company">Premera Blue Cross</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$131K - $270K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/emory-university-ai-scientistengineer-iv-som-bmi-admin-173bf7/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Research Scientist</div>
+                <div class="job-card-title">AI Scientist/Engineer IV- SOM: BMI Admin</div>
+                <div class="job-card-company">Emory University</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/lmi-aiml-engineer-clearance-required-9668e4/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">AI/ML Engineer - Clearance Required</div>
+                <div class="job-card-company">LMI</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$110K - $195K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/ford-motor-company-cyber-automation-analyst-4cc0eb/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">LLM Engineer</div>
+                <div class="job-card-title">Cyber Automation Analyst</div>
+                <div class="job-card-company">Ford Motor Company</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/sentinelone-senior-staff-software-engineer-observo-ai-976508/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">LLM Engineer</div>
+                <div class="job-card-title">Senior Staff Software Engineer - Observo AI</div>
+                <div class="job-card-company">SentinelOne</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$180K - $248K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/ispot-manager-engineering-d12b5e/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Data Scientist</div>
+                <div class="job-card-title">Manager, Engineering</div>
+                <div class="job-card-company">ISPOT</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$163K - $212K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/riverside-research-aiml-engineer-part-time-0525f9/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">AI/ML Engineer (Part Time)</div>
+                <div class="job-card-company">Riverside Research</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$41K - $72K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/information-technology-senior-management-forum-vp-global-sales-intelligence-2e60ce/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Data Scientist</div>
+                <div class="job-card-title">VP, Global Sales Intelligence</div>
+                <div class="job-card-company">Information Technology Senior Management Forum</div>
+                <div class="job-card-meta">
+                    
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/del-oro-consulting-inc-genai-engineer-8d3c67/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">GenAI Engineer</div>
+                <div class="job-card-company">Del Oro Consulting, Inc.</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$124K - $137K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/data-science-engineering-experts-llc-data-scientist-ca67cc/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Data Scientist</div>
+                <div class="job-card-title">Data Scientist</div>
+                <div class="job-card-company">Data Science &amp; Engineering Experts, LLC</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$130K - $160K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/blue-purpose-aiml-software-engineer-c460fd/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">MLOps Engineer</div>
+                <div class="job-card-title">AI/ML Software Engineer</div>
+                <div class="job-card-company">Blue Purpose</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$120K - $145K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/tiktok-machine-learning-engineer-intern-monetization-tech-4365f6/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Machine Learning Engineer Intern (Monetization Technology - Ads Core Global) - 2026 Summer (BS/MS)</div>
+                <div class="job-card-company">TikTok</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$93K - $124K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/tiktok-machine-learning-engineer-intern-ads-measurement-s-449eb7/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Machine Learning Engineer Intern (Ads Measurement Signal and Privacy) - 2026 Summer (BS/MS)</div>
+                <div class="job-card-company">TikTok</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$93K - $124K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/payscale-machine-learning-engineer-i-us-85b9f3/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Machine Learning Engineer I (US)</div>
+                <div class="job-card-company">Payscale</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$112K - $168K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/payscale-data-engineer-i-us-b08251/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">Data Engineer</div>
+                <div class="job-card-title">Data Engineer I (US)</div>
+                <div class="job-card-company">Payscale</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$84K - $126K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/humana-lead-ai-engineer-8f3288/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Lead AI Engineer</div>
+                <div class="job-card-company">Humana</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$156K - $215K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
+        <a href="/jobs/humana-lead-ai-engineer-862fb7/" class="landing-job-card">
+            <div class="job-card-main">
+                <div class="job-card-category">AI/ML Engineer</div>
+                <div class="job-card-title">Lead AI Engineer</div>
+                <div class="job-card-company">Humana</div>
+                <div class="job-card-meta">
+                    <span class="job-card-badge salary">$156K - $215K</span>
+                    <span class="job-card-badge remote">Remote</span>
+                </div>
+            </div>
+            <div class="job-card-cta">
+                <span class="btn btn-outline">View Role →</span>
+            </div>
+        </a>
+    
             </div>
 
-            <div class="similar-section">
-                <h2>Similar Opportunities</h2>
-                <div class="similar-jobs-grid">
-                    
-            <a href="/jobs/orpical-senior-ai-native-full-stack-engineer-laravel-vue-i-c7577b/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">Orpical</div>
-                    <div class="job-card__title">Senior AI-Native Full-Stack Engineer (Laravel / Vue / Inertia)</div>
-                    <div class="job-card__meta">
-                        <span class="job-card__tag job-card__tag--salary">$95K - $135K</span>
-                        <span class="job-card__tag job-card__tag--remote">Remote</span>
-                    </div>
-                </div>
-            </a>
-        
-            <a href="/jobs/netail-artificial-intelligence-engineer-0efa6b/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">Netail</div>
-                    <div class="job-card__title">Artificial Intelligence Engineer</div>
-                    <div class="job-card__meta">
-                        <span class="job-card__tag job-card__tag--salary">$90K - $120K</span>
-                        <span class="job-card__tag job-card__tag--remote">Remote</span>
-                    </div>
-                </div>
-            </a>
-        
-            <a href="/jobs/realign-aws-developer-5-e89fba/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">Realign</div>
-                    <div class="job-card__title">AWS Developer-5</div>
-                    <div class="job-card__meta">
-                        
-                        <span class="job-card__tag job-card__tag--remote">Malvern, PA, US</span>
-                    </div>
-                </div>
-            </a>
-        
-            <a href="/jobs/realign-ai-enterprise-architect-5-ca8047/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">Realign</div>
-                    <div class="job-card__title">AI Enterprise Architect-5</div>
-                    <div class="job-card__meta">
-                        
-                        <span class="job-card__tag job-card__tag--remote">McLean, VA, US</span>
-                    </div>
-                </div>
-            </a>
-        
-            <a href="/jobs/visa-software-engineer-new-college-grad-2026-highlands--99e90e/" class="job-card" style="display: block;">
-                <div class="job-card__content">
-                    <div class="job-card__company">Visa</div>
-                    <div class="job-card__title">Software Engineer, New College Grad - 2026, Highlands Ranch, CO</div>
-                    <div class="job-card__meta">
-                        
-                        <span class="job-card__tag job-card__tag--remote">Highlands Ranch, CO, US</span>
-                    </div>
-                </div>
-            </a>
-        
-                </div>
-            </div>
+            <p style="text-align: center; color: var(--text-muted);">Showing 50 of 468 jobs</p>
 
             
     <div class="cta-box">
@@ -735,8 +1856,15 @@
         <a href="/join/" class="btn btn-gold">Join Community →</a>
     </div>
 
+
+            <section class="related-landing-pages">
+                <h2>Browse Jobs by Location</h2>
+                <div class="related-pages-grid">
+                    <a href="/jobs/san-francisco/" class="related-page-link">AI Jobs in San Francisco</a><a href="/jobs/new-york/" class="related-page-link">AI Jobs in New York</a><a href="/jobs/seattle/" class="related-page-link">AI Jobs in Seattle</a><a href="/jobs/austin/" class="related-page-link">AI Jobs in Austin</a><a href="/jobs/boston/" class="related-page-link">AI Jobs in Boston</a><a href="/jobs/los-angeles/" class="related-page-link">AI Jobs in Los Angeles</a>
+                </div>
+            </section>
         </div>
-    </div>
+    </main>
 
 
     <footer class="site-footer">
