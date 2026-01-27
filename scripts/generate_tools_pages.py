@@ -27,7 +27,7 @@ from templates import (
     get_cta_box, get_base_styles, get_breadcrumb_html, get_img_tag,
     CSS_VARIABLES, CSS_NAV, CSS_LAYOUT, CSS_CARDS, CSS_CTA, CSS_FOOTER
 )
-from seo_core import generate_collectionpage_schema, generate_itemlist_schema, generate_review_schema, generate_breadcrumb_schema
+from seo_core import generate_collectionpage_schema, generate_itemlist_schema, generate_review_schema, generate_breadcrumb_schema, generate_faq_schema
 from nav_config import SITE_NAME
 
 DATA_DIR = 'data'
@@ -1850,7 +1850,38 @@ def generate_tool_review_page(slug, tool_data, job_count):
     ]
     breadcrumb_html_block = get_breadcrumb_html(breadcrumbs)
 
-    extra_styles = f'<style>{REVIEW_PAGE_STYLES}</style>\n    {review_schema}'
+    # Generate FAQ schema from tool data
+    faqs = []
+    # Add pricing FAQ if pricing data exists
+    if tool_data.get('pricing_tiers'):
+        pricing_summary = ", ".join([f"{t['name']}: {t['price']}" for t in tool_data['pricing_tiers'][:3]])
+        faqs.append({
+            'question': f"What does {tool_data['name']} cost?",
+            'answer': f"{tool_data['name']} offers these pricing tiers: {pricing_summary}. See the full pricing section above for details on what each tier includes."
+        })
+    # Add key features FAQ
+    if tool_data.get('features'):
+        feature_names = [f['name'] for f in tool_data['features'][:4]]
+        faqs.append({
+            'question': f"What are the main features of {tool_data['name']}?",
+            'answer': f"Key features include: {', '.join(feature_names)}. {tool_data['name']} is known for: {tool_data.get('tagline', '')}."
+        })
+    # Add alternatives FAQ
+    if tool_data.get('alternatives'):
+        alt_names = [a['name'] for a in tool_data['alternatives'][:3]]
+        faqs.append({
+            'question': f"What are the best alternatives to {tool_data['name']}?",
+            'answer': f"Top alternatives include: {', '.join(alt_names)}. Each has different strengths - see the alternatives comparison table above for detailed analysis."
+        })
+    # Add verdict FAQ
+    if tool_data.get('verdict'):
+        faqs.append({
+            'question': f"Is {tool_data['name']} worth it in 2026?",
+            'answer': tool_data['verdict']
+        })
+    faq_schema = generate_faq_schema(faqs) if faqs else ''
+
+    extra_styles = f'<style>{REVIEW_PAGE_STYLES}</style>\n    {review_schema}\n    {faq_schema}'
 
     # SEO-optimized title (max 60 chars for SERP display)
     page_title = f'{tool_data["name"]} Review 2026: Pricing & Pros/Cons'
@@ -2085,7 +2116,7 @@ def generate_tools_index(tools_with_counts):
 
         tools_cards = ""
         for slug, data in tools_sorted:
-            logo_html = f'<img src="{data.get("logo_placeholder", "")}" alt="{data["name"]}">' if data.get('logo_placeholder') else '🔧'
+            logo_html = get_img_tag(data.get("logo_placeholder", ""), f"{data['name']} logo", loading="lazy") if data.get('logo_placeholder') else '🔧'
             job_count = data.get('job_count', 0)
             job_text = "job" if job_count == 1 else "jobs"
 
