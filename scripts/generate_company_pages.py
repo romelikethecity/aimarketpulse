@@ -2,16 +2,28 @@
 """
 Generate individual company pages for AI Market Pulse
 Each company with AI job postings gets a dedicated page
+
+SEO FEATURES:
+- Canonical URLs
+- Open Graph and Twitter Card meta tags
+- BreadcrumbList JSON-LD schema
+- Organization JSON-LD schema (for larger companies)
+- noindex for thin content (companies with < 3 jobs)
+- Proper meta descriptions
 """
 
 import pandas as pd
 import os
 import glob
 from datetime import datetime
+import json
 import sys
 sys.path.insert(0, 'scripts')
 
 from templates import slugify, format_salary, BASE_URL, SITE_NAME
+
+# Minimum jobs required for a company page to be indexed
+MIN_JOBS_FOR_INDEX = 3
 
 DATA_DIR = 'data'
 SITE_DIR = 'site'
@@ -29,8 +41,57 @@ def get_latest_jobs():
     return pd.read_csv(latest_file)
 
 
+def escape_html(text):
+    """Escape HTML special characters"""
+    if pd.isna(text) or text is None:
+        return ''
+    return str(text).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace("'", '&#39;')
+
+
+def get_breadcrumb_schema(company_name, company_slug):
+    """Generate BreadcrumbList JSON-LD schema"""
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{BASE_URL}/"},
+            {"@type": "ListItem", "position": 2, "name": "Companies", "item": f"{BASE_URL}/companies/"},
+            {"@type": "ListItem", "position": 3, "name": company_name}
+        ]
+    }
+    return f'<script type="application/ld+json">\n{json.dumps(schema, indent=2)}\n</script>'
+
+
+def get_organization_schema(company_name, company_slug, num_jobs, categories, locations):
+    """Generate Organization JSON-LD schema for company employer branding"""
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": company_name,
+        "url": f"{BASE_URL}/companies/{company_slug}/",
+        "description": f"{company_name} is hiring for {num_jobs} AI and machine learning positions.",
+    }
+
+    if categories:
+        schema["knowsAbout"] = categories[:5]
+
+    if locations:
+        # Add first location as address
+        first_loc = locations[0]
+        if ',' in first_loc:
+            parts = first_loc.split(',')
+            schema["address"] = {
+                "@type": "PostalAddress",
+                "addressLocality": parts[0].strip(),
+                "addressRegion": parts[1].strip()[:2] if len(parts) > 1 else "",
+                "addressCountry": "US"
+            }
+
+    return f'<script type="application/ld+json">\n{json.dumps(schema, indent=2)}\n</script>'
+
+
 def generate_company_page(company_name, jobs_df):
-    """Generate a single company page"""
+    """Generate a single company page with full SEO optimization"""
     company_slug = slugify(company_name)
     if not company_slug:
         return None
@@ -41,6 +102,10 @@ def generate_company_page(company_name, jobs_df):
     # Get company jobs
     company_jobs = jobs_df[jobs_df['company'] == company_name].copy()
     num_jobs = len(company_jobs)
+
+    # Determine if page should be noindexed (thin content protection)
+    is_thin_content = num_jobs < MIN_JOBS_FOR_INDEX
+    robots_meta = '<meta name="robots" content="noindex, follow">' if is_thin_content else ''
 
     # Get unique categories
     categories = []
@@ -102,15 +167,56 @@ def generate_company_page(company_name, jobs_df):
             skills_html += f'<span class="skill-tag">{skill} ({count})</span>'
         skills_html += '</div>'
 
+    # Escape company name for safe HTML/meta use
+    company_escaped = escape_html(company_name)
+    categories_escaped = [escape_html(c) for c in categories]
+
+    # Generate meta description
+    meta_desc = f"View {num_jobs} AI and machine learning jobs at {company_escaped}."
+    if salary_range:
+        meta_desc += f" {salary_range} salary range."
+    if categories:
+        meta_desc += f" Roles in {', '.join(categories_escaped[:3])}."
+    meta_desc = meta_desc[:155]
+
+    # Generate canonical URL
+    canonical_url = f"{BASE_URL}/companies/{company_slug}/"
+
+    # Generate JSON-LD schemas
+    breadcrumb_schema = get_breadcrumb_schema(company_escaped, company_slug)
+    org_schema = get_organization_schema(company_escaped, company_slug, num_jobs, categories, locations) if num_jobs >= MIN_JOBS_FOR_INDEX else ''
+
     html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{company_name} AI Jobs | AI Market Pulse</title>
-    <meta name="description" content="View {num_jobs} AI and machine learning jobs at {company_name}. {salary_range if salary_range else 'Competitive salaries'} for roles in {", ".join(categories[:3]) if categories else "AI/ML"}.">
+    <title>{company_escaped} AI Jobs | {SITE_NAME}</title>
+    <meta name="description" content="{meta_desc}">
+    <link rel="canonical" href="{canonical_url}">
+    {robots_meta}
 
-    <link rel="canonical" href="{BASE_URL}/companies/{company_slug}/">
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{canonical_url}">
+    <meta property="og:title" content="{company_escaped} AI Jobs - {num_jobs} Open Positions">
+    <meta property="og:description" content="{meta_desc}">
+    <meta property="og:site_name" content="{SITE_NAME}">
+    <meta property="og:image" content="{BASE_URL}/assets/social-preview.png">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pe_collective">
+    <meta name="twitter:title" content="{company_escaped} AI Jobs - {num_jobs} Open Positions">
+    <meta name="twitter:description" content="{meta_desc}">
+    <meta name="twitter:image" content="{BASE_URL}/assets/social-preview.png">
+
+    <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    {breadcrumb_schema}
+    {org_schema}
 
     <style>
         :root {{
@@ -272,11 +378,11 @@ def generate_company_page(company_name, jobs_df):
 
     <div class="container">
         <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/companies/">Companies</a> / {company_name}
+            <a href="/">Home</a> / <a href="/companies/">Companies</a> / {company_escaped}
         </div>
 
         <header class="company-header">
-            <h1>{company_name}</h1>
+            <h1>{company_escaped}</h1>
             <div class="company-stats">
                 <div class="company-stat">
                     <div class="stat-value">{num_jobs}</div>
@@ -318,7 +424,7 @@ def generate_company_page(company_name, jobs_df):
     with open(output_path, 'w') as f:
         f.write(html)
 
-    return company_slug
+    return company_slug, is_thin_content
 
 
 def generate_companies_index(companies_data):
@@ -350,8 +456,25 @@ def generate_companies_index(companies_data):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Companies Hiring for AI Roles | AI Market Pulse</title>
     <meta name="description" content="Browse {len(sorted_companies)} companies actively hiring for AI, ML, and Prompt Engineering roles.">
-
     <link rel="canonical" href="{BASE_URL}/companies/">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{BASE_URL}/companies/">
+    <meta property="og:title" content="Companies Hiring for AI Roles | AI Market Pulse">
+    <meta property="og:description" content="Browse {len(sorted_companies)} companies actively hiring for AI, ML, and Prompt Engineering roles.">
+    <meta property="og:site_name" content="{SITE_NAME}">
+    <meta property="og:image" content="{BASE_URL}/assets/social-preview.png">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aimarketpulse">
+    <meta name="twitter:title" content="Companies Hiring for AI Roles | AI Market Pulse">
+    <meta name="twitter:description" content="Browse {len(sorted_companies)} companies actively hiring for AI, ML, and Prompt Engineering roles.">
+    <meta name="twitter:image" content="{BASE_URL}/assets/social-preview.png">
+
+    <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
 
     <style>
         :root {{
@@ -491,6 +614,8 @@ def main():
     # Generate individual company pages
     companies_data = {}
     generated = 0
+    indexed_count = 0
+    noindex_count = 0
 
     for company in companies_to_generate:
         if pd.isna(company) or not company or company == 'Unknown':
@@ -512,15 +637,23 @@ def main():
             'salary_range': salary_range
         }
 
-        slug = generate_company_page(company, jobs_df)
-        if slug:
+        result = generate_company_page(company, jobs_df)
+        if result:
+            slug, is_thin = result
             generated += 1
+            if is_thin:
+                noindex_count += 1
+            else:
+                indexed_count += 1
 
     # Generate index page
     generate_companies_index(companies_data)
 
     print(f"\n{'='*70}")
     print(f"  Generated {generated} company pages")
+    print(f"  SEO Summary:")
+    print(f"    - Indexed pages ({MIN_JOBS_FOR_INDEX}+ jobs): {indexed_count}")
+    print(f"    - Noindexed pages (thin content): {noindex_count}")
     print(f"{'='*70}")
 
 

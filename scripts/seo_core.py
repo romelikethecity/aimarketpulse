@@ -173,6 +173,194 @@ def generate_organization_schema() -> str:
     return f'<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>'
 
 
+def generate_website_schema() -> str:
+    """Generate WebSite schema for the homepage with sitelinks search box potential."""
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": SITE_NAME,
+        "url": SITE_URL,
+        "description": "AI jobs, salary benchmarks, and market intelligence for AI professionals",
+        "publisher": {
+            "@type": "Organization",
+            "name": SITE_NAME,
+            "logo": {
+                "@type": "ImageObject",
+                "url": f"{SITE_URL}/assets/logo.jpeg"
+            }
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": f"{SITE_URL}/jobs/?q={{search_term_string}}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    return f'<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>'
+
+
+def generate_itemlist_schema(items: List[Dict[str, Any]], list_name: str, url: str,
+                             item_type: str = "ListItem") -> str:
+    """
+    Generate ItemList schema for hub pages (jobs, tools, companies).
+
+    Args:
+        items: List of dicts with 'name', 'url', and optionally 'description', 'position'
+        list_name: Name of the list (e.g., "AI Jobs", "AI Tools")
+        url: Page URL (relative path)
+        item_type: Type of items in the list
+
+    Returns:
+        JSON-LD script tag
+    """
+    list_items = []
+    for i, item in enumerate(items[:10], 1):  # Limit to top 10 for schema
+        list_item = {
+            "@type": "ListItem",
+            "position": item.get('position', i),
+            "name": item.get('name', ''),
+            "url": f"{SITE_URL}{item.get('url', '')}"
+        }
+        if item.get('description'):
+            list_item["description"] = item['description']
+        list_items.append(list_item)
+
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": list_name,
+        "url": f"{SITE_URL}{url}",
+        "numberOfItems": len(items),
+        "itemListElement": list_items
+    }
+
+    return f'<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>'
+
+
+def generate_collectionpage_schema(name: str, description: str, url: str,
+                                   item_count: int, keywords: List[str] = None) -> str:
+    """
+    Generate CollectionPage schema for hub/index pages.
+
+    Args:
+        name: Page name
+        description: Page description
+        url: Page URL (relative path)
+        item_count: Number of items in collection
+        keywords: Optional list of keywords
+
+    Returns:
+        JSON-LD script tag
+    """
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": name,
+        "description": description,
+        "url": f"{SITE_URL}{url}",
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": item_count
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": SITE_NAME,
+            "url": SITE_URL
+        }
+    }
+
+    if keywords:
+        schema["keywords"] = keywords
+
+    return f'<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>'
+
+
+def generate_review_schema(tool: Dict[str, Any], author: Dict[str, Any] = None) -> str:
+    """
+    Generate Review schema for AI tool review pages.
+
+    This schema helps Google understand that the page is a product review,
+    potentially qualifying for rich snippets.
+
+    Args:
+        tool: Dict with name, slug, rating, rating_count, tagline, verdict, category
+        author: Optional author info dict
+
+    Returns:
+        JSON-LD script tag
+    """
+    if author is None:
+        author = {
+            "name": "AI Market Pulse",
+            "type": "Organization"
+        }
+
+    # Parse rating - expect format like "4.5" or "4.5/5"
+    rating_value = tool.get('rating', '0')
+    if isinstance(rating_value, str):
+        rating_value = rating_value.split('/')[0].strip()
+    try:
+        rating_float = float(rating_value)
+    except (ValueError, TypeError):
+        rating_float = 0
+
+    # Parse review count - expect format like "500+" or "500"
+    rating_count = tool.get('rating_count', '0')
+    if isinstance(rating_count, str):
+        rating_count = rating_count.replace('+', '').replace(',', '').strip()
+    try:
+        review_count = int(rating_count)
+    except (ValueError, TypeError):
+        review_count = 0
+
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "name": f"{tool.get('name', '')} Review 2026",
+        "reviewBody": tool.get('verdict', tool.get('tagline', '')),
+        "author": {
+            "@type": author.get('type', 'Organization'),
+            "name": author.get('name', SITE_NAME)
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": SITE_NAME,
+            "url": SITE_URL
+        },
+        "datePublished": datetime.now().strftime('%Y-%m-%d'),
+        "itemReviewed": {
+            "@type": "SoftwareApplication",
+            "name": tool.get('name', ''),
+            "applicationCategory": tool.get('category', 'DeveloperApplication'),
+            "operatingSystem": "Web, macOS, Windows, Linux",
+            "url": tool.get('website', f"{SITE_URL}/tools/{tool.get('slug', '')}/")
+        }
+    }
+
+    # Add rating if available
+    if rating_float > 0:
+        schema["reviewRating"] = {
+            "@type": "Rating",
+            "ratingValue": rating_float,
+            "bestRating": 5,
+            "worstRating": 1
+        }
+
+    # Add aggregate rating if review count available
+    if review_count > 0 and rating_float > 0:
+        schema["itemReviewed"]["aggregateRating"] = {
+            "@type": "AggregateRating",
+            "ratingValue": rating_float,
+            "reviewCount": review_count,
+            "bestRating": 5,
+            "worstRating": 1
+        }
+
+    return f'<script type="application/ld+json">{json.dumps(schema, indent=2)}</script>'
+
+
 def generate_article_schema(article: Dict[str, Any], author: Dict[str, Any] = None) -> str:
     """
     Generate Article schema with E-E-A-T signals for insight articles.

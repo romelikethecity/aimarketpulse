@@ -25,6 +25,9 @@ try:
         generate_dataset_schema,
         generate_software_schema,
         generate_organization_schema,
+        generate_website_schema,
+        generate_itemlist_schema,
+        generate_collectionpage_schema,
         generate_salary_faqs,
         generate_tool_faqs,
         auto_link_content,
@@ -38,7 +41,7 @@ except ImportError:
     SEO_CORE_AVAILABLE = False
 
 try:
-    from nav_config import NAV_ITEMS, FOOTER_ITEMS, SUBSCRIBE_LINK, SUBSCRIBE_LABEL, NEWSLETTER_LINK, NEWSLETTER_LABEL, SITE_NAME, COPYRIGHT_YEAR
+    from nav_config import NAV_ITEMS, FOOTER_ITEMS, FOOTER_LEGAL_ITEMS, SUBSCRIBE_LINK, SUBSCRIBE_LABEL, NEWSLETTER_LINK, NEWSLETTER_LABEL, SITE_NAME, COPYRIGHT_YEAR
 except Exception as e:
     # Fallback if nav_config not found
     NAV_ITEMS = [
@@ -49,6 +52,11 @@ except Exception as e:
         {"href": "/about/", "label": "About"},
     ]
     FOOTER_ITEMS = NAV_ITEMS + [{"href": "/join/", "label": "Community"}]
+    FOOTER_LEGAL_ITEMS = [
+        {"href": "/sitemap.xml", "label": "Sitemap"},
+        {"href": "/privacy/", "label": "Privacy Policy"},
+        {"href": "/terms/", "label": "Terms of Service"},
+    ]
     SUBSCRIBE_LINK = "/join/"
     SUBSCRIBE_LABEL = "Join Community"
     NEWSLETTER_LINK = "https://ainewsdigest.substack.com"
@@ -814,8 +822,17 @@ def get_base_styles():
 # HTML GENERATORS
 # =============================================================================
 
-def get_html_head(title, description, page_path, include_styles=True, extra_head=''):
-    """Generate SEO-compliant head section"""
+def get_html_head(title, description, page_path, include_styles=True, extra_head='', robots='index, follow'):
+    """Generate SEO-compliant head section.
+
+    Args:
+        title: Page title
+        description: Meta description
+        page_path: Path after BASE_URL (e.g., 'salaries/prompt-engineer/')
+        include_styles: Whether to include base CSS styles
+        extra_head: Additional content to include in <head>
+        robots: Robots meta tag content (default: 'index, follow')
+    """
     styles = get_base_styles() if include_styles else ''
 
     return f'''<!DOCTYPE html>
@@ -835,6 +852,7 @@ def get_html_head(title, description, page_path, include_styles=True, extra_head
     <title>{title} | {SITE_NAME}</title>
     <meta name="description" content="{description}">
     <link rel="canonical" href="{BASE_URL}/{page_path}">
+    <meta name="robots" content="{robots}">
 
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
@@ -843,6 +861,7 @@ def get_html_head(title, description, page_path, include_styles=True, extra_head
     <meta property="og:description" content="{description}">
     <meta property="og:site_name" content="{SITE_NAME}">
     <meta property="og:image" content="{BASE_URL}/assets/social-preview.png">
+    <meta property="og:image:alt" content="{SITE_NAME} - AI jobs, salary benchmarks, and market intelligence">
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
@@ -850,6 +869,7 @@ def get_html_head(title, description, page_path, include_styles=True, extra_head
     <meta name="twitter:title" content="{title}">
     <meta name="twitter:description" content="{description}">
     <meta name="twitter:image" content="{BASE_URL}/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="{SITE_NAME} - AI jobs, salary benchmarks, and market intelligence">
 
     <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.jpeg">
@@ -942,13 +962,19 @@ def get_nav_html(active_page=None):
 def get_footer_html():
     """Generate site footer.
 
-    Uses FOOTER_ITEMS from nav_config.py for centralized nav management.
+    Uses FOOTER_ITEMS and FOOTER_LEGAL_ITEMS from nav_config.py for centralized nav management.
     """
     # Build footer links
     footer_links = []
     for item in FOOTER_ITEMS:
         footer_links.append(f'<a href="{item["href"]}">{item["label"]}</a>')
     footer_html = '\n                '.join(footer_links)
+
+    # Build legal links
+    legal_links = []
+    for item in FOOTER_LEGAL_ITEMS:
+        legal_links.append(f'<a href="{item["href"]}">{item["label"]}</a>')
+    legal_html = ' · '.join(legal_links)
 
     return f'''
     <footer class="site-footer">
@@ -957,6 +983,9 @@ def get_footer_html():
             <div class="footer-links">
                 {footer_html}
             </div>
+        </div>
+        <div class="footer-legal" style="max-width: 1200px; margin: 16px auto 0; padding: 16px 24px 0; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.8125rem; color: var(--text-muted);">
+            {legal_html}
         </div>
     </footer>
 </body>

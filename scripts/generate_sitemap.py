@@ -13,6 +13,7 @@ Creates category-indexed sitemaps for better crawlability at scale:
 """
 
 import os
+import re
 from datetime import datetime
 from typing import Dict, List, Tuple
 
@@ -44,6 +45,22 @@ def categorize_url(url_path: str) -> str:
         return 'insights'
     else:
         return 'main'
+
+
+def is_noindexed(filepath: str) -> bool:
+    """Check if an HTML file has noindex meta tag."""
+    try:
+        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+            # Read only the head section (first 5KB should be enough)
+            head_content = f.read(5000)
+            # Check for noindex in robots meta tag
+            if re.search(r'<meta\s+name=["\']robots["\']\s+content=["\'][^"\']*noindex', head_content, re.IGNORECASE):
+                return True
+            if re.search(r'content=["\'][^"\']*noindex[^"\']*["\']\s+name=["\']robots["\']', head_content, re.IGNORECASE):
+                return True
+    except Exception:
+        pass
+    return False
 
 
 def get_url_priority(url_path: str, category: str) -> Tuple[str, str]:
@@ -87,7 +104,7 @@ def get_url_priority(url_path: str, category: str) -> Tuple[str, str]:
 
 
 def collect_urls() -> Dict[str, List[dict]]:
-    """Collect all HTML pages and categorize them."""
+    """Collect all HTML pages and categorize them, excluding noindexed pages."""
     categorized_urls = {
         'main': [],
         'salaries': [],
@@ -96,6 +113,8 @@ def collect_urls() -> Dict[str, List[dict]]:
         'companies': [],
         'insights': []
     }
+
+    skipped_noindex = 0
 
     for root, dirs, files in os.walk(SITE_DIR):
         # Skip the sitemaps directory itself
@@ -106,6 +125,11 @@ def collect_urls() -> Dict[str, List[dict]]:
             if file.endswith('.html'):
                 filepath = os.path.join(root, file)
                 rel_path = os.path.relpath(filepath, SITE_DIR)
+
+                # Skip noindexed pages - they should NOT be in sitemap
+                if is_noindexed(filepath):
+                    skipped_noindex += 1
+                    continue
 
                 # Convert filepath to URL
                 if rel_path == 'index.html':
@@ -138,6 +162,7 @@ def collect_urls() -> Dict[str, List[dict]]:
                     'priority': priority
                 })
 
+    print(f"  Skipped {skipped_noindex} noindexed pages from sitemap")
     return categorized_urls
 
 

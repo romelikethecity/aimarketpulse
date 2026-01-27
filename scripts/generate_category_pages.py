@@ -62,8 +62,16 @@ def escape_html(text):
     return str(text).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
 
 
-def generate_category_page(filtered_df, slug, title, description):
-    """Generate a category listing page"""
+def generate_category_page(filtered_df, slug, title, description, salary_page_slug=None):
+    """Generate a category listing page
+
+    Args:
+        filtered_df: DataFrame with filtered jobs
+        slug: URL slug for the page
+        title: Page title
+        description: Page description
+        salary_page_slug: Optional slug for cross-linking to salary page
+    """
     if len(filtered_df) < 1:
         return False
 
@@ -72,6 +80,21 @@ def generate_category_page(filtered_df, slug, title, description):
     salary_col = 'salary_max' if 'salary_max' in filtered_df.columns else 'max_amount'
     salaries = filtered_df[salary_col].dropna()
     avg_salary = int(salaries.mean() / 1000) if len(salaries) > 0 else 0
+
+    # Generate cross-link to salary page if applicable
+    salary_crosslink_html = ""
+    if salary_page_slug:
+        salary_crosslink_html = f'''
+            <div class="crosslink-section" style="margin-top: 24px; margin-bottom: 24px; padding: 20px; background: linear-gradient(135deg, var(--teal-primary), var(--bg-card)); border-radius: 12px; border: 1px solid var(--border);">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                    <div>
+                        <p style="color: var(--text-primary); font-weight: 600; margin: 0;">Research {escape_html(title.replace(" Jobs", ""))} salaries</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 4px 0 0;">See compensation benchmarks based on real job postings.</p>
+                    </div>
+                    <a href="/salaries/{salary_page_slug}/" class="btn" style="background: var(--gold); color: var(--bg-dark); padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600;">View Salary Data →</a>
+                </div>
+            </div>
+        '''
 
     # Generate job cards
     job_cards = ""
@@ -122,6 +145,7 @@ def generate_category_page(filtered_df, slug, title, description):
 
     <main>
         <div class="container">
+            {salary_crosslink_html}
             <style>.jobs-grid {{ display: flex; flex-direction: column; gap: 12px; }}</style>
             <div class="jobs-grid">{job_cards}</div>
             {get_cta_box()}
@@ -137,27 +161,28 @@ def generate_category_page(filtered_df, slug, title, description):
     return True
 
 
-# Define categories
+# Define categories with optional salary page cross-links
+# Format: (field, value, slug, title, description, salary_page_slug or None)
 CATEGORIES = [
-    # By Role
-    ('job_category', 'Prompt Engineer', 'prompt-engineer', 'Prompt Engineer Jobs', f'Browse Prompt Engineer positions at top AI companies.'),
-    ('job_category', 'AI/ML Engineer', 'ai-ml-engineer', 'AI/ML Engineer Jobs', f'Machine Learning and AI Engineer positions.'),
-    ('job_category', 'LLM Engineer', 'llm-engineer', 'LLM Engineer Jobs', f'Large Language Model Engineer positions.'),
-    ('job_category', 'MLOps Engineer', 'mlops-engineer', 'MLOps Engineer Jobs', f'MLOps and ML Infrastructure Engineer roles.'),
-    ('job_category', 'Research Engineer', 'research-engineer', 'Research Engineer Jobs', f'AI Research Engineer and Applied Scientist roles.'),
-    ('job_category', 'AI Agent Developer', 'ai-agent-developer', 'AI Agent Developer Jobs', f'AI Agent and Autonomous Systems Developer roles.'),
-    # By Experience
-    ('experience_level', 'senior', 'senior', 'Senior AI Jobs', f'Senior and Lead AI/ML positions.'),
-    ('experience_level', 'entry', 'entry-level', 'Entry-Level AI Jobs', f'Entry-level and junior AI/ML positions.'),
-    # By Location
-    ('metro', 'San Francisco', 'san-francisco', 'AI Jobs in San Francisco', f'AI and ML jobs in the San Francisco Bay Area.'),
-    ('metro', 'New York', 'new-york', 'AI Jobs in New York', f'AI and ML jobs in New York City.'),
-    ('metro', 'Seattle', 'seattle', 'AI Jobs in Seattle', f'AI and ML jobs in Seattle.'),
-    ('metro', 'Remote', 'remote', 'Remote AI Jobs', f'Remote AI and ML engineering positions.'),
+    # By Role (with salary page cross-links)
+    ('job_category', 'Prompt Engineer', 'prompt-engineer', 'Prompt Engineer Jobs', 'Browse Prompt Engineer positions at top AI companies.', 'prompt-engineer'),
+    ('job_category', 'AI/ML Engineer', 'ai-ml-engineer', 'AI/ML Engineer Jobs', 'Machine Learning and AI Engineer positions.', 'ai-ml-engineer'),
+    ('job_category', 'LLM Engineer', 'llm-engineer', 'LLM Engineer Jobs', 'Large Language Model Engineer positions.', 'llm-engineer'),
+    ('job_category', 'MLOps Engineer', 'mlops-engineer', 'MLOps Engineer Jobs', 'MLOps and ML Infrastructure Engineer roles.', 'mlops-engineer'),
+    ('job_category', 'Research Engineer', 'research-engineer', 'Research Engineer Jobs', 'AI Research Engineer and Applied Scientist roles.', 'research-engineer'),
+    ('job_category', 'AI Agent Developer', 'ai-agent-developer', 'AI Agent Developer Jobs', 'AI Agent and Autonomous Systems Developer roles.', 'ai-agent-developer'),
+    # By Experience (with salary page cross-links)
+    ('experience_level', 'senior', 'senior', 'Senior AI Jobs', 'Senior and Lead AI/ML positions.', 'senior'),
+    ('experience_level', 'entry', 'entry-level', 'Entry-Level AI Jobs', 'Entry-level and junior AI/ML positions.', 'entry-level'),
+    # By Location (with salary page cross-links)
+    ('metro', 'San Francisco', 'san-francisco', 'AI Jobs in San Francisco', 'AI and ML jobs in the San Francisco Bay Area.', 'san-francisco'),
+    ('metro', 'New York', 'new-york', 'AI Jobs in New York', 'AI and ML jobs in New York City.', 'new-york'),
+    ('metro', 'Seattle', 'seattle', 'AI Jobs in Seattle', 'AI and ML jobs in Seattle.', 'seattle'),
+    ('metro', 'Remote', 'remote', 'Remote AI Jobs', 'Remote AI and ML engineering positions.', 'remote'),
 ]
 
 print("\n Generating category pages...")
-for field, value, slug, title, desc in CATEGORIES:
+for field, value, slug, title, desc, salary_slug in CATEGORIES:
     if field == 'metro' and value == 'Remote':
         filtered = df[df.get('remote_type', df.get('is_remote', '')).astype(str).str.contains('remote', case=False, na=False)]
     elif field in df.columns:
@@ -165,7 +190,7 @@ for field, value, slug, title, desc in CATEGORIES:
     else:
         filtered = df[df['location'].str.contains(value, case=False, na=False)] if 'location' in df.columns else pd.DataFrame()
 
-    if generate_category_page(filtered, slug, title, desc):
+    if generate_category_page(filtered, slug, title, desc, salary_page_slug=salary_slug):
         print(f"   Generated /jobs/{slug}/ ({len(filtered)} jobs)")
 
 print("="*70)

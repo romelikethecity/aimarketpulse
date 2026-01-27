@@ -23,6 +23,7 @@ from templates import (
     get_html_head, get_nav_html, get_footer_html,
     format_salary, slugify, BASE_URL, SITE_NAME
 )
+from seo_core import generate_organization_schema, generate_website_schema
 
 DATA_DIR = 'data'
 SITE_DIR = 'site'
@@ -170,10 +171,16 @@ def generate_homepage():
         </a>
         '''
 
+    # Generate JSON-LD schemas for homepage
+    org_schema = generate_organization_schema()
+    website_schema = generate_website_schema()
+    schemas_html = f"{org_schema}\n    {website_schema}"
+
     html = f'''{get_html_head(
-        "AI & Prompt Engineering Jobs",
-        f"Find the best AI, ML, and Prompt Engineering jobs. {stats['total_jobs']} open roles tracked with salary data and market insights.",
-        ""
+        f"AI Jobs & Salaries - {stats['total_jobs']} Open Roles",
+        f"Find AI, ML, and Prompt Engineering jobs with real salary data. {stats['total_jobs']} open roles tracked. Average max salary ${stats['avg_max_salary']:,}.",
+        "",
+        extra_head=schemas_html
     )}
 {get_nav_html('home')}
 

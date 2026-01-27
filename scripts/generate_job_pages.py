@@ -32,6 +32,7 @@ try:
         get_job_posting_schema, slugify, format_salary, is_remote,
         BASE_URL, SITE_NAME, CSS_VARIABLES, CSS_NAV, CSS_LAYOUT, CSS_CARDS, CSS_CTA, CSS_FOOTER, CSS_JOB_PAGE
     )
+    from seo_core import generate_breadcrumb_schema
     from nav_config import NAV_ITEMS, FOOTER_ITEMS, SUBSCRIBE_LINK, SUBSCRIBE_LABEL, NEWSLETTER_LINK
 except Exception as e:
     print(f"ERROR importing modules: {e}")
@@ -147,6 +148,10 @@ def create_job_page(job, idx):
     title_escaped = escape_html(title)
     location_escaped = escape_html(location)
 
+    # Generate company page link for cross-linking
+    company_slug = make_slug(company) if company else ''
+    company_link = f'<a href="/companies/{company_slug}/" style="color: var(--gold); text-decoration: none;">{company_escaped}</a>' if company_slug else company_escaped
+
     # === SEO-OPTIMIZED TITLE ===
     title_parts = [f"{title_escaped} at {company_escaped}"]
     if salary_short:
@@ -175,6 +180,14 @@ def create_job_page(job, idx):
 
     # === JOBPOSTING SCHEMA ===
     schema_json = get_job_posting_schema(job)
+
+    # === BREADCRUMB SCHEMA ===
+    breadcrumbs = [
+        {'name': 'Home', 'url': '/'},
+        {'name': 'AI Jobs', 'url': '/jobs/'},
+        {'name': f'{title_escaped} at {company_escaped}', 'url': f'/jobs/{slug}/'}
+    ]
+    breadcrumb_schema = generate_breadcrumb_schema(breadcrumbs)
 
     # === SKILLS HTML ===
     skills_html = ""
@@ -215,6 +228,7 @@ def create_job_page(job, idx):
     <title>{page_title} | {SITE_NAME}</title>
     <meta name="description" content="{meta_desc}">
     <link rel="canonical" href="{canonical_url}">
+    <meta name="robots" content="index, follow">
 
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
@@ -237,6 +251,7 @@ def create_job_page(job, idx):
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     {schema_json}
+    {breadcrumb_schema}
 
     <style>
         {CSS_VARIABLES}
@@ -289,10 +304,10 @@ def create_job_page(job, idx):
     <header class="job-header">
         <div class="container">
             <div class="breadcrumb">
-                <a href="/">Home</a> → <a href="/jobs/">AI Jobs</a> → {company_escaped}
+                <a href="/">Home</a> → <a href="/jobs/">AI Jobs</a> → {company_link}
             </div>
             <h1>{title_escaped}</h1>
-            <div class="job-company">{company_escaped}</div>
+            <div class="job-company">{company_link}</div>
             <div class="job-meta">
                 {meta_badges_html}
             </div>
@@ -302,7 +317,7 @@ def create_job_page(job, idx):
     <div class="content">
         <div class="container">
             <div class="apply-box">
-                <p>Interested in this {job_category} role at {company_escaped}?</p>
+                <p>Interested in this {job_category} role at {company_link}?</p>
                 <a href="{job_url}" class="apply-btn" target="_blank" rel="noopener">Apply Now →</a>
             </div>
 
@@ -312,7 +327,7 @@ def create_job_page(job, idx):
                 <h2 style="margin-bottom: 20px; font-size: 1.25rem;">Role Details</h2>
                 <div class="job-details-row">
                     <span class="job-details-label">Company</span>
-                    <span class="job-details-value">{company_escaped}</span>
+                    <span class="job-details-value">{company_link}</span>
                 </div>
                 <div class="job-details-row">
                     <span class="job-details-label">Title</span>

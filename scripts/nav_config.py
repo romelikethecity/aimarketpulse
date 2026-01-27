@@ -41,6 +41,13 @@ FOOTER_ITEMS = [
     {"href": "/join/", "label": "Community"},
 ]
 
+# Legal/utility footer links (bottom row)
+FOOTER_LEGAL_ITEMS = [
+    {"href": "/sitemap.xml", "label": "Sitemap"},
+    {"href": "/privacy/", "label": "Privacy Policy"},
+    {"href": "/terms/", "label": "Terms of Service"},
+]
+
 # Site info
 SITE_NAME = "AI Market Pulse"
 SITE_URL = "https://theaimarketpulse.com"

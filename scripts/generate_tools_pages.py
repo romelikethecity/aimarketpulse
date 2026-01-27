@@ -27,6 +27,7 @@ from templates import (
     get_cta_box, get_base_styles, CSS_VARIABLES, CSS_NAV, CSS_LAYOUT,
     CSS_CARDS, CSS_CTA, CSS_FOOTER
 )
+from seo_core import generate_collectionpage_schema, generate_itemlist_schema, generate_review_schema
 from nav_config import SITE_NAME
 
 DATA_DIR = 'data'
@@ -1827,7 +1828,20 @@ def generate_tool_review_page(slug, tool_data, job_count):
     # Get logo placeholder
     logo_html = f'<img src="{tool_data.get("logo_placeholder", "")}" alt="{tool_data["name"]} Logo">' if tool_data.get('logo_placeholder') else '🔧'
 
-    extra_styles = f'<style>{REVIEW_PAGE_STYLES}</style>'
+    # Generate Review schema for rich snippets
+    tool_for_schema = {
+        'name': tool_data['name'],
+        'slug': slug,
+        'rating': tool_data.get('rating', '0'),
+        'rating_count': tool_data.get('rating_count', '0'),
+        'tagline': tool_data.get('tagline', ''),
+        'verdict': tool_data.get('verdict', ''),
+        'category': tool_data.get('category', 'DeveloperApplication'),
+        'website': tool_data.get('website', '')
+    }
+    review_schema = generate_review_schema(tool_for_schema)
+
+    extra_styles = f'<style>{REVIEW_PAGE_STYLES}</style>\n    {review_schema}'
 
     html = get_html_head(
         title=f'{tool_data["name"]} Review 2026: Pricing, Pros & Cons | AI Market Pulse',
@@ -2119,7 +2133,30 @@ def generate_tools_index(tools_with_counts):
         </div>
     '''
 
-    extra_styles = f'<style>{TOOLS_INDEX_STYLES}</style>'
+    # Generate JSON-LD schemas for tools hub
+    tools_for_schema = []
+    for slug, data in list(tools_with_counts.items())[:10]:
+        tools_for_schema.append({
+            'name': data['name'],
+            'url': f"/tools/{slug}/",
+            'description': data.get('tagline', '')
+        })
+
+    collection_schema = generate_collectionpage_schema(
+        name="AI Tools Directory",
+        description="Honest reviews of AI tools, LLM frameworks, and ML platforms for AI professionals.",
+        url="/tools/",
+        item_count=total_reviews,
+        keywords=["AI tools", "LLM frameworks", "ML platforms", "AI development tools", "LangChain", "OpenAI"]
+    )
+    itemlist_schema = generate_itemlist_schema(
+        items=tools_for_schema,
+        list_name="AI Tools & Reviews",
+        url="/tools/"
+    )
+    schemas_html = f"{collection_schema}\n    {itemlist_schema}"
+
+    extra_styles = f'<style>{TOOLS_INDEX_STYLES}</style>\n    {schemas_html}'
 
     html = get_html_head(
         title='AI Tools Directory | In-Depth Reviews & Comparisons',

@@ -18,6 +18,7 @@ sys.path.insert(0, script_dir)
 
 try:
     from templates import get_html_head, get_nav_html, get_footer_html, get_cta_box, BASE_URL, SITE_NAME
+    from seo_core import generate_breadcrumb_schema, generate_faq_schema, generate_salary_faqs, generate_dataset_schema
 except Exception as e:
     print(f"ERROR importing templates: {e}")
     traceback.print_exc()
@@ -26,6 +27,9 @@ except Exception as e:
 DATA_DIR = 'data'
 SITE_DIR = 'site'
 SALARIES_DIR = f'{SITE_DIR}/salaries'
+
+# Minimum job samples for a salary page to be indexed (thin content protection)
+MIN_SAMPLES_FOR_INDEX = 10
 
 # Define salary categories
 ROLE_CATEGORIES = [
@@ -189,9 +193,13 @@ def get_seo_content_for_category(slug, category_type, title):
 
 
 def generate_salary_page(filtered_df, slug, title, category_type, salary_col, min_col):
-    """Generate a salary page for a specific category"""
+    """Generate a salary page for a specific category.
+
+    Returns:
+        tuple: (generated: bool, is_thin: bool) - whether page was generated and if it's thin content
+    """
     if len(filtered_df) < 3:
-        return False
+        return False, False
 
     try:
         avg_min = int(filtered_df[min_col].mean()) if filtered_df[min_col].notna().any() else 0
@@ -203,6 +211,26 @@ def generate_salary_page(filtered_df, slug, title, category_type, salary_col, mi
         median = 0
 
     sample_size = len(filtered_df)
+
+    # Thin content protection: noindex pages with insufficient samples
+    is_thin_content = sample_size < MIN_SAMPLES_FOR_INDEX
+    robots_directive = 'noindex, follow' if is_thin_content else 'index, follow'
+
+    # Generate cross-link to jobs (for role-based pages)
+    jobs_crosslink_html = ""
+    if category_type == 'role':
+        # Map role to job category slug for cross-linking
+        jobs_crosslink_html = f'''
+            <div class="crosslink-section" style="margin-top: 24px; padding: 20px; background: linear-gradient(135deg, var(--teal-primary), var(--bg-card)); border-radius: 12px; border: 1px solid var(--border);">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                    <div>
+                        <p style="color: var(--text-primary); font-weight: 600; margin: 0;">Looking for {escape_html(title)} jobs?</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 4px 0 0;">Browse open positions with real salary data.</p>
+                    </div>
+                    <a href="/jobs/{slug}/" class="btn" style="background: var(--gold); color: var(--bg-dark); padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600;">View {escape_html(title)} Jobs →</a>
+                </div>
+            </div>
+        '''
 
     # Top paying companies
     company_col = 'company' if 'company' in filtered_df.columns else 'company_name'
@@ -228,10 +256,56 @@ def generate_salary_page(filtered_df, slug, title, category_type, salary_col, mi
     # Get SEO content for this category
     seo_content = get_seo_content_for_category(slug, category_type, title)
 
+    # Generate breadcrumb schema
+    breadcrumbs = [
+        {'name': 'Home', 'url': '/'},
+        {'name': 'Salaries', 'url': '/salaries/'},
+        {'name': f'{escape_html(title)} Salary', 'url': f'/salaries/{slug}/'}
+    ]
+    breadcrumb_schema = generate_breadcrumb_schema(breadcrumbs)
+
+    # Generate FAQ schema for richer search results
+    location = title if category_type == 'metro' else None
+    category = title if category_type == 'experience' else None
+    role_title = title if category_type == 'role' else 'AI Engineer'
+
+    faqs = generate_salary_faqs(
+        role_title=role_title,
+        location=location,
+        category=category,
+        avg_min=avg_min,
+        avg_max=avg_max,
+        sample_count=sample_size
+    )
+    faq_schema = generate_faq_schema(faqs)
+
+    # Generate FAQ HTML section
+    faq_html = ""
+    if faqs:
+        faq_items = ""
+        for faq in faqs[:4]:  # Limit to 4 FAQs for readability
+            faq_items += f'''
+                <div class="faq-item" style="margin-bottom: 16px; padding: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;">
+                    <h3 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 8px;">{escape_html(faq['question'])}</h3>
+                    <p style="color: var(--text-secondary); margin: 0;">{escape_html(faq['answer'])}</p>
+                </div>
+            '''
+        faq_html = f'''
+            <div class="section" style="margin-top: 24px;">
+                <h2 style="margin-bottom: 20px;">Frequently Asked Questions</h2>
+                {faq_items}
+            </div>
+        '''
+
+    # Combine schemas for extra_head parameter
+    schemas_html = f"{breadcrumb_schema}\n    {faq_schema}"
+
     html = f'''{get_html_head(
         f"{title} Salary 2026 - ${avg_max//1000}K Average",
         f"{title} salary benchmarks based on {sample_size} job postings. Average ${avg_min//1000}K-${avg_max//1000}K. Median ${median//1000}K.",
-        f"salaries/{slug}/"
+        f"salaries/{slug}/",
+        extra_head=schemas_html,
+        robots=robots_directive
     )}
 {get_nav_html('salaries')}
 
@@ -282,7 +356,11 @@ def generate_salary_page(filtered_df, slug, title, category_type, salary_col, mi
 
             {seo_content}
 
+            {jobs_crosslink_html}
+
             {'<div class="section"><h2 style="margin-bottom: 20px;">Top Paying Companies</h2>' + companies_html + '</div>' if companies_html else ''}
+
+            {faq_html}
 
             <div class="section" style="background: var(--bg-card); border-radius: 12px; padding: 24px; border: 1px solid var(--border);">
                 <h3>Methodology</h3>
@@ -302,7 +380,7 @@ def generate_salary_page(filtered_df, slug, title, category_type, salary_col, mi
     os.makedirs(page_dir, exist_ok=True)
     with open(f'{page_dir}/index.html', 'w') as f:
         f.write(html)
-    return True
+    return True, is_thin_content
 
 
 def main():
@@ -340,12 +418,22 @@ def main():
     df_salary = df[df[salary_col].notna() & (df[salary_col] > 0)].copy()
     print(f" Jobs with salary: {len(df_salary)}")
 
+    # Track SEO statistics
+    indexed_count = 0
+    noindex_count = 0
+
     # Generate role-based salary pages
     print("\n Generating role-based salary pages...")
     for category, slug, display in ROLE_CATEGORIES:
         filtered = df_salary[df_salary['job_category'] == category] if 'job_category' in df_salary.columns else pd.DataFrame()
-        if generate_salary_page(filtered, slug, display, 'role', salary_col, min_col):
-            print(f"   Generated /salaries/{slug}/ ({len(filtered)} jobs)")
+        result = generate_salary_page(filtered, slug, display, 'role', salary_col, min_col)
+        if result[0]:  # generated
+            status = "noindex" if result[1] else "indexed"
+            print(f"   Generated /salaries/{slug}/ ({len(filtered)} jobs) [{status}]")
+            if result[1]:
+                noindex_count += 1
+            else:
+                indexed_count += 1
 
     # Generate metro-based salary pages
     print("\n Generating metro-based salary pages...")
@@ -362,23 +450,46 @@ def main():
                 filtered = df_salary[df_salary['location'].str.contains(metro, case=False, na=False)]
             else:
                 filtered = pd.DataFrame()
-        if generate_salary_page(filtered, slug, metro, 'metro', salary_col, min_col):
-            print(f"   Generated /salaries/{slug}/ ({len(filtered)} jobs)")
+        result = generate_salary_page(filtered, slug, metro, 'metro', salary_col, min_col)
+        if result[0]:  # generated
+            status = "noindex" if result[1] else "indexed"
+            print(f"   Generated /salaries/{slug}/ ({len(filtered)} jobs) [{status}]")
+            if result[1]:
+                noindex_count += 1
+            else:
+                indexed_count += 1
 
     # Generate experience-based salary pages
     print("\n Generating experience-based salary pages...")
     for level, slug, display in EXPERIENCE_CATEGORIES:
         filtered = df_salary[df_salary['experience_level'] == level] if 'experience_level' in df_salary.columns else pd.DataFrame()
-        if generate_salary_page(filtered, slug, display, 'experience', salary_col, min_col):
-            print(f"   Generated /salaries/{slug}/ ({len(filtered)} jobs)")
+        result = generate_salary_page(filtered, slug, display, 'experience', salary_col, min_col)
+        if result[0]:  # generated
+            status = "noindex" if result[1] else "indexed"
+            print(f"   Generated /salaries/{slug}/ ({len(filtered)} jobs) [{status}]")
+            if result[1]:
+                noindex_count += 1
+            else:
+                indexed_count += 1
 
     # Generate index page
     overall_avg = int(df_salary[salary_col].mean()) if len(df_salary) > 0 else 0
     overall_median = int(df_salary[salary_col].median()) if len(df_salary) > 0 else 0
+
+    # Generate Dataset schema for salaries hub
+    dataset_schema = generate_dataset_schema(
+        title="AI & ML Engineer Salary Benchmarks 2026",
+        description=f"Comprehensive salary data for AI engineers, ML engineers, and prompt engineers based on {len(df_salary)} job postings.",
+        record_count=len(df_salary),
+        url="/salaries/",
+        keywords=["AI salary", "ML engineer salary", "prompt engineer salary", "AI compensation", "AI job market"]
+    )
+
     index_html = f'''{get_html_head(
         "AI & ML Engineer Salary Benchmarks 2026",
         f"Comprehensive salary data for AI engineers, ML engineers, and prompt engineers. Average ${overall_avg//1000}K based on {len(df_salary)} jobs.",
-        "salaries/"
+        "salaries/",
+        extra_head=dataset_schema
     )}
 {get_nav_html('salaries')}
 
@@ -466,6 +577,9 @@ def main():
         f.write(index_html)
 
     print(f"\n Generated salary index page")
+    print(f"\n SEO Summary:")
+    print(f"   - Indexed pages ({MIN_SAMPLES_FOR_INDEX}+ samples): {indexed_count}")
+    print(f"   - Noindexed pages (thin content): {noindex_count}")
     print("="*70)
 
 
