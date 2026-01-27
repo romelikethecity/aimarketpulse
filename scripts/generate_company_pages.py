@@ -20,7 +20,11 @@ import json
 import sys
 sys.path.insert(0, 'scripts')
 
-from templates import slugify, format_salary, BASE_URL, SITE_NAME
+from templates import (
+    slugify, format_salary, BASE_URL, SITE_NAME,
+    get_html_head, get_nav_html, get_footer_html, get_cta_box
+)
+from seo_core import generate_breadcrumb_schema, generate_collectionpage_schema
 
 # Minimum jobs required for a company page to be indexed
 MIN_JOBS_FOR_INDEX = 3
@@ -48,18 +52,14 @@ def escape_html(text):
     return str(text).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace("'", '&#39;')
 
 
-def get_breadcrumb_schema(company_name, company_slug):
-    """Generate BreadcrumbList JSON-LD schema"""
-    schema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{BASE_URL}/"},
-            {"@type": "ListItem", "position": 2, "name": "Companies", "item": f"{BASE_URL}/companies/"},
-            {"@type": "ListItem", "position": 3, "name": company_name}
-        ]
-    }
-    return f'<script type="application/ld+json">\n{json.dumps(schema, indent=2)}\n</script>'
+def get_company_breadcrumb_schema(company_name, company_slug):
+    """Generate BreadcrumbList JSON-LD schema for company page"""
+    breadcrumbs = [
+        {'name': 'Home', 'url': '/'},
+        {'name': 'Companies', 'url': '/companies/'},
+        {'name': company_name, 'url': f'/companies/{company_slug}/'}
+    ]
+    return generate_breadcrumb_schema(breadcrumbs)
 
 
 def get_organization_schema(company_name, company_slug, num_jobs, categories, locations):
@@ -182,206 +182,130 @@ def generate_company_page(company_name, jobs_df):
     # Generate canonical URL
     canonical_url = f"{BASE_URL}/companies/{company_slug}/"
 
+    # Determine robots directive
+    robots_directive = 'noindex, follow' if is_thin_content else 'index, follow'
+
     # Generate JSON-LD schemas
-    breadcrumb_schema = get_breadcrumb_schema(company_escaped, company_slug)
+    breadcrumb_schema = get_company_breadcrumb_schema(company_escaped, company_slug)
     org_schema = get_organization_schema(company_escaped, company_slug, num_jobs, categories, locations) if num_jobs >= MIN_JOBS_FOR_INDEX else ''
 
-    html = f'''<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{company_escaped} AI Jobs | {SITE_NAME}</title>
-    <meta name="description" content="{meta_desc}">
-    <link rel="canonical" href="{canonical_url}">
-    {robots_meta}
+    # Page title for display
+    page_title = f"{company_escaped} AI Jobs - {num_jobs} Open Positions"
 
-    <!-- Open Graph Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{canonical_url}">
-    <meta property="og:title" content="{company_escaped} AI Jobs - {num_jobs} Open Positions">
-    <meta property="og:description" content="{meta_desc}">
-    <meta property="og:site_name" content="{SITE_NAME}">
-    <meta property="og:image" content="{BASE_URL}/assets/social-preview.png">
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@pe_collective">
-    <meta name="twitter:title" content="{company_escaped} AI Jobs - {num_jobs} Open Positions">
-    <meta name="twitter:description" content="{meta_desc}">
-    <meta name="twitter:image" content="{BASE_URL}/assets/social-preview.png">
-
-    <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    {breadcrumb_schema}
-    {org_schema}
-
+    # Custom CSS for company pages
+    company_css = '''
     <style>
-        :root {{
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-card: #334155;
-            --text-primary: #e2e8f0;
-            --text-secondary: #94a3b8;
-            --accent: #22d3ee;
-            --accent-gold: #f5a623;
-        }}
-
-        * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-
-        body {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }}
-
-        .container {{ max-width: 1000px; margin: 0 auto; padding: 0 20px; }}
-
-        nav {{
-            background: var(--bg-secondary);
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--bg-card);
-        }}
-        nav .container {{ display: flex; justify-content: space-between; align-items: center; }}
-        .nav-brand {{ font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }}
-        .nav-links {{ display: flex; gap: 2rem; }}
-        .nav-links a {{ color: var(--text-secondary); text-decoration: none; }}
-        .nav-links a:hover {{ color: var(--accent); }}
-
-        .breadcrumb {{
-            padding: 1rem 0;
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-        }}
-        .breadcrumb a {{ color: var(--accent); text-decoration: none; }}
-
-        .company-header {{
+        .company-header {
             padding: 2rem 0;
-            border-bottom: 1px solid var(--bg-card);
-        }}
-        .company-header h1 {{
+            border-bottom: 1px solid var(--border);
+        }
+        .company-header h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-        }}
-        .company-stats {{
+        }
+        .company-stats {
             display: flex;
             gap: 2rem;
             flex-wrap: wrap;
-        }}
-        .company-stat {{
-            background: var(--bg-secondary);
+        }
+        .company-stat {
+            background: var(--bg-card);
             padding: 1rem 1.5rem;
             border-radius: 8px;
-        }}
-        .stat-value {{
+        }
+        .stat-value {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--accent);
-        }}
-        .stat-label {{
+            color: var(--gold);
+        }
+        .stat-label {
             font-size: 0.875rem;
-            color: var(--text-secondary);
-        }}
-
-        .company-details {{
+            color: var(--text-muted);
+        }
+        .company-details {
             padding: 2rem 0;
-        }}
-        .section-title {{
+        }
+        .section-title {
             font-size: 1.25rem;
             margin-bottom: 1rem;
             color: var(--text-primary);
-        }}
-        .skills-list {{
+        }
+        .skills-list {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             margin-bottom: 2rem;
-        }}
-        .skill-tag {{
-            background: var(--bg-card);
-            color: var(--accent);
+        }
+        .skill-tag {
+            background: var(--bg-darker);
+            color: var(--gold);
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-size: 0.875rem;
-        }}
-        .locations-list {{
+        }
+        .locations-list {
             color: var(--text-secondary);
             margin-bottom: 2rem;
-        }}
-
-        .jobs-section {{
+        }
+        .jobs-section {
             padding: 2rem 0;
-        }}
-        .job-card {{
-            background: var(--bg-secondary);
+        }
+        .job-card {
+            background: var(--bg-card);
             padding: 1.5rem;
             border-radius: 8px;
             margin-bottom: 1rem;
-            border: 1px solid var(--bg-card);
-        }}
-        .job-card:hover {{ border-color: var(--accent); }}
-        .job-category {{
+            border: 1px solid var(--border);
+            transition: all 0.25s;
+        }
+        .job-card:hover {
+            border-color: var(--teal-light);
+            background: var(--bg-card-hover);
+        }
+        .job-category {
             font-size: 0.75rem;
-            color: var(--accent);
+            color: var(--gold);
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 0.5rem;
-        }}
-        .job-title {{ margin-bottom: 0.5rem; }}
-        .job-title a {{
+        }
+        .job-title { margin-bottom: 0.5rem; }
+        .job-title a {
             color: var(--text-primary);
             text-decoration: none;
-        }}
-        .job-title a:hover {{ color: var(--accent); }}
-        .job-meta {{
+        }
+        .job-title a:hover { color: var(--gold); }
+        .job-meta {
             display: flex;
             gap: 1.5rem;
             color: var(--text-secondary);
             font-size: 0.875rem;
-        }}
-        .job-salary {{
-            color: var(--accent-gold);
+        }
+        .job-salary {
+            color: var(--gold);
             font-weight: 600;
-        }}
-
-        footer {{
-            background: var(--bg-secondary);
-            padding: 2rem 0;
-            margin-top: 3rem;
-            border-top: 1px solid var(--bg-card);
-            text-align: center;
-            color: var(--text-secondary);
-        }}
-
-        @media (max-width: 768px) {{
-            .nav-links {{ display: none; }}
-            .company-header h1 {{ font-size: 1.75rem; }}
-            .company-stats {{ flex-direction: column; }}
-        }}
+        }
+        @media (max-width: 768px) {
+            .company-header h1 { font-size: 1.75rem; }
+            .company-stats { flex-direction: column; }
+        }
     </style>
-</head>
-<body>
-    <nav>
+    '''
+
+    html = f'''{get_html_head(
+        page_title,
+        meta_desc,
+        f"companies/{company_slug}/",
+        extra_head=f'{breadcrumb_schema}\\n{org_schema}\\n{company_css}',
+        robots=robots_directive
+    )}
+{get_nav_html('companies')}
+
+    <div class="page-header">
         <div class="container">
-            <a href="/" class="nav-brand">AI Market Pulse</a>
-            <div class="nav-links">
-                <a href="/jobs/">AI Jobs</a>
-                <a href="/salaries/">Salaries</a>
-                <a href="/insights/">Insights</a>
-                <a href="/companies/">Companies</a>
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <a href="/companies/">Companies</a> / {company_escaped}
             </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/companies/">Companies</a> / {company_escaped}
-        </div>
-
-        <header class="company-header">
             <h1>{company_escaped}</h1>
             <div class="company-stats">
                 <div class="company-stat">
@@ -394,31 +318,29 @@ def generate_company_page(company_name, jobs_df):
                     <div class="stat-label">Role Types</div>
                 </div>
             </div>
-        </header>
-
-        <section class="company-details">
-            {f'<h2 class="section-title">Skills & Technologies</h2>{skills_html}' if top_skills else ''}
-
-            {f'<h2 class="section-title">Locations</h2><p class="locations-list">{", ".join(locations)}</p>' if locations else ''}
-
-            {f'<h2 class="section-title">Role Categories</h2><p class="locations-list">{", ".join(categories)}</p>' if categories else ''}
-        </section>
-
-        <section class="jobs-section">
-            <h2 class="section-title">All Open Positions ({num_jobs})</h2>
-            {jobs_html}
-        </section>
+        </div>
     </div>
 
-    <footer>
+    <main>
         <div class="container">
-            <p>© 2026 AI Market Pulse. All rights reserved.</p>
-            <p><a href="/jobs/" style="color: var(--accent);">Browse All AI Jobs</a></p>
+            <section class="company-details">
+                {f'<h2 class="section-title">Skills & Technologies</h2>{skills_html}' if top_skills else ''}
+
+                {f'<h2 class="section-title">Locations</h2><p class="locations-list">{", ".join(locations)}</p>' if locations else ''}
+
+                {f'<h2 class="section-title">Role Categories</h2><p class="locations-list">{", ".join(categories)}</p>' if categories else ''}
+            </section>
+
+            <section class="jobs-section">
+                <h2 class="section-title">All Open Positions ({num_jobs})</h2>
+                {jobs_html}
+            </section>
+
+            {get_cta_box()}
         </div>
-    </footer>
-</body>
-</html>
-'''
+    </main>
+
+{get_footer_html()}'''
 
     output_path = f"{company_dir}/index.html"
     with open(output_path, 'w') as f:
@@ -433,6 +355,16 @@ def generate_companies_index(companies_data):
 
     # Sort by job count
     sorted_companies = sorted(companies_data.items(), key=lambda x: x[1]['count'], reverse=True)
+    company_count = len(sorted_companies)
+
+    # Generate CollectionPage schema
+    collection_schema = generate_collectionpage_schema(
+        name=f"Companies Hiring for AI Roles",
+        description=f"Browse {company_count} companies actively hiring for AI, ML, and Prompt Engineering roles.",
+        url="/companies/",
+        item_count=company_count,
+        keywords=["AI companies", "ML hiring", "AI jobs", "tech companies hiring AI engineers"]
+    )
 
     companies_html = ""
     for company, data in sorted_companies:
@@ -441,7 +373,7 @@ def generate_companies_index(companies_data):
             continue
         companies_html += f'''
         <a href="/companies/{slug}/" class="company-card">
-            <h3>{company}</h3>
+            <h3>{escape_html(company)}</h3>
             <div class="company-meta">
                 <span>{data['count']} open roles</span>
                 {f'<span class="salary">{data["salary_range"]}</span>' if data.get("salary_range") else ''}
@@ -449,141 +381,73 @@ def generate_companies_index(companies_data):
         </a>
         '''
 
-    html = f'''<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Companies Hiring for AI Roles | AI Market Pulse</title>
-    <meta name="description" content="Browse {len(sorted_companies)} companies actively hiring for AI, ML, and Prompt Engineering roles.">
-    <link rel="canonical" href="{BASE_URL}/companies/">
-    <meta name="robots" content="index, follow">
-
-    <!-- Open Graph Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{BASE_URL}/companies/">
-    <meta property="og:title" content="Companies Hiring for AI Roles | AI Market Pulse">
-    <meta property="og:description" content="Browse {len(sorted_companies)} companies actively hiring for AI, ML, and Prompt Engineering roles.">
-    <meta property="og:site_name" content="{SITE_NAME}">
-    <meta property="og:image" content="{BASE_URL}/assets/social-preview.png">
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@aimarketpulse">
-    <meta name="twitter:title" content="Companies Hiring for AI Roles | AI Market Pulse">
-    <meta name="twitter:description" content="Browse {len(sorted_companies)} companies actively hiring for AI, ML, and Prompt Engineering roles.">
-    <meta name="twitter:image" content="{BASE_URL}/assets/social-preview.png">
-
-    <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
-
+    # Custom CSS for companies index
+    companies_css = '''
     <style>
-        :root {{
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-card: #334155;
-            --text-primary: #e2e8f0;
-            --text-secondary: #94a3b8;
-            --accent: #22d3ee;
-            --accent-gold: #f5a623;
-        }}
-
-        * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-
-        body {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }}
-
-        .container {{ max-width: 1200px; margin: 0 auto; padding: 0 20px; }}
-
-        nav {{
-            background: var(--bg-secondary);
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--bg-card);
-        }}
-        nav .container {{ display: flex; justify-content: space-between; align-items: center; }}
-        .nav-brand {{ font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }}
-
-        .page-header {{
-            padding: 3rem 0;
-            text-align: center;
-        }}
-        .page-header h1 {{
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }}
-        .page-header p {{
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }}
-
-        .companies-grid {{
+        .companies-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
             padding: 2rem 0;
-        }}
-        .company-card {{
-            background: var(--bg-secondary);
+        }
+        .company-card {
+            background: var(--bg-card);
             padding: 1.5rem;
             border-radius: 12px;
-            border: 1px solid var(--bg-card);
+            border: 1px solid var(--border);
             text-decoration: none;
             color: var(--text-primary);
-            transition: transform 0.2s, border-color 0.2s;
-        }}
-        .company-card:hover {{
+            transition: all 0.25s;
+        }
+        .company-card:hover {
             transform: translateY(-4px);
-            border-color: var(--accent);
-        }}
-        .company-card h3 {{
+            border-color: var(--teal-light);
+            background: var(--bg-card-hover);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+        .company-card h3 {
             margin-bottom: 0.5rem;
-        }}
-        .company-meta {{
+        }
+        .company-meta {
             display: flex;
             justify-content: space-between;
             color: var(--text-secondary);
             font-size: 0.875rem;
-        }}
-        .salary {{
-            color: var(--accent-gold);
-        }}
-
-        footer {{
-            background: var(--bg-secondary);
-            padding: 2rem 0;
-            margin-top: 3rem;
-            text-align: center;
-            color: var(--text-secondary);
-        }}
+        }
+        .salary {
+            color: var(--gold);
+        }
     </style>
-</head>
-<body>
-    <nav>
+    '''
+
+    meta_desc = f"Browse {company_count} companies actively hiring for AI, ML, and Prompt Engineering roles."
+
+    html = f'''{get_html_head(
+        "Companies Hiring for AI Roles",
+        meta_desc,
+        "companies/",
+        extra_head=f'{collection_schema}\\n{companies_css}'
+    )}
+{get_nav_html('companies')}
+
+    <div class="page-header">
         <div class="container">
-            <a href="/" class="nav-brand">AI Market Pulse</a>
-        </div>
-    </nav>
-
-    <div class="container">
-        <header class="page-header">
             <h1>Companies Hiring for AI Roles</h1>
-            <p>{len(sorted_companies)} companies with open AI, ML, and Prompt Engineering positions</p>
-        </header>
-
-        <div class="companies-grid">
-            {companies_html}
+            <p class="lead">{company_count} companies with open AI, ML, and Prompt Engineering positions</p>
         </div>
     </div>
 
-    <footer>
-        <p>© 2026 AI Market Pulse</p>
-    </footer>
-</body>
-</html>
-'''
+    <main>
+        <div class="container">
+            <div class="companies-grid">
+                {companies_html}
+            </div>
+
+            {get_cta_box()}
+        </div>
+    </main>
+
+{get_footer_html()}'''
 
     output_path = f"{COMPANIES_DIR}/index.html"
     with open(output_path, 'w') as f:

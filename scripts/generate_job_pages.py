@@ -237,6 +237,7 @@ def create_job_page(job, idx):
     <meta property="og:description" content="{meta_desc}">
     <meta property="og:site_name" content="{SITE_NAME}">
     <meta property="og:image" content="{BASE_URL}/assets/social-preview.png">
+    <meta property="og:image:alt" content="{SITE_NAME} - AI jobs, salary benchmarks, and market intelligence">
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
@@ -244,6 +245,7 @@ def create_job_page(job, idx):
     <meta name="twitter:title" content="{title_escaped} at {company_escaped}">
     <meta name="twitter:description" content="{meta_desc}">
     <meta name="twitter:image" content="{BASE_URL}/assets/social-preview.png">
+    <meta name="twitter:image:alt" content="{SITE_NAME} - AI jobs, salary benchmarks, and market intelligence">
 
     <link rel="icon" type="image/jpeg" href="/assets/logo.jpeg">
 
@@ -359,16 +361,7 @@ def create_job_page(job, idx):
         </div>
     </div>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <span>&copy; 2026 <a href="/">{SITE_NAME}</a></span>
-            <div class="footer-links">
-                <span style="font-size: 0.85rem;">Updated {update_date}</span>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>'''
+{get_footer_html()}'''
 
     # Create directory and save
     page_dir = f'{JOBS_DIR}/{slug}'

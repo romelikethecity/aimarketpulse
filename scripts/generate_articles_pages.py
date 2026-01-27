@@ -767,10 +767,18 @@ def generate_article_page(article, author, market_data, all_articles):
     return True
 
 
+# Minimum articles for a tag page to be indexed (thin content protection)
+MIN_ARTICLES_FOR_TAG_INDEX = 3
+
+
 def generate_tag_page(tag, articles, categories_data):
     """Generate a tag landing page."""
     tag_display = tag.replace('-', ' ').title()
     article_count = len(articles)
+
+    # Determine if page should be noindexed (thin content protection)
+    is_thin_content = article_count < MIN_ARTICLES_FOR_TAG_INDEX
+    robots_directive = 'noindex, follow' if is_thin_content else 'index, follow'
 
     breadcrumbs = [
         {'name': 'Home', 'url': '/'},
@@ -803,7 +811,8 @@ def generate_tag_page(tag, articles, categories_data):
         f"{tag_display} - AI Career Insights",
         f"Articles about {tag_display.lower()} in AI careers. {article_count} insights on jobs, salaries, and skills.",
         f"insights/tags/{tag}/",
-        extra_head=f'<style>{CSS_ARTICLE}</style>'
+        extra_head=f'<style>{CSS_ARTICLE}</style>',
+        robots=robots_directive
     )}
     {breadcrumb_schema}
     {get_nav_html('insights')}
@@ -959,10 +968,15 @@ def main():
 
     # Generate tag pages
     tag_count = 0
+    thin_tag_count = 0
     for tag, tag_articles in tag_index.items():
         generate_tag_page(tag, tag_articles, categories)
         tag_count += 1
-        print(f"    Generated: /insights/tags/{tag}/")
+        if len(tag_articles) < MIN_ARTICLES_FOR_TAG_INDEX:
+            thin_tag_count += 1
+            print(f"    Generated: /insights/tags/{tag}/ (noindex: {len(tag_articles)} articles)")
+        else:
+            print(f"    Generated: /insights/tags/{tag}/")
 
     # Generate category pages
     cat_count = 0
@@ -973,7 +987,7 @@ def main():
         print(f"    Generated: /insights/category/{category}/")
 
     print(f"\n  Generated {article_count} article pages")
-    print(f"  Generated {tag_count} tag pages")
+    print(f"  Generated {tag_count} tag pages ({thin_tag_count} noindexed as thin content)")
     print(f"  Generated {cat_count} category pages")
     print("=" * 70)
 

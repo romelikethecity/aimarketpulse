@@ -18,6 +18,7 @@ sys.path.insert(0, script_dir)
 
 try:
     from templates import get_html_head, get_nav_html, get_footer_html, get_cta_box, BASE_URL, SITE_NAME
+    from seo_core import generate_collectionpage_schema
 except Exception as e:
     print(f"ERROR importing templates: {e}")
     traceback.print_exc()
@@ -180,11 +181,21 @@ articles, article_categories, article_tags = load_articles()
 articles_section_html = generate_articles_section(articles, article_categories)
 print(f" Loaded {len(articles)} articles for insights page")
 
+# Generate CollectionPage schema for insights index
+collection_schema = generate_collectionpage_schema(
+    name="AI Job Market Intelligence",
+    description=f"Market trends, top tools, and insights from {total_jobs} AI job postings. See which frameworks, skills, and technologies are in demand.",
+    url="/insights/",
+    item_count=len(articles),
+    keywords=["AI market intelligence", "AI job trends", "AI skills", "ML hiring trends", "AI salary data"]
+)
+
 # Build page
 html = f'''{get_html_head(
     "AI Job Market Intelligence 2026",
     f"Market trends, top tools, and insights from {total_jobs} AI job postings. See which frameworks, skills, and technologies are in demand.",
-    "insights/"
+    "insights/",
+    extra_head=collection_schema
 )}
 {get_nav_html('insights')}
 

@@ -18,7 +18,7 @@ sys.path.insert(0, script_dir)
 
 try:
     from templates import get_html_head, get_nav_html, get_footer_html, get_cta_box, BASE_URL, SITE_NAME
-    from seo_core import generate_breadcrumb_schema, generate_faq_schema, generate_salary_faqs, generate_dataset_schema
+    from seo_core import generate_breadcrumb_schema, generate_faq_schema, generate_salary_faqs, generate_dataset_schema, generate_collectionpage_schema
 except Exception as e:
     print(f"ERROR importing templates: {e}")
     traceback.print_exc()
@@ -485,11 +485,23 @@ def main():
         keywords=["AI salary", "ML engineer salary", "prompt engineer salary", "AI compensation", "AI job market"]
     )
 
+    # Generate CollectionPage schema for salary hub
+    collection_schema = generate_collectionpage_schema(
+        name="AI & ML Engineer Salary Benchmarks",
+        description=f"Comprehensive salary data for AI engineers, ML engineers, and prompt engineers based on {len(df_salary)} job postings.",
+        url="/salaries/",
+        item_count=len(ROLE_CATEGORIES),
+        keywords=["AI salary", "ML engineer salary", "prompt engineer salary", "AI compensation"]
+    )
+
+    # Combine schemas
+    salary_schemas = f"{dataset_schema}\\n{collection_schema}"
+
     index_html = f'''{get_html_head(
         "AI & ML Engineer Salary Benchmarks 2026",
         f"Comprehensive salary data for AI engineers, ML engineers, and prompt engineers. Average ${overall_avg//1000}K based on {len(df_salary)} jobs.",
         "salaries/",
-        extra_head=dataset_schema
+        extra_head=salary_schemas
     )}
 {get_nav_html('salaries')}
 
