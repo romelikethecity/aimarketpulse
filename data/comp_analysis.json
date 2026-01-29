@@ -1,254 +1,216 @@
 {
-  "generated_at": "2026-01-27T00:34:20.653299",
-  "total_records": 5839,
-  "records_with_salary": 4548,
-  "disclosure_rate": 77.9,
+  "generated_at": "2026-01-29T22:19:51.281265",
+  "total_records": 342,
+  "records_with_salary": 237,
+  "disclosure_rate": 69.3,
   "by_category": {
-    "Prompt Engineer": {
-      "count": 3,
-      "min_base_avg": 130000,
-      "max_base_avg": 180000,
-      "median": 160000
+    "AI/ML Engineer": {
+      "count": 217,
+      "min_base_avg": 144620,
+      "max_base_avg": 207253,
+      "median": 132000
     },
     "AI Product Manager": {
-      "count": 9,
-      "min_base_avg": 142279,
-      "max_base_avg": 214160,
-      "median": 190000
-    },
-    "Research Engineer": {
-      "count": 254,
-      "min_base_avg": 151971,
-      "max_base_avg": 252776,
-      "median": 260000
-    },
-    "AI/ML Engineer": {
-      "count": 296,
-      "min_base_avg": 147908,
-      "max_base_avg": 211061,
-      "median": 201200
-    },
-    "Other AI Role": {
-      "count": 3883,
-      "min_base_avg": 135544,
-      "max_base_avg": 210244,
-      "median": 212800
+      "count": 8,
+      "min_base_avg": 107826,
+      "max_base_avg": 173090,
+      "median": 140000
     },
     "Data Scientist": {
-      "count": 82,
-      "min_base_avg": 140146,
-      "max_base_avg": 212145,
-      "median": 215300
+      "count": 4,
+      "min_base_avg": 146900,
+      "max_base_avg": 232975,
+      "median": 159200
     },
-    "MLOps Engineer": {
-      "count": 13,
-      "min_base_avg": 150288,
-      "max_base_avg": 229001,
-      "median": 217200
+    "AI Software Engineer": {
+      "count": 4,
+      "min_base_avg": 179650,
+      "max_base_avg": 247406,
+      "median": 163100
     }
   },
   "by_seniority": {
     "Mid": {
-      "count": 2180,
-      "min_base_avg": 121579,
-      "max_base_avg": 190778,
-      "median": 194400
-    },
-    "Senior": {
-      "count": 2027,
-      "min_base_avg": 149320,
-      "max_base_avg": 231723,
-      "median": 235200
-    },
-    "Entry": {
-      "count": 55,
-      "min_base_avg": 98042,
-      "max_base_avg": 138050,
-      "median": 120000
-    },
-    "VP": {
-      "count": 35,
-      "min_base_avg": 197902,
-      "max_base_avg": 270720,
-      "median": 230000
-    },
-    "C-Level": {
-      "count": 229,
-      "min_base_avg": 179454,
-      "max_base_avg": 259734,
-      "median": 265600
+      "count": 84,
+      "min_base_avg": 107666,
+      "max_base_avg": 153541,
+      "median": 87400
     },
     "Director": {
-      "count": 10,
-      "min_base_avg": 191710,
-      "max_base_avg": 268700,
-      "median": 295200
+      "count": 51,
+      "min_base_avg": 173542,
+      "max_base_avg": 239766,
+      "median": 160000
+    },
+    "Senior": {
+      "count": 40,
+      "min_base_avg": 149162,
+      "max_base_avg": 229986,
+      "median": 138200
+    },
+    "VP": {
+      "count": 55,
+      "min_base_avg": 174188,
+      "max_base_avg": 249810,
+      "median": 164350
+    },
+    "C-Level": {
+      "count": 4,
+      "min_base_avg": 198918,
+      "max_base_avg": 255000,
+      "median": 200000
+    },
+    "Entry": {
+      "count": 3,
+      "min_base_avg": 36306,
+      "max_base_avg": 72760,
+      "median": 37440
     }
   },
   "by_metro": {
-    "Remote": {
-      "count": 381,
-      "min_base_avg": 129069,
-      "max_base_avg": 180684,
-      "median": 176000
-    },
-    "Boston": {
-      "count": 214,
-      "min_base_avg": 127731,
-      "max_base_avg": 203108,
-      "median": 210000
+    "Other": {
+      "count": 116,
+      "min_base_avg": 124690,
+      "max_base_avg": 175090,
+      "median": 125350
     },
     "San Francisco": {
-      "count": 696,
-      "min_base_avg": 156774,
-      "max_base_avg": 240452,
-      "median": 235200
-    },
-    "Seattle": {
-      "count": 361,
-      "min_base_avg": 148530,
-      "max_base_avg": 237063,
+      "count": 11,
+      "min_base_avg": 198868,
+      "max_base_avg": 296195,
       "median": 232000
     },
-    "Los Angeles": {
-      "count": 372,
-      "min_base_avg": 133935,
-      "max_base_avg": 210302,
-      "median": 211100
+    "Chicago": {
+      "count": 6,
+      "min_base_avg": 148766,
+      "max_base_avg": 230958,
+      "median": 145000
     },
     "New York": {
-      "count": 528,
-      "min_base_avg": 149542,
-      "max_base_avg": 222427,
-      "median": 223400
+      "count": 37,
+      "min_base_avg": 161176,
+      "max_base_avg": 242932,
+      "median": 147500
     },
-    "Denver": {
-      "count": 18,
-      "min_base_avg": 115581,
-      "max_base_avg": 181227,
-      "median": 180000
+    "Remote": {
+      "count": 25,
+      "min_base_avg": 176999,
+      "max_base_avg": 234903,
+      "median": 168000
     },
-    "Austin": {
-      "count": 229,
-      "min_base_avg": 131998,
-      "max_base_avg": 211397,
-      "median": 220000
+    "Los Angeles": {
+      "count": 23,
+      "min_base_avg": 144791,
+      "max_base_avg": 198379,
+      "median": 140000
     },
-    "Chicago": {
-      "count": 31,
-      "min_base_avg": 127454,
-      "max_base_avg": 187536,
-      "median": 192000
+    "Seattle": {
+      "count": 11,
+      "min_base_avg": 155936,
+      "max_base_avg": 238509,
+      "median": 153000
+    },
+    "Boston": {
+      "count": 4,
+      "min_base_avg": 180837,
+      "max_base_avg": 323312,
+      "median": 182000
     }
   },
   "by_remote": {
-    "hybrid": {
-      "count": 6,
-      "min_base_avg": 185000,
-      "max_base_avg": 268333,
-      "median": 270000
+    "onsite": {
+      "count": 212,
+      "min_base_avg": 141137,
+      "max_base_avg": 204859,
+      "median": 138200
     },
     "remote": {
-      "count": 1156,
-      "min_base_avg": 133726,
-      "max_base_avg": 192606,
-      "median": 185000
-    },
-    "onsite": {
-      "count": 3386,
-      "min_base_avg": 138614,
-      "max_base_avg": 219557,
-      "median": 223400
+      "count": 25,
+      "min_base_avg": 176999,
+      "max_base_avg": 234903,
+      "median": 168000
     }
   },
   "top_paying_roles": [
     {
-      "title": "Performance Engineer 6",
-      "company": "Netflix",
-      "salary_min": 230000.0,
-      "salary_max": 960000.0,
-      "job_category": "Other AI Role",
-      "seniority": "Mid"
-    },
-    {
-      "title": "Software Engineer 5 - Ads Finance",
-      "company": "Netflix",
-      "salary_min": 100000.0,
-      "salary_max": 720000.0,
-      "job_category": "Other AI Role",
-      "seniority": "Mid"
-    },
-    {
-      "title": "Data Engineer (L5) - Ads",
-      "company": "Netflix",
-      "salary_min": 170000.0,
-      "salary_max": 720000.0,
-      "job_category": "Other AI Role",
-      "seniority": "Mid"
-    },
-    {
-      "title": "Software Engineer L5, Ads Campaign Management",
-      "company": "Netflix",
-      "salary_min": 100000.0,
-      "salary_max": 720000.0,
-      "job_category": "Other AI Role",
-      "seniority": "Mid"
-    },
-    {
-      "title": "Network for AI Sales Specialist - Financial Services Accounts",
-      "company": "Hewlett Packard Enterprise | HPE",
-      "salary_min": 245500.0,
-      "salary_max": 507000.0,
-      "job_category": "Other AI Role",
-      "seniority": "Mid"
-    },
-    {
-      "title": "Global Program Leader, Sales Acceleration \u00e2\u20ac\u201c Cloud + AI Infrastructure",
-      "company": "Cisco",
-      "salary_min": 324400.0,
-      "salary_max": 505500.0,
-      "job_category": "Other AI Role",
-      "seniority": "Senior"
-    },
-    {
-      "title": "Senior Full-Stack Engineer (Backend-focused)",
-      "company": "TLNT & Spin Hire",
+      "title": "Founding VP of Sales & Vertical Growth (AI SaaS Partner)",
+      "company": "NyneCom",
       "salary_min": 250000.0,
-      "salary_max": 500000.0,
-      "job_category": "Other AI Role",
-      "seniority": "Senior"
+      "salary_max": 600000.0,
+      "job_category": "AI/ML Engineer",
+      "seniority": "VP"
     },
     {
-      "title": "Product Manager, CG Platform, Infrastructure and Integrations",
-      "company": "Netflix",
-      "salary_min": 200000.0,
-      "salary_max": 500000.0,
-      "job_category": "Other AI Role",
+      "title": "VP, AI & Data, Strategy, Product, and Architecture",
+      "company": "Comcast",
+      "salary_min": 373929.0,
+      "salary_max": 586389.0,
+      "job_category": "AI/ML Engineer",
+      "seniority": "VP"
+    },
+    {
+      "title": "Vice President, Global Regulatory Affairs Strategy - RI&I",
+      "company": "GSK",
+      "salary_min": 315750.0,
+      "salary_max": 526250.0,
+      "job_category": "AI/ML Engineer",
+      "seniority": "VP"
+    },
+    {
+      "title": "Vice President, Global Regulatory Affairs Strategy - RI&I",
+      "company": "GSK",
+      "salary_min": 315750.0,
+      "salary_max": 526250.0,
+      "job_category": "AI/ML Engineer",
+      "seniority": "VP"
+    },
+    {
+      "title": "Vice President, Global Regulatory Affairs Strategy - RI&I",
+      "company": "GSK",
+      "salary_min": 315750.0,
+      "salary_max": 526250.0,
+      "job_category": "AI/ML Engineer",
+      "seniority": "VP"
+    },
+    {
+      "title": "Senior Vice President, Worldwide Head of Medical Affairs, Immunology & Cardiovascular",
+      "company": "Bristol Myers Squibb",
+      "salary_min": 425000.0,
+      "salary_max": 515000.0,
+      "job_category": "AI/ML Engineer",
+      "seniority": "VP"
+    },
+    {
+      "title": "Head of Government & Regulatory Affairs",
+      "company": "GEICO",
+      "salary_min": 266000.0,
+      "salary_max": 494000.0,
+      "job_category": "AI/ML Engineer",
       "seniority": "Mid"
     },
     {
-      "title": "Software Engineer, Full-Stack \u2014 Developer Experience",
-      "company": "OpenAI",
-      "salary_min": 210000.0,
-      "salary_max": 490000.0,
-      "job_category": "Other AI Role",
-      "seniority": "Mid"
+      "title": "Senior Director of Product Management, Field Service AI Solutions",
+      "company": "Salesforce",
+      "salary_min": 263200.0,
+      "salary_max": 401400.0,
+      "job_category": "AI/ML Engineer",
+      "seniority": "Director"
     },
     {
-      "title": "Director, System Software Engineering - Metropolis Accelerated and Inferencing Software",
-      "company": "NVIDIA",
-      "salary_min": 320000.0,
-      "salary_max": 488750.0,
-      "job_category": "Other AI Role",
+      "title": "Roberts Hawaii President & Chief Executive Officer",
+      "company": "Kumon",
+      "salary_min": 300000.0,
+      "salary_max": 400000.0,
+      "job_category": "AI/ML Engineer",
       "seniority": "C-Level"
+    },
+    {
+      "title": "Senior Director, Risk Data Science",
+      "company": "PayPal",
+      "salary_min": 232000.0,
+      "salary_max": 398750.0,
+      "job_category": "AI/ML Engineer",
+      "seniority": "Director"
     }
-  ],
-  "overall_stats": {
-    "min_salary_avg": 137433,
-    "max_salary_avg": 212771,
-    "median_salary": 215400,
-    "p25": 165000,
-    "p75": 258000,
-    "p90": 294700
-  }
+  ]
 }
