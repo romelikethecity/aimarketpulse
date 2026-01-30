@@ -1,6 +1,6 @@
 # AI Jobs Compensation Report
 
-**Data as of January 27, 2026** | 4548 roles with disclosed salary out of 5839 total (77.9% disclosure rate)
+**Data as of January 29, 2026** | 4548 roles with disclosed salary out of 5839 total (77.9% disclosure rate)
 
 ## Market Overview
 
