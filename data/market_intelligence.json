@@ -1,365 +1,329 @@
 {
   "date": "2026-01-30",
-  "total_jobs": 2301,
+  "total_jobs": 1969,
   "skills": {
-    "Rag": 465,
-    "Aws": 303,
-    "Rust": 236,
-    "Python": 72,
-    "Gcp": 51,
-    "Azure": 48,
-    "Tableau": 31,
-    "Salesforce": 30,
-    "Pytorch": 29,
-    "Tensorflow": 22,
-    "Fine Tuning": 16,
-    "Anthropic": 15,
-    "Power Bi": 14,
-    "Hubspot": 13,
-    "Openai": 12,
-    "Kubernetes": 12,
-    "Docker": 11,
-    "Vertex Ai": 10,
-    "Hugging Face": 10,
-    "Scikit Learn": 9,
-    "Prompt Engineering": 9,
-    "Warmly": 9,
-    "Langchain": 9,
-    "Javascript": 7,
-    "Bedrock": 7,
-    "Catalyst": 6,
-    "Embeddings": 6,
-    "Sagemaker": 6,
-    "Gemini": 6,
-    "Claude": 6,
-    "Looker": 5,
-    "Transformers": 5,
-    "Jax": 5,
-    "Mlflow": 5,
-    "Llama": 5,
-    "Cohere": 5,
-    "Instantly": 5,
-    "Metabase": 4,
-    "Rlhf": 3,
-    "Salesforce Marketing Cloud": 3,
-    "Fivetran": 3,
-    "Golang": 3,
-    "Zoominfo": 3,
-    "Llamaindex": 3,
-    "Thoughtspot": 2,
-    "Klaviyo": 2,
-    "G2": 2,
-    "Haystack": 2,
-    "Arcade": 2,
-    "Typescript": 2
+    "RAG": 1466,
+    "Python": 1281,
+    "AWS": 1123,
+    "Rust": 844,
+    "AI Agents": 622,
+    "Azure": 524,
+    "GCP": 430,
+    "Prompt Engineering": 380,
+    "PyTorch": 360,
+    "Fine-tuning": 347,
+    "TensorFlow": 336,
+    "LangChain": 244,
+    "scikit-learn": 235,
+    "Kubernetes": 230,
+    "OpenAI": 198,
+    "Docker": 178,
+    "Go": 140,
+    "Llama": 137,
+    "SageMaker": 135,
+    "Multimodal": 120,
+    "Semantic Kernel": 113,
+    "JavaScript": 112,
+    "TypeScript": 102,
+    "Vertex AI": 98,
+    "Bedrock": 97,
+    "Cohere": 81,
+    "Claude": 73,
+    "Gemini": 72,
+    "JAX": 70,
+    "Pinecone": 68,
+    "Embeddings": 68,
+    "Weaviate": 61,
+    "Transformers": 61,
+    "Hugging Face": 60,
+    "FAISS": 55,
+    "MLflow": 51,
+    "Anthropic": 48,
+    "LlamaIndex": 46,
+    "Keras": 41,
+    "AutoGen": 33,
+    "RLHF": 31,
+    "Vector Search": 26,
+    "CrewAI": 15,
+    "Weights & Biases": 12,
+    "GPT-4": 10,
+    "Chroma": 8,
+    "Milvus": 8,
+    "pgvector": 7,
+    "Qdrant": 5,
+    "DSPy": 4
   },
   "skills_by_category": {
-    "techniques": {
-      "Rag": 465,
-      "Fine Tuning": 16,
-      "Prompt Engineering": 9,
-      "Embeddings": 6,
-      "Rlhf": 3
+    "Techniques": {
+      "AI Agents": 622,
+      "Fine-tuning": 347,
+      "Prompt Engineering": 380,
+      "RAG": 1466,
+      "Chain of Thought": 2,
+      "Embeddings": 68,
+      "Multimodal": 120,
+      "RLHF": 31,
+      "Vector Search": 26
     },
-    "languages": {
-      "Rust": 236,
-      "Python": 72,
-      "Javascript": 7,
-      "Golang": 3,
-      "Typescript": 2
+    "LLM Providers": {
+      "Claude": 73,
+      "Gemini": 72,
+      "Llama": 137,
+      "OpenAI": 198,
+      "GPT-4": 10,
+      "Hugging Face": 60,
+      "Anthropic": 48,
+      "Cohere": 81,
+      "Mistral": 4
     },
-    "ml_frameworks": {
-      "Pytorch": 29,
-      "Tensorflow": 22,
-      "Scikit Learn": 9,
-      "Transformers": 5,
-      "Jax": 5,
-      "Keras": 1
+    "Languages": {
+      "Rust": 844,
+      "Python": 1281,
+      "Go": 140,
+      "JavaScript": 112,
+      "TypeScript": 102
     },
-    "infrastructure": {
-      "Aws": 303,
-      "Gcp": 51,
-      "Azure": 48,
-      "Kubernetes": 12,
-      "Docker": 11,
-      "Vertex Ai": 10,
-      "Bedrock": 7,
-      "Sagemaker": 6,
-      "Mlflow": 5
+    "Vector Databases": {
+      "Chroma": 8,
+      "FAISS": 55,
+      "Pinecone": 68,
+      "Weaviate": 61,
+      "pgvector": 7,
+      "Milvus": 8,
+      "Qdrant": 5
     },
-    "CRM_Enterprise": {
-      "Salesforce": 30,
-      "Dynamics 365": 1
+    "Cloud/Infrastructure": {
+      "Docker": 178,
+      "AWS": 1123,
+      "Bedrock": 97,
+      "Azure": 524,
+      "GCP": 430,
+      "MLflow": 51,
+      "Weights & Biases": 12,
+      "Kubernetes": 230,
+      "Vertex AI": 98,
+      "SageMaker": 135
     },
-    "CRM_MidMarket": {
-      "Hubspot": 13
+    "ML Frameworks": {
+      "PyTorch": 360,
+      "TensorFlow": 336,
+      "Transformers": 61,
+      "scikit-learn": 235,
+      "JAX": 70,
+      "Keras": 41
     },
-    "Marketing_Automation_Enterprise": {
-      "Salesforce Marketing Cloud": 3,
-      "Hubspot Marketing": 1
-    },
-    "llm_providers": {
-      "Anthropic": 15,
-      "Openai": 12,
-      "Hugging Face": 10,
-      "Gemini": 6,
-      "Claude": 6,
-      "Llama": 5,
-      "Cohere": 5,
-      "Mistral": 1,
-      "Gpt 4": 1
-    },
-    "BI_Analytics": {
-      "Tableau": 31,
-      "Power Bi": 14,
-      "Looker": 5,
-      "Metabase": 4,
-      "Thoughtspot": 2
-    },
-    "Marketing_Automation_Growth": {
-      "Klaviyo": 2,
-      "Iterable": 1,
-      "Braze": 1,
-      "Mailchimp": 1
-    },
-    "ABM_Advertising": {
-      "Linkedin Marketing": 1
-    },
-    "Review_Platforms": {
-      "G2": 2
-    },
-    "llm_frameworks": {
-      "Langchain": 9,
-      "Llamaindex": 3,
-      "Haystack": 2,
-      "Crewai": 1
-    },
-    "Customer_Success": {
-      "Catalyst": 6,
-      "Gainsight": 1
-    },
-    "Web_Personalization": {
-      "Optimizely": 1
-    },
-    "Visitor_Identification": {
-      "Warmly": 9
-    },
-    "Demo_Automation": {
-      "Arcade": 2,
-      "Walnut": 1
-    },
-    "vector_databases": {
-      "Pinecone": 2,
-      "Milvus": 1
-    },
-    "Gifting_Direct_Mail": {
-      "Postal": 1
-    },
-    "Lead_Routing": {
-      "Workato": 1
-    },
-    "Integration_iPaaS": {
-      "N8N": 2,
-      "Workato Ipaas": 1,
-      "Zapier": 1,
-      "Boomi": 1,
-      "Mulesoft": 1
-    },
-    "Reverse_ETL": {
-      "Fivetran": 3,
-      "Airbyte": 1
-    },
-    "Sales_Engagement_Growth": {
-      "Instantly": 5,
-      "Apollo": 1
-    },
-    "Data_Providers": {
-      "Zoominfo": 3,
-      "Seamless Ai": 1,
-      "Linkedin Sales Navigator": 1,
-      "Cognism": 1
-    },
-    "Proposals": {
-      "Concord": 2
-    },
-    "Chatbots": {
-      "Drift Ai": 2
-    },
-    "Revenue_Intelligence": {
-      "Gong": 1
-    },
-    "ABM_Platforms": {
-      "Demandbase": 1
-    },
-    "Data_Enrichment": {
-      "Clay": 1
+    "LLM Frameworks": {
+      "LangChain": 244,
+      "LlamaIndex": 46,
+      "AutoGen": 33,
+      "DSPy": 4,
+      "CrewAI": 15,
+      "Semantic Kernel": 113,
+      "Haystack": 3
     }
   },
   "categories": {
-    "AI/ML Engineer": 1810,
-    "AI Software Engineer": 176,
-    "Data Scientist": 106,
-    "AI Product Manager": 102,
-    "Research Scientist": 49,
-    "MLOps Engineer": 12,
-    "Data Engineer": 11,
-    "AI Architect": 11,
-    "Research Engineer": 9,
-    "AI Agent Developer": 8,
-    "AI Engineering Manager": 3,
-    "AI Consultant": 2,
-    "Prompt Engineer": 1,
+    "AI/ML Engineer": 967,
+    "Research Scientist": 251,
+    "Data Scientist": 161,
+    "LLM Engineer": 116,
+    "Prompt Engineer": 112,
+    "MLOps Engineer": 94,
+    "AI Software Engineer": 86,
+    "AI Product Manager": 70,
+    "Data Engineer": 29,
+    "Research Engineer": 22,
+    "RAG Engineer": 14,
+    "AI Engineering Manager": 13,
+    "AI Architect": 12,
+    "AI Consultant": 11,
+    "AI Agent Developer": 10,
     "AI Safety": 1
   },
   "experience_levels": {
-    "mid": 1498,
-    "entry": 75,
-    "senior": 728
+    "senior": 1838,
+    "mid": 107,
+    "entry": 24
   },
   "seniority_breakdown": {
-    "Mid": 1136,
-    "Director": 225,
-    "Senior": 666,
-    "VP": 205,
-    "C-Level": 14,
-    "Entry": 55
+    "Senior": 844,
+    "Mid": 1029,
+    "VP": 16,
+    "C-Level": 66,
+    "Director": 2,
+    "Entry": 12
   },
   "remote_breakdown": {
-    "onsite": 2107,
-    "remote": 183,
-    "hybrid": 11
+    "remote": 468,
+    "onsite": 1501
   },
   "top_metros": {
-    "Los Angeles": 264,
-    "San Francisco": 249,
-    "New York": 208,
-    "Remote": 183,
-    "Seattle": 181,
-    "Austin": 109,
-    "Boston": 70,
-    "Chicago": 35,
-    "Denver": 19
+    "San Francisco": 321,
+    "New York": 197,
+    "Seattle": 185,
+    "Los Angeles": 180,
+    "Austin": 108,
+    "Remote": 89,
+    "Boston": 89,
+    "Denver": 15,
+    "Chicago": 10
   },
   "company_stages": {
-    "Unknown": 2077,
-    "Enterprise/Public": 193,
-    "Startup (Seed)": 20,
-    "Growth (Series C+)": 5,
-    "Startup (Series A-B)": 6
+    "Unknown": 724,
+    "Startup (Seed)": 711,
+    "Enterprise/Public": 483,
+    "Startup (Series A-B)": 39,
+    "Growth (Series C+)": 12
   },
+  "tech_companies": 1969,
   "tech_percentage": 100.0,
   "data_quality_breakdown": {
-    "Premium": 508,
-    "Good": 257,
-    "Basic": 1536
+    "Premium": 1585,
+    "Good": 384
   },
   "salary_stats": {
-    "min": 800,
-    "max": 720000,
-    "median": 215400,
-    "avg": 211186,
-    "count_with_salary": 1687
+    "min": 12030,
+    "max": 960000,
+    "median": 225000,
+    "avg": 227857,
+    "count_with_salary": 1585
   },
   "salary_by_category": {
-    "AI/ML Engineer": {
-      "median": 204100,
-      "avg": 204364,
-      "count": 1271
-    },
-    "AI Product Manager": {
-      "median": 223600,
-      "avg": 220372,
-      "count": 87
-    },
-    "Data Scientist": {
-      "median": 215300,
-      "avg": 210637,
-      "count": 95
-    },
     "AI Software Engineer": {
-      "median": 244000,
-      "avg": 243841,
-      "count": 148
+      "median": 250000,
+      "avg": 256870,
+      "count": 64
+    },
+    "AI/ML Engineer": {
+      "median": 212800,
+      "avg": 214436,
+      "count": 745
     },
     "Data Engineer": {
-      "median": 253700,
-      "avg": 216711,
-      "count": 6
+      "median": 202560,
+      "avg": 217514,
+      "count": 17
     },
     "AI Architect": {
       "median": 251680,
-      "avg": 238761,
+      "avg": 256872,
       "count": 9
     },
-    "MLOps Engineer": {
-      "median": 230000,
-      "avg": 226612,
-      "count": 9
+    "Prompt Engineer": {
+      "median": 212800,
+      "avg": 217404,
+      "count": 81
     },
-    "Research Engineer": {
-      "median": 250200,
-      "avg": 248500,
-      "count": 8
+    "AI Agent Developer": {
+      "median": 300000,
+      "avg": 280850,
+      "count": 4
+    },
+    "AI Engineering Manager": {
+      "median": 270500,
+      "avg": 276745,
+      "count": 10
+    },
+    "AI Safety": {
+      "median": 181000,
+      "avg": 181000,
+      "count": 1
+    },
+    "LLM Engineer": {
+      "median": 223600,
+      "avg": 233055,
+      "count": 95
     },
     "Research Scientist": {
       "median": 260000,
-      "avg": 258945,
-      "count": 48
+      "avg": 253295,
+      "count": 241
+    },
+    "Data Scientist": {
+      "median": 224200,
+      "avg": 224312,
+      "count": 130
+    },
+    "MLOps Engineer": {
+      "median": 239000,
+      "avg": 243386,
+      "count": 79
+    },
+    "Research Engineer": {
+      "median": 250200,
+      "avg": 253006,
+      "count": 19
+    },
+    "RAG Engineer": {
+      "median": 190000,
+      "avg": 195737,
+      "count": 12
+    },
+    "AI Product Manager": {
+      "median": 255900,
+      "avg": 252111,
+      "count": 67
+    },
+    "AI Consultant": {
+      "median": 147800,
+      "avg": 149818,
+      "count": 11
     }
   },
   "salary_by_seniority": {
-    "Mid": {
-      "median": 196000,
-      "avg": 182782,
-      "count": 818
-    },
-    "Director": {
-      "median": 255600,
-      "avg": 256935,
-      "count": 149
-    },
     "Senior": {
-      "median": 240000,
-      "avg": 236549,
-      "count": 554
+      "median": 258000,
+      "avg": 246324,
+      "count": 727
+    },
+    "Mid": {
+      "median": 205000,
+      "avg": 205538,
+      "count": 780
     },
     "VP": {
-      "median": 222962,
-      "avg": 248870,
-      "count": 133
+      "median": 217500,
+      "avg": 244731,
+      "count": 12
     },
     "C-Level": {
-      "median": 213000,
-      "avg": 228285,
-      "count": 7
+      "median": 324700,
+      "avg": 308547,
+      "count": 53
+    },
+    "Director": {
+      "median": 374200,
+      "avg": 344600,
+      "count": 2
     },
     "Entry": {
-      "median": 124800,
-      "avg": 104844,
-      "count": 26
+      "median": 150749,
+      "avg": 161582,
+      "count": 11
     }
   },
   "buzzwords": {
-    "innovative": 232,
-    "cross-functional": 209,
-    "collaborative": 202,
-    "dynamic": 176,
-    "fast-paced": 155,
-    "scalable": 113,
-    "end-to-end": 90,
-    "cutting-edge": 73,
-    "world-class": 57,
-    "state-of-the-art": 20,
-    "next-generation": 20,
-    "revolutionary": 15,
-    "enterprise-grade": 12,
-    "full-stack": 11,
-    "groundbreaking": 7,
-    "production-ready": 5
+    "cross-functional": 925,
+    "scalable": 905,
+    "innovative": 864,
+    "end-to-end": 538,
+    "collaborative": 524,
+    "cutting-edge": 443,
+    "state-of-the-art": 375,
+    "fast-paced": 316,
+    "dynamic": 297,
+    "world-class": 284,
+    "next-generation": 245,
+    "full-stack": 131,
+    "production-ready": 98,
+    "enterprise-grade": 81,
+    "groundbreaking": 40,
+    "revolutionary": 33
   },
   "red_flags": {
-    "overwork_signals": 180,
-    "unrealistic_requirements": 108,
-    "vague_compensation": 101
+    "overwork_signals": 360,
+    "unrealistic_requirements": 226,
+    "vague_compensation": 149,
+    "vague_role": 26
   }
 }
